@@ -2,6 +2,8 @@ import React from 'react'
 
 import { Founders } from '../../components'
 
+import "../../assets/css/about.css";
+
 const About = () => {
 
   const missionStatement = [
@@ -15,8 +17,8 @@ const About = () => {
   return (
     <>
     <h1>About WellSpace</h1>
-    <h2>Our Mission</h2>
-    {missionStatement.map((paragraph, index) => <p key={index} className='mission-para'>{paragraph}</p>)}
+    <h3 className='mission-subhead'>Our Mission</h3>
+    {missionStatement.map((paragraph, index) => <p key={index} className='about-para'>{paragraph}</p>)}
     <Founders/>
     </>
   )
