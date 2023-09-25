@@ -1,8 +1,31 @@
-/* .index .rectangle {
-	background-color: #080117;
-	height: 51px;
-	left: 0;
-	position: absolute;
-	top: 1px;
-	width: 1440px;
-} */
+header {
+  background-color: #080117;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+	flex-wrap: wrap;
+}
+
+.logo {
+  margin-right: auto; 
+	margin-left: 20px;
+}
+
+.nav-link {
+  display: inline-block;
+  padding: 10px 8px;
+  background-color: #080117;
+	margin: 0;
+	margin-left: 20px;
+	margin-right: 10px;
+  font-weight: 50px;
+  font-size: 18px;
+  color: #ffd700f0;
+	font-family: "Inter", Helvetica;
+}
+
+.active {
+  text-decoration: underline;
+}
