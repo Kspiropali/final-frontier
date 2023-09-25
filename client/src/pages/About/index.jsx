@@ -16,7 +16,8 @@ const About = () => {
     <>
     <h1>About WellSpace</h1>
     <h2>Our Mission</h2>
-    {missionStatement.map((paragraph, index) => <p key={index}>{paragraph}</p>)}
+    {missionStatement.map((paragraph, index) => <p key={index} className='mission-para'>{paragraph}</p>)}
+    <Founders/>
     </>
   )
 }
