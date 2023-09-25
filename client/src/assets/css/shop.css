@@ -1,0 +1,16 @@
+.shop {
+    display: flex;
+  }
+  
+  /* Sidebar styles */
+  .sidebar {
+    width: 250px;
+    background-color: #c95252;
+  }
+  
+  /* Shop content styles */
+  .shop .shop-content {
+    flex: 1;
+    padding: 20px;
+    background-color: aquamarine;
+  }
