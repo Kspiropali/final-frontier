@@ -1,16 +1,31 @@
 .shop {
     display: flex;
+    justify-content: center;
+    width: 100%;
+    min-height: 100vh;
+	font-family: "Inter", Helvetica;
   }
-  
-  /* Sidebar styles */
+
   .sidebar {
-    width: 250px;
-    background-color: #c95252;
+    background: linear-gradient(
+        180deg,
+        rgb(8.54, 1.56, 23.38) 0%,
+        rgb(25.23, 4.6, 69.06) 39.06%,
+        rgb(31.1, 7.74, 80.75) 100%
+      );
+    color: #ffd700f0;
+    width: 200px;
+    border-right: 1px solid #cccccc16;
   }
-  
-  /* Shop content styles */
+
   .shop .shop-content {
+    background: linear-gradient(
+        180deg,
+        rgb(8.54, 1.56, 23.38) 0%,
+        rgb(25.23, 4.6, 69.06) 39.06%,
+        rgb(31.1, 7.74, 80.75) 100%
+      );
+    color: #ffd700f0;
     flex: 1;
     padding: 20px;
-    background-color: aquamarine;
   }

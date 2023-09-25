@@ -7,7 +7,7 @@ const Shop = () => {
         <main className="shop">
             <ItemSidebar />
             <div className="shop-content"> 
-                <h2>Content</h2>
+                <h1>Item Shop</h1>
             </div>
         </main>
       );
