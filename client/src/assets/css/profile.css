@@ -1,0 +1,342 @@
+body,
+div,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.index {
+  background: linear-gradient(
+    180deg,
+    rgb(8.54, 1.56, 23.38) 0%,
+    rgb(25.23, 4.6, 69.06) 39.06%,
+    rgb(31.1, 7.74, 80.75) 100%
+  );
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.index .container1 {
+	height: 336px;
+	left: 104px;
+	position: absolute;
+	top: 78px;
+	width: 1190px;
+}
+
+.index .ellipse {
+	height: 273px;
+	left: 0;
+	object-fit: cover;
+	position: absolute;
+	top: 43px;
+	width: 286px;
+}
+
+.index .text-wrapper-1 {
+	color: #ffd700f0;
+	font-family: "Inter", Helvetica;
+	font-size: 48px;
+	font-weight: 400;
+	height: 61px;
+	left: 254px;
+	letter-spacing: 0;
+	line-height: normal;
+	position: absolute;
+	text-align: center;
+	top: 0;
+	width: 331px;
+}
+
+.index .text-wrapper-2 {
+	color: #f5f5f5;
+	font-family: "Inter", Helvetica;
+	font-size: 16px;
+	font-weight: 400;
+	height: 21px;
+	left: 294px;
+	letter-spacing: 0;
+	line-height: normal;
+	position: absolute;
+	text-align: center;
+	top: 73px;
+	width: 321px;
+}
+
+.index .text-wrapper-3 {
+	color: #ffd700f0;
+	font-family: "Inter", Helvetica;
+	font-size: 24px;
+	font-weight: 400;
+	height: 40px;
+	left: 317px;
+	letter-spacing: 0;
+	line-height: normal;
+	position: absolute;
+	text-align: center;
+	top: 106px;
+	width: 205px;
+}
+
+.index .p {
+	color: #f5f5f5;
+	font-family: "Inter", Helvetica;
+	font-size: 16px;
+	font-weight: 400;
+	height: 23px;
+	left: 366px;
+	letter-spacing: 0;
+	line-height: normal;
+	position: absolute;
+	top: 159px;
+	width: 824px;
+}
+
+.index .text-wrapper-4 {
+	color: #ffd700f0;
+	font-family: "Inter", Helvetica;
+	font-size: 24px;
+	font-weight: 400;
+	height: 40px;
+	left: 317px;
+	letter-spacing: 0;
+	line-height: normal;
+	position: absolute;
+	text-align: center;
+	top: 195px;
+	width: 205px;
+}
+
+.index .text-wrapper-5 {
+	color: #f5f5f5;
+	font-family: "Inter", Helvetica;
+	font-size: 16px;
+	font-weight: 400;
+	height: 88px;
+	left: 366px;
+	letter-spacing: 0;
+	line-height: normal;
+	position: absolute;
+	top: 248px;
+	width: 824px;
+}
+
+.edit-button {
+	background-color: #ffd700f0;
+	border-color: #ffd700f0;
+	border-radius: 10px;
+	height: 33px;
+	width: 99px;
+}
+
+.flex-container {
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 500px auto 0;
+	padding-bottom: 40px;
+}
+
+/* My coins box */
+
+.container2, 
+.container3,
+.container4 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: calc(33.33% - 20px);
+}
+
+.rectangle-1 {
+	background-color: #ffd700f0;
+	border-radius: 20px;
+	height: 125px;
+  width: 100%;
+  max-width: 224px; 
+	display: flex;
+	flex-direction: column;
+  align-items: center;
+}
+
+.text-wrapper-6 {
+	color: #000000;
+	font-family: "Inter", Helvetica;
+	font-size: 20px;
+	font-weight: 400;
+	height: 43px;
+	left: 44px;
+	letter-spacing: 0;
+	line-height: normal;
+	text-align: center;
+	top: 0;
+	width: 135px;
+}
+
+.rectangle-2 {
+	background-color: #f5f5f5;
+	border-radius: 10px;
+	height: 52px;
+	width: 150px;
+	display: flex;
+	flex-direction: row;
+  align-items: center;
+	padding-left: 20px;
+}
+
+.text-wrapper-7 {
+	color: #000000;
+	font-family: "Inter", Helvetica;
+	font-size: 24px;
+	font-weight: 400;
+	height: 27px;
+	left: 86px;
+	letter-spacing: 0;
+	line-height: normal;
+	text-align: center;
+	top: 68px;
+	white-space: nowrap;
+	width: 76px;
+}
+
+.index .img {
+	height: 33px;
+	left: 62px;
+	object-fit: cover;
+	top: 63px;
+	width: 30px;
+}
+
+/* shop box */
+.rectangle-3 {
+	background-color: #ffd700f0;
+	border-radius: 20px;
+	height: 125px;
+	left: 0;
+	top: 1px;
+	width: 224px;
+	display: flex;
+	flex-direction: column;
+  align-items: center;
+}
+
+.index .text-wrapper-9 {
+	color: #000000;
+	font-family: "Inter", Helvetica;
+	font-size: 20px;
+	font-weight: 400;
+	height: 43px;
+	left: 44px;
+	letter-spacing: 0;
+	line-height: normal;
+	text-align: center;
+	top: 0;
+	width: 135px;
+}
+
+.shop-button {
+	background-color: #f5f5f5;
+	border-color: #f5f5f5;
+	border-radius: 10px;
+	color: #000000;
+	font-family: "Inter", Helvetica;
+	font-size: 24px;
+	font-weight: 400;
+	height: 52px;
+	width: 150px;
+	display: flex;
+	padding-top: 10px;
+	flex-direction: column;
+  align-items: center;
+}
+
+/* login streak */
+
+.index .rectangle-5 {
+	background-color: #ffd700f0;
+	border-radius: 20px;
+	height: 125px;
+	left: 0;
+	top: 1px;
+	width: 224px;
+	display: flex;
+	flex-direction: column;
+  align-items: center;
+}
+
+.index .text-wrapper-11 {
+	color: #000000;
+	font-family: "Inter", Helvetica;
+	font-size: 20px;
+	font-weight: 400;
+	height: 43px;
+	left: 44px;
+	letter-spacing: 0;
+	line-height: normal;
+	text-align: center;
+	top: 0;
+	width: 135px;
+}
+
+.index .rectangle-6 {
+	background-color: #f5f5f5;
+	border-radius: 10px;
+	height: 52px;
+	width: 150px;
+	padding-top: 12px;
+	display: flex;
+	flex-direction: column;
+  align-items: center;
+}
+
+.index .text-wrapper-12 {
+	color: #000000;
+	font-family: "Inter", Helvetica;
+	font-size: 24px;
+	font-weight: 400;
+	height: 27px;
+	left: 86px;
+	letter-spacing: 0;
+	line-height: normal;
+	text-align: center;
+	top: 68px;
+	white-space: nowrap;
+	width: 76px;
+}
+
+/* end of containers */
+
+/* image banner */
+.rectangle-7 {
+	padding-top: 2ch;
+}
+
+/* edit profile button */
+.index .div-wrapper {
+	border-radius: 10px;
+	height: 33px;
+	left: 465px;
+	position: absolute;
+	top: 434px;
+	width: 99px;
+}
+
+.index .text-wrapper-13 {
+	color: #000000;
+	font-family: "Inter", Helvetica;
+	font-size: 16px;
+	font-weight: 400;
+	height: 23px;
+	left: 4px;
+	letter-spacing: 0;
+	line-height: normal;
+	position: absolute;
+	text-align: center;
+	top: 4px;
+	width: 89px;
+}
