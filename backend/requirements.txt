@@ -1,0 +1,3 @@
+sqlalchemy~=2.0.21
+flask~=2.3.3
+python-dotenv~=1.0.0

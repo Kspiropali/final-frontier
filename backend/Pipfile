@@ -5,9 +5,20 @@ name = "pypi"
 
 [packages]
 sqlalchemy = "*"
+flask-sqlalchemy = "*"
+python-dotenv = "*"
+psycopg2-binary = "*"
 
 [dev-packages]
 
 [requires]
 python_version = "3.11"
 python_full_version = "3.11.5"
+
+[scripts]
+start = "python app.py"
+setup_db = "python scripts/setup_db.py"
+cleanup_db = "python scripts/cleanup_db.py"
+docker_exec = "python scripts/docker_exec.py"
+up = "echo 'Not implemented yet!'"
+down = "echo 'Not implemented yet!'"
