@@ -45,6 +45,7 @@
     border-radius: 10%;
     overflow: hidden; 
     margin-top: 10px;
+    transform: scale(0.9)
   }
   
   .avatar {
@@ -67,4 +68,8 @@
   .search-item input[type="text"] {
     outline: none;
     border-color: #9f9fa0;
+  }
+
+  .filters-header {
+    margin-top: 10px;
   }

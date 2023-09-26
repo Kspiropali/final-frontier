@@ -15,7 +15,7 @@ const ItemSidebar = () => {
         />
         </div>
         <SearchItem />
-        <h3>Filters</h3>
+        <h3 className="filters-header">Filters</h3>
       </div>
     </>
   );
