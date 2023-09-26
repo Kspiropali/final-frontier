@@ -12,18 +12,22 @@ const FilterItems = () => {
     const { selectedFilters, handleCheckboxChange } = useShop()
 
   return (
-    <div className="filter-items">
+    <div>
         <ul>
             {filterOptions.map((option) => (
             <li key={option.key}>
-                <label>
+                <div className="filter-item">
                 <input
+                    className="item-checkbox"
                     type="checkbox"
+                    id={option.key}
                     checked={selectedFilters[option.key] || false}
                     onChange={() => handleCheckboxChange(option.key)}
                 />
-                {option.label}
+                <label className="filter-label" htmlFor={option.key}>
+                    {option.label}
                 </label>
+              </div>
             </li>
             ))}
         </ul>
