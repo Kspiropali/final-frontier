@@ -1,11 +1,32 @@
 import React from 'react'
-import { SearchItem, FilterItems } from '..';
+import { SearchItem, FilterItems, AvatarModal } from '..';
 import { useShop } from '../../contexts/ShopContext'
+
 import avatarImage from '../../assets/images/default.png'
-import AvatarModal from '../AvatarModal';
+
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
+
+import 'animate.css'
+
+const MySwal = withReactContent(Swal);
 
 const ShopSidebar = () => {
-    const { isModalOpen, userDetails, openModal } = useShop()
+    const { userDetails, openModal } = useShop()
+
+    const showModal = () => {
+        MySwal.fire({
+          showClass: {
+            popup: 'animate__animated animate__fadeInDown',
+          },
+          hideClass: {
+            popup: 'animate__animated animate__fadeOutUp',
+          },
+          html: <AvatarModal avatarImage={avatarImage} userDetails={userDetails} />,
+        }).then(() => {
+          openModal();
+        });
+    };
 
   return (
     <>
@@ -15,17 +36,12 @@ const ShopSidebar = () => {
           src={avatarImage}
           alt="Avatar"
           className="avatar"
-          onClick={openModal}
+          onClick={showModal}
         />
         </div>
         <SearchItem />
         <h3 className="filters-header">Filters</h3>
         <FilterItems />
-        <AvatarModal
-            isOpen={isModalOpen}
-            onRequestClose={openModal}
-            userDetails={userDetails}
-        />
       </div>
     </>
   );
