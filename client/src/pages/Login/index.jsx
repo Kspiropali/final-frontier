@@ -2,7 +2,9 @@ import React from 'react'
 
 const Login = () => {
   return (
-    <div>Login</div>
+    <>
+    <h1 className='top-header'>WellSpace</h1>
+    </>
   )
 }
 

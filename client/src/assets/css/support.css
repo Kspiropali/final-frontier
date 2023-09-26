@@ -2,12 +2,13 @@
 .page-description {
     text-align: center;
     justify-self: center;
-    margin: 0 15vh;
+    margin: 0 30vh;
     margin-bottom: 6vh;
+    font-size: 17px;
 }
 
 .white-h3 {
-    font-size: 18px;
+    font-size: 21px;
     margin-bottom: .5vh;
     font-weight: 600;
 }
