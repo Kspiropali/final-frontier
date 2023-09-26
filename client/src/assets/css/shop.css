@@ -46,7 +46,7 @@
     border-radius: 10%;
     overflow: hidden; 
     margin-top: 10px;
-    margin-left: 6px;
+    margin-left: 5px;
     transform: scale(0.9);
   }
   
@@ -82,7 +82,7 @@
   }
 
   .filter-label {
-    margin-top: 17px;
+    margin-top: 14px;
     font-size: 15px;
     cursor: pointer;
   }
@@ -91,7 +91,7 @@
     -webkit-appearance: none;
     appearance: none;
     background-color: white;
-    margin-top: 20px;
+    margin-top: 15px;
     margin-left: 5px;
     margin-right: 15px;
     color: rgb(255, 255, 255);

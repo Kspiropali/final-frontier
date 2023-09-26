@@ -5,7 +5,9 @@ const filterOptions = [
     { label: 'Backgrounds', key: 'option1' },
     { label: 'Hats', key: 'option2' },
     { label: 'Tops', key: 'option3' },
-    { label: 'Shoes', key: 'option4' }
+    { label: 'Bottoms', key: 'option4' },
+    { label: 'Shoes', key: 'option5' },
+    { label: 'Accessories', key: 'option6' },
   ];
 
 const FilterItems = () => {
