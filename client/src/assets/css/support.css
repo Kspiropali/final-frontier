@@ -53,6 +53,7 @@
 .service-item {
     display: flex;
     align-items: center;
+    margin-bottom: 12px;
 }
 
 .service-img {
@@ -63,6 +64,7 @@
 }
 
 .service-text-area {
+    text-align: center;
     height: 35px;
     width: 100%;
     background-color: #211C4A;
@@ -73,4 +75,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+a {
+    color: inherit;
+    font-size: inherit;
+    font-family: inherit;
 }
