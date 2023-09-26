@@ -36,7 +36,6 @@ const SupportIcons = ({firstPosition, supportServices}) => {
           </div>
         )
       })}
-      
     </div>
     </>
   )
