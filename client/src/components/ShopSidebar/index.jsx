@@ -23,6 +23,8 @@ const ShopSidebar = () => {
             popup: 'animate__animated animate__fadeOutUp',
           },
           html: <AvatarModal avatarImage={avatarImage} userDetails={userDetails} />,
+          showConfirmButton: false,
+          width: '600px'
         }).then(() => {
           openModal();
         });

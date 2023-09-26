@@ -4,6 +4,7 @@ const ShopContext = createContext();
 
 export const ShopProvider = ({ children }) => {
   const [selectedFilters, setSelectedFilters] = useState({});
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [userDetails, setUserDetails] = useState({ /* User details here */ });
 
   const openModal = () => {

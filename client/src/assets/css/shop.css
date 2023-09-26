@@ -1,3 +1,5 @@
+@import url("modal.css");
+
 .shop {
     display: flex;
     justify-content: center;
@@ -31,7 +33,7 @@
     padding: 20px;
   }
 
-  .shop-header {
+.shop-header {
     font-size: 32px;
     margin-top: 20px;
   }
