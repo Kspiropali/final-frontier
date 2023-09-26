@@ -56,7 +56,7 @@ const Support = () => {
   return (
     <>
     <SupportIcons firstPosition={firstPosition} supportServices={supportServices} />
-    <SupportServicesList/>
+    <SupportServicesList supportServices={supportServices} />
     </>
   )
 }
