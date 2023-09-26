@@ -13,23 +13,23 @@ const Founders = () => {
     <div className='founders-all-container'>
         <div className='founder-container'>
             <img src={krisOptimised} alt="Kristiam Spiropali headshot" className='founder-img' />
-            <p className='founder-subtext'>Kristian Spiropali</p>
+            <p className='founder-subtext white-text'>Kristian Spiropali</p>
         </div>
         <div className='founder-container'>
             <img src={raviaOptimised} alt="Ravia Saini headshot" className='founder-img' />
-            <p className='founder-subtext'>Ravia Saini</p>
+            <p className='founder-subtext white-text'>Ravia Saini</p>
         </div>
         <div className='founder-container'>
             <img src={camilleOptimised} alt="Camille Francis headshot" className='founder-img' />
-            <p className='founder-subtext'>Camille Francis</p>
+            <p className='founder-subtext white-text'>Camille Francis</p>
         </div>
         <div className='founder-container'>
             <img src={samOptimised} alt="Sam Merrick" className='founder-img' />
-            <p className='founder-subtext'>Sam Merrick</p>
+            <p className='founder-subtext white-text'>Sam Merrick</p>
         </div>
         <div className='founder-container'>
             <img src={nicOptimised} alt="Nicolas Sanschagrin" className='founder-img' />
-            <p className='founder-subtext'>Nicolas Sanschagrin</p>
+            <p className='founder-subtext white-text'>Nicolas Sanschagrin</p>
         </div>
     </div>
     </>
