@@ -17,64 +17,33 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-	padding-top: 20px;
+  padding-top: 50px;
+  width: 80%;
 }
 
 .images {
-  display: grid;
-  grid-template-columns: repeat(5, 2fr);
-  grid-template-rows: repeat(3, 2fr);
-  gap: 20px;
-  place-content: center;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  flex-wrap: wrap;
+  padding-bottom: 20px;
 }
 
-.image1 {
-  grid-row: 1; 
-  grid-column: 2;
-	height: 100px;
-	width: 100px;
-} 
-
-.image2 {
-  grid-row: 1;
-  grid-column: 4; 
-	height: 100px;
-	width: 100px;
-}
-
-.image3 {
-  grid-row: 2;
-  grid-column: 1;
-	height: 100px;
-	width: 100px;
-}
-
-.image4 {
-  grid-row: 2; 
-  grid-column: 5;
-	height: 100px;
-	width: 100px;
-}
-
-.image5 {
-  grid-row: 3;
-  grid-column: 2;
-	height: 100px;
-	width: 100px;
-}
-
+.image1,
+.image2,
+.image3,
+.image4,
+.image5,
 .image6 {
-	grid-row: 3;
-  grid-column: 4; 
-	height: 100px;
-	width: 100px;
+  height: 100px;
+  width: 100px;
 }
 
 .character {
-  grid-row: 2;
-  grid-column: 3; 
-	height: 175px;
-	width: 175px;
+  position: relative;
+  margin-top: 20px;
+  height: 200px;
+  width: 200px;
 }
 
 .completion-bar {
@@ -85,6 +54,7 @@
   height: 42px;
   width: 386px;
 	padding-top: 2.5px;
+  margin-top: -150px;
 }
 
 .completion {
@@ -99,6 +69,3 @@
   height: 37px;
   width: 97%;
 }
-
-
-
