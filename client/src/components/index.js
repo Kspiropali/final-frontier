@@ -9,6 +9,4 @@ export { default as Founders } from './Founders'
 export { default as FilterItems } from './FilterItems'
 export { default as ShopContent } from './ShopContent'
 export { default as AvatarModal } from './AvatarModal'
-
-
-
+export { default as Founders } from './Founders'
