@@ -14,7 +14,7 @@
 .all-icons-container {
     display: flex;
     margin: 20px 6vh;
-    /* justify-content: center; */
+    justify-content: center;
 }
 
 .support-icon {
@@ -33,4 +33,44 @@
     align-items: center;
     margin: 0 10px;
     width: 135px;
+}
+
+.service-options-container {
+    background-color: #4F4792;
+    height: 35vh;
+    width: 70%;
+    margin-top: 2vh;
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 2.5%;
+}
+
+.service-options-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.service-item {
+    display: flex;
+    align-items: center;
+}
+
+.service-img {
+    width: 45px;
+    aspect-ratio: 1/1;
+    background-color: #aba5d7;
+    border-radius: 50%;
+}
+
+.service-text-area {
+    height: 35px;
+    width: 100%;
+    background-color: #211C4A;
+
+}
+
+.center-cont {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
