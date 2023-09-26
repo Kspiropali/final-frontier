@@ -1,13 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 
 import '../../assets/css/support.css'
-import { SupportIconItem } from '../../components'
+import { SupportIcons, SupportServicesList } from '../../components'
 
 const Support = () => {
+
+
+  //use useState to control the selected service
+  // const = useState("")
+
   return (
     <>
-    <SupportIconItem/>
+    <SupportIcons/>
+    <SupportServicesList/>
     </>
   )
 }

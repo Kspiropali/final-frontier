@@ -1,6 +1,6 @@
 import React from 'react'
 
-const SupportIconItem = () => {
+const SupportIcons = () => {
 
 
     // gather the data for the support services (json or db)
@@ -18,4 +18,4 @@ const SupportIconItem = () => {
   )
 }
 
-export default SupportIconItem
+export default SupportIcons
