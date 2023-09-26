@@ -1,6 +1,6 @@
 import React from 'react'
 
-const SupportServicesList = () => {
+const SupportServicesList = ({supportServices}) => {
   return (
     <div>SupportServicesList</div>
   )

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 
 import '../../assets/css/support.css'
 import { SupportIcons, SupportServicesList } from '../../components'
+import talking from "../../assets/images/supportIcons/talking.png"
 
 const Support = () => {
   //this will be a number
@@ -13,7 +14,7 @@ const Support = () => {
       id: 0,
       type_name: "talking",
       type_id: 1,
-      icon_url: "",
+      icon_url: talking,
       service_list: [{title: "Talking Service", url: "https://www.google.com/search?q=talk+to+someone"}]
     },
     {
@@ -52,7 +53,7 @@ const Support = () => {
   useEffect(() => {
     
   }, [])
-  console.log(firstPosition)
+  // console.log(firstPosition)
   return (
     <>
     <SupportIcons firstPosition={firstPosition} supportServices={supportServices} />
