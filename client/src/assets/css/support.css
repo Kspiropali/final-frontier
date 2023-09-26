@@ -1,4 +1,16 @@
 
+.page-description {
+    text-align: center;
+    justify-self: center;
+    margin: 0 15vh;
+    margin-bottom: 6vh;
+}
+
+.white-h3 {
+    font-size: 18px;
+    margin-bottom: .5vh;
+    font-weight: 600;
+}
 .support-icon-container {
     display: flex;
     justify-content: center;
@@ -37,7 +49,7 @@
 
 .service-options-container {
     background-color: #4F4792;
-    height: 35vh;
+    height: 28vh;
     width: 70%;
     margin-top: 2vh;
     border: 2px solid black;
