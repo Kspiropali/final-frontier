@@ -2,7 +2,7 @@
 
 .shop {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     width: 100%;
     min-height: 100vh;
 	font-family: "Inter", Helvetica;
@@ -36,6 +36,7 @@
 .shop-header {
     font-size: 32px;
     margin-top: 20px;
+    margin-left: 28px;
   }
 
 .avatar-box {
