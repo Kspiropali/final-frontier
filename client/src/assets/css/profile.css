@@ -18,7 +18,7 @@ p {
   min-height: 100vh;
 }
 
-.index .container1 {
+.container1 {
 	height: 336px;
 	left: 104px;
 	position: absolute;
@@ -26,7 +26,7 @@ p {
 	width: 1190px;
 }
 
-.index .ellipse {
+.ellipse {
 	height: 273px;
 	left: 0;
 	object-fit: cover;
@@ -35,7 +35,7 @@ p {
 	width: 286px;
 }
 
-.index .text-wrapper-1 {
+.text-wrapper-1 {
 	color: #ffd700f0;
 	font-family: "Inter", Helvetica;
 	font-size: 48px;
@@ -50,7 +50,7 @@ p {
 	width: 331px;
 }
 
-.index .text-wrapper-2 {
+.text-wrapper-2 {
 	color: #f5f5f5;
 	font-family: "Inter", Helvetica;
 	font-size: 16px;
@@ -65,7 +65,7 @@ p {
 	width: 321px;
 }
 
-.index .text-wrapper-3 {
+.text-wrapper-3 {
 	color: #ffd700f0;
 	font-family: "Inter", Helvetica;
 	font-size: 24px;
@@ -80,7 +80,7 @@ p {
 	width: 205px;
 }
 
-.index .p {
+.p {
 	color: #f5f5f5;
 	font-family: "Inter", Helvetica;
 	font-size: 16px;
@@ -94,7 +94,7 @@ p {
 	width: 824px;
 }
 
-.index .text-wrapper-4 {
+.text-wrapper-4 {
 	color: #ffd700f0;
 	font-family: "Inter", Helvetica;
 	font-size: 24px;
@@ -109,7 +109,7 @@ p {
 	width: 205px;
 }
 
-.index .text-wrapper-5 {
+.text-wrapper-5 {
 	color: #f5f5f5;
 	font-family: "Inter", Helvetica;
 	font-size: 16px;
@@ -125,7 +125,7 @@ p {
 
 .edit-button {
 	background-color: #ffd700f0;
-	border-color: #ffd700f0;
+	border-color: #0f0e06f0;
 	border-radius: 10px;
 	height: 33px;
 	width: 99px;
@@ -137,11 +137,9 @@ p {
   align-items: center;
   flex-wrap: wrap;
   max-width: 1200px;
-  margin: 500px auto 0;
+  margin: 460px auto 0;
 	padding-bottom: 40px;
 }
-
-/* My coins box */
 
 .container2, 
 .container3,
@@ -153,9 +151,10 @@ p {
   width: calc(33.33% - 20px);
 }
 
+/* My coins box */
 .rectangle-1 {
 	background-color: #ffd700f0;
-	border-radius: 20px;
+	border-radius: 10px;
 	height: 125px;
   width: 100%;
   max-width: 224px; 
@@ -168,7 +167,7 @@ p {
 	color: #000000;
 	font-family: "Inter", Helvetica;
 	font-size: 20px;
-	font-weight: 400;
+	font-weight: bold;
 	height: 43px;
 	left: 44px;
 	letter-spacing: 0;
@@ -176,6 +175,7 @@ p {
 	text-align: center;
 	top: 0;
 	width: 135px;
+	padding-top: 10px;
 }
 
 .rectangle-2 {
@@ -204,7 +204,7 @@ p {
 	width: 76px;
 }
 
-.index .img {
+.img {
 	height: 33px;
 	left: 62px;
 	object-fit: cover;
@@ -215,7 +215,7 @@ p {
 /* shop box */
 .rectangle-3 {
 	background-color: #ffd700f0;
-	border-radius: 20px;
+	border-radius: 10px;
 	height: 125px;
 	left: 0;
 	top: 1px;
@@ -225,11 +225,11 @@ p {
   align-items: center;
 }
 
-.index .text-wrapper-9 {
+.text-wrapper-9 {
 	color: #000000;
 	font-family: "Inter", Helvetica;
 	font-size: 20px;
-	font-weight: 400;
+	font-weight: bold;
 	height: 43px;
 	left: 44px;
 	letter-spacing: 0;
@@ -237,6 +237,7 @@ p {
 	text-align: center;
 	top: 0;
 	width: 135px;
+	padding-top: 10px;
 }
 
 .shop-button {
@@ -257,9 +258,9 @@ p {
 
 /* login streak */
 
-.index .rectangle-5 {
+.rectangle-5 {
 	background-color: #ffd700f0;
-	border-radius: 20px;
+	border-radius: 10px;
 	height: 125px;
 	left: 0;
 	top: 1px;
@@ -269,11 +270,11 @@ p {
   align-items: center;
 }
 
-.index .text-wrapper-11 {
+.text-wrapper-11 {
 	color: #000000;
 	font-family: "Inter", Helvetica;
 	font-size: 20px;
-	font-weight: 400;
+	font-weight: bold;
 	height: 43px;
 	left: 44px;
 	letter-spacing: 0;
@@ -281,9 +282,10 @@ p {
 	text-align: center;
 	top: 0;
 	width: 135px;
+	padding-top: 10px;
 }
 
-.index .rectangle-6 {
+.rectangle-6 {
 	background-color: #f5f5f5;
 	border-radius: 10px;
 	height: 52px;
@@ -294,7 +296,7 @@ p {
   align-items: center;
 }
 
-.index .text-wrapper-12 {
+.text-wrapper-12 {
 	color: #000000;
 	font-family: "Inter", Helvetica;
 	font-size: 24px;
@@ -313,11 +315,11 @@ p {
 
 /* image banner */
 .rectangle-7 {
-	padding-top: 2ch;
+	padding-top: 20px;
 }
 
 /* edit profile button */
-.index .div-wrapper {
+.div-wrapper {
 	border-radius: 10px;
 	height: 33px;
 	left: 465px;
@@ -326,7 +328,7 @@ p {
 	width: 99px;
 }
 
-.index .text-wrapper-13 {
+.text-wrapper-13 {
 	color: #000000;
 	font-family: "Inter", Helvetica;
 	font-size: 16px;

@@ -16,6 +16,12 @@ const App = () => {
         <Route path="/profile" element={<Pages.Profile />} />
         <Route path="/shop" element={<Pages.Shop />} />
         <Route path="*" element={<Pages.NotFound />} />
+        <Route path="/selfcare" element={<Pages.SelfCare />} />
+        <Route path="/breathe" element={<Pages.Breathing />} />
+        <Route path="/familyfriends" element={<Pages.FamFri />} />
+        <Route path="/air" element={<Pages.FreshAir />} />
+        <Route path="/playlist" element={<Pages.Playlist />} />
+        <Route path="/mystery" element={<Pages.Mystery />} />
       </Route>
     </Routes>
   );
