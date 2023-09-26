@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { SearchItem } from '../../components';
+import { SearchItem, FilterItems } from '../../components';
 import avatarImage from '../../assets/images/default.png'
 
 const ItemSidebar = () => {
@@ -16,6 +16,7 @@ const ItemSidebar = () => {
         </div>
         <SearchItem />
         <h3 className="filters-header">Filters</h3>
+        <FilterItems />
       </div>
     </>
   );

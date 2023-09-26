@@ -6,3 +6,5 @@ export { default as ItemSidebar } from './ItemSidebar'
 export { default as SearchItem } from './SearchItem'
 export { default as Footer } from './Footer'
 export { default as Founders } from './Founders'
+export { default as FilterItems } from './FilterItems'
+
