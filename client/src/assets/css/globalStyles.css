@@ -1,0 +1,17 @@
+/* for all the styles we want across the app :) */
+:root {
+    --offYellow: #A69C4D;
+    --darkBlueBG: #170431;
+}
+
+.yellow-text {
+    color: var(--offYellow);
+}
+
+/* body {
+    background-color: var(--darkBlueBG);
+} */
+
+h2 {
+    color: var(--offYellow);
+}

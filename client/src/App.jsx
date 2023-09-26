@@ -3,6 +3,8 @@ import { Routes, Route } from 'react-router-dom'
 import { Header } from './components'
 import * as Pages from './pages'
 
+import './assets/css/globalStyles.css'
+
 const App = () => {
 
   return (

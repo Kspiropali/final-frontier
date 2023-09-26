@@ -1,0 +1,23 @@
+
+.footer-app-name {
+    font-size: 25px;
+}
+
+.footer-subtext {
+    font-size: 14px;
+    justify-self: center;
+}
+
+.header-row {
+    display: flex;
+    margin-bottom: 1vh;
+    justify-content:space-evenly;
+
+}
+
+.footer-text, .footer-text-bold {
+    font-size: 18px;
+}
+.footer-text-bold {
+    font-weight: 600;
+}
