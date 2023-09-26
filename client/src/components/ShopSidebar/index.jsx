@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { SearchItem, FilterItems } from '../../components';
+import { SearchItem, FilterItems } from '..';
 import avatarImage from '../../assets/images/default.png'
 
-const ItemSidebar = () => {
+const ShopSidebar = () => {
 
   return (
     <>
@@ -22,4 +22,4 @@ const ItemSidebar = () => {
   );
 }
 
-export default ItemSidebar
+export default ShopSidebar

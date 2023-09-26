@@ -1,11 +1,11 @@
 import React from "react"
-import { ItemSidebar } from "../../components"
+import { ShopSidebar } from "../../components"
 import '../../assets/css/shop.css'
 
 const Shop = () => {
     return (
         <main className="shop">
-            <ItemSidebar />
+            <ShopSidebar />
             <div className="shop-content"> 
                 <h1 className="shop-header">Item Shop</h1>
             </div>
