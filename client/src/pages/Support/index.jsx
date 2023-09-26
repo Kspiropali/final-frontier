@@ -50,9 +50,9 @@ const Support = () => {
     //returns an array object (must be accessed via index [0])
     return supportServiceSchema.filter((service) => service.type_id == moodNum)
   }
-  useEffect(() => {
+  // useEffect(() => {
     
-  }, [])
+  // }, [])
   // console.log(firstPosition)
   return (
     <>

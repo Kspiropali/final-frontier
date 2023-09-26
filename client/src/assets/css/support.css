@@ -1,5 +1,5 @@
 
-.support-item-container {
+.support-icon-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -8,13 +8,29 @@
     width: 120px;
     aspect-ratio: 1/1;
     border-radius: 25px;
+    margin: 1vh 2vh;
 }
 
 .all-icons-container {
     display: flex;
     margin: 20px 6vh;
+    /* justify-content: center; */
 }
 
 .support-icon {
     width: 90px;
+}
+
+.icon-title {
+    text-align: center;
+    font-size: 23px;
+}
+
+.support-item-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    margin: 0 10px;
+    width: 135px;
 }
