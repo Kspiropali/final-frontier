@@ -6,7 +6,9 @@ import { SupportIconItem } from '../../components'
 
 const Support = () => {
   return (
-    <div>Support</div>
+    <>
+    <SupportIconItem/>
+    </>
   )
 }
 
