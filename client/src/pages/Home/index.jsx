@@ -52,12 +52,12 @@ const Home = () => {
             src="https://cdn.animaapp.com/projects/651165e23f4e55995d9af710/releases/651200163f4e55995d9af7ea/img/image-1@2x.png"
           />
           </Link>
-          <img
+        </div>
+        <img
             className="character"
             alt="Image"
             src="https://cdn.animaapp.com/projects/651165e23f4e55995d9af710/releases/651200163f4e55995d9af7ea/img/image-7@2x.png"
           />
-        </div>
       </div>
   </div>
   )

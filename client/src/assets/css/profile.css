@@ -204,7 +204,7 @@ p {
 	width: 76px;
 }
 
-.index .img {
+.img {
 	height: 33px;
 	left: 62px;
 	object-fit: cover;
@@ -225,7 +225,7 @@ p {
   align-items: center;
 }
 
-.index .text-wrapper-9 {
+.text-wrapper-9 {
 	color: #000000;
 	font-family: "Inter", Helvetica;
 	font-size: 20px;
@@ -258,7 +258,7 @@ p {
 
 /* login streak */
 
-.index .rectangle-5 {
+.rectangle-5 {
 	background-color: #ffd700f0;
 	border-radius: 10px;
 	height: 125px;
@@ -270,7 +270,7 @@ p {
   align-items: center;
 }
 
-.index .text-wrapper-11 {
+.text-wrapper-11 {
 	color: #000000;
 	font-family: "Inter", Helvetica;
 	font-size: 20px;
@@ -285,7 +285,7 @@ p {
 	padding-top: 10px;
 }
 
-.index .rectangle-6 {
+.rectangle-6 {
 	background-color: #f5f5f5;
 	border-radius: 10px;
 	height: 52px;
@@ -296,7 +296,7 @@ p {
   align-items: center;
 }
 
-.index .text-wrapper-12 {
+.text-wrapper-12 {
 	color: #000000;
 	font-family: "Inter", Helvetica;
 	font-size: 24px;
@@ -319,7 +319,7 @@ p {
 }
 
 /* edit profile button */
-.index .div-wrapper {
+.div-wrapper {
 	border-radius: 10px;
 	height: 33px;
 	left: 465px;
@@ -328,7 +328,7 @@ p {
 	width: 99px;
 }
 
-.index .text-wrapper-13 {
+.text-wrapper-13 {
 	color: #000000;
 	font-family: "Inter", Helvetica;
 	font-size: 16px;
