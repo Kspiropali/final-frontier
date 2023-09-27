@@ -1,9 +1,13 @@
 import React from 'react';
 import "../../assets/css/login.css";
+import { Loginform, RegistrationForm, OAuthButtons, OAuthLoginModule, ResetPassword } from '../../components';
+
 
 const Login = () => {
 
   const containerTitle = ["Return To Your WellSpace", "Create Your Own WellSpace", "Reset Password"]
+
+  const activePanel = "login"
 
   return (
     <>
@@ -16,7 +20,7 @@ const Login = () => {
       </div>
       <h2 className='log-reg-title'>{containerTitle[0]}</h2>
       <div className='input-area-container'>
-
+        <Loginform/>
       </div>
     </div>
     </>
