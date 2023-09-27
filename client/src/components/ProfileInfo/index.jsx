@@ -21,14 +21,6 @@ const ProfileInfo = () => {
     <div>
       {editing ? (
         <div className="container1">
-          <label htmlFor="alias">Alias:</label>
-          <input
-            type="text"
-            id="alias"
-            name="alias"
-            value={localProfile.alias}
-            onChange={handleInputChange}
-          />
           <label htmlFor="image">Image URL:</label>
           <input
             type="text"
@@ -37,14 +29,28 @@ const ProfileInfo = () => {
             value={localProfile.image}
             onChange={handleInputChange}
           />
-          <label htmlFor="age">Age:</label>
-          <input
-            type="text"
-            id="age"
-            name="age"
-            value={localProfile.age}
-            onChange={handleInputChange}
-          />
+          <div className='text-wrapper'>
+          <div className='text-wrapper-1'>
+            <label htmlFor="alias">Alias:</label>
+            <input
+              type="text"
+              id="alias"
+              name="alias"
+              value={localProfile.alias}
+              onChange={handleInputChange}
+            />
+          </div>
+          <div className='text-wrapper-2'>
+            <label htmlFor="age">Age:</label>
+            <input
+              type="text"
+              id="age"
+              name="age"
+              value={localProfile.age}
+              onChange={handleInputChange}
+            />
+          </div>
+          <div className='text-wrapper-22'>
           <label htmlFor="gender">Gender:</label>
           <input
             type="text"
@@ -53,6 +59,8 @@ const ProfileInfo = () => {
             value={localProfile.gender}
             onChange={handleInputChange}
           />
+          </div>
+          <div className='text-wrapper-3'>
           <label htmlFor="quote">Quote:</label>
           <input
             type="text"
@@ -61,6 +69,8 @@ const ProfileInfo = () => {
             value={localProfile.quote}
             onChange={handleInputChange}
           />
+          </div>
+          <div className='text-wrapper-4'>
           <label htmlFor="goals">Goals:</label>
           <input
             type="text"
@@ -69,7 +79,13 @@ const ProfileInfo = () => {
             value={localProfile.goals}
             onChange={handleInputChange}
           />
-          <button onClick={handleSave}>Save Changes</button>
+          </div>
+          </div>
+          <div className='div-wrapper2'>
+            <div className='text-wrapper-13'>
+            <button onClick={handleSave}>Save Changes</button>
+            </div>
+          </div>
         </div>
       ) : (
         <div className="container1">

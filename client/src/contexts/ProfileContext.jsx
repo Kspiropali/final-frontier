@@ -7,12 +7,13 @@ export const ProfileProvider = ({ children }) => {
   const [editing, setEditing] = useState(false);
   
   const [profile, setProfile] = useState({
-    alias: '',
-    image: '',
-    age: '',
-    gender: '',
-    quote: '',
-    goals: ''
+    alias: 'Your Alias',
+    image: '/src/assets/images/avatars/panda.png',
+    username: 'your username',
+    age: 'your age',
+    gender: 'your gender',
+    quote: 'What motivates you?',
+    goals: 'Here list your goals. Can range from short term to long term. Be as specific as you can or as vague as you want. This app is for you so you can use it however you want!'
   });
 
   const toggleEdit = () => {
