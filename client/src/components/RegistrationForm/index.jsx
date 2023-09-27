@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useAuth } from '../../contexts/AuthContext'
 import axios from 'axios'
 
@@ -6,6 +6,8 @@ const RegistrationForm = () => {
   
   const {confirmationPassword, setConfirmationPassword, confirmationEmail, setConfirmationEmail, email, setEmail, password, setPassword, username, setUsername} = useAuth()
 
+  const [displayMessage, setDisplayMessage] = useState('')
+  
   const handleUsername = (e) => {
     setUsername(e.target.value.toString())
     console.log(username)
@@ -39,14 +41,28 @@ const RegistrationForm = () => {
             'Accept': 'application/json'
           },
           body : data
-        })
-      }
-      catch (err){
+        });
+
+        setDisplayMessage('Registration Successful. You can now login')
         setUsername(''),
         setPassword(''),
         setConfirmationPassword(''),
         setEmail(''),
         setConfirmationEmail('')
+        setTimeout(() => {
+          setDisplayMessage('')
+        }, 3000);
+      }
+      catch (err){
+        setDisplayMessage('Registration Unsuccessful')
+        setUsername(''),
+        setPassword(''),
+        setConfirmationPassword(''),
+        setEmail(''),
+        setConfirmationEmail('')
+        setTimeout(() => {
+          setDisplayMessage('')
+        }, 3000);
       }
     }
     else {
@@ -117,7 +133,7 @@ const RegistrationForm = () => {
           <p>emails do not match</p>
       </div>
       <input className='login-btn' type="submit" value="Login" />
-      {/* {resultMessage && <p>{resultMessage}</p>} */}
+      {/* {displayMessage && <p>{displayMessage}</p>} */}
 
     </form>
     </>
