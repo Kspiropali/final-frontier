@@ -1,22 +1,28 @@
 import React from 'react'
+import { useAuth } from '../../contexts/AuthContext'
+import axios from 'axios'
 
 const RegistrationForm = () => {
+  
+  const {confirmationPassword, setConfirmationPassword, confirmationEmail, setConfirmationEmail, email, setEmail, password, setPassword, username, setUsername,} = useAuth()
 
-  const handleUsername = () => {
-    return
+  const handleUsername = (e) => {
+    setUsername(e.target.value.toString())
+    console.log(username)
   }
-  const handlePassword = () => {
-      return
+  const handlePassword = (e) => {
+      setPassword(e.target.value.toString())
   }
-  const handleConfirmationPassword = () => {
-      return
+  const handleConfirmationPassword = (e) => {
+      setConfirmationPassword(e.target.value.toString())
   }
-  const handleEmail = () => {
-      return
+  const handleEmail = (e) => {
+      setEmail(e.target.value.toString())
   }
-  const handleConfirmationEmail = () => {
-      return
+  const handleConfirmationEmail = (e) => {
+      setConfirmationEmail(e.target.value.toString())
   }
+
 
   return (
     <>
@@ -26,78 +32,62 @@ const RegistrationForm = () => {
     // onSubmit={handleSubmit}
     >
       <div className='input-idv-container'>
-        {/* <label>Username: </label> */}
         <input
             type="text"
             id="username"
             onChange={handleUsername}
-        //   value="username"
+            value={username}
             placeholder='username'
             required
             className='input-field'/>
         {/* <p>cannot be changed</p> */}
       </div>
       <div className='input-idv-container'>
-          {/* <label>Email: </label> */}
           <input
           type="text"
           id="email"
           onChange={handleEmail}
-          //   value="email"
+          value={email}
           placeholder='email'
           required
           className='input-field'/>
           <p>must contain @</p>
       </div>
       <div className='input-idv-container'>
-          {/* <label>Confirm Email: </label> */}
           <input
           type="text"
           id="confirm-email"
           onChange={handleConfirmationEmail}
-          //   value="confirm email"
+          value={confirmationEmail}
           placeholder='confirm email'
           required
           className='input-field'/>
           <p>emails do not match</p>
       </div>
       <div className='input-idv-container'>
-          {/* <label>Password: </label> */}
           <input
           type="password"
           id="password"
           onChange={handlePassword}
-          //   value="password"
+          value={password}
           placeholder='password'
           required
           className='input-field'/>
           <p>must contain: 7-15 characters, 1 number & 1 symbol </p>
       </div>
       <div className='input-idv-container'>
-          {/* <label>Confirm Password: </label> */}
           <input
           type="password"
           id="confirm-password"
           onChange={handleConfirmationPassword}
-          //   value="confirm password"
+          value={confirmationPassword}
           placeholder='confirm password'
           required
           className='input-field no-match'/>
           <p>emails do not match</p>
       </div>
-
-      {/* <label>Password: </label>
-      <input
-      type="password"
-      id="password"
-      onChange={handlePassword}
-      //   value={password}
-      placeholder='password'
-      required
-      /> */}
-
       {/* <input className='login' type="submit" value="Login" />
-      {message && <p>{message}</p>} */}
+      {resultMessage && <p>{resultMessage}</p>} */}
 
     </form>
     </>
