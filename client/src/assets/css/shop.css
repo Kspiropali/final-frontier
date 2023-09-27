@@ -2,19 +2,26 @@
 
 .shop {
     display: flex;
-    justify-content: flex-start;
     width: 100%;
     min-height: 100vh;
 	font-family: "Inter", Helvetica;
+    background: linear-gradient(
+    180deg,
+    rgb(8.54, 1.56, 23.38) 0%,
+    rgb(25.23, 4.6, 69.06) 39.06%,
+    rgb(31.1, 7.74, 80.75) 100%
+  );
+  }
+  
+.box-container {
+    display: flex;
+    justify-content: space-between; 
+    align-items: flex-start;
+    background-color: red;
+    min-height: 80vh;
   }
 
 .sidebar {
-    background: linear-gradient(
-        180deg,
-        rgb(8.54, 1.56, 23.38) 0%,
-        rgb(25.23, 4.6, 69.06) 39.06%,
-        rgb(31.1, 7.74, 80.75) 100%
-      );
     color: #ffd700f0;
     width: 250px;
     border-right: 1px solid #cccccc16;
@@ -22,21 +29,9 @@
   }
 
 .shop .shop-content {
-    background: linear-gradient(
-        180deg,
-        rgb(8.54, 1.56, 23.38) 0%,
-        rgb(25.23, 4.6, 69.06) 39.06%,
-        rgb(31.1, 7.74, 80.75) 100%
-      );
     color: #ffd700f0;
     flex: 1;
     padding: 20px;
-  }
-
-.shop-header {
-    font-size: 32px;
-    margin-top: 20px;
-    margin-left: 28px;
   }
 
 .avatar-box {

@@ -1,8 +1,20 @@
-.box .rectangle {
-    background-color: #1d005c;
+.box {
+    padding: 20px;
+    background-color: #e70fff;
     border-radius: 10px;
-    height: 800px;
-    width: 1300px;
-    margin-left: 30px;
+    max-width: calc(50% - 40px);
     margin-top: 140px;
-}
+    border-radius: 10px;
+    height: 700px;
+    width: 100%;
+    margin-left: -80px;
+    margin-right: 100px;
+  }
+
+.shop-header {
+    font-size: 32px;
+    margin-top: 20px;
+    margin-left: 28px;
+  }
+
+  /* background-color: #1d005c; */

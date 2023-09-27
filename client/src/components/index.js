@@ -11,3 +11,5 @@ export { default as ShopBox } from './ShopBox'
 export { default as AvatarModal } from './AvatarModal'
 export { default as SupportIcons } from './SupportIcons'
 export {default as SupportServicesList} from './SupportServicesList'
+export { default as ShopPreview } from './ShopPreview'
+
