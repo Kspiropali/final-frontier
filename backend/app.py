@@ -32,8 +32,8 @@ def redirect_to_root():
 
 if __name__ == "__main__":
     if Config.ENV == 'development':
-        # with app.app_context():
-        #     setup_tables()
+        with app.app_context():
+            setup_tables()
         app.run(debug=True, host="0.0.0.0", port=5000)
     else:
         app.run(host="0.0.0.0", port=Config.PORT)

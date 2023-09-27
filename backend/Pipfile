@@ -8,6 +8,7 @@ sqlalchemy = "*"
 flask-sqlalchemy = "*"
 python-dotenv = "*"
 psycopg2-binary = "*"
+colorama = "*"
 
 [dev-packages]
 
@@ -17,7 +18,8 @@ python_full_version = "3.11.5"
 
 [scripts]
 start = "python app.py"
-setup_db = "python scripts/setup_db.py"
+setup_db1 = "python app/database/data.sql"
+setup_db2 = "python app/database/schema.sql"
 cleanup_db = "python scripts/cleanup_db.py"
 docker_exec = "python scripts/docker_exec.py"
 up = "echo 'Not implemented yet!'"
