@@ -1,0 +1,90 @@
+.login-container {
+    margin: auto;
+    /* display: flex; */
+    background-color: #211C4A;
+    width: 60vh;
+    height: 60vh;
+    border: 2px solid #A69C4D;
+}
+
+/* not working for some reason */
+#active-log-btn {
+    border-bottom: 2px;
+}
+
+.log-reg-btn {
+    border-color: #A69C4D;
+    border-style: solid;
+    border-top: 0px;
+    border-bottom: 0px;
+    border-left: 0px;
+    height: 6vh;
+    width: 50%;
+    font-size: 25px;
+}
+.log-reg-btn:nth-child(2) {
+    border-right: 0px;
+}
+
+
+button {
+    background-color: inherit;
+    border-style: unset;
+}
+
+.log-reg-title {
+    margin: 2.5vh 0px;
+    text-align: center;
+    font-size: 23px;
+}
+
+.input-area-container {
+    text-align: center;
+    width: auto;
+    margin: 0px 6%;
+    height: 66%;
+    /* border: .5px solid #A69C4D; */
+}
+
+::placeholder {
+    color: #feefba;
+    opacity: 0.4;
+}
+
+input {
+    border-style: unset;
+}
+
+.input-field {
+    width: 100%;
+    height: 4vh;
+    text-align: center;
+    color: #FEEFBA;
+    background-color: #4F4792;
+    border-radius: 0px;
+    border-color: unset;
+    /* font-size: 14px; */
+}
+
+.correct {
+    border: 2px solid rgb(70, 113, 51);
+}
+
+.no-match {
+    border: 2px solid rgb(50, 168, 222);
+}
+
+.input-idv-container {
+    margin-bottom: 1vh;
+    text-align: center;
+}
+
+.input-area-container p {
+    margin-top: .1vh;
+    color: #FBDB68;
+    font-size: .8rem;
+}
+
+#forgot-password {
+    text-decoration: underline;
+}
