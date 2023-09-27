@@ -2,18 +2,17 @@ import React from 'react'
 import { ToggleShop, ShopItem } from '../../components'
 import '../../assets/css/shopbox.css'
 
+import testItem from '../../assets/images/testitem/hat.png'
+import testCoin from '../../assets/images/testitem/coin.png'
+
 const ShopBox = () => {
 
     const shopItems = [
         {
             id: 1,
-            image: 'default.png',
-            price: 20
-        },
-        {
-            id: 2,
-            image: 'avi.png',
-            price: 10
+            image: testItem,
+            price: 10,
+            coinImage: testCoin
         }
     ]
 
