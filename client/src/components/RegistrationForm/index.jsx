@@ -23,13 +23,17 @@ const RegistrationForm = () => {
       setConfirmationEmail(e.target.value.toString())
   }
 
-
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log("submit!")
+    
+  }
   return (
     <>
     <form
     aria-label='register form'
     role="register"
-    // onSubmit={handleSubmit}
+    onSubmit={handleSubmit}
     >
       <div className='input-idv-container'>
         <input
@@ -86,8 +90,8 @@ const RegistrationForm = () => {
           className='input-field no-match'/>
           <p>emails do not match</p>
       </div>
-      {/* <input className='login' type="submit" value="Login" />
-      {resultMessage && <p>{resultMessage}</p>} */}
+      <input className='login-btn' type="submit" value="Login" />
+      {/* {resultMessage && <p>{resultMessage}</p>} */}
 
     </form>
     </>
