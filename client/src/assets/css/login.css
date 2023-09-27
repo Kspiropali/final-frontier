@@ -42,5 +42,32 @@ button {
     width: auto;
     margin: 0px 6%;
     height: 66%;
-    border: .5px solid #A69C4D;
+    /* border: .5px solid #A69C4D; */
 }
+
+::placeholder {
+    color: #feefba;
+    opacity: 0.4;
+}
+
+input {
+    border-style: unset;
+}
+
+.input-field {
+    margin-bottom: 2vh;
+    width: 100%;
+    height: 4vh;
+    text-align: center;
+    color: #FEEFBA;
+    background-color: #4F4792;
+}
+
+.correct {
+    border: 2px solid rgb(70, 113, 51);
+}
+
+.no-match {
+    border: 2px solid rgb(50, 168, 222);
+}
+
