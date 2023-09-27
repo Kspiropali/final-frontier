@@ -17,3 +17,14 @@
     background-color: #001aff;
     color: #fffffff0;
   }
+
+.shop-box-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+.toggle-buttons-container {
+    margin-top: 30px;
+    margin-left: 28px;
+  }
