@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Stats = () => {
 	return (
 		<div className="flex-container">
@@ -18,7 +20,9 @@ const Stats = () => {
 				<div className="rectangle-3">
 					<div className="text-wrapper-9">Shop</div>
 					<div className="rectangle-4">
-						<button className="shop-button">Enter here</button>
+						<Link to="/shop">
+							<button className="shop-button">Enter here</button>
+						</Link>
 					</div>
 				</div>
 			</div>
