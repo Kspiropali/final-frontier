@@ -20,7 +20,7 @@ const Login = () => {
       </div>
       <h2 className='log-reg-title'>{containerTitle[0]}</h2>
       <div className='input-area-container'>
-        <Loginform/>
+        <RegistrationForm/>
       </div>
     </div>
     </>
