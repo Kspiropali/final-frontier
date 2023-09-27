@@ -130,7 +130,7 @@ const RegistrationForm = () => {
           className='input-field no-match'/>
           <p>emails do not match</p>
       </div>
-      <input className='login-btn' type="submit" value="Login" />
+      <input className='login-btn' type="submit" value="Register" />
       {/* {displayMessage && <p>{displayMessage}</p>} */}
 
     </form>

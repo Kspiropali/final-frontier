@@ -1,33 +1,36 @@
 import React from 'react'
 import { useAuth } from '../../contexts/AuthContext'
+import axios from 'axios'
 
 
 const LoginForm = () => {
 
     const {username, setUsername, password, setPassword} = useAuth()
 
-    const handleUsername = () => {
+    const handleUsername = (e) => {
         setUsername(e.target.value.toString())
     }
-    const handlePassword = () => {
+    const handlePassword = (e) => {
         setPassword(e.target.value.toString())
     }
 
-    const renderPasswordReset = () => {
+    const renderPasswordReset = (e) => {
         // a redirect
         return
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (username.length > 0 && password.length > 0 && confirmationPassword.length > 0 && email.length > 0 && confirmationEmail.length > 0) {
+        console.log(username.length)
+        console.log(password.length)
+        if (username.length > 0 && password.length > 0) {
           try {
     
             const data = {
               username: username,
               password: password
             }
-            response = await axios.post('http://localhost:8080/users', {
+            const response = await axios.post('http://localhost:8080/users', {
               headers : {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
@@ -35,11 +38,13 @@ const LoginForm = () => {
               body : data
             });
 
-            console.log(response.status)
+            console.log(response)
+            //const token == response.headers.authorization
+            //add token to cookies storage
     
             setDisplayMessage('Registration Successful. You can now login')
             setUsername(''),
-            setPassword(''),
+            setPassword('')
             setTimeout(() => {
               setDisplayMessage('')
             }, 3000);
@@ -60,7 +65,7 @@ const LoginForm = () => {
 
   return (
     <>
-    <form aria-label='login form' role='login'>
+    <form aria-label='login form' role='login' onSubmit={handleSubmit}>
         <div className='input-idv-container'>
             {/* <label>Username: </label> */}
             <input
@@ -84,6 +89,7 @@ const LoginForm = () => {
             required
             className='input-field'/>
         </div>
+        <input className='login-btn' type="submit" value="Login" />
     </form>
     {/* MOVE THIS p TO LOGIN 'PAGE' FILE ONCE CONTEXTS ARE SET */}
     <p className='yellow-text' id='forgot-password' onClick={() => renderPasswordReset}>forgot password?</p>
