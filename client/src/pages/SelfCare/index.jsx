@@ -7,13 +7,14 @@ import '../../assets/css/task.css';
 const SelfCare = () => {
   const [timerStarted, setTimerStarted] = useState(false);
 
+  const [taskCompleted, setTaskCompleted] = useState(false);
+
   const handleStartTask = () => {
     setTimerStarted(true);
   };
 
   const handleTimerFinish = () => {
-    // Handle actions after the timer finishes (e.g., display a message)
-    // Here, you can show a message or perform any action you want
+    setTaskCompleted(true);
   };
 
   return (
@@ -30,8 +31,15 @@ const SelfCare = () => {
             Time for some self-care! Spend 10 minutes doing something for yourself. This can be doing a skincare routine or even eating a snack! It&apos;s all about what makes you happy and feel good.
           </p>
           <div className="button-start">
+            {taskCompleted && (
+              <div className="message-done">
+                Task has been completed for today! Keep at it to your hearts desire
+              </div>
+            )}
             {timerStarted ? (
-              <Timer initialTime={60} onFinish={handleTimerFinish} />
+              <div className="timer-wrapper">
+              <Timer initialTime={10} onFinish={handleTimerFinish} />
+              </div>
             ) : (
               <button className="button-link" onClick={handleStartTask}>Start Task</button>
             )}
