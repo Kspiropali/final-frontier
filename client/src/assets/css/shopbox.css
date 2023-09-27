@@ -1,3 +1,5 @@
+@import url("shopitem.css");
+
 .box {
     padding: 20px;
     background-color: #1d005c;
@@ -9,9 +11,10 @@
     margin-right: 50px;
   }
 
-  .shop-header {
+.shop-header {
     font-size: 32px;
     margin-top: 20px;
     margin-left: 28px;
     white-space: nowrap;
   }
+
