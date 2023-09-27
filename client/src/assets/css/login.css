@@ -1,0 +1,8 @@
+.login-container {
+    margin: auto;
+    display: flex;
+    background-color: #211C4A;
+    width: 60vh;
+    height: 55vh;
+    border: 2px solid #A69C4D;
+}
