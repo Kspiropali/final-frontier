@@ -87,3 +87,18 @@ p {
 .button-link:hover {
   background-color: #009016;
 }
+
+.message-done {
+  color: #ffd700f0;
+  font-family: "Inter", Helvetica;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.timer-wrapper {
+  font-family: "Inter", Helvetica;
+  font-weight: 500;
+  border-radius: 4px;
+  padding: 10px;
+  color: #ffffff;
+}
