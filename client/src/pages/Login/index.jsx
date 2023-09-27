@@ -11,10 +11,10 @@ const Login = () => {
     {/* Container for the Login compents */}
     <div className='login-container'>
       <div className='log-reg-btn-container'>
-        <button className='white-text log-reg-btn active-log-btn'>Login</button>
+        <button className='white-text log-reg-btn' id='active-log-btn'>Login</button>
         <button className='white-text log-reg-btn'>Register</button>
       </div>
-      <h2 className='log-reg-title'>fff</h2>
+      <h2 className='log-reg-title'>{containerTitle[0]}</h2>
     </div>
     </>
   )

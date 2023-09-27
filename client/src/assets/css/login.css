@@ -7,19 +7,25 @@
     border: 2px solid #A69C4D;
 }
 
+/* not working for some reason */
+#active-log-btn {
+    border-bottom: 2px;
+}
+
 .log-reg-btn {
     border-color: #A69C4D;
     border-style: solid;
     border-top: 0px;
-    border-bottom: 2px;
+    border-bottom: 0px;
     border-left: 0px;
-    height: 12%;
+    height: 6vh;
+    width: 50%;
     font-size: 25px;
 }
-.active-log-btn {
-    border-bottom: 2px;
-    border-left: 0px;
+.log-reg-btn:nth-child(2) {
+    border-right: 0px;
 }
+
 
 button {
     background-color: inherit;
@@ -27,6 +33,7 @@ button {
 }
 
 .log-reg-title {
+    margin: 2.5vh 0px;
     text-align: center;
     font-size: 23px;
 }
