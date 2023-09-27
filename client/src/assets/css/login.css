@@ -37,3 +37,10 @@ button {
     text-align: center;
     font-size: 23px;
 }
+
+.input-area-container {
+    width: auto;
+    margin: 0px 6%;
+    height: 66%;
+    border: .5px solid #A69C4D;
+}

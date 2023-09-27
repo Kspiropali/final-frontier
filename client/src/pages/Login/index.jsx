@@ -15,6 +15,9 @@ const Login = () => {
         <button className='white-text log-reg-btn'>Register</button>
       </div>
       <h2 className='log-reg-title'>{containerTitle[0]}</h2>
+      <div className='input-area-container'>
+
+      </div>
     </div>
     </>
   )
