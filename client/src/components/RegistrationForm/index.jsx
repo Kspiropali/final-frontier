@@ -25,13 +25,33 @@ const RegistrationForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(email.length)
-    // if (username.length > 0 && password.length > 0 && confirmationPassword.length > 0 && email.length > 0 && confirmationEmail.length) {
-    //   console.log("submit!")
-    // }
-    // else {
-    //   console.log("incomplete form!")
-    // }
+    if (username.length > 0 && password.length > 0 && confirmationPassword.length > 0 && email.length > 0 && confirmationEmail.length > 0) {
+      try {
+
+        const data = {
+          username: username,
+          password: password,
+          email: email
+        }
+        await axios.post('http://localhost:8080/users', {
+          headers : {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body : data
+        })
+      }
+      catch (err){
+        setUsername(''),
+        setPassword(''),
+        setConfirmationPassword(''),
+        setEmail(''),
+        setConfirmationEmail('')
+      }
+    }
+    else {
+      console.log("incomplete form!")
+    }
 
   }
   return (
