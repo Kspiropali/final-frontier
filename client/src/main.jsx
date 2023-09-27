@@ -5,12 +5,17 @@ import { BrowserRouter } from 'react-router-dom'
 import App from './App'
 import { ShopProvider } from './contexts/ShopContext'
 
+//context providers (AuthProvider MUST be the outer-most provider)
+import { AuthProvider } from './contexts/AuthContext'
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <ShopProvider>
+    <AuthProvider>
+      <ShopProvider>
         <BrowserRouter>
-            <App />
+          <App />
         </BrowserRouter>
-    </ShopProvider>
+      </ShopProvider>
+    </AuthProvider>
   </React.StrictMode>
 )
