@@ -5,13 +5,13 @@ const RegistrationForm = () => {
   const handleUsername = () => {
     return
   }
-  const handleInitialPassword = () => {
+  const handlePassword = () => {
       return
   }
   const handleConfirmationPassword = () => {
       return
   }
-  const handleInitialEmail = () => {
+  const handleEmail = () => {
       return
   }
   const handleConfirmationEmail = () => {
@@ -42,7 +42,7 @@ const RegistrationForm = () => {
           <input
           type="text"
           id="email"
-          onChange={handleInitialEmail}
+          onChange={handleEmail}
           //   value="username"
           placeholder='email'
           required
@@ -66,7 +66,7 @@ const RegistrationForm = () => {
           <input
           type="text"
           id="password"
-          onChange={handleInitialPassword}
+          onChange={handlePassword}
           //   value="username"
           placeholder='password'
           required
