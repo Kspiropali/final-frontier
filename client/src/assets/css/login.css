@@ -84,3 +84,7 @@ input {
     color: #FBDB68;
     font-size: .8rem;
 }
+
+#forgot-password {
+    text-decoration: underline;
+}
