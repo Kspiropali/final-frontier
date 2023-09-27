@@ -17,3 +17,5 @@ class Config:
     FACEBOOK_APP_SECRET = FACEBOOK_APP_SECRET
     # recaptcha
     RECAPTCHA_SECRET_KEY = RECAPTCHA_SECRET_KEY
+    # secret key
+    SECRET_KEY = SECRET_KEY

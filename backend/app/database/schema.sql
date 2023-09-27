@@ -44,7 +44,7 @@ CREATE TABLE session (
 
 CREATE TABLE email (
     id SERIAL PRIMARY KEY,
-    member_id INTEGER REFERENCES member(id) NOT NULL,
+    username varchar(255) REFERENCES member(username) NOT NULL,
     token VARCHAR(255) NOT NULL,
     is_reset BOOLEAN NOT NULL DEFAULT FALSE,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, -- TODO: probably expiration would be 10 minutes
