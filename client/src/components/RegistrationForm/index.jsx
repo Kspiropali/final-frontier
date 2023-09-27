@@ -4,7 +4,7 @@ import axios from 'axios'
 
 const RegistrationForm = () => {
   
-  const {confirmationPassword, setConfirmationPassword, confirmationEmail, setConfirmationEmail, email, setEmail, password, setPassword, username, setUsername,} = useAuth()
+  const {confirmationPassword, setConfirmationPassword, confirmationEmail, setConfirmationEmail, email, setEmail, password, setPassword, username, setUsername} = useAuth()
 
   const handleUsername = (e) => {
     setUsername(e.target.value.toString())
@@ -16,7 +16,7 @@ const RegistrationForm = () => {
   const handleConfirmationPassword = (e) => {
       setConfirmationPassword(e.target.value.toString())
   }
-  const handleEmail = (e) => {
+  function handleEmail(e){
       setEmail(e.target.value.toString())
   }
   const handleConfirmationEmail = (e) => {
@@ -25,8 +25,14 @@ const RegistrationForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("submit!")
-    
+    console.log(email.length)
+    // if (username.length > 0 && password.length > 0 && confirmationPassword.length > 0 && email.length > 0 && confirmationEmail.length) {
+    //   console.log("submit!")
+    // }
+    // else {
+    //   console.log("incomplete form!")
+    // }
+
   }
   return (
     <>

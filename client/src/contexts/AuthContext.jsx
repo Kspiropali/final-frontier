@@ -16,13 +16,13 @@ export const AuthProvider = ({ children }) => {
 
   // for reset password & registration forms
   const [email, setEmail] = useState('')
-  
+
   // ONLY for registration page
   const [confirmationPassword, setConfirmationPassword] = useState('')
   const [confirmationEmail, setConfirmationEmail] = useState('')
 
   return (
-    <AuthContext.Provider value={{ isLoggedIn, setIsLoggedIn, username, setUsername, password, setPassword, confirmationPassword, setConfirmationPassword, confirmationEmail, setConfirmationEmail, isConfirmed, setIsConfirmed }}>
+    <AuthContext.Provider value={{ isLoggedIn, setIsLoggedIn, username, setUsername, password, setPassword, confirmationPassword, setConfirmationPassword, email, setEmail, confirmationEmail, setConfirmationEmail, isConfirmed, setIsConfirmed }}>
         {children}
     </AuthContext.Provider>
   );
