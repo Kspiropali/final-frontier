@@ -11,13 +11,12 @@ const Login = () => {
   const [resultMessage, setResultMessage] = useState()
 
   const handlePanelToggle = (e) => {
-    console.log(e.target)
     setActivePanel(e.target.value)
   }
 
-  useEffect(() => {
+  // useEffect(() => {
 
-  }, [activePanel])
+  // }, [activePanel])
 
   return (
     <>
@@ -30,7 +29,7 @@ const Login = () => {
       </div>
       <h2 className='log-reg-title'>{containerTitle[0]}</h2>
       <div className='input-area-container'>
-        {activePanel == "Register" ? <RegistrationForm/> : <Loginform/>}
+        {activePanel == "Register" ? (<RegistrationForm/>) : (<Loginform/>)}
       </div>
     </div>
     </>

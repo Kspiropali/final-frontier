@@ -1,17 +1,62 @@
 import React from 'react'
+import { useAuth } from '../../contexts/AuthContext'
+
 
 const LoginForm = () => {
 
+    const {username, setUsername, password, setPassword} = useAuth()
+
     const handleUsername = () => {
-        return
+        setUsername(e.target.value.toString())
     }
     const handlePassword = () => {
-        return
+        setPassword(e.target.value.toString())
     }
 
     const renderPasswordReset = () => {
+        // a redirect
         return
     }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        if (username.length > 0 && password.length > 0 && confirmationPassword.length > 0 && email.length > 0 && confirmationEmail.length > 0) {
+          try {
+    
+            const data = {
+              username: username,
+              password: password
+            }
+            response = await axios.post('http://localhost:8080/users', {
+              headers : {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+              },
+              body : data
+            });
+
+            console.log(response.status)
+    
+            setDisplayMessage('Registration Successful. You can now login')
+            setUsername(''),
+            setPassword(''),
+            setTimeout(() => {
+              setDisplayMessage('')
+            }, 3000);
+          }
+          catch (err){
+            setDisplayMessage('Registration Unsuccessful')
+            setUsername(''),
+            setPassword(''),
+            setTimeout(() => {
+              setDisplayMessage('')
+            }, 3000);
+          }
+        }
+        else {
+          console.log("incomplete form!")
+        }
+      }
 
   return (
     <>

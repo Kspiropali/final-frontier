@@ -10,7 +10,6 @@ const RegistrationForm = () => {
   
   const handleUsername = (e) => {
     setUsername(e.target.value.toString())
-    console.log(username)
   }
   const handlePassword = (e) => {
       setPassword(e.target.value.toString())
@@ -68,7 +67,6 @@ const RegistrationForm = () => {
     else {
       console.log("incomplete form!")
     }
-
   }
   return (
     <>
