@@ -27,13 +27,13 @@ const SelfCare = () => {
             src="https://cdn.animaapp.com/projects/651165e23f4e55995d9af710/releases/6512cd5a23aefc58b04855f5/img/image-1@2x.png"
           />
           <p className="content">
-            Time for some self-care! Spend 10 minutes doing something for yourself. This can be doing a skincare routine or even eating a snack! It's all about what makes you happy and feel good.
+            Time for some self-care! Spend 10 minutes doing something for yourself. This can be doing a skincare routine or even eating a snack! It&apos;s all about what makes you happy and feel good.
           </p>
           <div className="button-start">
             {timerStarted ? (
-              <Timer initialTime={600} onFinish={handleTimerFinish} />
+              <Timer initialTime={60} onFinish={handleTimerFinish} />
             ) : (
-              <button onClick={handleStartTask}>Start Task</button>
+              <button className="button-link" onClick={handleStartTask}>Start Task</button>
             )}
           </div>
         </div>
