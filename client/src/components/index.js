@@ -12,4 +12,6 @@ export { default as AvatarModal } from './AvatarModal'
 export { default as SupportIcons } from './SupportIcons'
 export {default as SupportServicesList} from './SupportServicesList'
 export { default as ShopPreview } from './ShopPreview'
+export { default as ToggleShop } from './ToggleShop'
+
 
