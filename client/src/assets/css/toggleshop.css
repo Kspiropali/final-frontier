@@ -6,16 +6,17 @@
 
 .toggle-button {
     padding: 5px 10px;
-    border: 1px solid #000000;
-    border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
     text-decoration: none;
+    background-color:  #ffd700f0;
+    font-weight: bold;
+	font-family: "Inter", Helvetica;
   }
 
 .toggle-button.active {
-    background-color: #001aff;
-    color: #fffffff0;
+    background-color: #ccb116;
+    color: #000000f0;
   }
 
 .shop-box-container {
