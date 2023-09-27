@@ -49,7 +49,6 @@ p {
 	line-height: normal;
 	position: absolute;
 	top: 0;
-	width: 331px;
 }
 
 .text-wrapper-2 {
@@ -142,6 +141,14 @@ p {
 	border-radius: 10px;
 	height: 33px;
 	width: 99px;
+}
+
+.save-button {
+	background-color: #ffd700f0;
+	border-color: #0f0e06f0;
+	border-radius: 10px;
+	height: 33px;
+	width: 130px;
 }
 
 .flex-container {
@@ -333,21 +340,16 @@ p {
 
 /* edit profile button */
 .div-wrapper {
-	border-radius: 10px;
-	height: 33px;
 	left: 465px;
 	position: absolute;
 	top: 434px;
-	width: 99px;
 }
 
 .div-wrapper2 {
-	border-radius: 10px;
-	height: 33px;
 	left: 465px;
 	position: absolute;
-	top: 434px;
-	width: 99px;
+	top: 356px;
+	z-index: 1;
 }
 
 .text-wrapper-13 {
@@ -365,11 +367,33 @@ p {
 	width: 89px;
 }
 
+/* edit profile modal */
+input {
+	border-radius: 10px;
+	border: 1px solid #ccc;
+	padding: 5px 10px; 
+	font-size: 16px;
+}
 
-.container1 {
-	height: 336px;
-	left: 104px;
-	position: absolute;
-	top: 78px;
-	width: 1190px;
+#alias {
+  height: 35px; 
+	width: auto;
+}
+
+#age {
+  height: 30px;
+	width: 100px;
+} 
+
+#gender {
+  height: 30px;
+}
+
+#quote {
+  height: 30px;  
+}
+
+#goals {
+  height: 60px;
+	width: 900px;
 }

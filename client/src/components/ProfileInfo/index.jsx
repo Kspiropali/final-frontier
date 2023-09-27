@@ -61,7 +61,7 @@ const ProfileInfo = () => {
           />
           </div>
           <div className='text-wrapper-3'>
-          <label htmlFor="quote">Quote:</label>
+          <label htmlFor="quote"> My quote</label>
           <input
             type="text"
             id="quote"
@@ -71,7 +71,7 @@ const ProfileInfo = () => {
           />
           </div>
           <div className='text-wrapper-4'>
-          <label htmlFor="goals">Goals:</label>
+          <label htmlFor="goals">My goals</label>
           <input
             type="text"
             id="goals"
@@ -83,7 +83,7 @@ const ProfileInfo = () => {
           </div>
           <div className='div-wrapper2'>
             <div className='text-wrapper-13'>
-            <button onClick={handleSave}>Save Changes</button>
+            <button className="save-button" onClick={handleSave}>Save Changes</button>
             </div>
           </div>
         </div>
