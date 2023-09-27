@@ -21,8 +21,8 @@ const RegistrationForm = () => {
   return (
     <>
     <form
-    aria-label='login form'
-    role="login"
+    aria-label='register form'
+    role="register"
     // onSubmit={handleSubmit}
     >
       <div className='input-idv-container'>
@@ -43,7 +43,7 @@ const RegistrationForm = () => {
           type="text"
           id="email"
           onChange={handleEmail}
-          //   value="username"
+          //   value="email"
           placeholder='email'
           required
           className='input-field'/>
@@ -55,31 +55,31 @@ const RegistrationForm = () => {
           type="text"
           id="confirm-email"
           onChange={handleConfirmationEmail}
-          //   value="username"
+          //   value="confirm email"
           placeholder='confirm email'
           required
           className='input-field'/>
           <p>emails do not match</p>
       </div>
       <div className='input-idv-container'>
-          {/* <label>Email: </label> */}
+          {/* <label>Password: </label> */}
           <input
           type="text"
           id="password"
           onChange={handlePassword}
-          //   value="username"
+          //   value="password"
           placeholder='password'
           required
           className='input-field'/>
           <p>must contain: 7-15 characters, 1 number & 1 symbol </p>
       </div>
       <div className='input-idv-container'>
-          {/* <label>Confirm Email: </label> */}
+          {/* <label>Confirm Password: </label> */}
           <input
           type="text"
           id="confirm-password"
           onChange={handleConfirmationPassword}
-          //   value="username"
+          //   value="confirm password"
           placeholder='confirm password'
           required
           className='input-field no-match'/>
