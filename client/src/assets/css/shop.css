@@ -1,0 +1,131 @@
+@import url("modal.css");
+
+.shop {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+	font-family: "Inter", Helvetica;
+    background: linear-gradient(
+    180deg,
+    rgb(8.54, 1.56, 23.38) 0%,
+    rgb(25.23, 4.6, 69.06) 39.06%,
+    rgb(31.1, 7.74, 80.75) 100%
+  );
+  }
+  
+.box-container {
+    display: flex;
+    justify-content: space-between; 
+    align-items: flex-start;
+    min-height: 100vh;
+  }
+
+.sidebar {
+    color: #ffd700f0;
+    width: 250px;
+    border-right: 1px solid #cccccc16;
+    padding: 20px;
+  }
+
+.shop .shop-content {
+    color: #ffd700f0;
+    flex: 1;
+    padding: 20px;
+  }
+
+.avatar-box {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 4px solid rgb(139, 106, 223); 
+    border-radius: 10%;
+    overflow: hidden; 
+    margin-top: 10px;
+    margin-left: 5px;
+    transform: scale(0.9);
+  }
+  
+.avatar {
+    width: 100%;
+    height: 100%; 
+    border-radius: 0%;
+    cursor: pointer;
+  }
+
+.search-item input[type="text"] {
+    width: 100%;
+    padding: 6px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 40px;
+  }
+
+.search-item input[type="text"] {
+    outline: none;
+    border-color: #9f9fa0;
+  }
+
+.filters-header {
+    margin-top: 10px;
+  }
+
+.filter-item {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+  }
+
+.filter-label {
+    margin-top: 14px;
+    font-size: 15px;
+    cursor: pointer;
+  }
+
+input[type="checkbox"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: white;
+    margin-top: 15px;
+    margin-left: 5px;
+    margin-right: 15px;
+    color: rgb(255, 255, 255);
+    width: 0.8em;
+    height: 1.em;
+    border: 0.15em solid rgb(78, 78, 78);
+    border-radius: 0.1em;
+    transform: scale(1.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 0.75;
+    cursor: pointer;
+  }
+  
+input[type="checkbox"]::before {
+    content: "\2714";
+    width: 0.75em;
+    height: 0.6em;
+    transform: scale(0);
+    box-shadow: inset 1em 1em rgb(104, 68, 163);
+    background-color: transparent;
+    text-align: center;
+    font-size: 10px;
+  }
+  
+input[type="checkbox"]:checked {
+    background-color: rgb(104, 68, 163);
+    border-color: rgb(104, 68, 163);
+}
+
+input[type="checkbox"]:checked::before {
+    transform: scale(1);
+    background-color: transparent;
+  }
+  
+input[type="checkbox"]:focus {
+    outline: max(0px, 0.15em) solid rgb(177, 157, 228);
+  }

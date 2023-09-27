@@ -1,0 +1,30 @@
+.toggleshop-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+.toggle-button {
+    padding: 5px 10px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    text-decoration: none;
+  }
+
+.toggle-button.active {
+    background-color: #001aff;
+    color: #fffffff0;
+  }
+
+.shop-box-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+.toggle-buttons-container {
+    margin-top: 30px;
+    margin-left: 28px;
+  }
