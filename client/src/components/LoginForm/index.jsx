@@ -31,7 +31,7 @@ const LoginForm = () => {
         <div className='input-idv-container'>
             {/* <label>Password: </label> */}
             <input
-            type="text"
+            type="password"
             id="password"
             onChange={handlePassword}
             //   value="password"

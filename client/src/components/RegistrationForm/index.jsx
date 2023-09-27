@@ -64,7 +64,7 @@ const RegistrationForm = () => {
       <div className='input-idv-container'>
           {/* <label>Password: </label> */}
           <input
-          type="text"
+          type="password"
           id="password"
           onChange={handlePassword}
           //   value="password"
@@ -76,7 +76,7 @@ const RegistrationForm = () => {
       <div className='input-idv-container'>
           {/* <label>Confirm Password: </label> */}
           <input
-          type="text"
+          type="password"
           id="confirm-password"
           onChange={handleConfirmationPassword}
           //   value="confirm password"
