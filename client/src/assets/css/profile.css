@@ -24,6 +24,8 @@ p {
 	position: absolute;
 	top: 78px;
 	width: 1190px;
+	display: flex;
+	align-items: center;
 }
 
 .ellipse {
@@ -33,6 +35,7 @@ p {
 	position: absolute;
 	top: 43px;
 	width: 286px;
+	border-radius: 50%;
 }
 
 .text-wrapper-1 {
@@ -41,13 +44,11 @@ p {
 	font-size: 48px;
 	font-weight: 400;
 	height: 61px;
-	left: 254px;
+	left: 366px;
 	letter-spacing: 0;
 	line-height: normal;
 	position: absolute;
-	text-align: center;
 	top: 0;
-	width: 331px;
 }
 
 .text-wrapper-2 {
@@ -56,11 +57,24 @@ p {
 	font-size: 16px;
 	font-weight: 400;
 	height: 21px;
-	left: 294px;
+	left: 366px;
 	letter-spacing: 0;
 	line-height: normal;
 	position: absolute;
-	text-align: center;
+	top: 73px;
+	width: 321px;
+}
+
+.text-wrapper-22 {
+	color: #f5f5f5;
+	font-family: "Inter", Helvetica;
+	font-size: 16px;
+	font-weight: 400;
+	height: 21px;
+	left:600px;
+	letter-spacing: 0;
+	line-height: normal;
+	position: absolute;
 	top: 73px;
 	width: 321px;
 }
@@ -71,11 +85,10 @@ p {
 	font-size: 24px;
 	font-weight: 400;
 	height: 40px;
-	left: 317px;
+	left: 366px;
 	letter-spacing: 0;
 	line-height: normal;
 	position: absolute;
-	text-align: center;
 	top: 106px;
 	width: 205px;
 }
@@ -100,11 +113,10 @@ p {
 	font-size: 24px;
 	font-weight: 400;
 	height: 40px;
-	left: 317px;
+	left: 366px;
 	letter-spacing: 0;
 	line-height: normal;
 	position: absolute;
-	text-align: center;
 	top: 195px;
 	width: 205px;
 }
@@ -129,6 +141,14 @@ p {
 	border-radius: 10px;
 	height: 33px;
 	width: 99px;
+}
+
+.save-button {
+	background-color: #ffd700f0;
+	border-color: #0f0e06f0;
+	border-radius: 10px;
+	height: 33px;
+	width: 130px;
 }
 
 .flex-container {
@@ -320,12 +340,16 @@ p {
 
 /* edit profile button */
 .div-wrapper {
-	border-radius: 10px;
-	height: 33px;
 	left: 465px;
 	position: absolute;
 	top: 434px;
-	width: 99px;
+}
+
+.div-wrapper2 {
+	left: 465px;
+	position: absolute;
+	top: 356px;
+	z-index: 1;
 }
 
 .text-wrapper-13 {
@@ -341,4 +365,35 @@ p {
 	text-align: center;
 	top: 4px;
 	width: 89px;
+}
+
+/* edit profile modal */
+input {
+	border-radius: 10px;
+	border: 1px solid #ccc;
+	padding: 5px 10px; 
+	font-size: 16px;
+}
+
+#alias {
+  height: 35px; 
+	width: auto;
+}
+
+#age {
+  height: 30px;
+	width: 100px;
+} 
+
+#gender {
+  height: 30px;
+}
+
+#quote {
+  height: 30px;  
+}
+
+#goals {
+  height: 60px;
+	width: 900px;
 }
