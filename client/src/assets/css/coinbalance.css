@@ -10,8 +10,10 @@
 .shop-coin-icon {
     margin-right: -10px;
     transform: scale(0.4);
+    cursor: pointer;
   }
 
 .shop-coin-info {
     font-size: 16px;
+    cursor: pointer;
 }
