@@ -21,6 +21,20 @@ def is_db_connected():
         return False
 
 
+def check_db_connection():
+    try:
+        engine = db.create_engine(db.engine.url)
+        connection = engine.connect()
+        connection.close()
+
+        print("Database health check: OK")
+    except Exception as e:
+        print(f"Database connection error: {str(e)}")
+        exit(1)
+
+    return
+
+
 def setup_tables():
     # runs the schema.sql file to create the tables
     try:
@@ -33,7 +47,25 @@ def setup_tables():
             con.execute(text(sql))
             con.commit()
 
-        print("SQL script executed successfully.")
+        print("SQL schema executed successfully.")
+
+    except Exception as e:
+        print(f"Error: {e}")
+        exit(1)
+
+
+def dummy_data():
+    try:
+        # Read the SQL script
+        with open('app/database/data.sql', 'r') as f:
+            data = f.read()
+
+        # Execute the SQL script
+        with db.engine.connect() as con:
+            con.execute(text(data))
+            con.commit()
+
+        print("SQL dummy data inserted successfully.")
 
     except Exception as e:
         print(f"Error: {e}")

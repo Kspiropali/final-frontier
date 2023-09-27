@@ -1,11 +1,11 @@
 -- USERS
 INSERT INTO
     member(username, email, password, coins, avatar, items, allocated_tasks, is_activated)
-VALUES ('bob', 'bob@bob.com', 'bob', 100, 'bob.png', '{}', '{}', TRUE);
+VALUES ('bob', 'bob@bob.com', '$2b$12$8tDf1A4Iq2tkwv.4DSJkC.DvuPVcgy7t4r95hnK7tGYdjIkcl/LlS', 100, 'bob.png', '{}', '{}', TRUE);
 
 INSERT INTO
     member(username, email, password, coins, avatar, items, allocated_tasks, is_activated)
-VALUES ('sam', 'sam@sam.com', 'sam', 50, 'sam.png', '{}', '{}', FALSE);
+VALUES ('sam', 'sam@sam.com', '$2b$12$uZllZLq8kxU2srej7pv7Zum7ULiOa6lrUEhdVWXfErnKsshyjYY02', 50, 'sam.png', '{}', '{}', FALSE);
 
 -- TASKS
 INSERT INTO
@@ -34,3 +34,13 @@ INSERT INTO
 VALUES ('item3', 'item3 description', 30, 'item3.png');
 
 -- User verification EMAILS
+INSERT INTO
+    email(username, token)
+VALUES ('sam', 'sam');
+
+-- MEMBER DETAILS
+INSERT INTO
+    member_detail(member_id, first_name, last_name, alias, quote, summary, gender)
+VALUES (1, 'Bobby', 'Baum', 'Bobman', 'Best mage in wotlk', 'I am a potato', 'male');
+
+-- STATISTICS
