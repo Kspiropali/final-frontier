@@ -12,7 +12,8 @@ export { default as SupportIcons } from './SupportIcons'
 export {default as SupportServicesList} from './SupportServicesList'
 //login page components
 export {default as Loginform } from './LoginForm'
-export { default as RegistrationForm} from './RegistrationForm'
-export { default as OAuthLoginModule} from './OAuthLoginModule'
+export { default as RegistrationForm } from './RegistrationForm'
+export { default as OAuthLoginModule } from './OAuthLoginModule'
+export { default as ResetPassword } from './ResetPassword'
 export { default as OAuthButtons} from './OAuthButtons'
 //
