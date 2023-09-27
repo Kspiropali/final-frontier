@@ -2,7 +2,7 @@ import React from 'react'
 import { SearchItem, FilterItems, AvatarModal } from '..';
 import { useShop } from '../../contexts/ShopContext'
 
-import avatarImage from '../../assets/images/default.png'
+import avatarImage from '../../assets/images/testavatars/avi.png'
 
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';

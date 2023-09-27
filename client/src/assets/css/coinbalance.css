@@ -1,0 +1,16 @@
+.shop-coin-balance {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 10px; 
+    font-size: 18px;
+  }
+  
+.shop-coin-icon {
+    margin-right: -10px;
+    transform: scale(0.4);
+  }
+
+.shop-coin-info {
+    font-size: 16px;
+}

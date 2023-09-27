@@ -1,5 +1,5 @@
 import React from "react"
-import { ShopSidebar, ShopBox, ShopPreview } from "../../components"
+import { ShopSidebar, ShopBox, ShopPreview, CoinBalance } from "../../components"
 import '../../assets/css/shop.css'
 
 const Shop = () => {
@@ -10,6 +10,7 @@ const Shop = () => {
                 <div className="box-container">
                     <ShopBox />
                     <ShopPreview />
+                    <CoinBalance />
                 </div>
             </div>
     </main>

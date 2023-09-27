@@ -1,5 +1,5 @@
 import React from 'react'
-import ToggleShop from '../../components/ToggleShop'
+import { ToggleShop } from '../../components'
 import '../../assets/css/shopbox.css'
 
 const ShopBox = () => {

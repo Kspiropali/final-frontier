@@ -3,7 +3,7 @@ import { useShop } from '../../contexts/ShopContext'
 import '../../assets/css/toggleshop.css'
 
 const ToggleShop = () => {
-    const { showAllItems, toggleShowAllItems, showFeaturedItems, toggleShowFeaturedItems } = useShop(); // Use the context
+    const { showAllItems, toggleShowAllItems, showFeaturedItems, toggleShowFeaturedItems } = useShop();
 
   return (
     <div className="toggleshop-container">
