@@ -1,9 +1,13 @@
 import React from 'react'
 import { useAuth } from '../../contexts/AuthContext'
 
-const PreResetPassword = () => {
+const PreResetPassword = ({ setPreResetState }) => {
 
-  const {email, setEmail} = useAuth()
+  const {email, setEmail, setDisplayMessage, displayMessage} = useAuth()
+
+  function handleEmail(e){
+    setEmail(e.target.value.toString())
+  }
   
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -21,17 +25,17 @@ const PreResetPassword = () => {
           body : data
         });
 
-        setDisplayMessage('Registration Successful. You can now login')
+        setDisplayMessage('A password reset link has been sent. Please check your email')
         setEmail(''),
         setTimeout(() => {
-          // setDisplayMessage('')
+          setDisplayMessage('')
         }, 3000);
       }
       catch (err){
-        setDisplayMessage('Registration Unsuccessful')
+        setDisplayMessage("An account doesn't exist for this email")
         setEmail(''),
         setTimeout(() => {
-          // setDisplayMessage('')
+          setDisplayMessage('')
         }, 3000);
       }
     }
@@ -45,8 +49,20 @@ const PreResetPassword = () => {
     <form aria-label='pre-reset form'
     role="pre-reset"
     onSubmit={handleSubmit}>
-
+      <div className='input-idv-container'>
+        <input
+        type="text"
+        id="email"
+        onChange={handleEmail}
+        value={email}
+        placeholder='email'
+        required
+        className='input-field'/>
+        <p>must contain @</p>
+      </div>
     </form>
+    <p className='yellow-text' id='return-to-login' onClick={() => setPreResetState(false)}>return to login</p>
+    {displayMessage && <p>{displayMessage}</p>}
     </>
   )
 }

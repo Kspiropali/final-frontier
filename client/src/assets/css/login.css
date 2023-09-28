@@ -85,6 +85,6 @@ input {
     font-size: .8rem;
 }
 
-#forgot-password {
+#forgot-password, #return-to-login {
     text-decoration: underline;
 }

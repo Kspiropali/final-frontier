@@ -16,6 +16,10 @@ const Login = () => {
     setActivePanel(panelName)
   }
 
+  useEffect(() => {
+    console.log(preResetState)
+  }, [preResetState])
+
   return (
     <>
     <h1 className='top-header yellow-text'>WellSpace</h1>
@@ -27,7 +31,7 @@ const Login = () => {
       </div>
       <h2 className='log-reg-title'>{activePanel == "Register" ? containerTitle[1]: !preResetState ? containerTitle[0]: containerTitle[2]}</h2>
       <div className='input-area-container'>
-        {activePanel == "Register" ? <RegistrationForm/> : !preResetState ? <Loginform setPreResetState={setPreResetState}/> : <PreResetPassword/>}
+        {activePanel == "Register" ? <RegistrationForm/> : !preResetState ? <Loginform setPreResetState={setPreResetState}/> : <PreResetPassword setPreResetState={setPreResetState} />}
       </div>
     </div>
     </>

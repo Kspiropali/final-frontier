@@ -4,9 +4,8 @@ import axios from 'axios'
 
 const RegistrationForm = () => {
   
-  const {confirmationPassword, setConfirmationPassword, confirmationEmail, setConfirmationEmail, email, setEmail, password, setPassword, username, setUsername} = useAuth()
+  const {confirmationPassword, setConfirmationPassword, confirmationEmail, setConfirmationEmail, email, setEmail, password, setPassword, username, setUsername, displayMessage, setDisplayMessage} = useAuth()
 
-  const [displayMessage, setDisplayMessage] = useState('')
   
   const handleUsername = (e) => {
     setUsername(e.target.value.toString())
