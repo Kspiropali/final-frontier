@@ -29,7 +29,7 @@ const PasswordReset = () => {
               body : data
             });
     
-            setDisplayMessage('A password reset link has been sent')
+            setDisplayMessage('Password Changed Successfully')
             setPassword(''),
             setConfirmationPassword(''),
             setTimeout(() => {
@@ -68,7 +68,7 @@ const PasswordReset = () => {
                         value={password}
                         placeholder='password'
                         required
-                        className='input-field'/>
+                        className='input-field white-text password-field'/>
                         <p>must contain: 7-15 characters, 1 number & 1 symbol </p>
                     </div>
                     <div className='input-idv-container'>
@@ -79,12 +79,14 @@ const PasswordReset = () => {
                         value={confirmationPassword}
                         placeholder='confirm password'
                         required
-                        className='input-field no-match'/>
+                        className='input-field white-text password-field no-match'/>
                         <p>passwords do not match</p>
                     </div>
                 </form>
             </div>
+            {displayMessage && <p className='white-text' id='result-message'>{displayMessage}</p>}
         </div>
+        {displayMessage == "Password Changed Successfully" && <p className='white-text' id='exit-reset-page'>Return back to Login</p>}
         </>
     )
 }

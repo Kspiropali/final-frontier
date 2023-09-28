@@ -82,7 +82,7 @@ const LoginForm = ({setPreResetState}) => {
             //   value="password"
             placeholder='password'
             required
-            className='input-field'/>
+            className='input-field white-text password-field'/>
         </div>
         <input className='login-btn' type="submit" value="Login" />
     </form>
