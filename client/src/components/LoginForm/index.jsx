@@ -26,17 +26,24 @@ const LoginForm = ({setPreResetState}) => {
         if (username.length > 0 && password.length > 0) {
           try {
     
-            const data = {
+            const data = JSON.stringify({
               username: username,
               password: password
-            }
-            const response = await axios.post('http://localhost:8080/users', {
-              headers : {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-              },
-              body : data
             });
+    
+            let config = {
+              method: 'post',
+              maxBodyLength: Infinity,
+              url: 'http://localhost:3000/users/login',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              data : data
+            };
+    
+            const response = await axios.request(config)
+    
+            console.log(JSON.stringify(response.data))
 
             console.log(response)
             //const token == response.headers.authorization

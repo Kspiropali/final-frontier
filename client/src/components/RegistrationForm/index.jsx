@@ -6,21 +6,43 @@ const RegistrationForm = () => {
   
   const {confirmationPassword, setConfirmationPassword, confirmationEmail, setConfirmationEmail, email, setEmail, password, setPassword, username, setUsername, displayMessage, setDisplayMessage} = useAuth()
 
+  let usernameSatisfied ;
+  let emailSatisfied ;
+  let confirmationEmailSatisfied ;
+  let passwordSatisfied ;
+  let confirmationPasswordSatisfied ;
   
   const handleUsername = (e) => {
-    setUsername(e.target.value.toString())
+    const value = e.target.value
+    setUsername(value.toString())
+
   }
   const handlePassword = (e) => {
-      setPassword(e.target.value.toString())
+    const value = e.target.value
+      setPassword(value.toString())
   }
   const handleConfirmationPassword = (e) => {
-      setConfirmationPassword(e.target.value.toString())
+    const value = e.target.value
+      setConfirmationPassword(value.toString())
   }
   function handleEmail(e){
-      setEmail(e.target.value.toString())
+    const value = e.target.value
+      setEmail(value.toString())
   }
   const handleConfirmationEmail = (e) => {
-      setConfirmationEmail(e.target.value.toString())
+    const value = e.target.value
+      setConfirmationEmail(value.toString())
+  }
+
+  function checkUsername(username){
+    if (username < 2) {
+      return [false, "too short"]
+    }
+  }
+  function checkPassword(username){
+    if (username < 2) {
+      return false
+    }
   }
 
   const handleSubmit = async (e) => {
@@ -28,18 +50,25 @@ const RegistrationForm = () => {
     if (username.length > 0 && password.length > 0 && confirmationPassword.length > 0 && email.length > 0 && confirmationEmail.length > 0) {
       try {
 
-        const data = {
+        const data = JSON.stringify({
           username: username,
           password: password,
           email: email
-        }
-        await axios.post('http://localhost:8080/users', {
-          headers : {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          },
-          body : data
         });
+
+        let config = {
+          method: 'post',
+          maxBodyLength: Infinity,
+          url: 'http://127.0.0.1:3000/users/register',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          data : data
+        };
+
+        const response = await axios.request(config)
+
+        console.log(JSON.stringify(response.data))
 
         setDisplayMessage('Registration Successful. You can now login')
         setUsername(''),
@@ -82,8 +111,7 @@ const RegistrationForm = () => {
             value={username}
             placeholder='username'
             required
-            className='input-field'/>
-        {/* <p>cannot be changed</p> */}
+            className={`input-field`}/>
       </div>
       <div className='input-idv-container'>
           <input
@@ -116,7 +144,7 @@ const RegistrationForm = () => {
           placeholder='password'
           required
           className='input-field white-text password-field'/>
-          <p>must contain: 7-15 characters, 1 number & 1 symbol </p>
+          <p>{'must contain at least: 6 characters, 1 Uppercase, 0-9 & 1 symbol'} </p>
       </div>
       <div className='input-idv-container'>
           <input
