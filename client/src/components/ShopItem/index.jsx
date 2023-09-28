@@ -1,8 +1,13 @@
 import React from 'react'
 
-const ShopItem = ({ item }) => {
+const ShopItem = ({ item, onItemClick }) => {
+
+    const handleItemClick = () => {
+        onItemClick(item);
+      };
+    
   return (
-    <div className="shop-item">
+    <div className="shop-item" onClick={handleItemClick}>
         <img className="item-image" src={item.image} alt={item.name} />
         <div className="item-price">
             <div className="price-container">
