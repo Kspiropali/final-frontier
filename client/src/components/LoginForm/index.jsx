@@ -14,11 +14,6 @@ const LoginForm = ({setPreResetState}) => {
         setPassword(e.target.value.toString())
     }
 
-    const renderPasswordReset = (e) => {
-        // a redirect
-        return
-    }
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log(username.length)

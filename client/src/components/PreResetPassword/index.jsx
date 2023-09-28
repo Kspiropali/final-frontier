@@ -8,7 +8,6 @@ const PreResetPassword = ({ setPreResetState }) => {
 
   function handleEmail(e){
     setEmail(e.target.value.toString())
-    console.log(email)
   }
   
   const handleSubmit = async (e) => {
