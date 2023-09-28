@@ -4,6 +4,11 @@ import { useShop } from '../../contexts/ShopContext'
 
 const ShopPreview = () => {
     const { selectedItem } = useShop()
+    console.log(selectedItem)
+
+    const handleBuyClick = () => {
+        alert(`You are buying ${selectedItem.name}`);
+      };
 
   return (
     <>
@@ -13,13 +18,27 @@ const ShopPreview = () => {
         <div className="prev-box">
         {selectedItem && (
           <>
+          <div className="item-preview-container">
             <img src={selectedItem.image} alt={selectedItem.name} />
+          </div>
+          <div className="item-details-container">
             <h2>{selectedItem.name}</h2>
             <p>{selectedItem.description}</p>
-            <p>{selectedItem.price}</p>
+            <div className="price-preview">
+              <img 
+                src={selectedItem.coinImage} 
+                alt="Coin" 
+                className="coin-image" 
+              />
+              <p>{selectedItem.price}</p>
+            </div>
+            </div>
+            <div className="buy-button-container">
+                <button onClick={handleBuyClick}>Buy</button>
+            </div>
           </>
         )}
-        </div>
+      </div>
     </>
   )
 }

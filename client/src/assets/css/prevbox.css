@@ -19,3 +19,21 @@
     margin-left: 28px;
     white-space: nowrap;
 }
+
+.item-preview-container {
+    background: red;
+}
+
+.item-details-container {
+    background: green;
+}
+
+.buy-button-container {
+    background: orange;
+}
+
+.price-preview {
+    display: flex;
+    align-items: center;
+    margin-top: 4px;
+  }
