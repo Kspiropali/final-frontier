@@ -1,64 +1,13 @@
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, request, jsonify, make_response, redirect, url_for
+from sqlalchemy import CursorResult
+
 from ..controllers.user_controllers import *
+from ..middleware.authorization import requires_authorization_token
 from ..middleware.validate_json_params import validate_json_params
+from ..middleware.validate_path_params import validate_path_params
+from ..models.Session import Session
 
 user_bp = Blueprint('user', __name__)
-
-
-############## User Routes Reference ##############
-@user_bp.route('/', methods=['GET'])
-def list_users():
-    return jsonify(get_users()), 200
-#
-#
-# @user_bp.route('/<int:user_id>', methods=['GET'])
-# def get_single_user(user_id):
-#     return jsonify(get_user(user_id))
-
-
-# @user_bp.route('/', methods=['POST'])
-# @validate_json_params({
-#     'username': {'type': 'stringWithMaxLength', 'maxLength': 50},
-#     'password': {'type': 'stringWithMaxLength', 'maxLength': 50},
-#     'email': {'type': 'stringWithMaxLength', 'maxLength': 50}
-# })
-# def add_user():
-#     try:
-#         data = request.json
-#         username = data.get('username')
-#         password = data.get('password')
-#         email = data.get('email')
-#
-#         result = 1
-#         if result.startswith('error'):
-#             return jsonify({'error': result.split("DETAIL:")[1].strip().split("\n")[0]}), 400
-#
-#         return jsonify({'message': 'User created successfully'}), 201
-#     except Exception as e:
-#         return {'error': str(e)}, 400
-
-
-# @user_bp.route('/<int:id>', methods=['PUT'])
-# @validate_path_params('int')
-# def update_single_user(id):
-#     try:
-#         data = request.json
-#         result = update_user(id, data)
-#
-#         if result.startswith('error'):
-#             return jsonify({'error': result.split("DETAIL:")[1].strip().split("\n")[0]}), 400
-#
-#         return jsonify({'message': 'User updated successfully'}), 200
-#     except Exception as e:
-#         if str(e).startswith('list index out of range'):
-#             return jsonify({'error': 'User not found'}), 404
-#         return {'error': str(e)}, 400
-#
-#
-# @user_bp.route('/<int:user_id>', methods=['DELETE'])
-# def remove_user(user_id):
-#     delete_user(user_id)
-#     return jsonify({'message': 'User deleted successfully'})
 
 
 @user_bp.post('/register')
@@ -97,13 +46,67 @@ def login():
 
         result = login_user(username, password)
 
-        print(result)
         if result.startswith('error'):
             try:
                 return jsonify({'error': result.split("DETAIL:")[1].strip().split("\n")[0]}), 400
             except Exception:
                 return jsonify({'error': result.split('error: ')[1]}), 400
 
-        return jsonify({'message': 'User logged in successfully'}), 200
+        token = Session.create(username)
+        if token.startswith('error'):
+            return jsonify({'error': token.split("DETAIL:")[1].strip().split("\n")[0]}), 400
+
+        # send cookies
+        resp = make_response(jsonify({'message': 'User logged in successfully'}), 200)
+        resp.set_cookie('Authorization', token,
+                        httponly=True,
+                        samesite='Lax',
+                        secure=True,
+                        path='/',
+                        max_age=60 * 60 * 24 * 7,
+                        domain='localhost')
+
+        return resp
+    except Exception as e:
+        return {'error': str(e)}, 400
+
+
+@user_bp.post('/logout')
+@requires_authorization_token()
+def logout(token):
+    try:
+        print(token)
+        result = logout_user(token)
+
+        if result.startswith('error'):
+            return jsonify({'error': result.split("DETAIL:")[1].strip().split("\n")[0]}), 400
+
+        # send cookies
+        resp = make_response(jsonify({'message': 'User logged out successfully'}), 200)
+        resp.set_cookie('Authorization', '',
+                        httponly=True,
+                        samesite='Lax',
+                        secure=True,
+                        path='/',
+                        max_age=0,
+                        domain='localhost')
+
+        return resp
+    except Exception as e:
+        return {'error': str(e)}, 400
+
+
+@user_bp.get('/verify/<param>')
+@validate_path_params('string')
+def verify(param):
+    try:
+        result = activate_user(param)
+
+        if not isinstance(result, CursorResult) and result.startswith('error'):
+            return jsonify({'error': result.split("error: ")[1]}), 400
+
+        # TODO: return a redirect here instead of a message
+        # redirect
+        return redirect(url_for('index'))
     except Exception as e:
         return {'error': str(e)}, 400

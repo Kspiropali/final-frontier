@@ -1,47 +1,26 @@
 import bcrypt
+
+from ..models.Email import Email
+from ..models.Session import Session
 from ..models.User import User
+from ..middleware.mailer import send_activation_email, send_password_reset_email
+from ..config import DOMAIN
 
 PASSWORD_REGEX = r'^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])(?!.*\s).{8,}$'
-
-# User controller reference methods
-def get_users():
-    users = User.get_users()
-    user_list = [{'id': user.id, 'username': user.username} for user in users]
-    return user_list
-#
-#
-# def get_user(user_id):
-#     user = User.get_user(user_id)
-#
-#     user_data = {'id': user.id, 'username': user.username}
-#     return user_data
-#
-#
-# def create_user(username, password, email):
-#     return User.create(username, password, email)
-#
-#
-# def update_user(user_id, data):
-#     return User.update(user_id, data)
-#
-#
-# def delete_user(user_id):
-#     User.delete(user_id)
-#
-#     return "deleted"
 
 
 def register_user(username, password, email):
     # Hash password
     salt = bcrypt.gensalt()
-    hashed_password = bcrypt.hashpw(password.encode('utf-8'), salt)
-    print(password, hashed_password)
+    hashed_password = bcrypt.hashpw(password.encode("utf-8"), salt)
 
     # Create user
     try:
-        result = User.create(username, hashed_password, email)
+        result = User.create(username, hashed_password.decode("utf-8"), email)
 
-        #     TODO: activation url & send email to user
+        activation_token = Email.create(username, False)
+
+        send_activation_email(email, DOMAIN + 'users/verify/' + activation_token)
 
         return result
     except Exception as e:
@@ -55,14 +34,46 @@ def login_user(username, password):
         if user is None:
             return "error: User not found"
 
-        if not user.is_activated:
-            return "error: User is not active"
-
         if not bcrypt.checkpw(password.encode('utf-8'), user.password.encode('utf-8')):
             return "error: Incorrect password"
+
+        if not user.is_activated:
+            return "error: User is not activated"
 
         return "success"
 
     except Exception as e:
         return f"error: {str(e)}"
 
+
+def activate_user(email_token):
+    try:
+        user_email_token = Email.find_by_token(email_token)
+        if user_email_token is None:
+            return "error: Token not found"
+
+        user_to_activate = User.find_by_username(user_email_token.username)
+        if user_to_activate is None:
+            return "error: User not found"
+
+        user_result = User.activate_user(user_to_activate.id)
+        if user_result is None:
+            return "error: Could not activate user"
+
+        email_result = Email.delete(user_email_token.token)
+        if email_result is None:
+            return "error: Could not delete email token"
+
+
+        return "success"
+    except Exception as e:
+        return f"error: Could not activate user: {str(e)}"
+
+
+def logout_user(token):
+    try:
+        result = Session.delete(token)
+
+        return result
+    except Exception as e:
+        return e

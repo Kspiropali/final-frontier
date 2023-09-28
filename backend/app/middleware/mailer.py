@@ -12,9 +12,27 @@ def init_mail(app=None):
             mail.init_app(current_app)
 
 
+def configure_mail(app):
+    app.config['MAIL_SERVER'] = 'localhost'
+    app.config['MAIL_PORT'] = 1025
+    app.config['MAIL_USE_TLS'] = False
+    app.config['MAIL_USE_SSL'] = False
+    app.config['MAIL_DEBUG'] = False
+    app.config['MAIL_SUPPRESS_SEND'] = False
+    app.config['MAIL_ASCII_ATTACHMENTS'] = False
+    app.config['MAIL_MAX_EMAILS'] = None
+    app.config['MAIL_USERNAME'] = None
+    app.config['MAIL_PASSWORD'] = None
+
+    mail.init_app(app)
+
+
+# Not to be used directly
 def send_email(subject, recipients, html_body):
     try:
-        message = Message(subject=subject, recipients=recipients)
+        message = Message(subject=subject,
+                          recipients=recipients,
+                          sender="finfrontend@support.uk")
         message.html = html_body
         mail.send(message)
         return True  # Email sent successfully

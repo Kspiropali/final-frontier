@@ -37,7 +37,7 @@ CREATE TABLE task (
 
 CREATE TABLE session (
     id SERIAL PRIMARY KEY,
-    member_id INTEGER REFERENCES member(id) NOT NULL,
+    username VARCHAR(255) REFERENCES member(username) NOT NULL, -- If unique, then only one session per user
     token VARCHAR(255) NOT NULL,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
