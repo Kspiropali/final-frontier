@@ -9,7 +9,7 @@ const Login = () => {
 
   const [activePanel, setActivePanel] = useState('Login')
   const [resultMessage, setResultMessage] = useState()
-  const [prePasswordState, setPrePasswordState] = useState('')
+  const [preResetState, setPreResetState] = useState('')
 
   const handlePanelToggle = (panelName) => {
 
@@ -25,9 +25,9 @@ const Login = () => {
         <button className={`white-text log-reg-btn ${activePanel === "Login" ? 'active-log-btn': ''}`} id='login-btn' onClick={() => handlePanelToggle('Login')}>Login</button>
         <button className={`white-text log-reg-btn ${activePanel === "Register" ? 'active-log-btn': ''}`} id='register-btn' onClick={() => handlePanelToggle('Register')}>Register</button>
       </div>
-      <h2 className='log-reg-title'>{activePanel == "Register" ? containerTitle[1]: !prePasswordState ? containerTitle[0]: containerTitle[2]}</h2>
+      <h2 className='log-reg-title'>{activePanel == "Register" ? containerTitle[1]: !preResetState ? containerTitle[0]: containerTitle[2]}</h2>
       <div className='input-area-container'>
-        {activePanel == "Register" ? <RegistrationForm/> : <Loginform/>}
+        {activePanel == "Register" ? <RegistrationForm/> : !preResetState ? <Loginform setPreResetState={setPreResetState}/> : <PreResetPassword/>}
       </div>
     </div>
     </>

@@ -3,7 +3,7 @@ import { useAuth } from '../../contexts/AuthContext'
 import axios from 'axios'
 
 
-const LoginForm = () => {
+const LoginForm = ({setPrePasswordState}) => {
 
     const {username, setUsername, password, setPassword} = useAuth()
 
