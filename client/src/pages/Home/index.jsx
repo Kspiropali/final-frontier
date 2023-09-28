@@ -1,13 +1,18 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import CompletionBar from '../../components/CompletionBar';
+import WalkingCharacter from '../../components/WalkingCharacter';
 import "../../assets/css/home.css";
 
 const Home = () => {
   return (
-    <div className="index">
-      <div className="completion-bar">
-        <div className="completion" />
-      </div>
+    <div className="index-home">
+      <img
+        className="background"
+        alt="Image"
+        src="https://cdn.animaapp.com/projects/651165e23f4e55995d9af710/releases/65118b4400e335da865f91ca/img/rectangle-8.png"
+      />
+      <CompletionBar />
       <div className="images-container">
         <div className="images">
           <Link to="/selfcare">
@@ -53,12 +58,8 @@ const Home = () => {
           />
           </Link>
         </div>
-        <img
-            className="character"
-            alt="Image"
-            src="https://cdn.animaapp.com/projects/651165e23f4e55995d9af710/releases/651200163f4e55995d9af7ea/img/image-7@2x.png"
-          />
       </div>
+      <WalkingCharacter />
   </div>
   )
 }

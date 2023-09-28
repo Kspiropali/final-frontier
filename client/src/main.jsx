@@ -7,14 +7,17 @@ import { ShopProvider } from './contexts/ShopContext'
 
 //context providers (AuthProvider MUST be the outer-most provider)
 import { AuthProvider } from './contexts/AuthContext'
+import { TaskProvider } from './contexts/TaskContext'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <AuthProvider>
       <ShopProvider>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
+        <TaskProvider>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </TaskProvider>
       </ShopProvider>
     </AuthProvider>
   </React.StrictMode>

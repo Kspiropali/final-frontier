@@ -7,3 +7,107 @@
      margin-top: 140px;
      margin-right: -50px;
 }
+
+.prevbox-container {
+    position: relative;
+    left: 116px;
+}
+
+.preview-header {
+    font-size: 32px;
+    margin-top: 20px;
+    margin-left: 28px;
+    white-space: nowrap;
+}
+
+.item-preview-container {
+    background-color: #391488;
+    border-radius: 10px;
+    max-width: 100%;
+    max-height: 400px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.item-preview-container img {
+    width: auto;
+    max-width: 100%; 
+    max-height: 100%;
+    transform: scale(0.6);
+  }
+
+.item-details-container {
+    color: black;
+    background-color: #debb42;
+    border-radius: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.item-details-container h2 {
+    color: black;
+    font-weight: bolder;
+    font-size: 25px;
+    padding-top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.item-details-container h3 {
+    color: black;
+    font-weight: bold;
+    margin-top: 40px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.buy-button-container {
+    border-radius: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.buy-btn {
+    background-color: #00a61a;
+	font-family: "Inter", Helvetica;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.price-preview {
+    display: flex;
+    align-items: center;
+    margin-top: 50px;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-weight: bold;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+.price-preview p {
+    margin-top: 1px;
+    margin-left: -8px;
+  }

@@ -1,0 +1,25 @@
+{
+  "users": [
+    {
+      "id": "0",
+      "username": "username",
+      "password": "password",
+      "email": "email"
+    }
+  ],
+  "profiles": [
+    {
+      "alias": "alias",
+      "age": "age",
+      "gender": "gender",
+      "quote": "quote by user",
+      "goals": "one user goal",
+      "avatar": "user avatar",
+      "coins": "coin amount",
+      "login-streak": "streak number"
+    }
+  ],
+  "shop-items": [
+    {}
+  ]
+}
