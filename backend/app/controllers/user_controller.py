@@ -3,7 +3,7 @@ import bcrypt
 from ..models.Email import Email
 from ..models.Session import Session
 from ..models.User import User
-from ..middleware.mailer import send_activation_email, send_password_reset_email
+from ..middleware.mailer import send_activation_email
 from ..config import DOMAIN
 
 PASSWORD_REGEX = r'^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])(?!.*\s).{8,}$'
@@ -63,7 +63,6 @@ def activate_user(email_token):
         email_result = Email.delete(user_email_token.token)
         if email_result is None:
             return "error: Could not delete email token"
-
 
         return "success"
     except Exception as e:

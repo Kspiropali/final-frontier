@@ -1,14 +1,16 @@
 from flask import Blueprint, request, jsonify
-from ..controllers.task_controlller import *
+from ..controllers.task_controller import *
 from ..middleware.validate_json_params import validate_json_params
 
 task_bp = Blueprint('task', __name__)
+
 
 @task_bp.route('/', methods=['GET'])
 def list_tasks():
     tasks = get_tasks()
     print(task for task in tasks)
     return jsonify({'tasks': [{'id': task.id, 'name': task.name, 'description': task.description} for task in tasks]})
+
 
 @task_bp.route('/<int:task_id>', methods=['PATCH'])
 def update_single_task(task_id):

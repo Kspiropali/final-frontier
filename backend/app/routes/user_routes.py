@@ -1,7 +1,7 @@
 from flask import Blueprint, request, jsonify, make_response, redirect, url_for
 from sqlalchemy import CursorResult
 
-from ..controllers.user_controllers import *
+from ..controllers.user_controller import *
 from ..middleware.authorization import requires_authorization_token
 from ..middleware.validate_json_params import validate_json_params
 from ..middleware.validate_path_params import validate_path_params
