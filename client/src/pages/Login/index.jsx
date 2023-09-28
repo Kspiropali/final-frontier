@@ -11,7 +11,6 @@ const Login = () => {
   const {displayMessage} = useAuth()
 
   const [activePanel, setActivePanel] = useState('Login')
-  const [resultMessage, setResultMessage] = useState()
   const [preResetState, setPreResetState] = useState('')
 
   const handlePanelToggle = (panelName) => {
@@ -20,10 +19,6 @@ const Login = () => {
     }
     setActivePanel(panelName)
   }
-
-  useEffect(() => {
-    console.log(preResetState)
-  }, [preResetState])
 
   return (
     <>
