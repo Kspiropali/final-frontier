@@ -32,10 +32,9 @@ const ShopBox = () => {
         },
     ]
 
-  const categorizedItems = {}; // Create an object to store categorized items
+  const categorizedItems = {};
 
     shopItems.forEach((item) => {
-        // Group items by their type
         if (!categorizedItems[item.type]) {
             categorizedItems[item.type] = [];
         }
