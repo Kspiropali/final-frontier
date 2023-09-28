@@ -3,9 +3,9 @@ import { useAuth } from '../../contexts/AuthContext'
 import axios from 'axios'
 
 
-const LoginForm = () => {
+const LoginForm = ({setPreResetState}) => {
 
-    const {username, setUsername, password, setPassword} = useAuth()
+    const {username, setUsername, password, setPassword, setDisplayMessage} = useAuth()
 
     const handleUsername = (e) => {
         setUsername(e.target.value.toString())
@@ -92,7 +92,7 @@ const LoginForm = () => {
         <input className='login-btn' type="submit" value="Login" />
     </form>
     {/* MOVE THIS p TO LOGIN 'PAGE' FILE ONCE CONTEXTS ARE SET */}
-    <p className='yellow-text' id='forgot-password' onClick={() => renderPasswordReset}>forgot password?</p>
+    <p className='yellow-text' id='forgot-password' onClick={() => setPreResetState(true)}>forgot password?</p>
     </>
   )
 }
