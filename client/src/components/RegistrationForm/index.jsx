@@ -1,14 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useAuth } from '../../contexts/AuthContext'
 import axios from 'axios'
 
 const RegistrationForm = () => {
   
-  const {confirmationPassword, setConfirmationPassword, confirmationEmail, setConfirmationEmail, email, setEmail, password, setPassword, username, setUsername,} = useAuth()
+  const {confirmationPassword, setConfirmationPassword, confirmationEmail, setConfirmationEmail, email, setEmail, password, setPassword, username, setUsername} = useAuth()
 
+  const [displayMessage, setDisplayMessage] = useState('')
+  
   const handleUsername = (e) => {
     setUsername(e.target.value.toString())
-    console.log(username)
   }
   const handlePassword = (e) => {
       setPassword(e.target.value.toString())
@@ -16,20 +17,63 @@ const RegistrationForm = () => {
   const handleConfirmationPassword = (e) => {
       setConfirmationPassword(e.target.value.toString())
   }
-  const handleEmail = (e) => {
+  function handleEmail(e){
       setEmail(e.target.value.toString())
   }
   const handleConfirmationEmail = (e) => {
       setConfirmationEmail(e.target.value.toString())
   }
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (username.length > 0 && password.length > 0 && confirmationPassword.length > 0 && email.length > 0 && confirmationEmail.length > 0) {
+      try {
 
+        const data = {
+          username: username,
+          password: password,
+          email: email
+        }
+        await axios.post('http://localhost:8080/users', {
+          headers : {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body : data
+        });
+
+        setDisplayMessage('Registration Successful. You can now login')
+        setUsername(''),
+        setPassword(''),
+        setConfirmationPassword(''),
+        setEmail(''),
+        setConfirmationEmail('')
+        setTimeout(() => {
+          setDisplayMessage('')
+        }, 3000);
+      }
+      catch (err){
+        setDisplayMessage('Registration Unsuccessful')
+        setUsername(''),
+        setPassword(''),
+        setConfirmationPassword(''),
+        setEmail(''),
+        setConfirmationEmail('')
+        setTimeout(() => {
+          setDisplayMessage('')
+        }, 3000);
+      }
+    }
+    else {
+      console.log("incomplete form!")
+    }
+  }
   return (
     <>
     <form
     aria-label='register form'
     role="register"
-    // onSubmit={handleSubmit}
+    onSubmit={handleSubmit}
     >
       <div className='input-idv-container'>
         <input
@@ -86,8 +130,8 @@ const RegistrationForm = () => {
           className='input-field no-match'/>
           <p>emails do not match</p>
       </div>
-      {/* <input className='login' type="submit" value="Login" />
-      {resultMessage && <p>{resultMessage}</p>} */}
+      <input className='login-btn' type="submit" value="Register" />
+      {/* {displayMessage && <p>{displayMessage}</p>} */}
 
     </form>
     </>

@@ -8,8 +8,8 @@
 }
 
 /* not working for some reason */
-#active-log-btn {
-    border-bottom: 2px;
+.active-log-btn {
+    border-bottom: 0px;
 }
 
 .log-reg-btn {
