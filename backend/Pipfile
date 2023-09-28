@@ -16,6 +16,7 @@ colorama = "*"
 psutil = "*"
 flask = "*"
 werkzeug = "*"
+flask-cors = "*"
 
 [dev-packages]
 

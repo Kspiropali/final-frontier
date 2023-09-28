@@ -8,11 +8,19 @@ from app.routes import user_routes, task_router
 from app.database import *
 from app.middleware.mailer import configure_mail
 from app.routes import google_oauth, facebook_oauth, secure_reloader
+from flask_cors import CORS
+
 
 MONITORED_FILES = glob(os.path.join(".", '**'), recursive=True)
 
 # create flask app and declare static folder
 app = Flask(__name__, static_folder="static/", static_url_path="/")
+
+# Configure CORS
+# TODO: change it later, cookies change domains as well
+CORS(app)
+cors = CORS(app, resources={r"/*": {"origins": "http://localhost:5173", "supports_credentials": True}})
+
 
 # configure the mailer
 configure_mail(app)
