@@ -1,13 +1,27 @@
-import React from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom';
+import Timer from '../../components/Timer';
+
 import '../../assets/css/task.css';
 
 const FreshAir = () => {
+  const [timerStarted, setTimerStarted] = useState(false);
+
+  const [taskCompleted, setTaskCompleted] = useState(false);
+
+  const handleStartTask = () => {
+    setTimerStarted(true);
+  };
+
+  const handleTimerFinish = () => {
+    setTaskCompleted(true);
+  };
+
   return (
     <div className="indexT">
-    <div className="div">
+    <div className="divT">
       <div className="text-wrapper">Fresh air</div>
-      <div className="box">
+      <div className="boxT">
         <img
           className="image"
           alt="Image"
@@ -17,12 +31,20 @@ const FreshAir = () => {
           Physcial wellbeing is equally as important as mental wellbeing. Be sure to get up have a stretch and take a step outside for 10 minutes. Breathing in fresh air can provide the brain with fresh oxygen and in turn will boost your productivity.
         </p>
         <div className="button-start">
-            <Link to="/start-task" className="button-link">
-              Start Task
-            </Link>
+            {taskCompleted && (
+              <div className="message-done">
+                Task has been completed for today! Keep at it to your hearts desire
+              </div>
+            )}
+            {timerStarted ? (
+              <div className="timer-wrapper">
+              <Timer initialTime={10} onFinish={handleTimerFinish} />
+              </div>
+            ) : (
+              <button className="button-link" onClick={handleStartTask}>Start Task</button>
+            )}
+          </div>
         </div>
-        
-      </div>
       <div className="button-home">
           <Link to="/" className="button-link">
             Back to Home
