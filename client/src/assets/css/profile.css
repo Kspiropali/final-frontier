@@ -16,6 +16,7 @@ p {
   justify-content: center;
   width: 100%;
   min-height: 100vh;
+  flex: 1 0 auto;
 }
 
 .container1 {
@@ -25,7 +26,10 @@ p {
 	top: 78px;
 	width: 1190px;
 	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
 	align-items: center;
+	flex: 1 0 auto;
 }
 
 .ellipse {
@@ -158,7 +162,7 @@ p {
   flex-wrap: wrap;
   max-width: 1200px;
   margin: 460px auto 0;
-	padding-bottom: 40px;
+  padding-bottom: 40px;
 }
 
 .container2, 
@@ -336,6 +340,14 @@ p {
 /* image banner */
 .rectangle-7 {
 	padding-top: 20px;
+	display: flex;
+	flex: 1 0 auto;
+}
+
+.rectangle-7 img {
+	width: 100%;
+	height: auto;
+	max-width: 100%;
 }
 
 /* edit profile button */

@@ -1,16 +1,12 @@
-.index {
-  background-color: linear-gradient(
-    180deg,
-    rgb(8.54, 1.56, 23.38) 0%,
-    rgb(25.23, 4.6, 69.06) 39.06%,
-    rgb(31.1, 7.74, 80.75) 100%
-  );
+.index-home {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	width: 100%;
-	padding-top: 30px;
+  max-height: 100vh;
+  flex: 1 0 auto;
+  padding-top: 15%;
 }
 
 .images-container {
@@ -26,7 +22,7 @@
   justify-content: space-between;
   width: 100%;
   flex-wrap: wrap;
-  padding-bottom: 20px;
+  padding-bottom: 15%;
 }
 
 .image1,
@@ -37,13 +33,14 @@
 .image6 {
   height: 100px;
   width: 100px;
+  position: relative;
+  z-index: 2;
 }
 
 .character {
-  position: relative;
-  margin-top: 20px;
-  height: 200px;
-  width: 200px;
+  height: 150px;
+  width: 150px;
+  z-index: 1;
 }
 
 .completion-bar {
@@ -68,4 +65,24 @@
   border-radius: 50px;
   height: 37px;
   width: 97%;
+}
+
+.background {
+  position: absolute;
+  top: 74%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+  background-size: cover;
+  opacity: 0.8;
+  height: auto;
+  z-index: 0;
+}
+
+.character-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  align-self: end;
 }

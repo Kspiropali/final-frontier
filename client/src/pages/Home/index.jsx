@@ -4,7 +4,12 @@ import "../../assets/css/home.css";
 
 const Home = () => {
   return (
-    <div className="index">
+    <div className="index-home">
+      <img
+        className="background"
+        alt="Image"
+        src="https://cdn.animaapp.com/projects/651165e23f4e55995d9af710/releases/65118b4400e335da865f91ca/img/rectangle-8.png"
+      />
       <div className="completion-bar">
         <div className="completion" />
       </div>
@@ -53,11 +58,13 @@ const Home = () => {
           />
           </Link>
         </div>
-        <img
-            className="character"
-            alt="Image"
-            src="https://cdn.animaapp.com/projects/651165e23f4e55995d9af710/releases/651200163f4e55995d9af7ea/img/image-7@2x.png"
-          />
+      </div>
+      <div className="character-container">
+      <img
+        className="character"
+        alt="Image"
+        src="https://cdn.animaapp.com/projects/651165e23f4e55995d9af710/releases/651200163f4e55995d9af7ea/img/image-7@2x.png"
+      />
       </div>
   </div>
   )
