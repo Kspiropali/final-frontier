@@ -34,7 +34,7 @@ const ShopPreview = () => {
             </div>
             </div>
             <div className="buy-button-container">
-                <button onClick={handleBuyClick}>Buy</button>
+                <button className="buy-btn" onClick={handleBuyClick}>Buy</button>
             </div>
           </>
         )}
