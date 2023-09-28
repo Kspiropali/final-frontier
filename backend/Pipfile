@@ -5,30 +5,9 @@ name = "pypi"
 
 [packages]
 sqlalchemy = "*"
-flask-sqlalchemy = "*"
-python-dotenv = "*"
-psycopg2-binary = "*"
-requests = "*"
-flask-mail = "*"
-flask-oauthlib = "*"
-bcrypt = "*"
-colorama = "*"
-psutil = "*"
-flask = "*"
-werkzeug = "*"
 
 [dev-packages]
 
 [requires]
 python_version = "3.11"
 python_full_version = "3.11.5"
-
-[scripts]
-start = "python entrypoint.py"
-setup_db = "python scripts/setup_db.py"
-setup_email = "python scripts/setup_email.py"
-cleanup_db = "python scripts/cleanup_db.py"
-psql = "python scripts/docker_exec.py"
-up = "docker-compose up -d"
-down = "docker-compose down"
-kubectl = "echo 'Not implemented yet!'"
