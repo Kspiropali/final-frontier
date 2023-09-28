@@ -12,3 +12,5 @@ export { default as FreshAir } from './FreshAir'
 export { default as Playlist } from './Playlist'
 export { default as SelfCare } from './SelfCare'
 export { default as Mystery } from './Mystery'
+
+export {default as PasswordReset} from './PasswordReset'
