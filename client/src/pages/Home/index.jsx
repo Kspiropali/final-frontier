@@ -1,70 +1,82 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
 import CompletionBar from '../../components/CompletionBar';
-import WalkingCharacter from '../../components/WalkingCharacter';
 import "../../assets/css/home.css";
 
 const Home = () => {
   return (
     <div className="index-home">
-      <img
+      {/* <img 
         className="backgroundim"
-        alt="Image"
-        src="/src/assets/images/testbg/rainbow.jpg"
-      />
+        src="/src/assets/images/testbg/rainbow.jpg" 
+        alt="Image" 
+      /> */}
+
       <CompletionBar />
-      <div className="images-container">
-        <div className="images">
+
+      <div className="grid">
+        <div className="grid-item image1">
           <Link to="/selfcare">
-          <img
-            className="image1"
-            alt="Image"
-            src="https://cdn.animaapp.com/projects/651165e23f4e55995d9af710/releases/651200163f4e55995d9af7ea/img/image-1@2x.png"
-          />
-          </Link>
+            <img src="/src/assets/images/homeicons/blue.gif" 
+            width="175"
+            height="150"
+            alt="Image 1"/>
+          </Link>  
+        </div>
+
+        <div className="grid-item image2">
           <Link to="/breathe">
-          <img
-            className="image2"
-            alt="Image"
-            src="https://cdn.animaapp.com/projects/651165e23f4e55995d9af710/releases/651200163f4e55995d9af7ea/img/image-1@2x.png"
-          />
+            <img src="/src/assets/images/homeicons/blue.gif" 
+            width="175"
+            height="150"
+            alt="Image 2"/> 
           </Link>
-          <Link to="/familyfriends">
-          <img
-            className="image3"
-            alt="Image"
-            src="https://cdn.animaapp.com/projects/651165e23f4e55995d9af710/releases/651200163f4e55995d9af7ea/img/image-1@2x.png"
-          />
-          </Link>
+        </div>
+
+        <div className="grid-item image3">
+         <Link to="/familyfriends">
+           <img src="/src/assets/images/homeicons/blue.gif" 
+           width="175"
+           height="150"
+           alt="Image 3"/>
+         </Link>
+        </div>
+
+        <div className="grid-item character">
+          <img className="character" src="/src/assets/images/homeicons/meditation.gif" 
+          width="150"
+          height="150"
+          alt="Character"/>
+        </div>
+
+        <div className="grid-item image4">
           <Link to="/air">
-          <img
-            className="image4"
-            alt="Image"
-            src="https://cdn.animaapp.com/projects/651165e23f4e55995d9af710/releases/651200163f4e55995d9af7ea/img/image-1@2x.png"
-          />
+            <img src="/src/assets/images/homeicons/blue.gif" 
+            width="175"
+            height="150"
+            alt="Image 4"/>
           </Link>
+        </div>
+
+        <div className="grid-item image5">
           <Link to="/playlist">
-          <img
-            className="image5"
-            alt="Image"
-            src="https://cdn.animaapp.com/projects/651165e23f4e55995d9af710/releases/651200163f4e55995d9af7ea/img/image-1@2x.png"
-          />
+            <img src="/src/assets/images/homeicons/blue.gif" width="175"
+            height="150"
+            alt="Image 5"/>
           </Link>
+        </div>
+
+        <div className="grid-item image6">
           <Link to="/mystery">
-          <img
-            className="image6"
-            alt="Image"
-            src="https://cdn.animaapp.com/projects/651165e23f4e55995d9af710/releases/651200163f4e55995d9af7ea/img/image-1@2x.png"
-          />
+            <img src="/src/assets/images/homeicons/blue.gif" 
+            width="175"
+            height="150"
+            alt="Image 6"/>
           </Link>
         </div>
       </div>
-      <div className="character-container">
-          <img className="character" 
-          src="/src/assets/images/avatars/panda.png" />
-      </div>
-  </div>
-  )
+    </div>
+  );
 }
 
-export default Home
+export default Home;
