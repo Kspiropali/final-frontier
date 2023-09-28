@@ -1,13 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
+import Timer from '../../components/Timer';
+
 import '../../assets/css/task.css';
 
 const Breathing = () => {
+  const [timerStarted, setTimerStarted] = useState(false);
+
+  const [taskCompleted, setTaskCompleted] = useState(false);
+
+  const handleStartTask = () => {
+    setTimerStarted(true);
+  };
+
+  const handleTimerFinish = () => {
+    setTaskCompleted(true);
+  };
+
   return (
     <div className="indexT">
-      <div className="div">
+      <div className="divT">
         <div className="text-wrapper">Breathing exercise</div>
-        <div className="box">
+        <div className="boxT">
           <img
             className="image"
             alt="Image"
@@ -17,11 +31,19 @@ const Breathing = () => {
             Breathing has many benefits and can be very helpful. For this task take 5 minutes to deep breath using the 4-7-8 method.
           </p>
           <div className="button-start">
-              <Link to="/start-task" className="button-link">
-                Start Task
-              </Link>
+            {taskCompleted && (
+              <div className="message-done">
+                Task has been completed for today! Keep at it to your hearts desire
+              </div>
+            )}
+            {timerStarted ? (
+              <div className="timer-wrapper">
+              <Timer initialTime={10} onFinish={handleTimerFinish} />
+              </div>
+            ) : (
+              <button className="button-link" onClick={handleStartTask}>Start Task</button>
+            )}
           </div>
-          
         </div>
         <div className="button-home">
             <Link to="/" className="button-link">

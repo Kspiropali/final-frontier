@@ -1,13 +1,27 @@
-import React from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom';
+import Timer from '../../components/Timer';
+
 import '../../assets/css/task.css';
 
 const Playlist = () => {
+  const [timerStarted, setTimerStarted] = useState(false);
+
+  const [taskCompleted, setTaskCompleted] = useState(false);
+
+  const handleStartTask = () => {
+    setTimerStarted(true);
+  };
+
+  const handleTimerFinish = () => {
+    setTaskCompleted(true);
+  };
+
   return (
     <div className="indexT">
-    <div className="div">
+    <div className="divT">
       <div className="text-wrapper">My playlist</div>
-      <div className="box">
+      <div className="boxT">
         <img
           className="image"
           alt="Image"
@@ -17,9 +31,18 @@ const Playlist = () => {
           Music can express so many feelings and can also provide comfort for the emotions that one may wish to convey. Time to take 15 mins to listen to your fav playlist! 
         </p>
         <div className="button-start">
-            <Link to="/start-task" className="button-link">
-              Start Task
-            </Link>
+            {taskCompleted && (
+              <div className="message-done">
+                Task has been completed for today! Keep at it to your hearts desire
+              </div>
+            )}
+            {timerStarted ? (
+              <div className="timer-wrapper">
+              <Timer initialTime={10} onFinish={handleTimerFinish} />
+              </div>
+            ) : (
+              <button className="button-link" onClick={handleStartTask}>Start Task</button>
+            )}
         </div>
       </div>
       <div className="button-home">
