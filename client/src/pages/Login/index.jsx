@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import "../../assets/css/login.css";
-import { Loginform, RegistrationForm, OAuthButtons, OAuthLoginModule, ResetPassword } from '../../components';
+import { Loginform, RegistrationForm, OAuthButtons, OAuthLoginModule, PreResetPassword } from '../../components';
 
 
 const Login = () => {
@@ -9,6 +9,7 @@ const Login = () => {
 
   const [activePanel, setActivePanel] = useState('')
   const [resultMessage, setResultMessage] = useState()
+  const [prePasswordState, setPrePasswordState] = useState('')
 
   const handlePanelToggle = (panelName) => {
 

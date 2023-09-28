@@ -3,7 +3,7 @@ import { useAuth } from '../../contexts/AuthContext'
 
 const PreResetPassword = () => {
 
-  const {email, setEmail} = useAuth
+  const {email, setEmail} = useAuth()
   
   const handleSubmit = async (e) => {
     e.preventDefault();
