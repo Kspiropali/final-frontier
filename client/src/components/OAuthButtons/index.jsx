@@ -2,7 +2,11 @@ import React from 'react'
 
 const OAuthButtons = () => {
   return (
-    <div>OAuthButtons</div>
+    <>
+    <button className='OAuth-btn' id='google-Oauth'>
+      <img src="" alt="" />Login with Google
+    </button>
+    </>
   )
 }
 
