@@ -14,7 +14,7 @@ export {default as SupportServicesList} from './SupportServicesList'
 export {default as Loginform } from './LoginForm'
 export { default as RegistrationForm } from './RegistrationForm'
 export { default as OAuthLoginModule } from './OAuthLoginModule'
-export { default as ResetPassword } from './ResetPassword'
+export { default as PreResetPassword } from './PreResetPassword'
 export { default as OAuthButtons} from './OAuthButtons'
 //shop page components
 export { default as ShopSidebar } from './ShopSidebar'
