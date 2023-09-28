@@ -1,5 +1,6 @@
 from ..models.Task import Task
 
+
 def get_tasks():
     # tasks = Task.query.all()
     # tasks_list = []
@@ -10,6 +11,7 @@ def get_tasks():
     # return tasks_list
     tasks = Task.get_tasks()
     return tasks
+
 
 def update_task(task_id, data):
     # print(data)
