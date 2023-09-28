@@ -63,7 +63,7 @@ const PreResetPassword = ({ setPreResetState }) => {
         className='input-field'/>
         <p>must contain @</p>
       </div>
-      <input className='login-btn' type="submit" value="Login" />
+      <input className='login-btn' type="submit" value="Send" />
     </form>
     <p className='yellow-text' id='return-to-login' onClick={() => setPreResetState(false)}>return to login</p>
     </>
