@@ -1,6 +1,9 @@
 import React from 'react'
 import { useAuth } from '../../contexts/AuthContext'
+import { NavLink, Outlet } from 'react-router-dom';
 import "../../assets/css/passwordReset.css";
+
+
 const PasswordReset = () => {
     
     const {confirmationPassword, setConfirmationPassword, password, setPassword, displayMessage, setDisplayMessage} = useAuth()
@@ -51,6 +54,11 @@ const PasswordReset = () => {
         }
       }
 
+      const returnToLogin = () => {
+        //redirect
+        return
+      }
+
     return (
         <>
         <h1 className='top-header'>WellSpace</h1>
@@ -86,7 +94,7 @@ const PasswordReset = () => {
             </div>
             {displayMessage && <p className='white-text' id='result-message'>{displayMessage}</p>}
         </div>
-        {displayMessage == "Password Changed Successfully" && <p className='white-text' id='exit-reset-page'>Return back to Login</p>}
+        {displayMessage == "Password Changed Successfully" && <p className='white-text' id='exit-reset-page'  onClick={() => returnToLogin}>Return to Login Page</p>}
         </>
     )
 }
