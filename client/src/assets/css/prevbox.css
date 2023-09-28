@@ -7,3 +7,15 @@
      margin-top: 140px;
      margin-right: -50px;
 }
+
+.prevbox-container {
+    position: relative;
+    left: 116px;
+}
+
+.preview-header {
+    font-size: 32px;
+    margin-top: 20px;
+    margin-left: 28px;
+    white-space: nowrap;
+}

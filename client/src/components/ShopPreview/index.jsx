@@ -3,7 +3,12 @@ import '../../assets/css/prevbox.css'
 
 const ShopPreview = () => {
   return (
-    <div className="prev-box"></div>
+    <>
+        <div className="prevbox-container">
+            <h1 className="preview-header">Preview</h1>
+        </div>
+        <div className="prev-box"></div>
+    </>
   )
 }
 
