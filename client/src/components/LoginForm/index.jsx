@@ -14,11 +14,6 @@ const LoginForm = ({setPreResetState}) => {
         setPassword(e.target.value.toString())
     }
 
-    const renderPasswordReset = (e) => {
-        // a redirect
-        return
-    }
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log(username.length)
@@ -87,7 +82,7 @@ const LoginForm = ({setPreResetState}) => {
             //   value="password"
             placeholder='password'
             required
-            className='input-field'/>
+            className='input-field white-text password-field'/>
         </div>
         <input className='login-btn' type="submit" value="Login" />
     </form>
