@@ -1,5 +1,6 @@
 import React from 'react'
 import { useAuth } from '../../contexts/AuthContext'
+import axios from 'axios'
 
 const PreResetPassword = ({ setPreResetState }) => {
 
@@ -7,6 +8,7 @@ const PreResetPassword = ({ setPreResetState }) => {
 
   function handleEmail(e){
     setEmail(e.target.value.toString())
+    console.log(email)
   }
   
   const handleSubmit = async (e) => {
@@ -25,13 +27,14 @@ const PreResetPassword = ({ setPreResetState }) => {
           body : data
         });
 
-        setDisplayMessage('A password reset link has been sent. Please check your email')
+        setDisplayMessage('A password reset link has been sent')
         setEmail(''),
         setTimeout(() => {
           setDisplayMessage('')
         }, 3000);
       }
       catch (err){
+        // set the message based on the error (if 404 or 500)
         setDisplayMessage("An account doesn't exist for this email")
         setEmail(''),
         setTimeout(() => {
@@ -60,9 +63,9 @@ const PreResetPassword = ({ setPreResetState }) => {
         className='input-field'/>
         <p>must contain @</p>
       </div>
+      <input className='login-btn' type="submit" value="Login" />
     </form>
     <p className='yellow-text' id='return-to-login' onClick={() => setPreResetState(false)}>return to login</p>
-    {displayMessage && <p>{displayMessage}</p>}
     </>
   )
 }

@@ -5,7 +5,7 @@ import axios from 'axios'
 
 const LoginForm = ({setPreResetState}) => {
 
-    const {username, setUsername, password, setPassword} = useAuth()
+    const {username, setUsername, password, setPassword, setDisplayMessage} = useAuth()
 
     const handleUsername = (e) => {
         setUsername(e.target.value.toString())

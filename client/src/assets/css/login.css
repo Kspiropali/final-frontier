@@ -88,3 +88,7 @@ input {
 #forgot-password, #return-to-login {
     text-decoration: underline;
 }
+
+#result-message {
+    text-align: center;
+}

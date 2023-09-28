@@ -1,18 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import "../../assets/css/login.css";
 import { Loginform, RegistrationForm, OAuthButtons, OAuthLoginModule, PreResetPassword } from '../../components';
+import { useAuth } from '../../contexts/AuthContext';
 
 
 const Login = () => {
 
   const containerTitle = ["Return To Your WellSpace", "Create Your Own WellSpace", "Reset Password"]
 
+  const {displayMessage} = useAuth()
+
   const [activePanel, setActivePanel] = useState('Login')
   const [resultMessage, setResultMessage] = useState()
   const [preResetState, setPreResetState] = useState('')
 
   const handlePanelToggle = (panelName) => {
-
+    if (panelName == "Login") {
+      setPreResetState(false)
+    }
     setActivePanel(panelName)
   }
 
@@ -33,6 +38,7 @@ const Login = () => {
       <div className='input-area-container'>
         {activePanel == "Register" ? <RegistrationForm/> : !preResetState ? <Loginform setPreResetState={setPreResetState}/> : <PreResetPassword setPreResetState={setPreResetState} />}
       </div>
+      {displayMessage && <p className='white-text' id='result-message'>{displayMessage}</p>}
     </div>
     </>
   )
