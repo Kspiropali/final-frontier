@@ -1,7 +1,7 @@
 // page wrapper components
 export { default as Header } from './Header'
 export { default as Footer } from './Footer'
-//
+//profile page components
 export { default as ProfileInfo } from './ProfileInfo'
 export { default as Buttons } from './Buttons'
 export { default as Stats } from './Stats'
@@ -27,3 +27,5 @@ export { default as ToggleShop } from './ToggleShop'
 export { default as CoinBalance } from './CoinBalance'
 export { default as Timer } from './Timer'
 export { default as ShopItem } from './ShopItem'
+// homepage components
+export { default as CompletionBar } from './CompletionBar'

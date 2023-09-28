@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Timer from '../../components/Timer';
+import { useTaskContext } from '../../contexts/TaskContext';
 
 import '../../assets/css/task.css';
 
@@ -9,12 +10,15 @@ const SelfCare = () => {
 
   const [taskCompleted, setTaskCompleted] = useState(false);
 
+  const { markTaskCompleted } = useTaskContext();
+
   const handleStartTask = () => {
     setTimerStarted(true);
   };
 
   const handleTimerFinish = () => {
     setTaskCompleted(true);
+    markTaskCompleted('selfcare');
   };
 
   return (

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import CompletionBar from '../../components/CompletionBar';
 import "../../assets/css/home.css";
 
 const Home = () => {
@@ -10,9 +11,7 @@ const Home = () => {
         alt="Image"
         src="https://cdn.animaapp.com/projects/651165e23f4e55995d9af710/releases/65118b4400e335da865f91ca/img/rectangle-8.png"
       />
-      <div className="completion-bar">
-        <div className="completion" />
-      </div>
+      <CompletionBar />
       <div className="images-container">
         <div className="images">
           <Link to="/selfcare">
