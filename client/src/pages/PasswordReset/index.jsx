@@ -23,16 +23,25 @@ const PasswordReset = () => {
       if (password.length > 0 && confirmationPassword.length > 0) {
         try {
   
-          const data = {
+          const data = JSON.stringify({
             password: password
-          }
-          await axios.post('http://localhost:8080/users', {
-            headers : {
-              'Content-Type': 'application/json',
-              'Accept': 'application/json'
-            },
-            body : data
           });
+
+          // ADD THE ENDPOINT WHEN YOU GET IT
+          // let config = {
+          //   method: 'post',
+          //   maxBodyLength: Infinity,
+          //   url: 'http://127.0.0.1:3000/',
+          //   headers: {
+          //     'Content-Type': 'application/json'
+          //   },
+          //   data : data
+          // };
+  
+          const response = await axios.request(config)
+  
+          console.log(JSON.stringify(response.data))
+  
   
           setDisplayMessage('Password Changed Successfully')
           setPassword(''),
