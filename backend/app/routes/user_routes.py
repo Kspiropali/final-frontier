@@ -6,9 +6,9 @@ user_bp = Blueprint('user', __name__)
 
 
 ############## User Routes Reference ##############
-# @user_bp.route('/', methods=['GET'])
-# def list_users():
-#     return jsonify(get_users()), 200
+@user_bp.route('/', methods=['GET'])
+def list_users():
+    return jsonify(get_users()), 200
 #
 #
 # @user_bp.route('/<int:user_id>', methods=['GET'])

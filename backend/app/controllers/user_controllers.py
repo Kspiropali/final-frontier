@@ -4,10 +4,10 @@ from ..models.User import User
 PASSWORD_REGEX = r'^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])(?!.*\s).{8,}$'
 
 # User controller reference methods
-# def get_users():
-#     users = User.get_users()
-#     user_list = [{'id': user.id, 'username': user.username} for user in users]
-#     return user_list
+def get_users():
+    users = User.get_users()
+    user_list = [{'id': user.id, 'username': user.username} for user in users]
+    return user_list
 #
 #
 # def get_user(user_id):

@@ -1,7 +1,7 @@
 from flask import redirect
 from app.database.db import *
 from app.config.settings import Config
-from app.routes import user_routes
+from app.routes import user_routes, task_router
 from app.database import *
 from app.routes import google_oauth, facebook_oauth
 
@@ -17,6 +17,7 @@ with app.app_context():
 
 # Routes, order matters!
 app.register_blueprint(user_routes.user_bp, url_prefix="/users")
+app.register_blueprint(task_router.task_bp, url_prefix="/tasks")
 app.register_blueprint(facebook_oauth.facebook_auth_bp, url_prefix="/auth/facebook")
 app.register_blueprint(google_oauth.google_oauth_bp, url_prefix="/auth/google")
 
