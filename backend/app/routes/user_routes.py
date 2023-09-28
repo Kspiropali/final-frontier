@@ -58,13 +58,13 @@ def login():
 
         # send cookies
         resp = make_response(jsonify({'message': 'User logged in successfully'}), 200)
-        resp.set_cookie('Authorization', token,
+        resp.set_cookie('Authorization',
+                        token,
                         httponly=True,
-                        samesite='Lax',
-                        secure=True,
-                        path='/',
-                        max_age=60 * 60 * 24 * 7,
-                        domain='localhost')
+                        samesite='Lax',  # Set to 'None' for cross-origin
+                        secure=True,  # Set to True for HTTPS
+                        domain='localhost',  # Common domain
+                        path='/')  # Path where the cookie is accessible
 
         return resp
     except Exception as e:
