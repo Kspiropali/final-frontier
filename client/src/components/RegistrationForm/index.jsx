@@ -4,9 +4,8 @@ import axios from 'axios'
 
 const RegistrationForm = () => {
   
-  const {confirmationPassword, setConfirmationPassword, confirmationEmail, setConfirmationEmail, email, setEmail, password, setPassword, username, setUsername} = useAuth()
+  const {confirmationPassword, setConfirmationPassword, confirmationEmail, setConfirmationEmail, email, setEmail, password, setPassword, username, setUsername, displayMessage, setDisplayMessage} = useAuth()
 
-  const [displayMessage, setDisplayMessage] = useState('')
   
   const handleUsername = (e) => {
     setUsername(e.target.value.toString())
@@ -116,7 +115,7 @@ const RegistrationForm = () => {
           value={password}
           placeholder='password'
           required
-          className='input-field'/>
+          className='input-field white-text password-field'/>
           <p>must contain: 7-15 characters, 1 number & 1 symbol </p>
       </div>
       <div className='input-idv-container'>
@@ -127,12 +126,10 @@ const RegistrationForm = () => {
           value={confirmationPassword}
           placeholder='confirm password'
           required
-          className='input-field no-match'/>
-          <p>emails do not match</p>
+          className='input-field white-text password-field no-match'/>
+          <p>passwords do not match</p>
       </div>
       <input className='login-btn' type="submit" value="Register" />
-      {/* {displayMessage && <p>{displayMessage}</p>} */}
-
     </form>
     </>
   )
