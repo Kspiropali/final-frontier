@@ -24,7 +24,7 @@ const App = () => {
         <Route path="/playlist" element={<Pages.Playlist />} />
         <Route path="/mystery" element={<Pages.Mystery />} />
       </Route>
-      <Route path="/reset-password" element={<Pages.PasswordReset/>} />
+      <Route path="reset-password" element={<Pages.PasswordReset/>} />
     </Routes>
   );
 }
