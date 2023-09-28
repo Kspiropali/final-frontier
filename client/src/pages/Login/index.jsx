@@ -7,16 +7,13 @@ const Login = () => {
 
   const containerTitle = ["Return To Your WellSpace", "Create Your Own WellSpace", "Reset Password"]
 
-  const [activePanel, setActivePanel] = useState('Login')
+  const [activePanel, setActivePanel] = useState('')
   const [resultMessage, setResultMessage] = useState()
 
-  const handlePanelToggle = (e) => {
-    setActivePanel(e.target.value)
+  const handlePanelToggle = (panelName) => {
+
+    setActivePanel(panelName)
   }
-
-  // useEffect(() => {
-
-  // }, [activePanel])
 
   return (
     <>
@@ -24,12 +21,12 @@ const Login = () => {
     {/* Container for the Login compents */}
     <div className='login-container'>
       <div className='log-reg-btn-container'>
-        <button className={`white-text log-reg-btn ${activePanel === "Login" ? 'active-log-btn': ''}`} id='login-btn' onClick={handlePanelToggle}>Login</button>
-        <button className={`white-text log-reg-btn ${activePanel === "Register" ? 'active-log-btn': ''}`} id='register-btn' onClick={handlePanelToggle}>Register</button>
+        <button className={`white-text log-reg-btn ${activePanel === "Login" ? 'active-log-btn': ''}`} id='login-btn' onClick={() => handlePanelToggle('Login')}>Login</button>
+        <button className={`white-text log-reg-btn ${activePanel === "Register" ? 'active-log-btn': ''}`} id='register-btn' onClick={() => handlePanelToggle('Register')}>Register</button>
       </div>
       <h2 className='log-reg-title'>{containerTitle[0]}</h2>
       <div className='input-area-container'>
-        {activePanel == "Register" ? (<RegistrationForm/>) : (<Loginform/>)}
+        {activePanel == "Register" ? <RegistrationForm/> : <Loginform/>}
       </div>
     </div>
     </>
