@@ -8,16 +8,21 @@ const LoginForm = ({setPreResetState}) => {
     const {username, setUsername, password, setPassword, setDisplayMessage} = useAuth()
 
     const handleUsername = (e) => {
-        setUsername(e.target.value.toString())
+      const value = e.target.value
+      setUsername(value.toString())
+      
     }
     const handlePassword = (e) => {
-        setPassword(e.target.value.toString())
+      const value = e.target.value
+      setPassword(value.toString())
+
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log(username.length)
         console.log(password.length)
+
         if (username.length > 0 && password.length > 0) {
           try {
     
