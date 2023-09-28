@@ -8,9 +8,9 @@ const Home = () => {
   return (
     <div className="index-home">
       <img
-        className="background"
+        className="backgroundim"
         alt="Image"
-        src="https://cdn.animaapp.com/projects/651165e23f4e55995d9af710/releases/65118b4400e335da865f91ca/img/rectangle-8.png"
+        src="/src/assets/images/testbg/rainbow.jpg"
       />
       <CompletionBar />
       <div className="images-container">
@@ -59,7 +59,10 @@ const Home = () => {
           </Link>
         </div>
       </div>
-      <WalkingCharacter />
+      <div className="character-container">
+          <img className="character" 
+          src="/src/assets/images/avatars/panda.png" />
+      </div>
   </div>
   )
 }

@@ -66,17 +66,14 @@
   width: 97%;
 }
 
-.background {
+.backgroundim {
+  z-index: -1;
+  width: 90%;
+  height: 90%;
   position: absolute;
-  top: 74%;
   left: 50%;
-  width: 100%;
-  height: 100%;
+  top: 50%;
   transform: translate(-50%, -50%);
-  background-size: cover;
-  opacity: 0.8;
-  height: auto;
-  z-index: 0;
 }
 
 .character-container {
