@@ -19,3 +19,4 @@ class Config:
     RECAPTCHA_SECRET_KEY = RECAPTCHA_SECRET_KEY
     # secret key
     SECRET_KEY = SECRET_KEY
+    DOMAIN = DOMAIN

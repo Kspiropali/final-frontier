@@ -14,6 +14,7 @@ def initialize_db(app: Flask):
 
 
 def is_db_connected():
+
     try:
         db.engine.connect()
         return True
