@@ -5,16 +5,22 @@
     background-color: #1d005c;
     border-radius: 10px;
     height: 75vh;
-    width: 300%;
+    width: 400%;
     margin-top: 140px;
     margin-left: -152px;
-    margin-right: 50px;
+    margin-right: -50px;
   }
 
 .shop-header {
     font-size: 32px;
     margin-top: 20px;
     margin-left: 28px;
+    white-space: nowrap;
+  }
+
+  .preview-header {
+    font-size: 32px;
+    margin-top: 20px;
     white-space: nowrap;
   }
 
