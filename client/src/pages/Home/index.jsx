@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import CompletionBar from '../../components/CompletionBar';
+import WalkingCharacter from '../../components/WalkingCharacter';
 import "../../assets/css/home.css";
 
 const Home = () => {
@@ -58,13 +59,7 @@ const Home = () => {
           </Link>
         </div>
       </div>
-      <div className="character-container">
-      <img
-        className="character"
-        alt="Image"
-        src="https://cdn.animaapp.com/projects/651165e23f4e55995d9af710/releases/651200163f4e55995d9af7ea/img/image-7@2x.png"
-      />
-      </div>
+      <WalkingCharacter />
   </div>
   )
 }

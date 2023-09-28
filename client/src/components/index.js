@@ -29,3 +29,4 @@ export { default as Timer } from './Timer'
 export { default as ShopItem } from './ShopItem'
 // homepage components
 export { default as CompletionBar } from './CompletionBar'
+export { default as WalkingCharacter } from './WalkingCharacter'
