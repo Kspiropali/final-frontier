@@ -2,25 +2,69 @@ import React, { useState } from 'react'
 import { useAuth } from '../../contexts/AuthContext'
 import axios from 'axios'
 
+import check from '../../assets/images/loginReg/check.png'
+import close from '../../assets/images/loginReg/close.png'
+
 const RegistrationForm = () => {
   
   const {confirmationPassword, setConfirmationPassword, confirmationEmail, setConfirmationEmail, email, setEmail, password, setPassword, username, setUsername, displayMessage, setDisplayMessage} = useAuth()
 
+  const [regPasswordSatisfied, setRegPasswordSatisfied] = useState()
+  const [regEmailSatisfied, setRegEmailSatisfied] = useState()
+  const [regUsernameSatisfied, setRegUsernameSatisfied] = useState()
+
+  const passwordRequirements = ["> 6 characters", "1 number", "1 symbol", "match"]
+  const emailRequirements = ["contains '@'", 'match']
+  const usernameRequirements = ["unique"]
   
   const handleUsername = (e) => {
-    setUsername(e.target.value.toString())
+    const value = e.target.value
+    setUsername(value.toString())
+
+    // ADD TO THIS RULE
+    if (username.length > 3) {
+      setRegUsernameSatisfied(true)
+    }
+    else {
+      if (regUsernameSatisfied) {
+        setRegUsernameSatisfied(false)
+      }
+    }
   }
   const handlePassword = (e) => {
-      setPassword(e.target.value.toString())
+    const value = e.target.value
+    setPassword(value.toString())
   }
   const handleConfirmationPassword = (e) => {
-      setConfirmationPassword(e.target.value.toString())
+    const value = e.target.value
+    setConfirmationPassword(value.toString())
+
+    if (value.length > 6 && value.match(/(\d+)/) && value.match(/[!-\/:-@[-`{-~]/) && value == password) {
+      setRegPasswordSatisfied(true)
+    }
+    else {
+      if (regPasswordSatisfied) {
+        setRegPasswordSatisfied(false)
+      }
+    }
   }
   function handleEmail(e){
-      setEmail(e.target.value.toString())
+    const value = e.target.value
+      setEmail(value.toString())
   }
   const handleConfirmationEmail = (e) => {
-      setConfirmationEmail(e.target.value.toString())
+    const value = e.target.value
+    setConfirmationEmail(value.toString())
+    
+    if (value.includes('@') && value.match(/(\d+)/) && value == email) {
+      setRegEmailSatisfied(true)
+    }
+    else {
+      if (regEmailSatisfied) {
+        setRegEmailSatisfied(false)
+      }
+    }
+    
   }
 
   const handleSubmit = async (e) => {
@@ -28,18 +72,25 @@ const RegistrationForm = () => {
     if (username.length > 0 && password.length > 0 && confirmationPassword.length > 0 && email.length > 0 && confirmationEmail.length > 0) {
       try {
 
-        const data = {
+        const data = JSON.stringify({
           username: username,
           password: password,
           email: email
-        }
-        await axios.post('http://localhost:8080/users', {
-          headers : {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          },
-          body : data
         });
+
+        let config = {
+          method: 'post',
+          maxBodyLength: Infinity,
+          url: 'http://127.0.0.1:3000/users/register',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          data : data
+        };
+
+        const response = await axios.request(config)
+
+        console.log(JSON.stringify(response.data))
 
         setDisplayMessage('Registration Successful. You can now login')
         setUsername(''),
@@ -76,14 +127,16 @@ const RegistrationForm = () => {
     >
       <div className='input-idv-container'>
         <input
-            type="text"
-            id="username"
-            onChange={handleUsername}
-            value={username}
-            placeholder='username'
-            required
-            className='input-field'/>
-        {/* <p>cannot be changed</p> */}
+          type="text"
+          id="username"
+          onChange={handleUsername}
+          value={username}
+          placeholder='username'
+          required
+          className={`input-field`}/>
+        <div className='requirements-container'>
+          <p className={``}>{usernameRequirements[0]}</p><img className='requirement-icons' src={username.length > 3 && regUsernameSatisfied ? check : close}></img>
+        </div>
       </div>
       <div className='input-idv-container'>
           <input
@@ -94,7 +147,8 @@ const RegistrationForm = () => {
           placeholder='email'
           required
           className='input-field'/>
-          <p>must contain @</p>
+          <div className='requirements-container'>
+          </div>
       </div>
       <div className='input-idv-container'>
           <input
@@ -105,9 +159,12 @@ const RegistrationForm = () => {
           placeholder='confirm email'
           required
           className='input-field'/>
-          <p>emails do not match</p>
+          <div className='requirements-container'>
+            <p className={``}>{emailRequirements[0]}</p><img className='requirement-icons' src={email.includes('@') ? check : close}></img>
+            <p className={``}>{emailRequirements[1]}</p><img className='requirement-icons' src={email.includes('@') && confirmationEmail == email ? check : close}></img>
+          </div>
       </div>
-      <div className='input-idv-container'>
+      <div className={`input-idv-container`}>
           <input
           type="password"
           id="password"
@@ -115,8 +172,9 @@ const RegistrationForm = () => {
           value={password}
           placeholder='password'
           required
-          className='input-field white-text password-field'/>
-          <p>must contain: 7-15 characters, 1 number & 1 symbol </p>
+          className='input-field password-field'/>
+          <div className='requirements-container'>
+          </div>
       </div>
       <div className='input-idv-container'>
           <input
@@ -126,8 +184,13 @@ const RegistrationForm = () => {
           value={confirmationPassword}
           placeholder='confirm password'
           required
-          className='input-field white-text password-field no-match'/>
-          <p>passwords do not match</p>
+          className='input-field password-field'/>
+          <div className='requirements-container'>
+            <p className={``}>{passwordRequirements[0]}</p><img className='requirement-icons' src={password.length > 6 ? check : close}></img>
+            <p className={``}>{passwordRequirements[1]}</p><img className='requirement-icons' src={password.match(/(\d+)/) ? check : close}></img>
+            <p className={``}>{passwordRequirements[2]}</p><img className='requirement-icons' src={password.match(/[!-\/:-@[-`{-~]/) ? check : close}></img>
+            <p className={``}>{passwordRequirements[3]}</p><img className='requirement-icons' src={password.length > 6 && confirmationPassword == password ? check : close}></img>
+          </div>
       </div>
       <input className='login-btn' type="submit" value="Register" />
     </form>
