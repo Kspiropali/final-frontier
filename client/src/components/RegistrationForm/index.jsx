@@ -144,7 +144,7 @@ const RegistrationForm = ({setActivePanel}) => {
       </div>
       <div className='input-idv-container'>
           <input
-          type="text"
+          type="email"
           id="email"
           onChange={handleEmail}
           value={email}
@@ -155,7 +155,7 @@ const RegistrationForm = ({setActivePanel}) => {
       </div>
       <div className='input-idv-container'>
           <input
-          type="text"
+          type="email"
           id="confirm-email"
           onChange={handleConfirmationEmail}
           value={confirmationEmail}

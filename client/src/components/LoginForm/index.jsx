@@ -78,7 +78,7 @@ const LoginForm = ({setPreResetState}) => {
         <div className='input-idv-container'>
             {/* <label>Username: </label> */}
             <input
-                type="text"
+                type="username"
                 id="username"
                 onChange={handleUsername}
             //   value="username"

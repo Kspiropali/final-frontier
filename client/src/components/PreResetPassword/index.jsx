@@ -63,7 +63,7 @@ const PreResetPassword = ({ setPreResetState }) => {
     onSubmit={handleSubmit}>
       <div className='input-idv-container'>
         <input
-        type="text"
+        type="email"
         id="email"
         onChange={handleEmail}
         value={email}
