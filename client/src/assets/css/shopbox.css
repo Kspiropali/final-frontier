@@ -24,3 +24,13 @@
     white-space: nowrap;
   }
 
+  .item-row {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: flex-start; 
+  }
+  
+  .shop-item {
+    margin: 10px;
+  }
+

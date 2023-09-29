@@ -27,6 +27,7 @@ export { default as ToggleShop } from './ToggleShop'
 export { default as CoinBalance } from './CoinBalance'
 export { default as Timer } from './Timer'
 export { default as ShopItem } from './ShopItem'
+export { default as FetchAvatar } from './FetchAvatar'
 // homepage components
 export { default as CompletionBar } from './CompletionBar'
 export { default as WalkingCharacter } from './WalkingCharacter'
