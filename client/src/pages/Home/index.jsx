@@ -1,17 +1,14 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import CompletionBar from '../../components/CompletionBar';
+import BackgroundImage from '../../components/BackgroundImage';
 import "../../assets/css/home.css";
 
 const Home = () => {
+
   return (
     <div className="index-home">
-      {/* <img 
-        className="backgroundim"
-        src="/src/assets/images/testbg/rainbow.jpg" 
-        alt="Image" 
-      /> */}
 
+      <BackgroundImage />
       <CompletionBar />
 
       <div className="grid">

@@ -30,3 +30,4 @@ export { default as ShopItem } from './ShopItem'
 // homepage components
 export { default as CompletionBar } from './CompletionBar'
 export { default as WalkingCharacter } from './WalkingCharacter'
+export { default as BackgroundImage } from './BackgroundImage'
