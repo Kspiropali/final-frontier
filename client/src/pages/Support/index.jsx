@@ -10,6 +10,7 @@ const Support = () => {
   const userMood = ""
 ''
   const supportPageDescription = "Some days you need a little extra support, so we've put together a collection of great support services and organised them by category to make it easier to find the support at moment's notice"
+  
   const supportServiceSchema = [
     {
       id: 0,
