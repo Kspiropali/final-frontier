@@ -1,9 +1,12 @@
 import React from 'react'
 import { useAuth } from '../../contexts/AuthContext'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 
 const LoginForm = ({setPreResetState}) => {
+
+  const navigate = useNavigate()
 
     const {username, setUsername, password, setPassword, setDisplayMessage, isLoggedIn, setIsLoggedIn} = useAuth()
 
@@ -40,23 +43,19 @@ const LoginForm = ({setPreResetState}) => {
             };
     
             const response = await axios.request(config)
-    
-            console.log(JSON.stringify(response))
 
-            console.log(document.cookie)
-
-            //const token == response.headers.authorization
-            //add token to cookies storage
+            console.log(response)
     
             setDisplayMessage('Registration Successful. You can now login')
-            setUsername(''),
-            setPassword('')
+            setUsername('');
+            setPassword('');
             setTimeout(() => {
               setDisplayMessage('')
-            }, 3000);
+              navigate('/');
+            }, 2000);
           }
           catch (err){
-            setDisplayMessage('Registration Unsuccessful')
+            setDisplayMessage('Invalid username or password')
             setUsername(''),
             setPassword(''),
             setTimeout(() => {
@@ -66,10 +65,12 @@ const LoginForm = ({setPreResetState}) => {
         }
         else {
           console.log("incomplete form!")
+          setDisplayMessage('Login Details Incomplete')
+          setTimeout(() => {
+            setDisplayMessage('')
+          }, 3000);
         }
       }
-
-      document.cookie ? console.log("yes") : console.log("no")
 
   return (
     <>
@@ -82,7 +83,6 @@ const LoginForm = ({setPreResetState}) => {
                 onChange={handleUsername}
             //   value="username"
                 placeholder='username'
-                required
                 className='input-field'/>
             {/* <p>cannot be changed</p> */}
         </div>
@@ -94,7 +94,6 @@ const LoginForm = ({setPreResetState}) => {
             onChange={handlePassword}
             //   value="password"
             placeholder='password'
-            required
             className='input-field white-text password-field'/>
         </div>
         <input className='login-btn' type="submit" value="Login" />

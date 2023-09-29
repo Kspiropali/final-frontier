@@ -34,7 +34,6 @@ const Login = () => {
         {activePanel == "Register" ? <RegistrationForm/> : !preResetState ? <Loginform setPreResetState={setPreResetState}/> : <PreResetPassword setPreResetState={setPreResetState} />}
         {!preResetState && activePanel == "Login" ? <OAuthButtons/> : ''}
       </div>
-      
       {displayMessage && <p className='white-text' id='result-message'>{displayMessage}</p>}
     </div>
     </>

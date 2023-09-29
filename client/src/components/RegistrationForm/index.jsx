@@ -116,6 +116,10 @@ const RegistrationForm = () => {
     }
     else {
       console.log("incomplete form!")
+      setDisplayMessage('Registration Details Incomplete')
+      setTimeout(() => {
+        setDisplayMessage('')
+      }, 3000);
     }
   }
   return (
