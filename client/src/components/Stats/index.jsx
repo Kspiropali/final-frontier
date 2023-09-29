@@ -10,13 +10,23 @@ const Stats = () => {
 						<img
 						className="img"
 						alt="Image"
-						src="https://cdn.animaapp.com/projects/651165e23f4e55995d9af710/releases/65118b4400e335da865f91ca/img/image-1@2x.png"
+						src="/src/assets/images/testitem/coin.png"
 						/>
 						<div className="text-wrapper-7">950</div>
 					</div>
 				</div>
 			</div>
 			<div className="container3">
+				<div className="rectangle-3">
+					<div className="text-wrapper-9"> My Inventory</div>
+					<div className="rectangle-4">
+						<Link to="/shop">
+							<button className="shop-button">Open</button>
+						</Link>
+					</div>
+				</div>
+			</div>
+			<div className="container4">
 				<div className="rectangle-3">
 					<div className="text-wrapper-9">Shop</div>
 					<div className="rectangle-4">
@@ -26,7 +36,7 @@ const Stats = () => {
 					</div>
 				</div>
 			</div>
-			<div className="container4">
+			<div className="container5">
 					<div className="rectangle-5">
 						<div className="text-wrapper-11">Login streak</div>
 						<div className="rectangle-6">
@@ -35,9 +45,9 @@ const Stats = () => {
 				</div>
 			</div>
 			<img
-					className="rectangle-7"
+					className="bg-image"
 					alt="Rectangle"
-					src="https://cdn.animaapp.com/projects/651165e23f4e55995d9af710/releases/65118b4400e335da865f91ca/img/rectangle-8.png"
+					src="/src/assets/images/testbg/rainbow.jpg"
 			/>
 		</div>
 	);

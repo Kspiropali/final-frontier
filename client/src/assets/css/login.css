@@ -72,15 +72,16 @@ input {
     border-radius: 0px;
     border-color: unset;
     /* font-size: 14px; */
+    color: #FFFFFF;
 }
 
-.correct {
+/* .correct {
     border: 2px solid rgb(70, 113, 51);
 }
 
 .no-match {
     border: 2px solid rgb(50, 168, 222);
-}
+} */
 
 .input-idv-container {
     margin-bottom: 1vh;
@@ -124,3 +125,15 @@ input {
 /* .password-field {
 
 } */
+
+.requirements-container {
+    margin-top: .5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.requirement-icons {
+    height: 1.5vh;
+    margin: 0 1vh 0 .6vh;
+}

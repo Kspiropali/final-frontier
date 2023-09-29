@@ -21,14 +21,14 @@ const ProfileInfo = () => {
     <div>
       {editing ? (
         <div className="container1">
-          <label htmlFor="image">Image URL:</label>
+          {/* <label htmlFor="image">Image URL:</label>
           <input
             type="text"
             id="image"
             name="image"
             value={localProfile.image}
             onChange={handleInputChange}
-          />
+          /> */}
           <div className='text-wrapper'>
           <div className='text-wrapper-1'>
             <label htmlFor="alias">Alias:</label>

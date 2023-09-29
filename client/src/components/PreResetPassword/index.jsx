@@ -15,16 +15,25 @@ const PreResetPassword = ({ setPreResetState }) => {
     if (email.length > 0) {
       try {
 
-        const data = {
+        const data = JSON.stringify({
           email: email
-        }
-        await axios.post('http://localhost:8080/users', {
-          headers : {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          },
-          body : data
         });
+
+        // ADD THE END POINT WHEN YOU GET IT
+        // let config = {
+        //   method: 'post',
+        //   maxBodyLength: Infinity,
+        //   url: 'http://127.0.0.1:3000/',
+        //   headers: {
+        //     'Content-Type': 'application/json'
+        //   },
+        //   data : data
+        // };
+
+        const response = await axios.request(config)
+
+        console.log(JSON.stringify(response.data))
+
 
         setDisplayMessage('A password reset link has been sent')
         setEmail(''),
