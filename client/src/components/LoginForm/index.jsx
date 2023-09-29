@@ -69,6 +69,8 @@ const LoginForm = ({setPreResetState}) => {
         }
       }
 
+      document.cookie ? console.log("yes") : console.log("no")
+
   return (
     <>
     <form aria-label='login form' role='login' onSubmit={handleSubmit}>
