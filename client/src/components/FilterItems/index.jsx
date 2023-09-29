@@ -2,13 +2,17 @@ import React from 'react'
 import { useShop } from '../../contexts/ShopContext'
 
 const filterOptions = [
-    { label: 'Backgrounds', key: 'option1' },
-    { label: 'Accessories', key: 'option2' },
-    { label: 'Avatars', key: 'option3' }
+    { label: 'Backgrounds', key: 'background' },
+    { label: 'Accessories', key: 'accessory' },
+    { label: 'Avatars', key: 'avatar' }
   ];
 
 const FilterItems = () => {
     const { selectedFilters, handleCheckboxChange } = useShop()
+
+    const handleChange = (key) => {
+        handleCheckboxChange(key);
+      };
 
   return (
     <div>
@@ -21,7 +25,7 @@ const FilterItems = () => {
                     type="checkbox"
                     id={option.key}
                     checked={selectedFilters[option.key] || false}
-                    onChange={() => handleCheckboxChange(option.key)}
+                    onChange={() => handleChange(option.key)}
                 />
                 <label className="filter-label" htmlFor={option.key}>
                     {option.label}

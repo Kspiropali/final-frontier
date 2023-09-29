@@ -1,15 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { ToggleShop, ShopItem, FetchAvatar } from '../../components'
 import { useShop } from '../../contexts/ShopContext';
 import '../../assets/css/shopbox.css'
 import testItem from '../../assets/images/testitem/hat.png'
 import testItem2 from '../../assets/images/testavatars/default.png'
 import testItem3 from '../../assets/images/testbg/rainbow.jpg'
-
 import testCoin from '../../assets/images/testitem/coin.png'
 
 const ShopBox = () => {
-    const { selectedItem, setSelectedItem } = useShop(); 
+    const { selectedItem, setSelectedItem, selectedFilters } = useShop(); 
     const [avatarItems, setAvatarItems] = useState([]);
 
     const handleAvatarItemsFetched = (items) => {
@@ -46,16 +45,22 @@ const ShopBox = () => {
         }
     ]
 
+  let filteredItems = shopItems
+
+  if (Object.values(selectedFilters).some(Boolean)) {
+    filteredItems = shopItems.filter((item) => selectedFilters[item.type]);
+  }
+
   const avatarCategoryItems = [...shopItems.filter((item) => item.type === 'avatar'), ...avatarItems];
 
   const categorizedItems = {};
 
-    shopItems.forEach((item) => {
+    filteredItems.forEach((item) => {
         if (!categorizedItems[item.type]) {
-            categorizedItems[item.type] = [];
+          categorizedItems[item.type] = [];
         }
         categorizedItems[item.type].push(item);
-    });
+      });    
 
     const handleItemClick = (item) => {
         setSelectedItem(item);
