@@ -132,7 +132,7 @@ const RegistrationForm = ({setActivePanel}) => {
     >
       <div className='input-idv-container'>
         <input
-          type="text"
+          type="username"
           id="username"
           onChange={handleUsername}
           value={username}

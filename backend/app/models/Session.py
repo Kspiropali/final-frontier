@@ -72,3 +72,18 @@ class Session:
                     return False
         except Exception as e:
             return f"error: {str(e)}"
+
+    @staticmethod
+    def get_username(token):
+        try:
+            with db.engine.connect() as con:
+                result = con.execute(
+                    text("SELECT username FROM session WHERE token = :token")
+                    .params(token=token)
+                )
+                if result.rowcount == 1:
+                    return result.fetchone()[0]
+                else:
+                    return "error: Session not found"
+        except Exception as e:
+            return f"error: {str(e)}"
