@@ -24,3 +24,4 @@ sqlalchemy==2.0.21; python_version >= '3.7'
 typing-extensions==4.8.0; python_version >= '3.8'
 urllib3==2.0.5; python_version >= '3.7'
 werkzeug==2.3.7; python_version >= '3.8'
+flask-cors==4.0.0

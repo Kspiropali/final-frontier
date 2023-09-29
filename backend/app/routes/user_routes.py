@@ -61,9 +61,9 @@ def login():
         resp.set_cookie('Authorization',
                         token,
                         httponly=True,
-                        samesite='Lax',  # Set to 'None' for cross-origin
+                        samesite='Strict',  # Set to 'None' for cross-origin
                         secure=True,  # Set to True for HTTPS
-                        domain='localhost',  # Common domain
+                        domain='finfrontier.ddns.net',  # Common domain
                         path='/')  # Path where the cookie is accessible
 
         return resp

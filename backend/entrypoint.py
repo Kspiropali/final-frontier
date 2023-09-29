@@ -1,4 +1,5 @@
 import os
+import ssl
 from glob import glob
 
 from flask import redirect
@@ -18,7 +19,7 @@ app = Flask(__name__, static_folder="static/", static_url_path="/")
 
 # Configure CORS
 # TODO: change it later, cookies change domains as well
-CORS(app)
+CORS(app, supports_credentials=True)
 cors = CORS(app, resources={r"/*": {"origins": "http://localhost:5173", "supports_credentials": True}})
 
 
@@ -51,7 +52,17 @@ def redirect_to_root():
     return redirect('/')
 
 
+@app.errorhandler(404)
+def page_not_found(error):
+    return redirect('/')
+
+
 if __name__ == "__main__":
+
+    with app.app_context():
+        setup_tables()
+        dummy_data()
+
     if Config.ENV == 'development':
         os.environ['DOMAIN'] = 'http://localhost:5000/'
         app.run(debug=True, use_reloader=True, host="0.0.0.0", port=5000, extra_files=MONITORED_FILES)
@@ -61,8 +72,6 @@ if __name__ == "__main__":
         app.run(host="0.0.0.0", port=Config.PORT, use_reloader=True, extra_files=MONITORED_FILES)
     elif Config.ENV == 'local':
         os.environ['DOMAIN'] = 'http://localhost:3000/'
-        with app.app_context():
-            setup_tables()
-            dummy_data()
 
-        app.run(debug=True, port=3000, use_reloader=True, host="127.0.0.1", extra_files=MONITORED_FILES)
+
+        app.run(debug=True, port=3000, use_reloader=True, host="0.0.0.0", extra_files=MONITORED_FILES)
