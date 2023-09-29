@@ -30,9 +30,9 @@ services:
   backend:
     container_name: backend-server
     ports:
-      - "8080:8080"
+      - "80:80"
     environment:
-      PORT: 8080
+      PORT: 80
       SQLALCHEMY_DATABASE_URI: postgresql://user:password@postgres:5432/frontier
       ENV: production
       SECRET_KEY: ${SECRET_KEY}
