@@ -1,4 +1,3 @@
-// FetchAvatar.jsx
 import React, { useEffect, useState } from 'react';
 
 import testCoin from '../../assets/images/testitem/coin.png';

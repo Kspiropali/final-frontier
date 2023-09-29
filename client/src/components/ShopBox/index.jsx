@@ -4,6 +4,8 @@ import { useShop } from '../../contexts/ShopContext';
 import '../../assets/css/shopbox.css'
 import testItem from '../../assets/images/testitem/hat.png'
 import testItem2 from '../../assets/images/testavatars/default.png'
+import testItem3 from '../../assets/images/testbg/rainbow.jpg'
+
 import testCoin from '../../assets/images/testitem/coin.png'
 
 const ShopBox = () => {
@@ -33,6 +35,15 @@ const ShopBox = () => {
             price: 20,
             coinImage: testCoin
         },
+        {
+            id: 3,
+            image: testItem3,
+            name: "Rainbow",
+            type: 'background',
+            description: "Gaze at this beautiful site",
+            price: 5,
+            coinImage: testCoin
+        }
     ]
 
   const avatarCategoryItems = [...shopItems.filter((item) => item.type === 'avatar'), ...avatarItems];
