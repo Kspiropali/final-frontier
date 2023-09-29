@@ -9,33 +9,44 @@ const RegistrationForm = () => {
   
   const {confirmationPassword, setConfirmationPassword, confirmationEmail, setConfirmationEmail, email, setEmail, password, setPassword, username, setUsername, displayMessage, setDisplayMessage} = useAuth()
 
-  const [passwordSatisfied, setPasswordSatisfied] = useState()
+  const [regPasswordSatisfied, setRegPasswordSatisfied] = useState()
+  const [regEmailSatisfied, setRegEmailSatisfied] = useState()
+  const [regUsernameSatisfied, setRegUsernameSatisfied] = useState()
 
   const passwordRequirements = ["> 6 characters", "1 number", "1 symbol", "match"]
-
   const emailRequirements = ["contains '@'", 'match']
+  const usernameRequirements = ["unique"]
   
   const handleUsername = (e) => {
     const value = e.target.value
     setUsername(value.toString())
 
-  }
-  const handlePassword = (e) => {
-    const value = e.target.value
-      setPassword(value.toString())
-
-    if (password.length > 6 && password.match(/(\d+)/) && password.match(/[!-\/:-@[-`{-~]/)) {
-      setPasswordSatisfied(true)
+    // ADD TO THIS RULE
+    if (username.length > 3) {
+      setRegUsernameSatisfied(true)
     }
     else {
-      if (passwordSatisfied) {
-        setPasswordSatisfied(false)
+      if (regUsernameSatisfied) {
+        setRegUsernameSatisfied(false)
       }
     }
   }
+  const handlePassword = (e) => {
+    const value = e.target.value
+    setPassword(value.toString())
+  }
   const handleConfirmationPassword = (e) => {
     const value = e.target.value
-      setConfirmationPassword(value.toString())
+    setConfirmationPassword(value.toString())
+
+    if (value.length > 6 && value.match(/(\d+)/) && value.match(/[!-\/:-@[-`{-~]/) && value == password) {
+      setRegPasswordSatisfied(true)
+    }
+    else {
+      if (regPasswordSatisfied) {
+        setRegPasswordSatisfied(false)
+      }
+    }
   }
   function handleEmail(e){
     const value = e.target.value
@@ -43,7 +54,17 @@ const RegistrationForm = () => {
   }
   const handleConfirmationEmail = (e) => {
     const value = e.target.value
-      setConfirmationEmail(value.toString())
+    setConfirmationEmail(value.toString())
+    
+    if (value.includes('@') && value.match(/(\d+)/) && value == email) {
+      setRegEmailSatisfied(true)
+    }
+    else {
+      if (regEmailSatisfied) {
+        setRegEmailSatisfied(false)
+      }
+    }
+    
   }
 
   const handleSubmit = async (e) => {
@@ -106,13 +127,16 @@ const RegistrationForm = () => {
     >
       <div className='input-idv-container'>
         <input
-            type="text"
-            id="username"
-            onChange={handleUsername}
-            value={username}
-            placeholder='username'
-            required
-            className={`input-field`}/>
+          type="text"
+          id="username"
+          onChange={handleUsername}
+          value={username}
+          placeholder='username'
+          required
+          className={`input-field`}/>
+        <div className='requirements-container'>
+          <p className={``}>{usernameRequirements[0]}</p><img className='requirement-icons' src={username.length > 3 && regUsernameSatisfied ? check : close}></img>
+        </div>
       </div>
       <div className='input-idv-container'>
           <input
@@ -124,7 +148,6 @@ const RegistrationForm = () => {
           required
           className='input-field'/>
           <div className='requirements-container'>
-            {/* <p className={``}>{emailRequirements[0]}</p><img className='requirement-icons' src={email.includes('@') ? check : close}></img> */}
           </div>
       </div>
       <div className='input-idv-container'>
@@ -151,9 +174,6 @@ const RegistrationForm = () => {
           required
           className='input-field password-field'/>
           <div className='requirements-container'>
-            {/* <p className=''>{passwordRequirements[0]}</p><img className='requirement-icons' src={password.length > 6 ? check : close}></img>
-            <p className=''>{passwordRequirements[1]}</p><img className='requirement-icons' src={password.match(/(\d+)/) ? check : close}></img>
-            <p className=''>{passwordRequirements[2]}</p><img className='requirement-icons' src={password.match(/[!-\/:-@[-`{-~]/) ? check : close}></img> */}
           </div>
       </div>
       <div className='input-idv-container'>
