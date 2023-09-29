@@ -2,28 +2,51 @@ import React, { useState } from 'react'
 import { useAuth } from '../../contexts/AuthContext'
 import axios from 'axios'
 
+import check from '../../assets/images/loginReg/check.png'
+import close from '../../assets/images/loginReg/close.png'
+
 const RegistrationForm = () => {
   
   const {confirmationPassword, setConfirmationPassword, confirmationEmail, setConfirmationEmail, email, setEmail, password, setPassword, username, setUsername, displayMessage, setDisplayMessage} = useAuth()
 
-  let usernameSatisfied ;
-  let emailSatisfied ;
-  let confirmationEmailSatisfied ;
-  let passwordSatisfied ;
-  let confirmationPasswordSatisfied ;
+  const [regPasswordSatisfied, setRegPasswordSatisfied] = useState()
+  const [regEmailSatisfied, setRegEmailSatisfied] = useState()
+  const [regUsernameSatisfied, setRegUsernameSatisfied] = useState()
+
+  const passwordRequirements = ["> 6 characters", "1 number", "1 symbol", "match"]
+  const emailRequirements = ["contains '@'", 'match']
+  const usernameRequirements = ["unique"]
   
   const handleUsername = (e) => {
     const value = e.target.value
     setUsername(value.toString())
 
+    // ADD TO THIS RULE
+    if (username.length > 3) {
+      setRegUsernameSatisfied(true)
+    }
+    else {
+      if (regUsernameSatisfied) {
+        setRegUsernameSatisfied(false)
+      }
+    }
   }
   const handlePassword = (e) => {
     const value = e.target.value
-      setPassword(value.toString())
+    setPassword(value.toString())
   }
   const handleConfirmationPassword = (e) => {
     const value = e.target.value
-      setConfirmationPassword(value.toString())
+    setConfirmationPassword(value.toString())
+
+    if (value.length > 6 && value.match(/(\d+)/) && value.match(/[!-\/:-@[-`{-~]/) && value == password) {
+      setRegPasswordSatisfied(true)
+    }
+    else {
+      if (regPasswordSatisfied) {
+        setRegPasswordSatisfied(false)
+      }
+    }
   }
   function handleEmail(e){
     const value = e.target.value
@@ -31,18 +54,17 @@ const RegistrationForm = () => {
   }
   const handleConfirmationEmail = (e) => {
     const value = e.target.value
-      setConfirmationEmail(value.toString())
-  }
-
-  function checkUsername(username){
-    if (username < 2) {
-      return [false, "too short"]
+    setConfirmationEmail(value.toString())
+    
+    if (value.includes('@') && value.match(/(\d+)/) && value == email) {
+      setRegEmailSatisfied(true)
     }
-  }
-  function checkPassword(username){
-    if (username < 2) {
-      return false
+    else {
+      if (regEmailSatisfied) {
+        setRegEmailSatisfied(false)
+      }
     }
+    
   }
 
   const handleSubmit = async (e) => {
@@ -105,13 +127,16 @@ const RegistrationForm = () => {
     >
       <div className='input-idv-container'>
         <input
-            type="text"
-            id="username"
-            onChange={handleUsername}
-            value={username}
-            placeholder='username'
-            required
-            className={`input-field`}/>
+          type="text"
+          id="username"
+          onChange={handleUsername}
+          value={username}
+          placeholder='username'
+          required
+          className={`input-field`}/>
+        <div className='requirements-container'>
+          <p className={``}>{usernameRequirements[0]}</p><img className='requirement-icons' src={username.length > 3 && regUsernameSatisfied ? check : close}></img>
+        </div>
       </div>
       <div className='input-idv-container'>
           <input
@@ -122,7 +147,8 @@ const RegistrationForm = () => {
           placeholder='email'
           required
           className='input-field'/>
-          <p>must contain @</p>
+          <div className='requirements-container'>
+          </div>
       </div>
       <div className='input-idv-container'>
           <input
@@ -133,9 +159,12 @@ const RegistrationForm = () => {
           placeholder='confirm email'
           required
           className='input-field'/>
-          <p>emails do not match</p>
+          <div className='requirements-container'>
+            <p className={``}>{emailRequirements[0]}</p><img className='requirement-icons' src={email.includes('@') ? check : close}></img>
+            <p className={``}>{emailRequirements[1]}</p><img className='requirement-icons' src={email.includes('@') && confirmationEmail == email ? check : close}></img>
+          </div>
       </div>
-      <div className='input-idv-container'>
+      <div className={`input-idv-container`}>
           <input
           type="password"
           id="password"
@@ -143,8 +172,9 @@ const RegistrationForm = () => {
           value={password}
           placeholder='password'
           required
-          className='input-field white-text password-field'/>
-          <p>{'must contain at least: 6 characters, 1 Uppercase, 0-9 & 1 symbol'} </p>
+          className='input-field password-field'/>
+          <div className='requirements-container'>
+          </div>
       </div>
       <div className='input-idv-container'>
           <input
@@ -154,8 +184,13 @@ const RegistrationForm = () => {
           value={confirmationPassword}
           placeholder='confirm password'
           required
-          className='input-field white-text password-field no-match'/>
-          <p>passwords do not match</p>
+          className='input-field password-field'/>
+          <div className='requirements-container'>
+            <p className={``}>{passwordRequirements[0]}</p><img className='requirement-icons' src={password.length > 6 ? check : close}></img>
+            <p className={``}>{passwordRequirements[1]}</p><img className='requirement-icons' src={password.match(/(\d+)/) ? check : close}></img>
+            <p className={``}>{passwordRequirements[2]}</p><img className='requirement-icons' src={password.match(/[!-\/:-@[-`{-~]/) ? check : close}></img>
+            <p className={``}>{passwordRequirements[3]}</p><img className='requirement-icons' src={password.length > 6 && confirmationPassword == password ? check : close}></img>
+          </div>
       </div>
       <input className='login-btn' type="submit" value="Register" />
     </form>
