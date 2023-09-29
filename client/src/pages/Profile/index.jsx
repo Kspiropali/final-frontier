@@ -8,7 +8,7 @@ import { ProfileProvider } from '../../contexts/ProfileContext';
 const Profile = () => {
   return (
   <ProfileProvider>
-		<div className="index">
+		<div className="indexP">
       <ProfileInfo />
       <Stats /> 
       <Buttons />

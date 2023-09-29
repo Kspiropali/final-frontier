@@ -1,5 +1,6 @@
 header {
   background-color: #080117;
+  display: flex;
 }
 
 nav {
@@ -11,6 +12,8 @@ nav {
 .logo {
   margin-right: auto; 
 	margin-left: 20px;
+  height: 50px;
+  width: 100px;
 }
 
 .nav-link {
