@@ -5,7 +5,7 @@ import axios from 'axios'
 import check from '../../assets/images/loginReg/check.png'
 import close from '../../assets/images/loginReg/close.png'
 
-const RegistrationForm = () => {
+const RegistrationForm = ({setActivePanel}) => {
   
   const {confirmationPassword, setConfirmationPassword, confirmationEmail, setConfirmationEmail, email, setEmail, password, setPassword, username, setUsername, displayMessage, setDisplayMessage} = useAuth()
 
@@ -100,6 +100,7 @@ const RegistrationForm = () => {
         setConfirmationEmail('')
         setTimeout(() => {
           setDisplayMessage('')
+          setActivePanel('Login')
         }, 3000);
       }
       catch (err){
