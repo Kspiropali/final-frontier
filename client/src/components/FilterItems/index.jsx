@@ -3,11 +3,8 @@ import { useShop } from '../../contexts/ShopContext'
 
 const filterOptions = [
     { label: 'Backgrounds', key: 'option1' },
-    { label: 'Hats', key: 'option2' },
-    { label: 'Tops', key: 'option3' },
-    { label: 'Bottoms', key: 'option4' },
-    { label: 'Shoes', key: 'option5' },
-    { label: 'Accessories', key: 'option6' },
+    { label: 'Accessories', key: 'option2' },
+    { label: 'Avatars', key: 'option3' }
   ];
 
 const FilterItems = () => {
