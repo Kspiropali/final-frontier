@@ -5,7 +5,7 @@ import axios from 'axios'
 
 const LoginForm = ({setPreResetState}) => {
 
-    const {username, setUsername, password, setPassword, setDisplayMessage} = useAuth()
+    const {username, setUsername, password, setPassword, setDisplayMessage, isLoggedIn, setIsLoggedIn} = useAuth()
 
     const handleUsername = (e) => {
       const value = e.target.value
@@ -20,8 +20,6 @@ const LoginForm = ({setPreResetState}) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(username.length)
-        console.log(password.length)
 
         if (username.length > 0 && password.length > 0) {
           try {
@@ -43,9 +41,10 @@ const LoginForm = ({setPreResetState}) => {
     
             const response = await axios.request(config)
     
-            console.log(JSON.stringify(response.data))
+            console.log(JSON.stringify(response))
 
-            console.log(response)
+            console.log(document.cookie)
+
             //const token == response.headers.authorization
             //add token to cookies storage
     

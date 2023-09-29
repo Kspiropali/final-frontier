@@ -69,7 +69,7 @@ const RegistrationForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (username.length > 0 && password.length > 0 && confirmationPassword.length > 0 && email.length > 0 && confirmationEmail.length > 0) {
+    if (regPasswordSatisfied, regEmailSatisfied, regUsernameSatisfied) {
       try {
 
         const data = JSON.stringify({
@@ -132,7 +132,6 @@ const RegistrationForm = () => {
           onChange={handleUsername}
           value={username}
           placeholder='username'
-          required
           className={`input-field`}/>
         <div className='requirements-container'>
           <p className={``}>{usernameRequirements[0]}</p><img className='requirement-icons' src={username.length > 3 && regUsernameSatisfied ? check : close}></img>
@@ -145,7 +144,6 @@ const RegistrationForm = () => {
           onChange={handleEmail}
           value={email}
           placeholder='email'
-          required
           className='input-field'/>
           <div className='requirements-container'>
           </div>
@@ -157,7 +155,6 @@ const RegistrationForm = () => {
           onChange={handleConfirmationEmail}
           value={confirmationEmail}
           placeholder='confirm email'
-          required
           className='input-field'/>
           <div className='requirements-container'>
             <p className={``}>{emailRequirements[0]}</p><img className='requirement-icons' src={email.includes('@') ? check : close}></img>
@@ -171,7 +168,6 @@ const RegistrationForm = () => {
           onChange={handlePassword}
           value={password}
           placeholder='password'
-          required
           className='input-field password-field'/>
           <div className='requirements-container'>
           </div>
@@ -183,7 +179,6 @@ const RegistrationForm = () => {
           onChange={handleConfirmationPassword}
           value={confirmationPassword}
           placeholder='confirm password'
-          required
           className='input-field password-field'/>
           <div className='requirements-container'>
             <p className={``}>{passwordRequirements[0]}</p><img className='requirement-icons' src={password.length > 6 ? check : close}></img>
