@@ -63,7 +63,7 @@ def login():
                         httponly=True,
                         samesite='Strict',  # Set to 'None' for cross-origin
                         secure=True,  # Set to True for HTTPS
-                        domain='finfrontier.ddns.net',  # Common domain
+                        domain='localhost',  # Common domain
                         path='/')  # Path where the cookie is accessible
 
         return resp
