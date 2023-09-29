@@ -13,7 +13,7 @@ const FetchAvatar = ({ onAvatarItemsFetched }) => {
         const avatarItem = {
           id: 'avatar-1',
           image: dataUrl,
-          name: 'Adventurer Avatar',
+          name: 'Adventurer',
           type: 'avatar',
           description: 'An adventurous avatar for your profile',
           price: 30,
