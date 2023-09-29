@@ -54,7 +54,6 @@ const ShopBox = () => {
         <>
           <FetchAvatar onAvatarItemsFetched={handleAvatarItemsFetched} />
     
-          <div>
             <div className="shop-box-container">
               <h1 className="shop-header">Item Shop</h1>
               <div className="toggle-buttons-container">
@@ -87,7 +86,6 @@ const ShopBox = () => {
                 ))}
               </div>
             </div>
-          </div>
         </>
       );
     };
