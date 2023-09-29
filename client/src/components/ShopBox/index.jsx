@@ -8,7 +8,7 @@ import testItem3 from '../../assets/images/testbg/rainbow.jpg'
 import testCoin from '../../assets/images/testitem/coin.png'
 
 const ShopBox = () => {
-    const { selectedItem, setSelectedItem, selectedFilters } = useShop(); 
+    const { setSelectedItem, selectedFilters, searchQuery } = useShop(); 
     const [avatarItems, setAvatarItems] = useState([]);
 
     const handleAvatarItemsFetched = (items) => {
@@ -46,15 +46,20 @@ const ShopBox = () => {
     ]
 
   let filteredItems = shopItems
-
   if (Object.values(selectedFilters).some(Boolean)) {
     filteredItems = shopItems.filter((item) => selectedFilters[item.type]);
   }
 
-  const avatarCategoryItems = [...shopItems.filter((item) => item.type === 'avatar'), ...avatarItems];
+  const filteredItemsSearch = shopItems.filter((item) =>
+    item.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  const avatarCategoryItems = [
+    ...filteredItemsSearch.filter((item) => item.type === 'avatar'),
+    ...avatarItems
+  ];
 
   const categorizedItems = {};
-
     filteredItems.forEach((item) => {
         if (!categorizedItems[item.type]) {
           categorizedItems[item.type] = [];

@@ -12,7 +12,7 @@ import 'animate.css'
 const MySwal = withReactContent(Swal);
 
 const ShopSidebar = () => {
-    const { userDetails, openModal } = useShop()
+    const { userDetails, openModal, searchQuery, setSearchQuery } = useShop()
 
     const showModal = () => {
         MySwal.fire({
@@ -41,7 +41,7 @@ const ShopSidebar = () => {
           onClick={showModal}
         />
         </div>
-        <SearchItem />
+        <SearchItem searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
         <h3 className="filters-header">Filters</h3>
         <FilterItems />
       </div>
