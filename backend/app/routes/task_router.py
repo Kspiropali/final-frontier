@@ -27,3 +27,19 @@ def update_single_task(task_id):
         if str(e).startswith('list index out of range'):
             return jsonify({'error': 'User not found'}), 404
         return {'error': str(e)}, 400
+
+@task_bp.route('/<int:task_id>', methods=['GET'])
+def get_one_task(task_id):
+    try:
+        task = get_task(task_id)
+        return jsonify({'task': [{'id': task.id, 'name': task.name, 'description': task.description}]})
+    except:
+        return "FAILED!"
+    
+@task_bp.route('/<int:task_id>', methods=['DELETE'])
+def delete_one_task(task_id):
+    try:
+        deleted = delete_task(task_id)
+        return deleted
+    except:
+        return "FAILED!"

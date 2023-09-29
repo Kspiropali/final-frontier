@@ -24,17 +24,25 @@ class Task(db.Model):
     #     return f"<Task, id: {self.id} name: {self.name}, description: {self.description}>"
     
     def update(task_id, data):
-        print(data['name'])
         query = Task.query.filter_by(id=task_id)
         task = query.first()
-        print(task)
         task.name = data['name']
         task.description = data['description']
-        print(task)
         db.session.commit()
+    
+    def get_task(task_id):
+        query = Task.query.filter_by(id=task_id)
+        task = query.first()
+        return task
     
     def get_tasks():
         query = Task.query.all()
-        print(query[0].id)
         return query
+    
+    def delete_task(task_id):
+        query = Task.query.filter_by(id=task_id)
+        task = query.first()
+        db.session.delete(task)
+        db.session.commit()
+        return "DONE"
 
