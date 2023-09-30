@@ -98,8 +98,8 @@ const LoginForm = ({setPreResetState}) => {
         </div>
         <input aria-label='submit button' role='submit' className='login-btn' type="submit" value="Login" />
     </form>
-    {/* MOVE THIS p TO LOGIN 'PAGE' FILE ONCE CONTEXTS ARE SET */}
-    <p className='yellow-text' id='forgot-password' onClick={() => setPreResetState(true)}>forgot password?</p>
+    <a href="javascript:void(0)">
+    <p className='yellow-text' id='forgot-password' onClick={() => setPreResetState(true)}>forgot password?</p></a>
     </>
   )
 }
