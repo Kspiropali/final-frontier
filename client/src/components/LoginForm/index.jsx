@@ -96,7 +96,7 @@ const LoginForm = ({setPreResetState}) => {
             placeholder='password'
             className='input-field white-text password-field'/>
         </div>
-        <input className='login-btn' type="submit" value="Login" />
+        <input aria-label='submit button' role='submit' className='login-btn' type="submit" value="Login" />
     </form>
     {/* MOVE THIS p TO LOGIN 'PAGE' FILE ONCE CONTEXTS ARE SET */}
     <p className='yellow-text' id='forgot-password' onClick={() => setPreResetState(true)}>forgot password?</p>
