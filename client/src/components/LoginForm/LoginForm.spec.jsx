@@ -49,6 +49,12 @@ describe("PageWrapper component", () => {
 
         expect(passwordInput).toBeDefined()
     })
+    
+    it("renders one input of type 'password'", () => {
+        const passwordInput = screen.getByPlaceholderText('password')
+
+        expect(passwordInput).toBeDefined()
+    })
 
     afterEach(() => {
         cleanup();
