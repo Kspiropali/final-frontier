@@ -98,7 +98,6 @@ const LoginForm = ({setPreResetState}) => {
         </div>
         <input className='login-btn' type="submit" value="Login" />
     </form>
-    {/* MOVE THIS p TO LOGIN 'PAGE' FILE ONCE CONTEXTS ARE SET */}
     <a href="javascript:void(0)">
     <p className='yellow-text' id='forgot-password' onClick={() => setPreResetState(true)}>forgot password?</p></a>
     </>
