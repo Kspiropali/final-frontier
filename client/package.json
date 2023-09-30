@@ -8,7 +8,9 @@
     "build": "vite build && cp -r dist/* ../backend/static/.",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "dev-server": "json-server -p 8080 db.json"
+    "dev-server": "json-server -p 8080 db.json",
+    "test": "vitest run --reporter verbose",
+    "coverage": "vitest run --coverage"
   },
   "dependencies": {
     "animate.css": "^4.1.1",
