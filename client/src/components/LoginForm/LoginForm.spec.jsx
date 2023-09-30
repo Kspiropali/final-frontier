@@ -33,7 +33,7 @@ describe("PageWrapper component", () => {
             );
     });
 
-    it("<AuthProvider>",() => {
+    it("Renders Login form on loading",() => {
         const form = screen.getByRole('login')
         expect(form).toBeDefined()
     })
