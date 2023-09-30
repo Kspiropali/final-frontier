@@ -7,3 +7,5 @@
 
 ## Be sure to double-check the package.json dev dependencies & scripts when you use this branch for the first time.
 - Install or add any extra scripts or packages you need 😁
+
+## Don't forget to `npm i` or `npm i && npm i -D`
