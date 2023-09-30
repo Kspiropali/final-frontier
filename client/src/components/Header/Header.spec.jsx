@@ -35,7 +35,7 @@ describe("PageWrapper component", () => {
         const nav = screen.getByRole("navigation");
 
         expect(nav).toBeDefined();
-        expect(nav.childNodes.length).toBe(8);
+        expect(nav.childNodes.length).toBe(6);
 
     });
 
@@ -88,25 +88,13 @@ describe("PageWrapper component", () => {
 
     it("Login navlink redirects to '/login' ", async () => {
 
-        const login = screen.getByText("Login")
+        const login = screen.getByText("Login/Register")
 
         await userEvent.click(login);
         // spy on push calls, assert on url (parameter)
-        expect(location.pathname).toBe('/login');
+        expect(location.pathname).toBe('/login-register');
 
     });
-
-    it("Register navlink redirects to '/register' ", async () => {
-
-        const register = screen.getByText("Register")
-
-        await userEvent.click(register);
-        // spy on push calls, assert on url (parameter)
-        expect(location.pathname).toBe('/register');
-
-    });
-
-
 
     afterEach(() => {
         cleanup();
