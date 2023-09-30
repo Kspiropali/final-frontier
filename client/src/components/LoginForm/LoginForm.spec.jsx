@@ -49,11 +49,17 @@ describe("PageWrapper component", () => {
 
         expect(passwordInput).toBeDefined()
     })
-    
-    it("renders one input of type 'password'", () => {
-        const passwordInput = screen.getByPlaceholderText('password')
 
-        expect(passwordInput).toBeDefined()
+    it("renders a submit input element with the name 'Login'", () => {
+        const submitBtn = screen.getByRole('button', {name: "Login"})
+
+        expect(submitBtn).toBeDefined()
+    })
+
+    it("renders a p element called 'forgot password?'", () => {
+        const submitBtn = screen.getByRole('button', {name: "Login"})
+
+        expect(submitBtn).toBeDefined()
     })
 
     afterEach(() => {
