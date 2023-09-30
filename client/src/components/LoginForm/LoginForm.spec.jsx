@@ -38,6 +38,18 @@ describe("PageWrapper component", () => {
         expect(form).toBeDefined()
     })
 
+    it("renders one input of type 'username'", () => {
+        const usernameInput = screen.getByPlaceholderText('username')
+
+        expect(usernameInput).toBeDefined()
+    })
+
+    it("renders one input of type 'password'", () => {
+        const passwordInput = screen.getByPlaceholderText('password')
+
+        expect(passwordInput).toBeDefined()
+    })
+
     afterEach(() => {
         cleanup();
     })
