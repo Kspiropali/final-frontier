@@ -6,11 +6,10 @@ import { screen, render, cleanup, fireEvent, act, waitFor } from '@testing-libra
 
 // extras
 import userEvent from '@testing-library/user-event'
-import {createMemoryHistory} from 'history'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-import { BrowserRouter, MemoryRouter, Outlet } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 
 import * as matchers from '@testing-library/jest-dom/matchers';
 expect.extend(matchers);
@@ -179,8 +178,8 @@ describe("RegistrationForm component", () => {
     it("email & confirm email input values change when user types in a value", async () => {
         //email
         const emailInput = screen.getByPlaceholderText('email')
-        await userEvent.type(emailInput, "testuser1@email.com")
-        expect(emailInput).toHaveValue("testuser1@email.com")
+        await userEvent.type(emailInput, "testuser")
+        expect(emailInput).toHaveValue("testuser")
         expect(emailInput).toBeVisible()
 
         //confirm email
@@ -329,96 +328,89 @@ describe("RegistrationForm component", () => {
         })
     })
 
-    // it("input value changes when user types in a value", async () => {
+    it("after sucessful submission fields should be clear", async () => {
+
+        const usernameInput = screen.getByPlaceholderText('username')
+        const passwordInput = screen.getByPlaceholderText('password')
+        const confirmPasswordInput = screen.getByPlaceholderText('confirm password')
+        const emailInput = screen.getByPlaceholderText('email')
+        const confirmEmailInput = screen.getByPlaceholderText('confirm email')
+        
+        await userEvent.type(usernameInput, "testuser")
+        await userEvent.type(passwordInput, "password1*")
+        await userEvent.type(confirmPasswordInput, "password1*")
+        await userEvent.type(emailInput, "testuser1@email.com")
+        await userEvent.type(confirmEmailInput, "testuser1@email.com")
+        
+        const form = screen.getByRole('register')
+
+        const response = {
+            data: "user registeration was successful"
+        }
+
+        const registerReq = vi.spyOn(axios, "request").mockResolvedValueOnce(response)
+
+        act(()=> {
+            fireEvent.submit(form)
+        })
+            
+        
+        await waitFor(() => {
+            expect(registerReq).toHaveBeenCalled()
+        })        
+    }, 8000),
+
+    it("If all the field requirements are not satisfied, the post request won't be sent", async () => {
+
+        const form = screen.getByRole('register')
+
+        const response = {
+            data: "user registered in successfully"
+        }
+
+        const registerReq = vi.spyOn(axios, "request").mockResolvedValueOnce(response)
+        act(() => {
+            fireEvent.submit(form)
+        })
+        
+        await waitFor(() => {
+            expect(registerReq).not.toHaveBeenCalled()
+        })        
+    })
+
+    // it("after unsucessful submission fields should be clear", async () => {
 
     //     const usernameInput = screen.getByPlaceholderText('username')
-    //     await userEvent.type(usernameInput, "hello")
-    //     expect(usernameInput).toHaveValue("hello")
-
     //     const passwordInput = screen.getByPlaceholderText('password')
-    //     await userEvent.type(passwordInput, "pass")
-    //     expect(passwordInput).toHaveValue("pass")
-    // })
-
-    // it("on change events reflect the value of the input", async () => {
-
-    //     const usernameInput = screen.getByPlaceholderText('username')
-    //     fireEvent.change(usernameInput, {target: {value: "hello"}})
-    //     expect(usernameInput).toHaveValue('hello')
-
-    //     const passwordInput = screen.getByPlaceholderText('password')
-    //     fireEvent.change(passwordInput, {target: {value: "pass"}})
-    //     expect(passwordInput).toHaveValue("pass")
-    // }),
-
-    // it("after sucessful submission fields should be clear", async () => {
-
-    //     const usernameInput = screen.getByPlaceholderText('username')
-    //     fireEvent.change(usernameInput, {target: {value: "testuser1"}})
-    //     expect(usernameInput).toHaveValue('testuser1')
-
-    //     const passwordInput = screen.getByPlaceholderText('password')
-    //     fireEvent.change(passwordInput, {target: {value: "password1*"}})
-    //     expect(passwordInput).toHaveValue("password1*")
-
-    //     const form = screen.getByRole('login')
+    //     const confirmPasswordInput = screen.getByPlaceholderText('confirm password')
+    //     const emailInput = screen.getByPlaceholderText('email')
+    //     const confirmEmailInput = screen.getByPlaceholderText('confirm email')
+        
+    //     await userEvent.type(usernameInput, "testuser")
+    //     await userEvent.type(passwordInput, "password1*")
+    //     await userEvent.type(confirmPasswordInput, "password1*")
+    //     await userEvent.type(emailInput, "testuser1@email.com")
+    //     await userEvent.type(confirmEmailInput, "testuser1@email.com")
+        
+    //     const form = screen.getByRole('register')
 
     //     const response = {
-    //         data: "user logged in successfully"
+    //         statusCode: "403"
     //     }
 
-    //     const loginReq = vi.spyOn(axios, "request").mockResolvedValueOnce(response)
-    //     act(() => {
+    //     const registerReq = vi.spyOn(axios, "request").mockRejectedValueOnce(response)
+
+    //     act(()=> {
     //         fireEvent.submit(form)
     //     })
-        
+            
     //     await waitFor(() => {
-    //         expect(loginReq).toHaveBeenCalled(1)
-    //     })        
-    // }),
-
-    // it("If no data has been entered at the time of submission, the post request isn't sent", async () => {
-
-    //     const form = screen.getByRole('login')
-
-    //     const response = {
-    //         data: "user logged in successfully"
-    //     }
-
-    //     const loginReq = vi.spyOn(axios, "request").mockResolvedValueOnce(response)
-    //     act(() => {
-    //         fireEvent.submit(form)
-    //     })
-        
-    //     await waitFor(() => {
-    //         expect(loginReq).not.toHaveBeenCalled()
-    //     })        
-    // }),
-    // it("If login was unsuccessful the input data and states should remain unchanged", async () => {
-
-    //     const usernameInput = screen.getByPlaceholderText('username')
-    //     fireEvent.change(usernameInput, {target: {value: "testuser1"}})
-    //     expect(usernameInput).toHaveValue('testuser1')
-
-    //     const passwordInput = screen.getByPlaceholderText('password')
-    //     fireEvent.change(passwordInput, {target: {value: "password1*"}})
-    //     expect(passwordInput).toHaveValue("password1*")
-
-    //     const form = screen.getByRole('login')
-
-    //     const response = {
-    //         statusCode: "404"
-    //     }
-
-    //     const loginReq = vi.spyOn(axios, "request").mockRejectedValueOnce(response)
-    //     act(() => {
-    //         fireEvent.submit(form)
-    //     })
-        
-    //     await waitFor(() => {
-    //         expect(loginReq).toHaveBeenCalled()
+    //         expect(registerReq).toHaveBeenCalled()
     //         expect(usernameInput).toHaveValue("testuser1")
     //         expect(passwordInput).toHaveValue("password1*")
+    //         expect(confirmPasswordInput).toHaveValue("password1*")
+    //         expect(emailInput).toHaveValue("testuser1@email.com")
+    //         expect(confirmEmailInput).toHaveValue("testuser1@email.com")
     //     })        
     // }),
 
