@@ -10,12 +10,12 @@ import {createMemoryHistory} from 'history'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-import { BrowserRouter, MemoryRouter, Outlet } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 
 import * as matchers from '@testing-library/jest-dom/matchers';
 expect.extend(matchers);
 
-import Header, { Loginform } from '../../components';
+import { Loginform } from '../../components';
 import AuthContext, { AuthProvider, useAuth } from '../../contexts/AuthContext';
 
 /**
@@ -24,7 +24,7 @@ import AuthContext, { AuthProvider, useAuth } from '../../contexts/AuthContext';
 
 const history = createMemoryHistory();
 
-describe("PageWrapper component", () => {
+describe("LoginForm component", () => {
 
     beforeEach(() => {
         render(
