@@ -154,20 +154,180 @@ describe("RegistrationForm component", () => {
         expect(submitBtn).toBeVisible()
     })
 
-    // it("renders a p element called 'forgot password?'", () => {
-    //     const forgotPassword = screen.getByText('forgot password?')
+    it("input value changes when user types in a value", async () => {
+        //username
+        const usernameInput = screen.getByPlaceholderText('username')
+        await userEvent.type(usernameInput, "testuser1")
+        expect(usernameInput).toHaveValue('testuser1')
+        expect(usernameInput).toBeVisible()
+    })
 
-    //     expect(forgotPassword).toBeDefined()
-    // })
+    it("password & confirm password input values change when user types in a value", async () => {
+        // password
+        const passwordInput = screen.getByPlaceholderText('password')
+        await userEvent.type(passwordInput, "password1*")
+        expect(passwordInput).toHaveValue("password1*")
+        expect(passwordInput).toBeVisible()
 
-    // it("handleUsername should trigger when an onchange occurs", async () => {
+        //confirm password
+        const confirmPasswordInput = screen.getByPlaceholderText('confirm password')
+        await userEvent.type(confirmPasswordInput, "password1*")
+        expect(confirmPasswordInput).toHaveValue("password1*")
+        expect(confirmPasswordInput).toBeVisible()
+    })
 
-    //     const usernameInput = screen.getByPlaceholderText('username')
+    it("email & confirm email input values change when user types in a value", async () => {
+        //email
+        const emailInput = screen.getByPlaceholderText('email')
+        await userEvent.type(emailInput, "testuser1@email.com")
+        expect(emailInput).toHaveValue("testuser1@email.com")
+        expect(emailInput).toBeVisible()
 
-    //     const response = await userEvent.type(usernameInput, "hello")
-    //     expect(usernameInput).toHaveValue('hello')
+        //confirm email
+        const confirmEmailInput = screen.getByPlaceholderText('confirm email')
+        await userEvent.type(confirmEmailInput, "testuser1@email.com")
+        expect(confirmEmailInput).toHaveValue("testuser1@email.com")
+        expect(confirmEmailInput).toBeVisible()
+    })
 
-    // })
+    it("username with a length > 3 satisfies username requirements and changes the image from a ✖ to a ✔", async () => {
+
+        const usernameInput = screen.getByPlaceholderText('username')
+        
+        act(() => {
+            userEvent.type(usernameInput, "testuser1")
+        })
+
+        await waitFor(() => {
+            expect(usernameInput).toHaveValue('testuser1')
+            expect(usernameInput).toBeVisible()
+            const image = screen.getByAltText(/valid username/)
+            expect(image).toHaveAttribute('src', check)
+            expect(image).not.toHaveAttribute('src', close)
+            expect(image).toBeVisible()
+        })
+        
+    })
+
+    it("password with a length > 6 changes the corresponding image from a ✖ to a ✔", async () => {
+
+        const passwordInput = screen.getByPlaceholderText('password')
+        
+        act(() => {
+            fireEvent.change(passwordInput, {target: {value: "password1*"}})
+        })
+
+        await waitFor(() => {
+            expect(passwordInput).toHaveValue('password1*')
+            expect(passwordInput).toBeVisible()
+            const image = screen.getByAltText(/password length/)
+            expect(image).toHaveAttribute('src', check)
+            expect(image).not.toHaveAttribute('src', close)
+            expect(image).toBeVisible()
+        })
+        
+    })
+
+    it("A password with at least 1 number changes the corresponding image from a ✖ to a ✔", async () => {
+
+        const passwordInput = screen.getByPlaceholderText('password')
+        
+        act(() => {
+            fireEvent.change(passwordInput, {target: {value: "password1*"}})
+        })
+
+        await waitFor(() => {
+            expect(passwordInput).toHaveValue('password1*')
+            expect(passwordInput).toBeVisible()
+            const image = screen.getByAltText(/containing a number/)
+            expect(image).toHaveAttribute('src', check)
+            expect(image).not.toHaveAttribute('src', close)
+            expect(image).toBeVisible()
+        })
+        
+    })
+
+    it("A password with at least 1 symbol changes the corresponding image from a ✖ to a ✔", async () => {
+
+        const passwordInput = screen.getByPlaceholderText('password')
+        
+        act(() => {
+            fireEvent.change(passwordInput, {target: {value: "password1*"}})
+        })
+
+        await waitFor(() => {
+            expect(passwordInput).toHaveValue('password1*')
+            expect(passwordInput).toBeVisible()
+            const image = screen.getByAltText(/containing a special character/)
+            expect(image).toHaveAttribute('src', check)
+            expect(image).not.toHaveAttribute('src', close)
+            expect(image).toBeVisible()
+        })
+        
+    })
+
+    it("Matching the password and confirm password fields changes the corresponding image from a ✖ to a ✔", async () => {
+
+        const passwordInput = screen.getByPlaceholderText('password')
+        const confirmPasswordInput = screen.getByPlaceholderText('confirm password')
+        
+        act(() => {
+            fireEvent.change(passwordInput, {target: {value: "password1*"}})
+            fireEvent.change(confirmPasswordInput, {target: {value: "password1*"}})
+        })
+
+        await waitFor(() => {
+            expect(passwordInput).toHaveValue('password1*')
+            expect(passwordInput).toBeVisible()
+            expect(confirmPasswordInput).toHaveValue('password1*')
+            expect(confirmPasswordInput).toBeVisible()
+            const image = screen.getByAltText(/matching passwords/)
+            expect(image).toHaveAttribute('src', check)
+            expect(image).not.toHaveAttribute('src', close)
+            expect(image).toBeVisible()
+        })
+        
+    })
+
+    it("email that contains '@' satisfies changes the corresponding image from ✖ to ✔", async () => {
+
+        const emailInput = screen.getByPlaceholderText('email')
+
+        act(() => {
+            fireEvent.change(emailInput, {target: {value: "testuser1@email.com"}})
+        })
+
+        await waitFor(() => {
+            expect(emailInput).toHaveValue("testuser1@email.com")
+            expect(emailInput).toBeVisible()
+            const image = screen.getByAltText(/valid email/)
+            expect(image).toHaveAttribute('src', check)
+            expect(image).not.toHaveAttribute('src', close)
+            expect(image).toBeVisible()
+        })
+    })
+
+    it("Matching the email & confirm email fields changes the corresponding image from ✖ to ✔", async () => {
+
+        const emailInput = screen.getByPlaceholderText('email')
+        const confirmEmailInput = screen.getByPlaceholderText('confirm email')
+
+        act(() => {
+            fireEvent.change(emailInput, {target: {value: "testuser1@email.com"}})
+            fireEvent.change(confirmEmailInput, {target: {value: "testuser1@email.com"}})
+        })
+
+        await waitFor(() => {
+            expect(emailInput).toHaveValue("testuser1@email.com")
+            expect(emailInput).toBeVisible()
+            expect(confirmEmailInput).toHaveValue("testuser1@email.com")
+            expect(confirmEmailInput).toBeVisible()
+            const image = screen.getByAltText(/matching emails/)
+            expect(image).toHaveAttribute('src', check)
+            expect(image).not.toHaveAttribute('src', close)
+            expect(image).toBeVisible()
+        })
+    })
 
     // it("input value changes when user types in a value", async () => {
 
