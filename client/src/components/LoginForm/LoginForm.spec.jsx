@@ -1,8 +1,8 @@
 //Boilerplate
 import React from 'react';
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
-import { screen, render, cleanup, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom'
+import { screen, render, cleanup, fireEvent, act, waitFor } from '@testing-library/react';
 
 // extras
 import userEvent from '@testing-library/user-event'
@@ -12,11 +12,11 @@ import { useNavigate } from 'react-router-dom';
 
 import { BrowserRouter, MemoryRouter, Outlet } from 'react-router-dom';
 
-import matchers from '@testing-library/jest-dom/matchers';
-// expect.extend(matchers);
+import * as matchers from '@testing-library/jest-dom/matchers';
+expect.extend(matchers);
 
 import Header, { Loginform } from '../../components';
-import AuthContext, { AuthProvider } from '../../contexts/AuthContext';
+import AuthContext, { AuthProvider, useAuth } from '../../contexts/AuthContext';
 
 /**
  * @vitest-environment jsdom
@@ -88,44 +88,84 @@ describe("PageWrapper component", () => {
     it("on change events reflect the value of the input", async () => {
 
         const usernameInput = screen.getByPlaceholderText('username')
-        await fireEvent.change(usernameInput, {target: {value: "hello"}})
+        fireEvent.change(usernameInput, {target: {value: "hello"}})
         expect(usernameInput).toHaveValue('hello')
 
         const passwordInput = screen.getByPlaceholderText('password')
-        await fireEvent.change(passwordInput, {target: {value: "pass"}})
+        fireEvent.change(passwordInput, {target: {value: "pass"}})
         expect(passwordInput).toHaveValue("pass")
     }),
 
     it("after sucessful submission fields should be clear", async () => {
 
         const usernameInput = screen.getByPlaceholderText('username')
-        await fireEvent.change(usernameInput, {target: {value: "testuser1"}})
+        fireEvent.change(usernameInput, {target: {value: "testuser1"}})
         expect(usernameInput).toHaveValue('testuser1')
 
         const passwordInput = screen.getByPlaceholderText('password')
-        await fireEvent.change(passwordInput, {target: {value: "password1*"}})
+        fireEvent.change(passwordInput, {target: {value: "password1*"}})
         expect(passwordInput).toHaveValue("password1*")
 
         const form = screen.getByRole('login')
 
+        const response = {
+            data: "user logged in successfully"
+        }
+
+        const loginReq = vi.spyOn(axios, "request").mockResolvedValueOnce(response)
+        act(() => {
+            fireEvent.submit(form)
+        })
+        
+        await waitFor(() => {
+            expect(loginReq).toHaveBeenCalled(1)
+        })        
     }),
 
-    // it("Displays 1 joke if the API returns only one joke", async () => {
+    it("If no data has been entered at the time of submission, the post request isn't sent", async () => {
 
-    //     vi.spyOn(axios, "get").mockResolvedValueOnce({ data: [
-    //         {
-    //             "setup": "What do reindeer hang on their Christmas trees?",
-    //             "punchline": "hornaments"
-    //         }
-    //     ]});
+        const form = screen.getByRole('login')
 
-    //     render(<Getter />);
+        const response = {
+            data: "user logged in successfully"
+        }
 
-    //     const jokes = await screen.findByRole("listitem");
+        const loginReq = vi.spyOn(axios, "request").mockResolvedValueOnce(response)
+        act(() => {
+            fireEvent.submit(form)
+        })
+        
+        await waitFor(() => {
+            expect(loginReq).not.toHaveBeenCalled()
+        })        
+    }),
+    it("If login was unsuccessful the input data and states should remain unchanged", async () => {
 
-    //     expect(jokes.childNodes.length).toBe(1);
-    //     expect(jokes.childNodes[0].textContent).toBe("What do reindeer hang on their Christmas trees?hornaments")
-    // });
+        const usernameInput = screen.getByPlaceholderText('username')
+        fireEvent.change(usernameInput, {target: {value: "testuser1"}})
+        expect(usernameInput).toHaveValue('testuser1')
+
+        const passwordInput = screen.getByPlaceholderText('password')
+        fireEvent.change(passwordInput, {target: {value: "password1*"}})
+        expect(passwordInput).toHaveValue("password1*")
+
+        const form = screen.getByRole('login')
+
+        const response = {
+            statusCode: "404"
+        }
+
+        const loginReq = vi.spyOn(axios, "request").mockRejectedValueOnce(response)
+        act(() => {
+            fireEvent.submit(form)
+        })
+        
+        await waitFor(() => {
+            expect(loginReq).toHaveBeenCalled()
+            expect(usernameInput).toHaveValue("testuser1")
+            expect(passwordInput).toHaveValue("password1*")
+        })        
+    }),
 
     afterEach(() => {
         cleanup();
