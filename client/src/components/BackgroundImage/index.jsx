@@ -6,17 +6,22 @@ const BackgroundImage = () => {
 
   const progress = completionPercentage;  
 
+	const initialSize = 200;
+	const initialRadius = 50; 
+
   const maxRadius = 50;
+  const maxSize = 2000;  
 
-  const radius = maxRadius - (maxRadius * progress) / 100;
-
-  const borderRadius = `${radius}%`;
+	const radius = initialRadius + (progress/100) * (maxRadius - initialRadius);
+	const size = initialSize + (progress/100) * (maxSize - initialSize);
 
   return (
     <div 
       className="bg-image-wrapper"
       style={{
-        borderRadius
+        width: `${size}px`,
+        height: `${size}px`,
+        borderRadius: `${radius}%`
       }} 
     >
       <img 
