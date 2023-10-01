@@ -64,10 +64,13 @@ const Support = () => {
   return (
     <>
     <h1 className='top-header' >Support</h1>
-    <div className='page-description'>
+    {/* <div className='page-description'>
       <h3 className='white-text white-h3'>We're Here to Help</h3>
+    </div> */}
+    <div className='carousel-comp-container'>
+      <SupportCarousel/>
     </div>
-    <SupportCarousel/>
+    
     {/* <SupportIcons firstPosition={firstPosition} supportServices={supportServices} currentSelection={currentSelection}/> */}
     {/* {serviceChoice[0] ? <SupportServicesList supportServices={supportServices} serviceChoice={serviceChoice} /> : ""} */}
     {/* <SupportServicesList supportServices={supportServices} serviceChoice={serviceChoice} /> */}

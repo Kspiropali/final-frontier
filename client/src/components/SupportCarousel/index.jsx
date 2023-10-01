@@ -14,8 +14,6 @@ import { SupportIcons, SupportServicesList, SupportItem } from '../../components
 
 const SupportCarousel = () => {
 
-    
-
     const userMood = ""
     const supportServiceSchema = [
         {
@@ -48,11 +46,7 @@ const SupportCarousel = () => {
         }
     ]
 
-  //the first position is dependent on the mood provided by the user or defaults to the first in the index of the support service schema
-  
   const [activeIndex, setActiveIndex] = useState(0);
-
-  const [firstPosition, setFirstPosition] = useState(userMood ? findService(userMood) : supportServiceSchema[0])
 
   const [supportServices, setSupportServices] = useState(supportServiceSchema)
   const [serviceChoice, setServiceChoice] = useState({})
@@ -72,7 +66,7 @@ const SupportCarousel = () => {
 
   const updateIndex = (newIndex) => {
     if (newIndex < 0){
-        newIndex = 0
+        newIndex = 0;
     } else if (newIndex >= supportServiceSchema.length){
         newIndex = supportServiceSchema.length -1;
     }
@@ -82,30 +76,34 @@ const SupportCarousel = () => {
 
   return (
     <>  
-    <div className='all-icons-container' 
+    <div className='services-carousel' 
     // style={{transform: `translate(-${activeIndex * 100}%)`}}
     >
-        <div className='inner'>
+        <div className='inner' 
+            style={{transform: `translate(-${(activeIndex) * 100}%)`}}>
             {supportServices.map((service, index) => {
                 return (
                     <>
-                    <div className='support-item-container'
-                    style={{transform: `translate(-${(activeIndex + 1) * 100}%)`}}
-                    >
+                    <div className='support-item-container'>
                     <SupportItem service={service} currentSelection={currentSelection} key={index} />
-                    <h3 className='yellow-text icon-title'>{service.type_name}</h3>
+                    <h3 className='yellow-text icon-title' key={index}>{service.type_name}</h3>
                     </div>
                     </>
                 )
             })}
         </div>
-        
+        <div className='carousel-buttons'>
+        <button className='button-arrow' onClick={() => updateIndex(activeIndex - 1)}><img src={chevronLeft} alt="" /></button>
+        <div className='indicators'>
+            {supportServiceSchema.map((service, index) => {
+                return (<button className='indicator-buttons' onClick={() => updateIndex(index)}>{index + 1}</button>)
+                
+            })}
+        </div>
+        <button className='button-arrow' onClick={() => updateIndex(+1)}><img src={chevronRight} alt="" /></button>
+        </div>
     </div>
-    <div className='carousel-buttons'>
-        <button className='button-arrow'><img src={chevronLeft} alt="" /></button>
-        <div className='indicators'>...</div>
-        <button className='button-arrow'><img src={chevronRight} alt="" /></button>
-    </div>
+    
     </>
   )
 }

@@ -7,8 +7,6 @@ const SupportIcons = ({service, currentSelection}) => {
 
   return (
     <>
-      
-      {/* This one will be reserved for the first index OR the service that corresponds most to the user's mood */}
       <div className='support-icon-container' id={`sic-${service.type_id}`} onClick={(e) => currentSelection(e)}>
         <img src={service.icon_url} alt="" className='support-icon' id={`si-${service.type_id}`} onClick={(e) => currentSelection(e)}/>
       </div>
