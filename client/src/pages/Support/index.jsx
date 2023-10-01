@@ -8,7 +8,6 @@ import talking from "../../assets/images/supportIcons/talking.png"
 const Support = () => {
   //this will be a number
   const userMood = ""
-''
   const supportPageDescription = "Some days you need a little extra support, so we've put together a collection of great support services and organised them by category to make it easier to find the support at moment's notice"
   
   const supportServiceSchema = [
@@ -67,7 +66,6 @@ const Support = () => {
     <h1 className='top-header'>Support</h1>
     <div className='page-description'>
       <h3 className='white-text white-h3'>We're Here to Help</h3>
-      <p className='white-text'>{supportPageDescription}</p>
     </div>
     <SupportIcons firstPosition={firstPosition} supportServices={supportServices} currentSelection={currentSelection}/>
     {/* {serviceChoice[0] ? <SupportServicesList supportServices={supportServices} serviceChoice={serviceChoice} /> : ""} */}

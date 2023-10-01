@@ -18,7 +18,7 @@
     align-items: center;
     background-color: #FBDB68;
     border: 2.8px solid #A69C4D;
-    width: 120px;
+    width: 40vh;
     aspect-ratio: 1/1;
     border-radius: 25px;
     margin: 1vh 2vh;
@@ -42,7 +42,7 @@
 .support-item-container {
     display: flex;
     flex-direction: column;
-    justify-content: end;
+    justify-content: top;
     align-items: center;
     margin: 0 10px;
     width: 135px;

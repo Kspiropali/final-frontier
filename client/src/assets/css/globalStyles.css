@@ -8,10 +8,10 @@
 .yellow-text, .top-header {
     color: var(--offYellow);
 }
-
+/* 
 body {
     background: var(--darkBlueBG);
-}
+} */
 
 h2 {
     color: var(--offYellow);
