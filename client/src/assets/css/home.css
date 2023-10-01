@@ -36,11 +36,11 @@
 }
 
 .bg-image-wrapper {
-  position: relative;
+  position: fixed;
   width: 200px; 
   height: 200px;
-  border-radius: 50%;
   overflow: hidden;
+  z-index: -2;
 }
 
 .backgroundim {
