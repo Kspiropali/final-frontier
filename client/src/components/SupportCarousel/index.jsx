@@ -100,7 +100,7 @@ const SupportCarousel = () => {
                 
             })}
         </div>
-        <button className='button-arrow' onClick={() => updateIndex(+1)}><img src={chevronRight} alt="" /></button>
+        <button className='button-arrow' onClick={() => updateIndex(activeIndex +1)}><img src={chevronRight} alt="" /></button>
         </div>
     </div>
     
