@@ -69,34 +69,42 @@ const SupportCarousel = () => {
 
     setServiceChoice(service)
   }
+
+  const updateIndex = (newIndex) => {
+    if (newIndex < 0){
+        newIndex = 0
+    } else if (newIndex >= supportServiceSchema.length){
+        newIndex = supportServiceSchema.length -1;
+    }
+
+    setActiveIndex(newIndex);
+  }
+
   return (
     <>  
-    <div className='all-icons-container'>
-        <div className='support-item-container inner'
-            style={{transform: `translate:(-${activeIndex * 100})`}}>
-            <SupportItem service={firstPosition} currentSelection={currentSelection}/>
-            <h3 className='yellow-text icon-title'>{firstPosition.type_name}</h3>
+    <div className='all-icons-container' 
+    // style={{transform: `translate(-${activeIndex * 100}%)`}}
+    >
+        <div className='inner'>
+            {supportServices.map((service, index) => {
+                return (
+                    <>
+                    <div className='support-item-container'
+                    style={{transform: `translate(-${(activeIndex + 1) * 100}%)`}}
+                    >
+                    <SupportItem service={service} currentSelection={currentSelection} key={index} />
+                    <h3 className='yellow-text icon-title'>{service.type_name}</h3>
+                    </div>
+                    </>
+                )
+            })}
         </div>
-        {supportServices.map((service, index) => {
-            if (service.id == firstPosition.id)
-                return
-            return (
-                <>
-                <div className='support-item-container inner'
-                style={{transform: `translate:(-${(activeIndex + 1) * 100})`}}>
-                <SupportItem service={service} currentSelection={currentSelection} key={index} />
-                <h3 className='yellow-text icon-title'>{service.type_name}</h3>
-                </div>
-                
-                </>
-            )
-        })}
         
     </div>
     <div className='carousel-buttons'>
-        <button><img src={chevronLeft} alt="" /></button>
+        <button className='button-arrow'><img src={chevronLeft} alt="" /></button>
         <div className='indicators'>...</div>
-        <button><img src={chevronRight} alt="" /></button>
+        <button className='button-arrow'><img src={chevronRight} alt="" /></button>
     </div>
     </>
   )
