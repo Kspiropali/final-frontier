@@ -43,8 +43,8 @@
     align-items: center;
     /* background-color: #FBDB68; */
     border: 2.8px solid #A69C4D;
-    width: 100vh;
-    aspect-ratio: 1/1;
+    width: 101.5vh;
+    aspect-ratio: 1/.7;
     border-radius: 25px;
     /* margin: 1vh 2vh; */
     
@@ -85,7 +85,7 @@
     justify-content: top;
     align-items: center;
     margin: 0 10px;
-    width: fit-content;
+    width: 100%;
 }
 
 .carousel-buttons {
