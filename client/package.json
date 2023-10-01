@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "dev-server": "json-server -p 8080 db.json",
     "test": "vitest run --reporter verbose",
-    "coverage": "vitest run --coverage"
+    "coverage": "vitest run --coverage",
+    "test-watch": "vitest watch --reporter verbose"
   },
   "dependencies": {
     "animate.css": "^4.1.1",

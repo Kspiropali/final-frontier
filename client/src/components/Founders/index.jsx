@@ -12,7 +12,7 @@ const Founders = () => {
     <h2>Our Founders</h2>
     <div className='founders-all-container'>
         <div className='founder-container'>
-            <img src={krisOptimised} alt="Kristiam Spiropali headshot" className='founder-img' />
+            <img src={krisOptimised} alt="Kristian Spiropali headshot" className='founder-img' />
             <p className='founder-subtext white-text'>Kristian Spiropali</p>
         </div>
         <div className='founder-container'>
@@ -24,11 +24,11 @@ const Founders = () => {
             <p className='founder-subtext white-text'>Camille Francis</p>
         </div>
         <div className='founder-container'>
-            <img src={samOptimised} alt="Sam Merrick" className='founder-img' />
+            <img src={samOptimised} alt="Sam Merrick headshot" className='founder-img' />
             <p className='founder-subtext white-text'>Sam Merrick</p>
         </div>
         <div className='founder-container'>
-            <img src={nicOptimised} alt="Nicolas Sanschagrin" className='founder-img' />
+            <img src={nicOptimised} alt="Nicolas Sanschagrin headshot" className='founder-img' />
             <p className='founder-subtext white-text'>Nicolas Sanschagrin</p>
         </div>
     </div>
