@@ -8,36 +8,40 @@ import mindfullnessOMG from "../../assets/images/supportIcons/mindfullnessOMG.sv
 import emotionalSupportOMG from "../../assets/images/supportIcons/emotionalSupportOMG.svg"
 import exerciseOMG from "../../assets/images/supportIcons/exerciseOMG.svg"
 import chillingOMG from "../../assets/images/supportIcons/chillingOMG.svg"
+import chevronLeft from "../../assets/images/supportIcons/chevronLeft.svg"
+import chevronRight from "../../assets/images/supportIcons/chevronRight.svg"
 import { SupportIcons, SupportServicesList, SupportItem } from '../../components'
 
 const SupportCarousel = () => {
+
+    
 
     const userMood = ""
     const supportServiceSchema = [
         {
         id: 0,
-        type_name: "talking",
+        type_name: "Talking",
         type_id: 1,
         icon_url: callOMG,
         service_list: [{title: "Talking Service", url: "https://www.google.com/search?q=talk+to+someone"}]
         },
         {
         id: 1,
-        type_name: "stress management",
+        type_name: "Stress Management",
         type_id: 2,
         icon_url: mindfullnessOMG,
         service_list: [{title: "Stress Management Service", url: "https://www.google.com/search?q=stress+management"}, {title: "Stress Management Service", url: "https://www.google.com/search?q=stress+management"}, {title: "Stress Management Service", url: "https://www.google.com/search?q=stress+management"}]
         },
         {
         id: 2,
-        type_name: "physical wellness",
+        type_name: "Physical Wellness",
         type_id: 3,
         icon_url: exerciseOMG,
         service_list: [{title: "Physical Wellness Service", url: "https://www.google.com/search?q=stress+management"}, {title: "Physical Wellness Service", url: "https://www.google.com/search?q=stress+management"}, {title: "Physical Wellness Service", url: "https://www.google.com/search?q=stress+management"}]
         },
         {
         id: 3,
-        type_name: "emotional support",
+        type_name: "Emotional Support",
         type_id: 4,
         icon_url: chillingOMG,
         service_list: [{title: "Emotional Support Service", url: "https://www.google.com/search?q=stress+management"}, {title: "Emotional Support Service", url: "https://www.google.com/search?q=stress+management"}]
@@ -45,6 +49,8 @@ const SupportCarousel = () => {
     ]
 
   //the first position is dependent on the mood provided by the user or defaults to the first in the index of the support service schema
+  
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const [firstPosition, setFirstPosition] = useState(userMood ? findService(userMood) : supportServiceSchema[0])
 
@@ -66,24 +72,32 @@ const SupportCarousel = () => {
   return (
     <>  
     <div className='all-icons-container'>
-        <div className='support-item-container'>
+        <div className='support-item-container inner'
+            style={{transform: `translate:(-${activeIndex * 100})`}}>
             <SupportItem service={firstPosition} currentSelection={currentSelection}/>
             <h3 className='yellow-text icon-title'>{firstPosition.type_name}</h3>
         </div>
-    {supportServices.map((service, index) => {
-        if (service.id == firstPosition.id)
-            return
-        return (
-            <>
-            <div className='support-item-container'>
-            <SupportItem service={service} currentSelection={currentSelection} key={index}/>
-            <h3 className='yellow-text icon-title'>{service.type_name}</h3>
-            </div>
-            </>
-        )
-    })}
+        {supportServices.map((service, index) => {
+            if (service.id == firstPosition.id)
+                return
+            return (
+                <>
+                <div className='support-item-container inner'
+                style={{transform: `translate:(-${(activeIndex + 1) * 100})`}}>
+                <SupportItem service={service} currentSelection={currentSelection} key={index} />
+                <h3 className='yellow-text icon-title'>{service.type_name}</h3>
+                </div>
+                
+                </>
+            )
+        })}
+        
     </div>
-    
+    <div className='carousel-buttons'>
+        <button><img src={chevronLeft} alt="" /></button>
+        <div className='indicators'>...</div>
+        <button><img src={chevronRight} alt="" /></button>
+    </div>
     </>
   )
 }
