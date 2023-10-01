@@ -2,10 +2,8 @@ import React from 'react'
 
 const SupportIcons = ({firstPosition, supportServices, currentSelection}) => {
 
-
     // gather the data for the support services (json or db)
     // icon link for icon
-
 
   return (
     <>

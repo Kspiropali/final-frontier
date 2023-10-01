@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 
 
 import '../../assets/css/support.css'
-import { SupportIcons, SupportServicesList } from '../../components'
+import { SupportCarousel, SupportIcons, SupportServicesList } from '../../components'
 import talking from "../../assets/images/supportIcons/talking.png"
 
 const Support = () => {
@@ -67,9 +67,10 @@ const Support = () => {
     <div className='page-description'>
       <h3 className='white-text white-h3'>We're Here to Help</h3>
     </div>
-    <SupportIcons firstPosition={firstPosition} supportServices={supportServices} currentSelection={currentSelection}/>
+    <SupportCarousel/>
+    {/* <SupportIcons firstPosition={firstPosition} supportServices={supportServices} currentSelection={currentSelection}/> */}
     {/* {serviceChoice[0] ? <SupportServicesList supportServices={supportServices} serviceChoice={serviceChoice} /> : ""} */}
-    <SupportServicesList supportServices={supportServices} serviceChoice={serviceChoice} />
+    {/* <SupportServicesList supportServices={supportServices} serviceChoice={serviceChoice} /> */}
     </>
   )
 }
