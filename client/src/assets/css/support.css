@@ -18,7 +18,7 @@
     align-items: center;
     background-color: #FBDB68;
     border: 2.8px solid #A69C4D;
-    width: 40vh;
+    width: 50vh;
     aspect-ratio: 1/1;
     border-radius: 25px;
     margin: 1vh 2vh;
@@ -39,7 +39,7 @@
     text-align: center;
     font-size: 23px;
 }
-
+/*
 .support-item-container {
     display: flex;
     flex-direction: column;
@@ -47,7 +47,7 @@
     align-items: center;
     margin: 0 10px;
     width: 135px;
-}
+} */
 
 .service-options-container {
     background-color: #4F4792;

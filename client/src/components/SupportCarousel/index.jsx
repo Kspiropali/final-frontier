@@ -64,15 +64,26 @@ const SupportCarousel = () => {
     setServiceChoice(service)
   }
   return (
-    <>
-    <SupportItem service={firstPosition} currentSelection={currentSelection}/>
+    <>  
+    <div className='all-icons-container'>
+        <div className='support-item-container'>
+            <SupportItem service={firstPosition} currentSelection={currentSelection}/>
+            <h3 className='yellow-text icon-title'>{firstPosition.type_name}</h3>
+        </div>
     {supportServices.map((service, index) => {
         if (service.id == firstPosition.id)
             return
         return (
+            <>
+            <div className='support-item-container'>
             <SupportItem service={service} currentSelection={currentSelection} key={index}/>
+            <h3 className='yellow-text icon-title'>{service.type_name}</h3>
+            </div>
+            </>
         )
     })}
+    </div>
+    
     </>
   )
 }

@@ -7,19 +7,13 @@ const SupportIcons = ({service, currentSelection}) => {
 
   return (
     <>
-    <div className='all-icons-container'>
       
       {/* This one will be reserved for the first index OR the service that corresponds most to the user's mood */}
-      <div className='support-item-container'>
-        <div className='support-icon-container' id={`sic-${service.type_id}`} onClick={(e) => currentSelection(e)}>
-          <div className='support-tile'>
-              <img src={service.icon_url} alt="" className='support-icon' id={`si-${service.type_id}`} onClick={(e) => currentSelection(e)}/>
-          </div>
+      <div className='support-icon-container' id={`sic-${service.type_id}`} onClick={(e) => currentSelection(e)}>
+        <div className='support-tile'>
+          <img src={service.icon_url} alt="" className='support-icon' id={`si-${service.type_id}`} onClick={(e) => currentSelection(e)}/>
         </div>
-        <h3 className='yellow-text icon-title'>{service.type_name}</h3>
       </div>
-      
-    </div>
     </>
   )
 }
