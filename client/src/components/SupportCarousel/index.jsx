@@ -70,7 +70,7 @@ const SupportCarousel = () => {
         if (service.id == firstPosition.id)
             return
         return (
-            <SupportItem service={service} currentSelection={currentSelection}/>
+            <SupportItem service={service} currentSelection={currentSelection} key={index}/>
         )
     })}
     </>
