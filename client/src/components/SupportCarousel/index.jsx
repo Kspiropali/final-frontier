@@ -73,7 +73,6 @@ const SupportCarousel = () => {
             <SupportItem service={service} currentSelection={currentSelection}/>
         )
     })}
-    {/* <SupportItem firstPosition={firstPosition} supportServices={supportServices} currentSelection={currentSelection}/> */}
     </>
   )
 }
