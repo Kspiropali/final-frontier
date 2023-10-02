@@ -15,7 +15,7 @@ bcrypt = "*"
 colorama = "*"
 psutil = "*"
 flask = "*"
-werkzeug = "*"
+werkzeug = "==2.2"
 flask-cors = "*"
 
 [dev-packages]
