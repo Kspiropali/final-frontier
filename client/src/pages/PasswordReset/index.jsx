@@ -1,22 +1,42 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { useAuth } from '../../contexts/AuthContext'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
+import axios from 'axios';
+
 import "../../assets/css/passwordReset.css";
 
+import check from '../../assets/images/loginReg/check.png'
+import close from '../../assets/images/loginReg/close.png'
 
 const PasswordReset = () => {
 
+  const location = useLocation()
   const navigate = useNavigate()
+
   //add code to account for the requirement of a token
-    
   const {confirmationPassword, setConfirmationPassword, password, setPassword, displayMessage, setDisplayMessage} = useAuth()
+
+  const [resetPasswordSatisfied, setResetPasswordSatisfied] = useState()
+
+  const newPasswordRequirements = ["> 6 characters", "1 number", "1 symbol", "match"]
     
   const handlePassword = (e) => {
-      setPassword(e.target.value.toString())
+    const value = e.target.value
+    setPassword(value.toString())
   }
 
   const handleConfirmationPassword = (e) => {
-      setConfirmationPassword(e.target.value.toString())
+    const value = e.target.value
+    setConfirmationPassword(value.toString())
+
+    if (value.length > 6 && value.match(/(\d+)/) && value.match(/[!-\/:-@[-`{-~]/) && value == password) {
+      setResetPasswordSatisfied(true)
+    }
+    else {
+      if (resetPasswordSatisfied) {
+        setResetPasswordSatisfied(false)
+      }
+    }
   }
 
   const handleSubmit = async (e) => {
@@ -27,22 +47,23 @@ const PasswordReset = () => {
           const data = JSON.stringify({
             password: password
           });
+          const token = location.state.token
+          console.log(token)
 
           // ADD THE ENDPOINT WHEN YOU GET IT
-          // let config = {
-          //   method: 'post',
-          //   maxBodyLength: Infinity,
-          //   url: 'http://127.0.0.1:3000/',
-          //   headers: {
-          //     'Content-Type': 'application/json'
-          //   },
-          //   data : data
-          // };
+          let config = {
+            method: 'post',
+            maxBodyLength: Infinity,
+            url: `http://127.0.0.1:3000/users/reset/${token}`,
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            data : data
+          };
   
           const response = await axios.request(config)
   
           console.log(JSON.stringify(response.data))
-  
   
           setDisplayMessage('Password Changed Successfully')
           setPassword(''),
@@ -52,6 +73,7 @@ const PasswordReset = () => {
           }, 3000);
         }
         catch (err){
+          console.log(err)
           // only error if there's a server error 500
           setDisplayMessage("Failed to reset password. Try again")
           setPassword(''),
@@ -63,6 +85,10 @@ const PasswordReset = () => {
       }
       else {
         console.log("incomplete form!")
+        setDisplayMessage('Registration Details Incomplete')
+        setTimeout(() => {
+          setDisplayMessage('')
+        }, 3000);
       }
     }
 
@@ -79,29 +105,43 @@ const PasswordReset = () => {
               <form aria-label='password reset form'
               role="reset"
               onSubmit={handleSubmit}>
-                  <div className='input-idv-container'>
-                      <h2 className='log-reg-title'>Reset Password</h2>
-                      <input
-                      type="password"
-                      id="password"
-                      onChange={handlePassword}
-                      value={password}
-                      placeholder='password'
-                      required
-                      className='input-field white-text password-field'/>
-                      <p>must contain: 7-15 characters, 1 number & 1 symbol </p>
-                  </div>
-                  <div className='input-idv-container'>
-                      <input
-                      type="password"
-                      id="confirm-password"
-                      onChange={handleConfirmationPassword}
-                      value={confirmationPassword}
-                      placeholder='confirm password'
-                      required
-                      className='input-field white-text password-field no-match'/>
-                      <p>passwords do not match</p>
-                  </div>
+                <h2 className='log-reg-title'>Reset Password</h2>
+                <div className={`input-idv-container`}>
+                    <input
+                    type="password"
+                    id="password"
+                    onChange={handlePassword}
+                    value={password}
+                    placeholder='password'
+                    className='input-field password-field'/>
+                </div>
+                <div className='input-idv-container'>
+                    <input
+                    type="password"
+                    id="confirm-password"
+                    onChange={handleConfirmationPassword}
+                    value={confirmationPassword}
+                    placeholder='confirm password'
+                    className='input-field password-field'/>
+                    <div className='requirements-container'>
+                      <p className={``}>{newPasswordRequirements[0]}</p><img className='requirement-icons' 
+                      src={password.length > 6 ? check : close} 
+                      alt={password.length > 6 ? "green color check to represent valid password length" : "red color cross to represent invalid password length"}></img>
+
+                      <p className={``}>{newPasswordRequirements[1]}</p><img className='requirement-icons' 
+                      src={password.match(/(\d+)/) ? check : close} 
+                      alt={password.match(/(\d+)/) ? "green color check to represent a password containing a number" : "red color cross to represent a password not containing a number"}></img>
+
+                      <p className={``}>{newPasswordRequirements[2]}</p><img className='requirement-icons' 
+                      src={password.match(/[!-\/:-@[-`{-~]/) ? check : close} 
+                      alt={password.match(/[!-\/:-@[-`{-~]/) ? "green color check representing a password containing a special character" : "red color cross representing a password not containing a special character"}></img>
+                      
+                      <p className={``}>{newPasswordRequirements[3]}</p><img className='requirement-icons' 
+                      src={password.length > 6 && confirmationPassword == password ? check : close} 
+                      alt={password.length > 6 && confirmationPassword == password ? "green color check representing matching passwords" : "red color cross representing mismatching passwords"}></img>
+                    </div>
+                </div>
+                <input className='reset-btn' type="submit" value="Reset" />
               </form>
           </div>
           {displayMessage && <p className='white-text' id='result-message'>{displayMessage}</p>}

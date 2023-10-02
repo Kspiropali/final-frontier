@@ -1,10 +1,10 @@
 -- USERS
 INSERT INTO
-    member(username, email, password, coins, avatar, items, allocated_tasks, is_activated)
-VALUES ('bob', 'bob@bob.com', '$2b$12$8tDf1A4Iq2tkwv.4DSJkC.DvuPVcgy7t4r95hnK7tGYdjIkcl/LlS', 100, 'bob.png', '{}', '{}', TRUE);
+    member(username, email, password, coins, items, allocated_tasks, is_activated)
+VALUES ('bob', 'bob@bob.com', '$2b$12$8tDf1A4Iq2tkwv.4DSJkC.DvuPVcgy7t4r95hnK7tGYdjIkcl/LlS', 100, '{}', '{}', TRUE);
 
 INSERT INTO
-    member(username, email, password, coins, avatar, items, allocated_tasks, is_activated)
+    member(username, email, password, coins, items, allocated_tasks, is_activated)
 VALUES ('sam', 'sam@sam.com', '$2b$12$uZllZLq8kxU2srej7pv7Zum7ULiOa6lrUEhdVWXfErnKsshyjYY02', 50, '{}', '{}', FALSE);
 
 -- TASKS
