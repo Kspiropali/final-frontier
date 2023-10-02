@@ -92,7 +92,7 @@ def send_reset_password(email):
         token = Email.create(user.username, True)
 
         # send the email
-        send_password_reset_email(email, DOMAIN + "users/reset/" + token)
+        send_password_reset_email(email, DOMAIN + "?token=" + token)
 
         return "success"
     except Exception as e:
