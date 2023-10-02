@@ -9,6 +9,8 @@ DROP TABLE IF EXISTS statistics CASCADE;
 CREATE TABLE item (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
+    /* added type */
+    type VARCHAR(255) NOT NULL,
     description VARCHAR(255) NOT NULL,
     price INTEGER NOT NULL,
     image VARCHAR(255) NOT NULL

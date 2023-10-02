@@ -5,7 +5,7 @@ from glob import glob
 from flask import redirect, request
 from app.database.db import *
 from app.config.settings import Config
-from app.routes import user_routes, task_router
+from app.routes import user_routes, task_router, item_routes
 from app.database import *
 from app.middleware.mailer import configure_mail
 from app.routes import google_oauth, facebook_oauth, secure_reloader
@@ -36,6 +36,7 @@ with app.app_context():
 # Routes, order matters!
 app.register_blueprint(user_routes.user_bp, url_prefix="/users")
 app.register_blueprint(task_router.task_bp, url_prefix="/tasks")
+app.register_blueprint(item_routes.item_bp, url_prefix="/items")
 app.register_blueprint(facebook_oauth.facebook_auth_bp, url_prefix="/auth/facebook")
 app.register_blueprint(google_oauth.google_oauth_bp, url_prefix="/auth/google")
 app.register_blueprint(secure_reloader.reload_bp, url_prefix="/admin")
