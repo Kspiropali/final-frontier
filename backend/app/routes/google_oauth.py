@@ -1,6 +1,6 @@
 from flask import Blueprint, url_for, session, request
 from flask_oauthlib.client import OAuth
-from ..config.settings import *
+from app.config.settings import *
 
 google_oauth_bp = Blueprint('google_oauth', __name__)
 
