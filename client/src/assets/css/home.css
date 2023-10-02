@@ -35,10 +35,19 @@
   width: 97%;
 }
 
+.bg-image-wrapper {
+  position: fixed;
+  overflow: hidden;
+  z-index: -2;
+  width: 100px;
+  height: 100px;
+  transition: width 0.5s ease, height 0.5s ease; 
+}
+
 .backgroundim {
   z-index: -1;
-  width: 90%;
-  height: 90%;
+  width: 100%;
+  height: 100%;
   position: absolute;
   left: 50%;
   top: 50%;

@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto");
 
 .page-description {
     text-align: center;
@@ -12,41 +13,116 @@
     margin-bottom: .5vh;
     font-weight: 600;
 }
-.support-icon-container {
+
+/* .support-item-container{
+    width: inherit;
+}
+.support-icon{
+    width: 100%;
+
+} */
+
+/* .carousel-comp-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: fit-content;
+}
+
+.services-carousel {
+    overflow: hidden;
+    width: 700px;
+    font-family: "Roboto";
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.inner {
+    display: flex;
+    white-space: "nowrap";
+    transition: transform 0.3s;
+    box-shadow: 0 5px rgb(0, 0, 0, 0.05);
+} */
+/* .support-icon-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #FBDB68;
-    border: 2.8px solid #A69C4D;
-    width: 120px;
-    aspect-ratio: 1/1;
+    /* background-color: #FBDB68; */
+    /* border: 2.8px solid #A69C4D; 
+    width: 101.5vh;
+    aspect-ratio: 1/.7;
     border-radius: 25px;
-    margin: 1vh 2vh;
+    /* margin: 1vh 2vh; 
+    
+} */
+/* inactive */
+/* .carousel-item {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 490px;
+    background-color: #fff;
 }
 
-.all-icons-container {
-    display: flex;
-    margin: 20px 6vh;
-    justify-content: center;
-}
+
 
 .support-icon {
-    width: 90px;
+    width: 80%;
+    padding: 6vh;
 }
 
 .icon-title {
     text-align: center;
     font-size: 23px;
+    white-space: normal;
+} */
+/* inactive */
+/* .carousel-item-text {
+    font-size: 1.15rem;
+    margin: 40px 0 40px 0;
+    padding: 0 20px 0 20px;
+    white-space: normal;
+    color: #617D98;
 }
-
+/
 .support-item-container {
     display: flex;
     flex-direction: column;
-    justify-content: end;
+    justify-content: center;
     align-items: center;
     margin: 0 10px;
-    width: 135px;
+    width: 100%;
 }
+
+.carousel-buttons {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.indicators {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.indicator-buttons {
+    border: none;
+    cursor: pointer;
+}
+
+.indicator-buttons-active {
+    font-weight: 600;
+}
+
+.button-arrow {
+    cursor: pointer;
+    margin-top: 3vh;
+} */
+
+/* NO CAROUSEL */
 
 .service-options-container {
     background-color: #4F4792;
@@ -95,3 +171,4 @@ a {
     font-size: inherit;
     font-family: inherit;
 }
+

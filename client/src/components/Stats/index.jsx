@@ -1,6 +1,48 @@
 import { Link } from "react-router-dom";
+import { useShop } from '../../contexts/ShopContext'
+import {useEffect} from "react"
+import { AvatarModal } from '..';
+import avatarImage from '../../assets/images/testavatars/avi.png'
+
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
+
+const MySwal = withReactContent(Swal);
 
 const Stats = () => {
+
+	async function fetchData(){
+		const response = await fetch("http://127.0.0.1:3000/users/1/statistics")
+		const data = await response.json()
+		console.log(data)
+	}
+
+	useEffect(() => {
+		try{
+			fetchData()
+		}catch(err){
+			err.message
+		}
+	}, [])
+	
+	const { userDetails, openModal } = useShop()
+
+    const showModal = () => {
+        MySwal.fire({
+          showClass: {
+            popup: 'animate__animated animate__fadeInDown',
+          },
+          hideClass: {
+            popup: 'animate__animated animate__fadeOutUp',
+          },
+          html: <AvatarModal avatarImage={avatarImage} userDetails={userDetails} />,
+          showConfirmButton: false,
+          width: '600px'
+        }).then(() => {
+          openModal();
+        });
+    };
+
 	return (
 		<div className="flex-container">
 			<div className="container2">
@@ -20,9 +62,7 @@ const Stats = () => {
 				<div className="rectangle-3">
 					<div className="text-wrapper-9"> My Inventory</div>
 					<div className="rectangle-4">
-						<Link to="/shop">
-							<button className="shop-button">Open</button>
-						</Link>
+						<button className="shop-button" onClick={showModal}>Open</button>
 					</div>
 				</div>
 			</div>

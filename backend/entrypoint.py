@@ -1,8 +1,8 @@
 import os
-import ssl
+import time
 from glob import glob
 
-from flask import redirect
+from flask import redirect, request
 from app.database.db import *
 from app.config.settings import Config
 from app.routes import user_routes, task_router
@@ -52,9 +52,18 @@ def redirect_to_root():
     return redirect('/')
 
 
-@app.errorhandler(404)
-def page_not_found(error):
-    return redirect('/')
+# @app.errorhandler(404)
+# def page_not_found(error):
+#     return redirect('/')
+
+
+@app.before_request
+def before_request():
+    # Check if the incoming request is using HTTP
+    if request.headers.get('X-Forwarded-Proto') == 'http':
+        # Redirect to the HTTPS version of the URL
+        url = request.url.replace('http://', 'https://', 1)
+        return redirect(url, code=301)
 
 
 if __name__ == "__main__":
