@@ -1,11 +1,12 @@
 import React from 'react'
 import { useAuth } from '../../contexts/AuthContext'
-import { NavLink, Outlet } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import "../../assets/css/passwordReset.css";
 
 
 const PasswordReset = () => {
 
+  const navigate = useNavigate()
   //add code to account for the requirement of a token
     
   const {confirmationPassword, setConfirmationPassword, password, setPassword, displayMessage, setDisplayMessage} = useAuth()
@@ -105,7 +106,7 @@ const PasswordReset = () => {
           </div>
           {displayMessage && <p className='white-text' id='result-message'>{displayMessage}</p>}
       </div>
-      {displayMessage == "Password Changed Successfully" && <p className='white-text' id='exit-reset-page'  onClick={() => returnToLogin}>Return to Login Page</p>}
+      {displayMessage == "Password Changed Successfully" && <p className='white-text' id='exit-reset-page' onClick={() => returnToLogin}>Return to Login Page</p>}
       </>
   )
 }

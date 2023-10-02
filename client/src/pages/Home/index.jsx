@@ -7,6 +7,8 @@ import meditation from '../../assets/images/homeicons/meditation.gif'
 
 const Home = () => {
 
+  const checkLoggedIn = () => {
+  }
   return (
     <div className="index-home">
 

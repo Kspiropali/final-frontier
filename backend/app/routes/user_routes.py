@@ -16,6 +16,8 @@ user_bp = Blueprint('user', __name__)
     'password': {'type': 'stringWithMaxLength', 'maxLength': 50},
     'email': {'type': 'stringWithMaxLength', 'maxLength': 50}
 })
+
+
 def register():
     try:
         data = request.json
@@ -63,7 +65,7 @@ def login():
                         httponly=True,
                         samesite='Strict',  # Set to 'None' for cross-origin
                         secure=True,  # Set to True for HTTPS
-                        domain='finfrontier.ddns.net',  # Common domain
+                        domain='localhost',  # Common domain
                         path='/')  # Path where the cookie is accessible
 
         return resp
@@ -108,5 +110,15 @@ def verify(param):
         # TODO: return a redirect here instead of a message
         # redirect
         return redirect(url_for('index'))
+    except Exception as e:
+        return {'error': str(e)}, 400
+
+@user_bp.post('/ping')
+@requires_authorization_token()
+def ping(token):
+    try:
+        # find username from token
+        username = Session.get_username(token)
+        return jsonify({'username': username}), 200
     except Exception as e:
         return {'error': str(e)}, 400

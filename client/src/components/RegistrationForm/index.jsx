@@ -5,7 +5,7 @@ import axios from 'axios'
 import check from '../../assets/images/loginReg/check.png'
 import close from '../../assets/images/loginReg/close.png'
 
-const RegistrationForm = () => {
+const RegistrationForm = ({setActivePanel}) => {
   
   const {confirmationPassword, setConfirmationPassword, confirmationEmail, setConfirmationEmail, email, setEmail, password, setPassword, username, setUsername, displayMessage, setDisplayMessage} = useAuth()
 
@@ -100,6 +100,7 @@ const RegistrationForm = () => {
         setConfirmationEmail('')
         setTimeout(() => {
           setDisplayMessage('')
+          setActivePanel('Login')
         }, 3000);
       }
       catch (err){
@@ -116,6 +117,10 @@ const RegistrationForm = () => {
     }
     else {
       console.log("incomplete form!")
+      setDisplayMessage('Registration Details Incomplete')
+      setTimeout(() => {
+        setDisplayMessage('')
+      }, 3000);
     }
   }
   return (
@@ -127,19 +132,21 @@ const RegistrationForm = () => {
     >
       <div className='input-idv-container'>
         <input
-          type="text"
+          type="username"
           id="username"
           onChange={handleUsername}
           value={username}
           placeholder='username'
           className={`input-field`}/>
         <div className='requirements-container'>
-          <p className={``}>{usernameRequirements[0]}</p><img className='requirement-icons' src={username.length > 3 && regUsernameSatisfied ? check : close}></img>
+          <p className={``}>{usernameRequirements[0]}</p><img className='requirement-icons' 
+          src={username.length > 3 && regUsernameSatisfied ? check : close}
+          alt={regUsernameSatisfied ? "green color check to represent valid username" : "red color cross to represent invalid username"}></img>
         </div>
       </div>
       <div className='input-idv-container'>
           <input
-          type="text"
+          type="email"
           id="email"
           onChange={handleEmail}
           value={email}
@@ -150,15 +157,19 @@ const RegistrationForm = () => {
       </div>
       <div className='input-idv-container'>
           <input
-          type="text"
+          type="email"
           id="confirm-email"
           onChange={handleConfirmationEmail}
           value={confirmationEmail}
           placeholder='confirm email'
           className='input-field'/>
           <div className='requirements-container'>
-            <p className={``}>{emailRequirements[0]}</p><img className='requirement-icons' src={email.includes('@') ? check : close}></img>
-            <p className={``}>{emailRequirements[1]}</p><img className='requirement-icons' src={email.includes('@') && confirmationEmail == email ? check : close}></img>
+            <p className={``}>{emailRequirements[0]}</p><img className='requirement-icons'
+            src={email.includes('@') ? check : close} 
+            alt={email.includes('@') ? "green color check to represent a valid email" : "red color cross to represent an invalid email"}></img>
+            <p className={``}>{emailRequirements[1]}</p><img className='requirement-icons'
+            src={email.includes('@') && confirmationEmail == email ? check : close} 
+            alt={email.includes('@') && confirmationEmail == email ? "green color check to represent matching emails" : "red color cross to represent mismatching emails"}></img>
           </div>
       </div>
       <div className={`input-idv-container`}>
@@ -181,10 +192,21 @@ const RegistrationForm = () => {
           placeholder='confirm password'
           className='input-field password-field'/>
           <div className='requirements-container'>
-            <p className={``}>{passwordRequirements[0]}</p><img className='requirement-icons' src={password.length > 6 ? check : close}></img>
-            <p className={``}>{passwordRequirements[1]}</p><img className='requirement-icons' src={password.match(/(\d+)/) ? check : close}></img>
-            <p className={``}>{passwordRequirements[2]}</p><img className='requirement-icons' src={password.match(/[!-\/:-@[-`{-~]/) ? check : close}></img>
-            <p className={``}>{passwordRequirements[3]}</p><img className='requirement-icons' src={password.length > 6 && confirmationPassword == password ? check : close}></img>
+            <p className={``}>{passwordRequirements[0]}</p><img className='requirement-icons' 
+            src={password.length > 6 ? check : close} 
+            alt={password.length > 6 ? "green color check to represent valid password length" : "red color cross to represent invalid password length"}></img>
+
+            <p className={``}>{passwordRequirements[1]}</p><img className='requirement-icons' 
+            src={password.match(/(\d+)/) ? check : close} 
+            alt={password.match(/(\d+)/) ? "green color check to represent a password containing a number" : "red color cross to represent a password not containing a number"}></img>
+
+            <p className={``}>{passwordRequirements[2]}</p><img className='requirement-icons' 
+            src={password.match(/[!-\/:-@[-`{-~]/) ? check : close} 
+            alt={password.match(/[!-\/:-@[-`{-~]/) ? "green color check representing a password containing a special character" : "red color cross representing a password not containing a special character"}></img>
+            
+            <p className={``}>{passwordRequirements[3]}</p><img className='requirement-icons' 
+            src={password.length > 6 && confirmationPassword == password ? check : close} 
+            alt={password.length > 6 && confirmationPassword == password ? "green color check representing matching passwords" : "red color cross representing mismatching passwords"}></img>
           </div>
       </div>
       <input className='login-btn' type="submit" value="Register" />
