@@ -21,6 +21,7 @@ const SupportCarousel = ({currentSelection, supportServiceSchema, supportService
     setCurrentIndex(newIndex);
   }
 
+  /*
   const sliderStyles = {
     height: "100%",
     position: "relative"
@@ -35,12 +36,25 @@ const SupportCarousel = ({currentSelection, supportServiceSchema, supportService
     backgroundImage: `url(${supportServiceSchema[currentIndex].icon_url})`
   }
 
+  const leftArrow = {
+    position: 'absolute',
+    top: '50%',
+    transform: 'translate(0, -50%)',
+    left: '32px',
+    zIndex: 1,
+    cursor: "pointer"
+  }
+  const rightArrow = {
+    position: 'absolute',
+    top: '50%',
+    transform: 'translate(0, -50%)',
+    right: '32px',
+    zIndex: 1,
+    cursor: "pointer"
+  } */
+
   return (
     <>
-    <div style={sliderStyles}>
-        <div></div>
-        <div style={slideStyles}></div>
-    </div>
     
 
         {/* {supportServices.map((service, index) => {
