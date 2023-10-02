@@ -69,3 +69,21 @@ class Email:
                 return result.fetchone()
         except Exception as e:
             return e
+
+    @staticmethod
+    def delete_all_by_username(username):
+        try:
+            with db.engine.connect() as con:
+                result = con.execute(
+                    text("DELETE FROM email WHERE username = :username")
+                    .params(username=username)
+                )
+
+                con.commit()
+
+                if result.rowcount >= 1:
+                    return "success"
+                else:
+                    return "error: Email not deleted"
+        except Exception as e:
+            return f"error: {str(e)}"

@@ -16,8 +16,6 @@ user_bp = Blueprint('user', __name__)
     'password': {'type': 'stringWithMaxLength', 'maxLength': 50},
     'email': {'type': 'stringWithMaxLength', 'maxLength': 50}
 })
-
-
 def register():
     try:
         data = request.json
@@ -113,12 +111,47 @@ def verify(param):
     except Exception as e:
         return {'error': str(e)}, 400
 
+
 @user_bp.post('/ping')
 @requires_authorization_token()
 def ping(token):
     try:
         # find username from token
         username = Session.get_username(token)
+
         return jsonify({'username': username}), 200
+    except Exception as e:
+        return {'error': str(e)}, 400
+
+
+@user_bp.post('/reset')
+@validate_json_params({
+    'email': {'type': 'stringWithMaxLength', 'maxLength': 50}
+})
+def reset():
+    try:
+        data = request.json
+        email = data.get('email')
+
+        result = send_reset_password(email)
+
+        if result.startswith('error'):
+            return jsonify({'error': result.split("error: ")[1].strip()}), 400
+
+        return jsonify({'message': 'Password reset successfully'}), 200
+    except Exception as e:
+        return {'error': str(e)}, 400
+
+
+@user_bp.post('/reset/<param>')
+@validate_path_params('string')
+def reset_password(param):
+    try:
+        result = reset_user_password(param, request.json.get('password'))
+        print(result)
+        if not isinstance(result, CursorResult) and result.startswith('error'):
+            return jsonify({'error': result.split("error: ")[1]}), 400
+
+        return jsonify({'message': 'Password reset successfully'}), 200
     except Exception as e:
         return {'error': str(e)}, 400
