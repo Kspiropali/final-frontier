@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, select
+from sqlalchemy import Column, Integer, String, Boolean
 from ..database.db import db
 
 
