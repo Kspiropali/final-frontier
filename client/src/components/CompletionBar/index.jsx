@@ -1,4 +1,3 @@
-import React from 'react';
 import { useTaskContext } from '../../contexts/TaskContext';
 
 const CompletionBar = () => {
