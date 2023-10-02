@@ -14,13 +14,11 @@
     font-weight: 600;
 }
 
-/* .support-item-container{
-    width: inherit;
-}
-.support-icon{
-    width: 100%;
 
-} */
+.support-icon{
+    height: 30vh;
+    width: 60vh;
+} 
 
 /* .carousel-comp-container {
     display: flex;
