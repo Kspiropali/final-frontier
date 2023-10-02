@@ -139,7 +139,7 @@ def reset():
         if result.startswith('error'):
             return jsonify({'error': result.split("error: ")[1].strip()}), 400
 
-        return jsonify({'message': 'Password reset successfully'}), 200
+        return jsonify({'message': 'Password reset email sent successfully'}), 200
     except Exception as e:
         return {'error': str(e)}, 400
 

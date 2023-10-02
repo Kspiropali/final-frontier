@@ -1,15 +1,25 @@
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams, useNavigate } from 'react-router-dom';
 import CompletionBar from '../../components/CompletionBar';
 import BackgroundImage from '../../components/BackgroundImage';
 import "../../assets/css/home.css";
 import blue from '../../assets/images/homeicons/blue.gif'
 import meditation from '../../assets/images/homeicons/meditation.gif'
+import { useEffect } from 'react';
 
 const Home = () => {
-
+  
+  const navigate = useNavigate()
+  const [searchParams] = useSearchParams()
+  
+  useEffect(() => {
+    searchParams.get('token') ? navigate("/reset-password", 
+      {state: {token: searchParams.get('token')}}) : ""
+  }, [])
   const checkLoggedIn = () => {
+    //if 401 is returned then user is logged out
   }
   return (
+    <>
     <div className="index-home">
 
       <BackgroundImage />
@@ -77,6 +87,7 @@ const Home = () => {
         </div>
       </div>
     </div>
+    </>
   );
 }
 
