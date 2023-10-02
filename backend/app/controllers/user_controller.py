@@ -131,3 +131,19 @@ def reset_user_password(email_token, new_password):
         return result
     except Exception as e:
         return f"error: {str(e)}"
+
+
+def update_user_basic_details(username, data):
+    try:
+        user = User.find_by_username(username)
+        table_elements = ['first_name', 'last_name', 'alias', 'quote', 'summary', 'gender', 'avatar']
+
+        for element in table_elements:
+            if data.get(element):
+                user[element] = data.get(element)
+
+        result = User.update(user)
+
+        return result
+    except Exception as e:
+        return f"error: {str(e)}"
