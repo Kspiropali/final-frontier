@@ -62,9 +62,9 @@ CREATE TABLE member_detail (
 );
 
 CREATE TABLE statistics (
-    member_id INTEGER REFERENCES member(id) NOT NULL,
+    username varchar(255) REFERENCES member(username) NOT NULL,
     task_id INTEGER REFERENCES task(id) NOT NULL,
     feedback VARCHAR(255) DEFAULT NULL,
     total_time INTEGER DEFAULT 0,
-    primary key (member_id, task_id) -- COMPOSITE KEY
+    primary key (username, task_id) -- COMPOSITE KEY
 );
