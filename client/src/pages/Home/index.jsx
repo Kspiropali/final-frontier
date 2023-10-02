@@ -7,6 +7,7 @@ import meditation from '../../assets/images/homeicons/meditation.gif'
 import { useEffect } from 'react';
 
 const Home = () => {
+  
   const navigate = useNavigate()
   const [searchParams] = useSearchParams()
   
