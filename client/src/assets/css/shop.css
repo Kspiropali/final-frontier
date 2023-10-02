@@ -33,6 +33,10 @@
     padding: 20px;
   }
 
+.inventory-container {
+    cursor: pointer;
+}
+
 .avatar-box {
     width: 200px;
     height: 200px;
