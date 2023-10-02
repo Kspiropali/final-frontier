@@ -44,3 +44,6 @@ INSERT INTO
 VALUES (1, 'Bobby', 'Baum', 'Bobman', 'Best mage in wotlk', 'I am a potato', 'male', 'sam.png');
 
 -- STATISTICS
+INSERT INTO
+    statistics(username, task_id, feedback, total_time)
+VALUES ('bob', 1, 'Well done', 25);

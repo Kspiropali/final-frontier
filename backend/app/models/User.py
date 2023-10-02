@@ -79,7 +79,7 @@ class User:
             return rows
 
     @staticmethod
-    def update_basic_details_based_on_data_keys(user_id, data):
+    def update(user_id, data):
         try:
             with db.engine.connect() as con:
                 for key in data.keys():
