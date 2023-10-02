@@ -8,8 +8,9 @@ export { default as Stats } from './Stats'
 // about page components
 export { default as Founders } from './Founders'
 // support page components
-export { default as SupportIcons } from './SupportIcons'
 export {default as SupportServicesList} from './SupportServicesList'
+export {default as SupportCarousel} from './SupportCarousel'
+export {default as SupportItem} from './SupportItem'
 //login page components
 export {default as Loginform } from './LoginForm'
 export { default as RegistrationForm } from './RegistrationForm'
