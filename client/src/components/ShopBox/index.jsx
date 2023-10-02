@@ -1,54 +1,36 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { ToggleShop, ShopItem, FetchAvatar } from '../../components'
 import { useShop } from '../../contexts/ShopContext';
 import '../../assets/css/shopbox.css'
-import testItem from '../../assets/images/testitem/hat.png'
-import testItem2 from '../../assets/images/testavatars/default.png'
-import testItem3 from '../../assets/images/testbg/rainbow.jpg'
-import testCoin from '../../assets/images/testitem/coin.png'
 
 const ShopBox = () => {
     const { setSelectedItem, selectedFilters, searchQuery } = useShop(); 
     const [avatarItems, setAvatarItems] = useState([]);
+    const [shopItems, setShopItems] = useState([]);
 
     const handleAvatarItemsFetched = (items) => {
         setAvatarItems(items);
       };
 
-    const shopItems = [
-        {
-            id: 1,
-            image: testItem,
-            name: "Hat",
-            type: "accessory",
-            description: "A stylish hat for any occasion",
-            price: 10,
-            coinImage: testCoin
-        },
-        {
-            id: 2,
-            image: testItem2,
-            name: "Bot",
-            type: 'avatar',
-            description: "Embrace your inner anonymous facebook user",
-            price: 20,
-            coinImage: testCoin
-        },
-        {
-            id: 3,
-            image: testItem3,
-            name: "Rainbow",
-            type: 'background',
-            description: "Gaze at this beautiful site",
-            price: 5,
-            coinImage: testCoin
-        }
-    ]
+    useEffect(() => {
+    // Fetch items from your endpoint
+    fetch('http://localhost:3000/items')
+        .then((response) => response.json())
+        .then((data) => {
+        // Assuming your API returns an array of items
+        console.log(data)
+        setShopItems(data);
+        })
+        .catch((error) => {
+        console.error('Error fetching items:', error);
+        });
+    }, []); // Empty dependency array means this effect runs once when the component mounts
+
 
   // Apply filters based on selectedFilters
-  let filteredItems = shopItems
+  let filteredItems = Array.isArray(shopItems) ? [...shopItems] : [];
   if (Object.values(selectedFilters).some(Boolean)) {
-    filteredItems = shopItems.filter((item) => selectedFilters[item.type]);
+    filteredItems = filteredItems.filter((item) => selectedFilters[item.type]);
   }
 
   // Apply search query filter
