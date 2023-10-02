@@ -2,6 +2,7 @@ from flask import Blueprint, request, jsonify, make_response, redirect, url_for
 from sqlalchemy import CursorResult
 
 from ..controllers.user_controller import *
+from ..controllers.statistics_controller import *
 from ..middleware.authorization import requires_authorization_token
 from ..middleware.validate_json_params import validate_json_params
 from ..middleware.validate_path_params import validate_path_params
@@ -155,3 +156,15 @@ def reset_password(param):
         return jsonify({'message': 'Password reset successfully'}), 200
     except Exception as e:
         return {'error': str(e)}, 400
+
+@user_bp.get('/statistics')
+@requires_authorization_token()
+def get_stats(token):
+    try:
+        username = Session.get_username(token)
+        print(username)
+        stats = get_stats_by_user(username)
+        print(stats)
+        return jsonify({'statistics': [{'id': stat.task_id, 'feedback': stat.feedback, 'duration': stat.total_time}] for stat in stats})
+    except:
+        return "FAILED!"
