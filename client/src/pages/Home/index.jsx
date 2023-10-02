@@ -1,4 +1,4 @@
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link, useSearchParams, Navigate } from 'react-router-dom';
 import CompletionBar from '../../components/CompletionBar';
 import BackgroundImage from '../../components/BackgroundImage';
 import "../../assets/css/home.css";
@@ -9,11 +9,14 @@ const Home = () => {
 
   const [searchParams] = useSearchParams()
 
-  console.log(searchParams.get('token'))
+  // 
 
   const checkLoggedIn = () => {
+    //if 401 is returned then user is logged out
   }
   return (
+    <>
+    {!searchParams.get('token') ? <Navigate to='/reset-password'/>: ""}
     <div className="index-home">
 
       <BackgroundImage />
@@ -81,6 +84,7 @@ const Home = () => {
         </div>
       </div>
     </div>
+    </>
   );
 }
 
