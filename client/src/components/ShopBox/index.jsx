@@ -35,87 +35,6 @@ const ShopBox = () => {
             coinImage: testCoin
         },
         {
-            id: 2,
-            image: testItem2,
-            name: "Bot",
-            type: 'avatar',
-            description: "Embrace your inner anonymous facebook user",
-            price: 20,
-            coinImage: testCoin
-        },
-        {
-            id: 2,
-            image: testItem2,
-            name: "Bot",
-            type: 'avatar',
-            description: "Embrace your inner anonymous facebook user",
-            price: 20,
-            coinImage: testCoin
-        },
-        {
-            id: 2,
-            image: testItem2,
-            name: "Bot",
-            type: 'avatar',
-            description: "Embrace your inner anonymous facebook user",
-            price: 20,
-            coinImage: testCoin
-        },
-        {
-            id: 2,
-            image: testItem2,
-            name: "Bot",
-            type: 'avatar',
-            description: "Embrace your inner anonymous facebook user",
-            price: 20,
-            coinImage: testCoin
-        },
-        {
-            id: 2,
-            image: testItem2,
-            name: "Bot",
-            type: 'avatar',
-            description: "Embrace your inner anonymous facebook user",
-            price: 20,
-            coinImage: testCoin
-        },
-        {
-            id: 2,
-            image: testItem2,
-            name: "Bot",
-            type: 'avatar',
-            description: "Embrace your inner anonymous facebook user",
-            price: 20,
-            coinImage: testCoin
-        },
-        {
-            id: 2,
-            image: testItem2,
-            name: "Bot",
-            type: 'avatar',
-            description: "Embrace your inner anonymous facebook user",
-            price: 20,
-            coinImage: testCoin
-        },
-        {
-            id: 2,
-            image: testItem2,
-            name: "Bot",
-            type: 'avatar',
-            description: "Embrace your inner anonymous facebook user",
-            price: 20,
-            coinImage: testCoin
-        },
-        {
-            id: 2,
-            image: testItem2,
-            name: "Bot",
-            type: 'avatar',
-            description: "Embrace your inner anonymous facebook user",
-            price: 20,
-            coinImage: testCoin
-        },
-        {
             id: 3,
             image: testItem3,
             name: "Rainbow",
@@ -126,14 +45,18 @@ const ShopBox = () => {
         }
     ]
 
+  // Apply filters based on selectedFilters
   let filteredItems = shopItems
   if (Object.values(selectedFilters).some(Boolean)) {
     filteredItems = shopItems.filter((item) => selectedFilters[item.type]);
   }
 
-  const filteredItemsSearch = shopItems.filter((item) =>
-    item.name.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  // Apply search query filter
+  const filteredItemsSearch = filteredItems.filter((item) => {
+    const lowerCaseName = item.name.toLowerCase();
+    const lowerCaseQuery = searchQuery.toLowerCase();
+    return lowerCaseName.includes(lowerCaseQuery);
+  });
 
   const avatarCategoryItems = [
     ...filteredItemsSearch.filter((item) => item.type === 'avatar'),
@@ -141,6 +64,7 @@ const ShopBox = () => {
   ];
 
   const categorizedItems = {};
+
     filteredItems.forEach((item) => {
         if (!categorizedItems[item.type]) {
           categorizedItems[item.type] = [];
