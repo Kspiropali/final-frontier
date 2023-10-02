@@ -1,22 +1,24 @@
-import { Link, useSearchParams, Navigate } from 'react-router-dom';
+import { Link, useSearchParams, useNavigate } from 'react-router-dom';
 import CompletionBar from '../../components/CompletionBar';
 import BackgroundImage from '../../components/BackgroundImage';
 import "../../assets/css/home.css";
 import blue from '../../assets/images/homeicons/blue.gif'
 import meditation from '../../assets/images/homeicons/meditation.gif'
+import { useEffect } from 'react';
 
 const Home = () => {
-
+  const navigate = useNavigate()
   const [searchParams] = useSearchParams()
-
-  // 
-
+  
+  useEffect(() => {
+    searchParams.get('token') ? navigate("/reset-password", 
+      {state: {token: searchParams.get('token')}}) : ""
+  }, [])
   const checkLoggedIn = () => {
     //if 401 is returned then user is logged out
   }
   return (
     <>
-    {searchParams.get('token') ? <>{localStorage.setItem('resetToken', searchParams.get('token'))}<Navigate to='/reset-password'/></>: ""}
     <div className="index-home">
 
       <BackgroundImage />

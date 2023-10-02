@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import { useAuth } from '../../contexts/AuthContext'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
+
 import "../../assets/css/passwordReset.css";
 
 import check from '../../assets/images/loginReg/check.png'
@@ -8,9 +9,10 @@ import close from '../../assets/images/loginReg/close.png'
 
 const PasswordReset = () => {
 
+  const location = useLocation()
   const navigate = useNavigate()
+  
   //add code to account for the requirement of a token
-    
   const {confirmationPassword, setConfirmationPassword, password, setPassword, displayMessage, setDisplayMessage} = useAuth()
 
   const [resetPasswordSatisfied, setResetPasswordSatisfied] = useState()
@@ -44,12 +46,13 @@ const PasswordReset = () => {
           const data = JSON.stringify({
             password: password
           });
+          const token = localStorage.getItem('resetToken').toString()
 
           // ADD THE ENDPOINT WHEN YOU GET IT
           let config = {
             method: 'post',
             maxBodyLength: Infinity,
-            url: `http://127.0.0.1:3000/users/reset/${localStorage.getItem('resetToken')}`,
+            url: `http://127.0.0.1:3000/users/reset/${token}`,
             headers: {
               'Content-Type': 'application/json'
             },
