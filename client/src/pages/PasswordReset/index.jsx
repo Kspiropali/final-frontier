@@ -11,7 +11,7 @@ const PasswordReset = () => {
 
   const location = useLocation()
   const navigate = useNavigate()
-  
+
   //add code to account for the requirement of a token
   const {confirmationPassword, setConfirmationPassword, password, setPassword, displayMessage, setDisplayMessage} = useAuth()
 
@@ -46,7 +46,8 @@ const PasswordReset = () => {
           const data = JSON.stringify({
             password: password
           });
-          const token = localStorage.getItem('resetToken').toString()
+          const token = location.state.token
+          console.log(token)
 
           // ADD THE ENDPOINT WHEN YOU GET IT
           let config = {
@@ -64,7 +65,6 @@ const PasswordReset = () => {
           console.log(JSON.stringify(response.data))
   
           setDisplayMessage('Password Changed Successfully')
-          localStorage.removeItem('resetToken')
           setPassword(''),
           setConfirmationPassword(''),
           setTimeout(() => {
@@ -72,6 +72,7 @@ const PasswordReset = () => {
           }, 3000);
         }
         catch (err){
+          console.log(err)
           // only error if there's a server error 500
           setDisplayMessage("Failed to reset password. Try again")
           setPassword(''),
