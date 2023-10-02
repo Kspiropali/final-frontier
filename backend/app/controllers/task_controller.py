@@ -1,4 +1,4 @@
-from ..models.Task import Task
+from app.models.Task import Task
 
 
 def get_tasks():
