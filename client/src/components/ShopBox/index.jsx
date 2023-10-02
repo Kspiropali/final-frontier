@@ -116,6 +116,87 @@ const ShopBox = () => {
             coinImage: testCoin
         },
         {
+            id: 2,
+            image: testItem2,
+            name: "Bot",
+            type: 'avatar',
+            description: "Embrace your inner anonymous facebook user",
+            price: 20,
+            coinImage: testCoin
+        },
+        {
+            id: 2,
+            image: testItem2,
+            name: "Bot",
+            type: 'avatar',
+            description: "Embrace your inner anonymous facebook user",
+            price: 20,
+            coinImage: testCoin
+        },
+        {
+            id: 2,
+            image: testItem2,
+            name: "Bot",
+            type: 'avatar',
+            description: "Embrace your inner anonymous facebook user",
+            price: 20,
+            coinImage: testCoin
+        },
+        {
+            id: 2,
+            image: testItem2,
+            name: "Bot",
+            type: 'avatar',
+            description: "Embrace your inner anonymous facebook user",
+            price: 20,
+            coinImage: testCoin
+        },
+        {
+            id: 2,
+            image: testItem2,
+            name: "Bot",
+            type: 'avatar',
+            description: "Embrace your inner anonymous facebook user",
+            price: 20,
+            coinImage: testCoin
+        },
+        {
+            id: 2,
+            image: testItem2,
+            name: "Bot",
+            type: 'avatar',
+            description: "Embrace your inner anonymous facebook user",
+            price: 20,
+            coinImage: testCoin
+        },
+        {
+            id: 2,
+            image: testItem2,
+            name: "Bot",
+            type: 'avatar',
+            description: "Embrace your inner anonymous facebook user",
+            price: 20,
+            coinImage: testCoin
+        },
+        {
+            id: 2,
+            image: testItem2,
+            name: "Bot",
+            type: 'avatar',
+            description: "Embrace your inner anonymous facebook user",
+            price: 20,
+            coinImage: testCoin
+        },
+        {
+            id: 2,
+            image: testItem2,
+            name: "Bot",
+            type: 'avatar',
+            description: "Embrace your inner anonymous facebook user",
+            price: 20,
+            coinImage: testCoin
+        },
+        {
             id: 3,
             image: testItem3,
             name: "Rainbow",

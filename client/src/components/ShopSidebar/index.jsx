@@ -41,6 +41,9 @@ const ShopSidebar = () => {
           onClick={showModal}
         />
         </div>
+        <div>
+            <button className="inventory">Inventory</button>
+        </div>
         <SearchItem searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
         <h3 className="filters-header">Filters</h3>
         <FilterItems />

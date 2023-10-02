@@ -4,7 +4,7 @@ import testCoin from '../../assets/images/testitem/coin.png';
 
 const FetchAvatar = ({ onAvatarItemsFetched }) => {
   useEffect(() => {
-    fetch('https://api.dicebear.com/7.x/adventurer/png')
+    fetch('https://api.dicebear.com/7.x/adventurer/png?backgroundColor=c0aede')
       .then((response) => response.blob())
       .then((blob) => {
         const dataUrl = URL.createObjectURL(blob);

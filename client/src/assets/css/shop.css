@@ -129,3 +129,8 @@ input[type="checkbox"]:checked::before {
 input[type="checkbox"]:focus {
     outline: max(0px, 0.15em) solid rgb(177, 157, 228);
   }
+
+.inventory {
+    background: white;
+    cursor: pointer;
+}
