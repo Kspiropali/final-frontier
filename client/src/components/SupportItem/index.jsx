@@ -1,6 +1,6 @@
 import React from 'react'
 
-const SupportIcons = ({service, currentSelection}) => {
+const SupportItem = ({service, currentSelection}) => {
 
     // gather the data for the support services (json or db)
     // icon link for icon
@@ -14,4 +14,4 @@ const SupportIcons = ({service, currentSelection}) => {
   )
 }
 
-export default SupportIcons
+export default SupportItem

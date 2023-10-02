@@ -3,66 +3,13 @@ import talking from "../../assets/images/supportIcons/talking.png"
 
 import '../../assets/css/support.css'
 
-import callOMG from "../../assets/images/supportIcons/callOMG.svg"
-import mindfullnessOMG from "../../assets/images/supportIcons/mindfullnessOMG.svg"
-import emotionalSupportOMG from "../../assets/images/supportIcons/emotionalSupportOMG.svg"
-import exerciseOMG from "../../assets/images/supportIcons/exerciseOMG.svg"
-import chillingOMG from "../../assets/images/supportIcons/chillingOMG.svg"
 import chevronLeft from "../../assets/images/supportIcons/chevronLeft.svg"
 import chevronRight from "../../assets/images/supportIcons/chevronRight.svg"
-import { SupportIcons, SupportServicesList, SupportItem } from '../../components'
+import { SupportItem } from '../../components'
 
-const SupportCarousel = () => {
+const SupportCarousel = ({currentSelection, supportServiceSchema, supportServices}) => {
 
-    const userMood = ""
-    const supportServiceSchema = [
-        {
-        id: 0,
-        type_name: "Talking",
-        type_id: 1,
-        icon_url: callOMG,
-        service_list: [{title: "Talking Service", url: "https://www.google.com/search?q=talk+to+someone"}]
-        },
-        {
-        id: 1,
-        type_name: "Stress Management",
-        type_id: 2,
-        icon_url: mindfullnessOMG,
-        service_list: [{title: "Stress Management Service", url: "https://www.google.com/search?q=stress+management"}, {title: "Stress Management Service", url: "https://www.google.com/search?q=stress+management"}, {title: "Stress Management Service", url: "https://www.google.com/search?q=stress+management"}]
-        },
-        {
-        id: 2,
-        type_name: "Physical Wellness",
-        type_id: 3,
-        icon_url: exerciseOMG,
-        service_list: [{title: "Physical Wellness Service", url: "https://www.google.com/search?q=stress+management"}, {title: "Physical Wellness Service", url: "https://www.google.com/search?q=stress+management"}, {title: "Physical Wellness Service", url: "https://www.google.com/search?q=stress+management"}]
-        },
-        {
-        id: 3,
-        type_name: "Emotional Support",
-        type_id: 4,
-        icon_url: chillingOMG,
-        service_list: [{title: "Emotional Support Service", url: "https://www.google.com/search?q=stress+management"}, {title: "Emotional Support Service", url: "https://www.google.com/search?q=stress+management"}]
-        }
-    ]
-
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  const [supportServices, setSupportServices] = useState(supportServiceSchema)
-  const [serviceChoice, setServiceChoice] = useState({})
-
-  function findService(moodNum){
-    //returns an array object (must be accessed via index [0])
-    return supportServiceSchema.filter((service) => service.type_id == moodNum)
-  }
-
-  function currentSelection(e){
-    const choiceId = e.target.id
-
-    const service = supportServices.filter((supportService) => choiceId.includes(supportService.type_id.toString()))
-
-    setServiceChoice(service)
-  }
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const updateIndex = (newIndex) => {
     if (newIndex < 0){
@@ -71,39 +18,42 @@ const SupportCarousel = () => {
         newIndex = supportServiceSchema.length -1;
     }
 
-    setActiveIndex(newIndex);
+    setCurrentIndex(newIndex);
+  }
+
+  const sliderStyles = {
+    height: "100%",
+    position: "relative"
+  }
+
+  const slideStyles = {
+    width: '100%',
+    height: '100%',
+    borderRadius: "10px",
+    backgroundPosition: "center",
+    backgroundSize: "cover",
+    backgroundImage: `url(${supportServiceSchema[currentIndex].icon_url})`
   }
 
   return (
-    <>  
-    <div className='services-carousel' 
-    // style={{transform: `translate(-${activeIndex * 100}%)`}}
-    >
-        <div className='inner' 
-            style={{transform: `translate(-${(activeIndex) * 100}%)`}}>
-            {supportServices.map((service, index) => {
-                return (
-                    <>
-                    <div className='support-item-container'>
-                    <SupportItem service={service} currentSelection={currentSelection} key={index} />
-                    <h3 className='yellow-text icon-title' key={index}>{service.type_name}</h3>
-                    </div>
-                    </>
-                )
-            })}
-        </div>
-        <div className='carousel-buttons'>
-        <button className='button-arrow' onClick={() => updateIndex(activeIndex - 1)}><img src={chevronLeft} alt="" /></button>
-        <div className='indicators'>
-            {supportServiceSchema.map((service, index) => {
-                return (<button className='indicator-buttons' onClick={() => updateIndex(index)}>{index + 1}</button>)
-                
-            })}
-        </div>
-        <button className='button-arrow' onClick={() => updateIndex(activeIndex +1)}><img src={chevronRight} alt="" /></button>
-        </div>
+    <>
+    <div style={sliderStyles}>
+        <div></div>
+        <div style={slideStyles}></div>
     </div>
     
+
+        {/* {supportServices.map((service, index) => {
+            return (
+                <>
+                <div className='support-item-container' >
+                <SupportItem service={service} currentSelection={currentSelection} key={index} />
+                <h3 className='yellow-text icon-title' key={`$h3{index}`}>{service.type_name}</h3>
+                </div>
+                </>
+            )
+        })} */}
+   
     </>
   )
 }
