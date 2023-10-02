@@ -32,7 +32,8 @@ CREATE TABLE task (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     description VARCHAR(255) NOT NULL,
-    duration INTEGER NOT NULL
+    duration INTEGER NOT NULL,
+    completed BOOLEAN DEFAULT FALSE
 );
 
 CREATE TABLE session (

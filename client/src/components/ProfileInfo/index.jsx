@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useProfile } from '../../contexts/ProfileContext';
+import axios from 'axios';
 
 const ProfileInfo = () => {
   const { editing, profile, updateProfile } = useProfile();
