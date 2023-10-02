@@ -31,10 +31,9 @@ const Login = () => {
       </div>
       <h2 className='log-reg-title'>{activePanel == "Register" ? containerTitle[1]: !preResetState ? containerTitle[0]: containerTitle[2]}</h2>
       <div className='input-area-container'>
-        {activePanel == "Register" ? <RegistrationForm/> : !preResetState ? <Loginform setPreResetState={setPreResetState}/> : <PreResetPassword setPreResetState={setPreResetState} />}
+        {activePanel == "Register" ? <RegistrationForm setActivePanel={setActivePanel}/> : !preResetState ? <Loginform setPreResetState={setPreResetState} /> : <PreResetPassword setPreResetState={setPreResetState} />}
         {!preResetState && activePanel == "Login" ? <OAuthButtons/> : ''}
       </div>
-      
       {displayMessage && <p className='white-text' id='result-message'>{displayMessage}</p>}
     </div>
     </>

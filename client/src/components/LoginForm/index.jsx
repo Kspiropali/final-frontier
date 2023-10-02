@@ -1,11 +1,14 @@
 import React from 'react'
 import { useAuth } from '../../contexts/AuthContext'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 
 const LoginForm = ({setPreResetState}) => {
 
-    const {username, setUsername, password, setPassword, setDisplayMessage} = useAuth()
+  const navigate = useNavigate()
+
+    const {username, setUsername, password, setPassword, setDisplayMessage, isLoggedIn, setIsLoggedIn} = useAuth()
 
     const handleUsername = (e) => {
       const value = e.target.value
@@ -20,8 +23,6 @@ const LoginForm = ({setPreResetState}) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(username.length)
-        console.log(password.length)
 
         if (username.length > 0 && password.length > 0) {
           try {
@@ -42,22 +43,19 @@ const LoginForm = ({setPreResetState}) => {
             };
     
             const response = await axios.request(config)
-    
-            console.log(JSON.stringify(response.data))
 
             console.log(response)
-            //const token == response.headers.authorization
-            //add token to cookies storage
     
             setDisplayMessage('Registration Successful. You can now login')
-            setUsername(''),
-            setPassword('')
+            setUsername('');
+            setPassword('');
             setTimeout(() => {
               setDisplayMessage('')
-            }, 3000);
+              navigate('/');
+            }, 2000);
           }
           catch (err){
-            setDisplayMessage('Registration Unsuccessful')
+            setDisplayMessage('Invalid username or password')
             setUsername(''),
             setPassword(''),
             setTimeout(() => {
@@ -67,6 +65,10 @@ const LoginForm = ({setPreResetState}) => {
         }
         else {
           console.log("incomplete form!")
+          setDisplayMessage('Login Details Incomplete')
+          setTimeout(() => {
+            setDisplayMessage('')
+          }, 3000);
         }
       }
 
@@ -76,12 +78,11 @@ const LoginForm = ({setPreResetState}) => {
         <div className='input-idv-container'>
             {/* <label>Username: </label> */}
             <input
-                type="text"
+                type="username"
                 id="username"
                 onChange={handleUsername}
             //   value="username"
                 placeholder='username'
-                required
                 className='input-field'/>
             {/* <p>cannot be changed</p> */}
         </div>
@@ -93,13 +94,12 @@ const LoginForm = ({setPreResetState}) => {
             onChange={handlePassword}
             //   value="password"
             placeholder='password'
-            required
             className='input-field white-text password-field'/>
         </div>
-        <input className='login-btn' type="submit" value="Login" />
+        <input aria-label='submit button' role='submit' className='login-btn' type="submit" value="Login" />
     </form>
-    {/* MOVE THIS p TO LOGIN 'PAGE' FILE ONCE CONTEXTS ARE SET */}
-    <p className='yellow-text' id='forgot-password' onClick={() => setPreResetState(true)}>forgot password?</p>
+    <a href="javascript:void(0)">
+    <p className='yellow-text' id='forgot-password' onClick={() => setPreResetState(true)}>forgot password?</p></a>
     </>
   )
 }
