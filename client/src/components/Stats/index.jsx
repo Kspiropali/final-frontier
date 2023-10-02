@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useShop } from '../../contexts/ShopContext'
+import {useEffect} from "react"
 import { AvatarModal } from '..';
 import avatarImage from '../../assets/images/testavatars/avi.png'
 
@@ -9,6 +10,20 @@ import withReactContent from 'sweetalert2-react-content';
 const MySwal = withReactContent(Swal);
 
 const Stats = () => {
+
+	async function fetchData(){
+		const response = await fetch("http://127.0.0.1:3000/users/1/statistics")
+		const data = await response.json()
+		console.log(data)
+	}
+
+	useEffect(() => {
+		try{
+			fetchData()
+		}catch(err){
+			err.message
+		}
+	}, [])
 	
 	const { userDetails, openModal } = useShop()
 

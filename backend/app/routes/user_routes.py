@@ -2,6 +2,7 @@ from flask import Blueprint, request, jsonify, make_response, redirect, url_for
 from sqlalchemy import CursorResult
 
 from ..controllers.user_controller import *
+from ..controllers.statistics_controller import *
 from ..middleware.authorization import requires_authorization_token
 from ..middleware.validate_json_params import validate_json_params
 from ..middleware.validate_path_params import validate_path_params
@@ -16,8 +17,6 @@ user_bp = Blueprint('user', __name__)
     'password': {'type': 'stringWithMaxLength', 'maxLength': 50},
     'email': {'type': 'stringWithMaxLength', 'maxLength': 50}
 })
-
-
 def register():
     try:
         data = request.json
@@ -113,12 +112,76 @@ def verify(param):
     except Exception as e:
         return {'error': str(e)}, 400
 
+
 @user_bp.post('/ping')
 @requires_authorization_token()
 def ping(token):
     try:
         # find username from token
         username = Session.get_username(token)
+
         return jsonify({'username': username}), 200
     except Exception as e:
         return {'error': str(e)}, 400
+
+
+@user_bp.post('/reset')
+@validate_json_params({
+    'email': {'type': 'stringWithMaxLength', 'maxLength': 50}
+})
+def reset():
+    try:
+        data = request.json
+        email = data.get('email')
+
+        result = send_reset_password(email)
+
+        if result.startswith('error'):
+            return jsonify({'error': result.split("error: ")[1].strip()}), 400
+
+        return jsonify({'message': 'Password reset successfully'}), 200
+    except Exception as e:
+        return {'error': str(e)}, 400
+
+
+@user_bp.post('/reset/<param>')
+@validate_path_params('string')
+def reset_password(param):
+    try:
+        result = reset_user_password(param, request.json.get('password'))
+        print(result)
+        if not isinstance(result, CursorResult) and result.startswith('error'):
+            return jsonify({'error': result.split("error: ")[1]}), 400
+
+        return jsonify({'message': 'Password reset successfully'}), 200
+    except Exception as e:
+        return {'error': str(e)}, 400
+
+
+@user_bp.post('/update')
+@requires_authorization_token()
+def update_basic_details(token):
+    try:
+        data = request.json
+        username = Session.get_username(token)
+        result = update_user_basic_details(username, data)
+
+        if result.startswith('error'):
+            return jsonify({'error': result.split("error: ")[1]}), 400
+
+        return jsonify({'message': 'User updated successfully'}), 200
+    except Exception as e:
+        return {'error': str(e)}, 400
+
+
+@user_bp.get('/statistics')
+@requires_authorization_token()
+def get_stats(token):
+    try:
+        username = Session.get_username(token)
+        print(username)
+        stats = get_stats_by_user(username)
+        print(stats)
+        return jsonify({'statistics': [{'id': stat.task_id, 'feedback': stat.feedback, 'duration': stat.total_time}] for stat in stats})
+    except:
+        return "FAILED!"

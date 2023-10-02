@@ -73,7 +73,7 @@ def send_activation_email(to, activation_link):
 def send_password_reset_email(to, reset_link):
     subject = "Password Reset"
     recipients = [to]
-    # TODO: reset password to a input based password via form
+
     email_template = """<!DOCTYPE html>
     <html lang="en">
     <head>
@@ -87,7 +87,7 @@ def send_password_reset_email(to, reset_link):
                 <td style="padding: 20px;">
                     <h1 style="color: #333;">Password Reset Request</h1>
                     <p style="color: #666;">Hello <strong>{}</strong>,</p>
-                    <p style="color: #666;">You've requested to reset your password. Click the button below to reset your password to <b></b><strong>{}</strong></p>
+                    <p style="color: #666;">You've requested to reset your password. Click the button below to reset your password</p>
                     <a href="{}" style="display: inline-block; background-color: #007bff; color: #ffffff; text-decoration: none; padding: 10px 20px; border-radius: 5px;">Reset Password</a>
                     <p style="color: #666; margin-top: 20px;">If you did not request this reset, please ignore this email.</p>
                 </td>
@@ -95,6 +95,7 @@ def send_password_reset_email(to, reset_link):
         </table>
     </body>
     </html>
-    """.format(to, to, reset_link)
+    """.format(to, reset_link)
+
 
     return send_email(subject, recipients, email_template)
