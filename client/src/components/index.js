@@ -29,6 +29,7 @@ export { default as CoinBalance } from './CoinBalance'
 export { default as Timer } from './Timer'
 export { default as ShopItem } from './ShopItem'
 export { default as FetchAvatar } from './FetchAvatar'
+export { default as InventoryItem } from './InventoryItem'
 // homepage components
 export { default as CompletionBar } from './CompletionBar'
 export { default as WalkingCharacter } from './WalkingCharacter'
