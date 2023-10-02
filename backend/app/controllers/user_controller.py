@@ -3,7 +3,7 @@ import bcrypt
 from ..models.Email import Email
 from ..models.Session import Session
 from ..models.User import User
-from ..middleware.mailer import send_activation_email
+from ..middleware.mailer import send_activation_email, send_password_reset_email
 from ..config import DOMAIN
 
 PASSWORD_REGEX = r'^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])(?!.*\s).{8,}$'
@@ -76,3 +76,47 @@ def logout_user(token):
         return result
     except Exception as e:
         return e
+
+
+def send_reset_password(email):
+    try:
+        # try to find the user
+        user = User.find_by_email(email)
+        if user is None:
+            return "error: User not found"
+
+        # delete all previous emails for this user
+        Email.delete_all_by_username(user.username)
+
+        # create a new email
+        token = Email.create(user.username, True)
+
+        # send the email
+        send_password_reset_email(email, DOMAIN + "users/reset/" + token)
+
+        return "success"
+    except Exception as e:
+        return f"error: {str(e)}"
+
+
+def reset_user_password(email_token, new_password):
+    try:
+        # find the email
+        email = Email.find_by_token(email_token)
+
+        # find the user
+        user = User.find_by_username(email['username'])
+
+        # hash the new password
+        salt = bcrypt.gensalt()
+        hashed_password = bcrypt.hashpw(new_password.encode("utf-8"), salt)
+
+        # update the user
+        result = User.update_password(user['id'], hashed_password.decode("utf-8"))
+
+        # delete the email
+        Email.delete(email_token)
+
+        return result
+    except Exception as e:
+        return f"error: {str(e)}"

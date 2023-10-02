@@ -63,7 +63,7 @@ def login():
                         httponly=True,
                         samesite='Strict',  # Set to 'None' for cross-origin
                         secure=True,  # Set to True for HTTPS
-                        domain='finfrontier.ddns.net',  # Common domain
+                        domain='localhost',  # Common domain
                         path='/')  # Path where the cookie is accessible
 
         return resp
@@ -108,5 +108,52 @@ def verify(param):
         # TODO: return a redirect here instead of a message
         # redirect
         return redirect(url_for('index'))
+    except Exception as e:
+        return {'error': str(e)}, 400
+
+
+@user_bp.post('/ping')
+@requires_authorization_token()
+def ping(token):
+    try:
+        # find username from token
+        username = Session.get_username(token)
+
+        return jsonify({'username': username}), 200
+    except Exception as e:
+        return {'error': str(e)}, 400
+
+
+@user_bp.post('/reset')
+@validate_json_params({
+    'email': {'type': 'stringWithMaxLength', 'maxLength': 50}
+})
+def reset():
+    try:
+        data = request.json
+        email = data.get('email')
+
+        result = send_reset_password(email)
+
+        if result.startswith('error'):
+            return jsonify({'error': result.split("error: ")[1].strip()}), 400
+
+        return jsonify({'message': 'Password reset successfully'}), 200
+    except Exception as e:
+        return {'error': str(e)}, 400
+
+
+@user_bp.get('/reset/<param>')
+@validate_path_params('string')
+def reset_password(param, password):
+    try:
+        if not password:
+            return jsonify({'error': 'Password not provided'}), 400
+        result = reset_user_password(param, password)
+
+        if not isinstance(result, CursorResult) and result.startswith('error'):
+            return jsonify({'error': result.split("error: ")[1]}), 400
+
+        return jsonify({'message': 'Password reset successfully'}), 200
     except Exception as e:
         return {'error': str(e)}, 400

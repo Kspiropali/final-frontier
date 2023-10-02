@@ -21,14 +21,19 @@ def get_pid():
 def reload():
     print(pid)
     # Execute git pull to update the code
-    # try:
-    #     subprocess.run(["git", "pull"])
-    # except subprocess.CalledProcessError:
-    #     print("Git pull failed")
+    try:
+        subprocess.run(["git", "pull"])
+    except subprocess.CalledProcessError:
+        print("Git pull failed")
 
     try:
-        subprocess.run(["ls", "../frontend"])
+        subprocess.run(["npm", "run", "build"])
     except subprocess.CalledProcessError:
-        print("Could not build and copy to static folder")
+        print("Could not build static folder")
+
+        try:
+            subprocess.run(["cp", "../client/dist/*", "static/."])
+        except subprocess.CalledProcessError:
+            print("Could not copy to static folder")
 
     return jsonify({"message": "Code updated and server reloaded"}), 200
