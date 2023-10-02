@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import CompletionBar from '../../components/CompletionBar';
 import BackgroundImage from '../../components/BackgroundImage';
 import "../../assets/css/home.css";
@@ -6,6 +6,10 @@ import blue from '../../assets/images/homeicons/blue.gif'
 import meditation from '../../assets/images/homeicons/meditation.gif'
 
 const Home = () => {
+
+  const [searchParams] = useSearchParams()
+
+  console.log(searchParams.get('token'))
 
   const checkLoggedIn = () => {
   }
