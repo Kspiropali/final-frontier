@@ -2,7 +2,7 @@
      padding: 20px;
      background-color: #1d005c;
      border-radius: 10px;
-     height: 75vh;
+     height: 79vh;
      width: 150%;
      margin-top: 140px;
      margin-right: -50px;
@@ -112,5 +112,29 @@
 
 .price-preview p {
     margin-top: 2px;
-    margin-left: -8px;
   }
+
+.confirmation-modal {
+    background: rgba(218, 218, 218, 0.34);
+    margin-top: 10px;
+    text-align: center;
+    color: black;
+}
+
+.confirmation-modal h2 {
+    background: rgba(218, 218, 218, 0.34);
+    margin-top: 10px;
+    text-align: center;
+    color: black;
+}
+
+.buy-confirm {
+    margin-top: 5px;
+    background-color: #00a61a;
+    cursor: pointer;
+}
+
+.buy-cancel {
+    background-color: red;
+    cursor: pointer;
+}
