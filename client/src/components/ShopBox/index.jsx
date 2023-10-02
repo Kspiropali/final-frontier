@@ -26,6 +26,87 @@ const ShopBox = () => {
             coinImage: testCoin
         },
         {
+            id: 1,
+            image: testItem,
+            name: "Hat",
+            type: "accessory",
+            description: "A stylish hat for any occasion",
+            price: 10,
+            coinImage: testCoin
+        },
+        {
+            id: 1,
+            image: testItem,
+            name: "Hat",
+            type: "accessory",
+            description: "A stylish hat for any occasion",
+            price: 10,
+            coinImage: testCoin
+        },
+        {
+            id: 1,
+            image: testItem,
+            name: "Hat",
+            type: "accessory",
+            description: "A stylish hat for any occasion",
+            price: 10,
+            coinImage: testCoin
+        },
+        {
+            id: 1,
+            image: testItem,
+            name: "Hat",
+            type: "accessory",
+            description: "A stylish hat for any occasion",
+            price: 10,
+            coinImage: testCoin
+        },
+        {
+            id: 1,
+            image: testItem,
+            name: "Hat",
+            type: "accessory",
+            description: "A stylish hat for any occasion",
+            price: 10,
+            coinImage: testCoin
+        },
+        {
+            id: 1,
+            image: testItem,
+            name: "Hat",
+            type: "accessory",
+            description: "A stylish hat for any occasion",
+            price: 10,
+            coinImage: testCoin
+        },
+        {
+            id: 1,
+            image: testItem,
+            name: "Hat",
+            type: "accessory",
+            description: "A stylish hat for any occasion",
+            price: 10,
+            coinImage: testCoin
+        },
+        {
+            id: 1,
+            image: testItem,
+            name: "Hat",
+            type: "accessory",
+            description: "A stylish hat for any occasion",
+            price: 10,
+            coinImage: testCoin
+        },
+        {
+            id: 1,
+            image: testItem,
+            name: "Hat",
+            type: "accessory",
+            description: "A stylish hat for any occasion",
+            price: 10,
+            coinImage: testCoin
+        },
+        {
             id: 2,
             image: testItem2,
             name: "Bot",
