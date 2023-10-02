@@ -16,7 +16,7 @@ const Home = () => {
   }
   return (
     <>
-    {searchParams.get('token') ? <Navigate to='/reset-password'/>: ""}
+    {searchParams.get('token') ? <>{localStorage.setItem('resetToken', searchParams.get('token'))}<Navigate to='/reset-password'/></>: ""}
     <div className="index-home">
 
       <BackgroundImage />

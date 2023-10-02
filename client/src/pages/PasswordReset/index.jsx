@@ -29,22 +29,22 @@ const PasswordReset = () => {
           });
 
           // ADD THE ENDPOINT WHEN YOU GET IT
-          // let config = {
-          //   method: 'post',
-          //   maxBodyLength: Infinity,
-          //   url: 'http://127.0.0.1:3000/',
-          //   headers: {
-          //     'Content-Type': 'application/json'
-          //   },
-          //   data : data
-          // };
+          let config = {
+            method: 'post',
+            maxBodyLength: Infinity,
+            url: `http://127.0.0.1:3000/users/reset/${localStorage.getItem('resetToken')}`,
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            data : data
+          };
   
           const response = await axios.request(config)
   
           console.log(JSON.stringify(response.data))
   
-  
           setDisplayMessage('Password Changed Successfully')
+          localStorage.removeItem('resetToken')
           setPassword(''),
           setConfirmationPassword(''),
           setTimeout(() => {
