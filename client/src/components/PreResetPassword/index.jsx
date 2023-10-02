@@ -20,15 +20,15 @@ const PreResetPassword = ({ setPreResetState }) => {
         });
 
         // ADD THE END POINT WHEN YOU GET IT
-        // let config = {
-        //   method: 'post',
-        //   maxBodyLength: Infinity,
-        //   url: 'http://127.0.0.1:3000/',
-        //   headers: {
-        //     'Content-Type': 'application/json'
-        //   },
-        //   data : data
-        // };
+        let config = {
+          method: 'post',
+          maxBodyLength: Infinity,
+          url: 'http://127.0.0.1:3000/users/reset',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          data : data
+        };
 
         const response = await axios.request(config)
 
