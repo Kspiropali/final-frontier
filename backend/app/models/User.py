@@ -79,24 +79,20 @@ class User:
             return rows
 
     @staticmethod
-    def update(id, data):
+    def update_basic_details_based_on_data_keys(user_id, data):
         try:
             with db.engine.connect() as con:
-                result = con.execute(
-                    text(
-                        "UPDATE member SET email = :email, username = :username WHERE id = "
-                        ":user_id")
-                    .params(**data, user_id=id)
-                )
+                for key in data.keys():
+                    result = con.execute(
+                        text(f"UPDATE member SET {key} = :value WHERE id = :user_id")
+                        .params(value=data.get(key), user_id=user_id)
+                    )
 
-                con.commit()
+                    con.commit()
 
-                if result.rowcount == 1:
-                    return "success"
-                else:
-                    return "error: no user found"
+                return result
         except Exception as e:
-            return f"error: {str(e)}"
+            return e
 
     @staticmethod
     def delete(user_id):

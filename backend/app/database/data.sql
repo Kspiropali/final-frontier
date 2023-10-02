@@ -5,7 +5,7 @@ VALUES ('bob', 'bob@bob.com', '$2b$12$8tDf1A4Iq2tkwv.4DSJkC.DvuPVcgy7t4r95hnK7tG
 
 INSERT INTO
     member(username, email, password, coins, avatar, items, allocated_tasks, is_activated)
-VALUES ('sam', 'sam@sam.com', '$2b$12$uZllZLq8kxU2srej7pv7Zum7ULiOa6lrUEhdVWXfErnKsshyjYY02', 50, 'sam.png', '{}', '{}', FALSE);
+VALUES ('sam', 'sam@sam.com', '$2b$12$uZllZLq8kxU2srej7pv7Zum7ULiOa6lrUEhdVWXfErnKsshyjYY02', 50, '{}', '{}', FALSE);
 
 -- TASKS
 INSERT INTO
@@ -40,7 +40,7 @@ VALUES ('sam', 'sam');
 
 -- MEMBER DETAILS
 INSERT INTO
-    member_detail(member_id, first_name, last_name, alias, quote, summary, gender)
-VALUES (1, 'Bobby', 'Baum', 'Bobman', 'Best mage in wotlk', 'I am a potato', 'male');
+    member_detail(member_id, first_name, last_name, alias, quote, summary, gender, avatar)
+VALUES (1, 'Bobby', 'Baum', 'Bobman', 'Best mage in wotlk', 'I am a potato', 'male', 'sam.png');
 
 -- STATISTICS

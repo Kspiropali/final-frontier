@@ -155,3 +155,19 @@ def reset_password(param):
         return jsonify({'message': 'Password reset successfully'}), 200
     except Exception as e:
         return {'error': str(e)}, 400
+
+
+@user_bp.post('/update')
+@requires_authorization_token()
+def update_basic_details(token):
+    try:
+        data = request.json
+        username = Session.get_username(token)
+        result = update_user_basic_details(username, data)
+
+        if result.startswith('error'):
+            return jsonify({'error': result.split("error: ")[1]}), 400
+
+        return jsonify({'message': 'User updated successfully'}), 200
+    except Exception as e:
+        return {'error': str(e)}, 400
