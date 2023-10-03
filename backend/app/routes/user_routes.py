@@ -3,6 +3,7 @@ from sqlalchemy import CursorResult
 
 from ..controllers.user_controller import *
 from ..controllers.statistics_controller import *
+from ..controllers.task_controller import *
 from ..middleware.authorization import requires_authorization_token
 from ..middleware.validate_json_params import validate_json_params
 from ..middleware.validate_path_params import validate_path_params
@@ -185,3 +186,10 @@ def get_stats(token):
         return jsonify({'statistics': [{'id': stat.task_id, 'feedback': stat.feedback, 'duration': stat.total_time}] for stat in stats})
     except:
         return "FAILED!"
+
+@user_bp.route('/tasks', methods=['GET'])
+@requires_authorization_token()
+def list_tasks(token):
+    user = get_tasks(token)
+    return user
+    # return jsonify({'tasks': [{'id': task.id, 'name': task.name, 'description': task.description} for task in tasks]})

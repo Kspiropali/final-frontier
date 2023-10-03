@@ -87,3 +87,19 @@ class Session:
                     return "error: Session not found"
         except Exception as e:
             return f"error: {str(e)}"
+        
+    @staticmethod
+    def get_session(token):
+        try:
+            with db.engine.connect() as con:
+                result = con.execute(
+                    text("SELECT created_at FROM session WHERE token = :token")
+                    .params(token=token)
+                )
+                if result.rowcount == 1:
+                    print("TOKEN")
+                    return result.fetchone()[0]
+                else:
+                    return "error: Session not found"
+        except Exception as e:
+            return f"error: {str(e)}"
