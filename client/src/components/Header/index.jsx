@@ -20,6 +20,8 @@ const Header = () => {
     }
   }
 
+  console.log("header isLoggedIn",isLoggedIn)
+
   return (
     <>
       <header>

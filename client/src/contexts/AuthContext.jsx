@@ -8,14 +8,14 @@ export const AuthProvider = ({ children }) => {
   async function checkIsLoggedIn(){
     try {
       const response = await fetch("/users/ping", {method: "POST"})
-      console.log("AuthProvider", response)
-      return true
+      console.log("AuthProvider - IsLoggedIn", response.status)
+      return response.ok
     } catch (err) {
-      console.log("AuthProvider", err)
-      return false
+      console.log("AuthProvider - IsLoggedIn", err.status)
+      return response.ok
     }
   }
-  const [isLoggedIn, setIsLoggedIn] = useState(checkIsLoggedIn() ? true : false)
+  const [isLoggedIn, setIsLoggedIn] = useState(checkIsLoggedIn() == true ? true : false)
 
   //if we implement account confirmation emails
   const [isConfirmed, setIsConfirmed] = useState(false)
