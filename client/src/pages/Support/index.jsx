@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
 import '../../assets/css/support.css'
-import { SupportCarousel, SupportServicesList } from '../../components'
+import { ServicesModal, SupportCarousel, SupportServicesList } from '../../components'
 import callOMG from "../../assets/images/supportIcons/callOMG.svg"
 import mindfullnessOMG from "../../assets/images/supportIcons/mindfullnessOMG.svg"
 import emotionalSupportOMG from "../../assets/images/supportIcons/emotionalSupportOMG.svg"
@@ -9,9 +9,6 @@ import exerciseOMG from "../../assets/images/supportIcons/exerciseOMG.svg"
 import chillingOMG from "../../assets/images/supportIcons/chillingOMG.svg"
 
 const Support = () => {
-  //this will be a number
-  const userMood = ""
-  const supportPageDescription = "Some days you need a little extra support, so we've put together a collection of great support services and organised them by category to make it easier to find the support at moment's notice"
   
   const supportServiceSchema = [
     {
@@ -44,12 +41,9 @@ const Support = () => {
     }
 ]
 
-  //the first position is dependent on the mood provided by the user or defaults to the first in the index of the support service schema
-
-  // const [firstPosition, setFirstPosition] = useState(userMood ? findService(userMood) : supportServiceSchema[0])
-
   const [supportServices, setSupportServices] = useState(supportServiceSchema)
   const [serviceChoice, setServiceChoice] = useState({})
+  const [isOpen, setIsOpen] = useState(false)
 
   function findService(moodNum){
     //returns an array object (must be accessed via index [0])
@@ -71,8 +65,11 @@ const Support = () => {
       <h3 className='white-text white-h3'>We're Here to Help</h3>
     </div> */}
     <div className='carousel-comp-container'>
-      <SupportCarousel currentSelection={currentSelection} supportServiceSchema={supportServiceSchema} supportServices={supportServices}/>
+      <SupportCarousel currentSelection={currentSelection} supportServiceSchema={supportServiceSchema} supportServices={supportServices} setIsOpen={setIsOpen} isOpen={isOpen} />
     </div>
+    <ServicesModal open={isOpen} setIsOpen={setIsOpen}>
+      MY MODAL
+    </ServicesModal>
     {/* {serviceChoice[0] ? <SupportServicesList supportServices={supportServices} serviceChoice={serviceChoice} /> : ""} */}
     {/* <SupportServicesList supportServices={supportServices} serviceChoice={serviceChoice} /> */}
     </>

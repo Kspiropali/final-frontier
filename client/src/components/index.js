@@ -12,6 +12,7 @@ export { default as Founders } from './Founders'
 export {default as SupportServicesList} from './SupportServicesList'
 export {default as SupportCarousel} from './SupportCarousel'
 export {default as SupportItem} from './SupportItem'
+export {default as ServicesModal} from './ServicesModal'
 //login page components
 export {default as Loginform } from './LoginForm'
 export { default as RegistrationForm } from './RegistrationForm'
