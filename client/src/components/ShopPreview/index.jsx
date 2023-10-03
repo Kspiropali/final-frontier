@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import axios from 'axios';
 import '../../assets/css/prevbox.css'
 import { useShop } from '../../contexts/ShopContext'
 import { ConfirmationModal } from '../../components/';
@@ -31,31 +32,37 @@ const ShopPreview = () => {
         }
     };
 
-    const confirmPurchase = () => {
-        // Deduct the item's price from the user's coins
-        const updatedUserCoins = userCoins - selectedItem.price;
-
-        // Add the purchased item to the user's inventory
-        const updatedInventory = [...userInventory, selectedItem];
-        setUserInventory(updatedInventory);
-
-        // Close the confirmation modal
-        hideBuyConfirmation();
-
-        // Update the user's coin balance
-        // Directly update the userCoins state variable
-        // This assumes that you have access to userCoins as a state variable
-        // If userCoins is not a state variable, you should manage it as a state variable
-        // or use a global state management solution like Redux
-        // userCoins = updatedUserCoins;
-
-        // Update the user's coin balance
-        // setUserCoins(updatedUserCoins); // Uncomment when you have the actual endpoint
-
-        // Log the purchase
-        console.log(`Purchased ${selectedItem.name}`);
-    };
-
+    const confirmPurchase = async () => {
+        try {
+          // Check if the purchaseItem is not null
+          if (purchaseItem) {
+            // Send a POST request to the inventory endpoint to add the item to the user's inventory
+            const response = await axios.post('http://127.0.0.1:3000/inventory', purchaseItem);
+    
+            if (response.status === 201) {
+              // Deduct the item's price from the user's coins
+              const updatedUserCoins = userCoins - selectedItem.price;
+    
+              // Close the confirmation modal
+              hideBuyConfirmation();
+    
+              // Update the user's coin balance (you may need an API call to update the balance)
+              // For now, just log the update
+              console.log(`Updated user coin balance: ${updatedUserCoins}`);
+    
+              // Log the purchase
+              console.log(`Purchased ${selectedItem.name}`);
+    
+              // Add the purchased item to the user's inventory in the state
+              setUserInventory([...userInventory, purchaseItem]);
+            } else {
+              console.error('Failed to add item to inventory.');
+            }
+          }
+        } catch (error) {
+          console.error(error);
+        }
+      };
 
   return (
     <>
