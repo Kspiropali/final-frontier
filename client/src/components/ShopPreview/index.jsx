@@ -82,7 +82,6 @@ const ShopPreview = () => {
             </div>
             </div>
             <div className="buy-button-container">
-                <p>{userCoins}</p>
                 <button className="buy-btn" onClick={handleBuyClick}>Buy</button>
             </div>
           </>
