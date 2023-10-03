@@ -50,13 +50,13 @@ const App = () => {
         </Route>
         
         <Route path='/mystery' element={<ProtectedRoute redirectTo="/login-register"/>}>
-          <Route path="/mystery" element={<Pages.Mystery />} />
+          <Route index element={<Pages.Mystery />} />
         </Route>
 
         <Route path="*" element={<Pages.NotFound />} />
       </Route>
       <Route path="reset-password" element={<Pages.PasswordReset/>} />
-      <Route path="/welcome" element={<Pages.Welcome/>} />
+      <Route path="welcome" element={<Pages.Welcome/>} />
     </Routes>
   );
 }
