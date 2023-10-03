@@ -1,6 +1,5 @@
 from flask import Blueprint, request, jsonify
-from ..controllers.task_controller import *
-from ..middleware.validate_json_params import validate_json_params
+from app.controllers.task_controller import get_tasks, update_task, get_task, delete_task
 
 task_bp = Blueprint('task', __name__)
 

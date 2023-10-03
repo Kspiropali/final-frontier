@@ -1,6 +1,6 @@
 from sqlalchemy import text
 
-from ..database.db import db
+from app.database.db import db
 
 
 class User:
@@ -17,9 +17,6 @@ class User:
         self.ongoing_task = ongoing_task
         self.allocated_tasks = allocated_tasks
         self.is_activated = is_activated
-
-    def __repr__(self):
-        return f"<User {self.username, self.email}>"
 
     @property
     def serialize(self):

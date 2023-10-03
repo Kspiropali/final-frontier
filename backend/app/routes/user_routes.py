@@ -1,12 +1,12 @@
 from flask import Blueprint, request, jsonify, make_response, redirect, url_for
 from sqlalchemy import CursorResult
 
-from ..controllers.user_controller import *
-from ..controllers.statistics_controller import *
-from ..middleware.authorization import requires_authorization_token
-from ..middleware.validate_json_params import validate_json_params
-from ..middleware.validate_path_params import validate_path_params
-from ..models.Session import Session
+from app.controllers.user_controller import *
+from app.controllers.statistics_controller import *
+from app.middleware.authorization import requires_authorization_token
+from app.middleware.validate_json_params import validate_json_params
+from app.middleware.validate_path_params import validate_path_params
+from app.models.Session import Session
 
 user_bp = Blueprint('user', __name__)
 
@@ -64,7 +64,7 @@ def login():
                         httponly=True,
                         samesite='Strict',  # Set to 'None' for cross-origin
                         secure=True,  # Set to True for HTTPS
-                        domain='localhost',  # Common domain
+                        # domain='*',  # Common domain
                         path='/')  # Path where the cookie is accessible
 
         return resp

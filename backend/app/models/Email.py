@@ -2,7 +2,7 @@ import uuid
 
 from sqlalchemy import text
 
-from ..database.db import db
+from app.database.db import db
 
 class Email:
     def __init__(self, id, username, token, is_reset, created_at, expires_at):
@@ -12,12 +12,6 @@ class Email:
         self.is_reset = is_reset
         self.created_at = created_at
         self.expires_at = expires_at
-
-    def __repr__(self):
-        return {"id": self.id, "username": self.username, "token": self.token, "is_reset": self.is_reset, "created_at": self.created_at, "expires_at": self.expires_at}
-
-    def __str__(self):
-        return f"<Email {self.id, self.username, self.token, self.is_reset, self.created_at, self.expires_at}>"
 
     @staticmethod
     def create(username, is_reset):

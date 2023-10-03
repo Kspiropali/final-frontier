@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, String, select
-from ..database.db import db
+from app.database.db import db
 
 class Statistic(db.Model):
     __tablename__ = 'statistics'
