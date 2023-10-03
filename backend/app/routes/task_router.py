@@ -42,3 +42,7 @@ def delete_one_task(task_id):
         return deleted
     except:
         return "FAILED!"
+    
+@task_bp.route('/tasks/<int:id>/complete', methods=['POST'])
+def complete_task(id):
+  return mark_task_completed(id)

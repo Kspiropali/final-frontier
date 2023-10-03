@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, select
+from sqlalchemy import Column, Integer, String, Boolean
 from app.database.db import db
 
 
@@ -10,12 +10,14 @@ class Task(db.Model):
     name = Column(String(80), unique=True, nullable=False)
     description = Column(String(10000), nullable=False)
     # image = Column(String(10000), nullable=False)
+    completed = Column(Boolean, default=False)
 
-    def __init__(self, name, description, price, image):
+    def __init__(self, name, description, price, image, completed=False):
         self.id = id
         self.name = name
         self.description = description
         # self.image = image
+        self.completed = completed
     
     def make_json(self):
         return {"name": self.name, "description": self.description}
@@ -46,3 +48,6 @@ class Task(db.Model):
         db.session.commit()
         return "DONE"
 
+    def mark_completed(self):
+        self.completed = True
+        db.session.commit()

@@ -3,6 +3,7 @@ from sqlalchemy import CursorResult
 
 from app.controllers.user_controller import *
 from app.controllers.statistics_controller import *
+from ..controllers.profile_controller import *
 from app.middleware.authorization import requires_authorization_token
 from app.middleware.validate_json_params import validate_json_params
 from app.middleware.validate_path_params import validate_path_params
@@ -185,3 +186,26 @@ def get_stats(token):
         return jsonify({'statistics': [{'id': stat.task_id, 'feedback': stat.feedback, 'duration': stat.total_time}] for stat in stats})
     except:
         return "FAILED!"
+
+
+@user_bp.get('/profile')
+@requires_authorization_token()
+def get_profile(token):
+  try:
+    username = Session.get_username(token)
+    profile = get_profile_by_user(username)
+    return jsonify(profile.serialize) 
+  except Exception as e:
+    return {'error': str(e)}, 500
+
+
+@user_bp.patch('/profile')
+@requires_authorization_token()  
+def update_profile(token):
+  try:
+    username = Session.get_username(token)
+    data = request.get_json()
+    update_profile_by_user(username, data)
+    return '', 204
+  except Exception as e:
+    return {'error': str(e)}, 500
