@@ -171,7 +171,7 @@ def get_tasks(token):
     last_session_obj = datetime.strptime(latest_session_str, '%Y-%m-%d %H:%M:%S')
     time_difference = (current_date_obj - last_session_obj).total_seconds()
     print(time_difference)
-    if time_difference > 3:
+    if time_difference > 86400:
         new_tasks = Task.get_tasks()
         task_dicts = [{'id': task.id, 'name': task.name, 'description': task.description, 'duration': task.duration} for task in new_tasks]
         allocated_tasks_json = json.dumps(task_dicts)
