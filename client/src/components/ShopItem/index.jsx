@@ -1,16 +1,17 @@
 import React from 'react'
+import axios from 'axios';
 import itemCoin from '../../assets/images/testitem/coin.png'
 
 const ShopItem = ({ item, onItemClick }) => {
     const handleItemClick = async () => {
-        
+
         // Fetch item details by ID
         try {
-            const response = await fetch(`http://localhost:3000/items/${item.id}`);
-            if (!response.ok) {
+            const response = await axios.get(`http://localhost:3000/items/${item.id}`);
+            if (!response.data) {
                 throw new Error(`Failed to fetch item details for ID ${item.id}`);
             }
-            const data = await response.json();
+            const data = response.data
             onItemClick(data.item);
         } catch (error) {
             console.error(error);

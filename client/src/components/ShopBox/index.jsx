@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import axios from 'axios';
 import { ToggleShop, ShopItem } from '../../components'
 import { useShop } from '../../contexts/ShopContext';
 import '../../assets/css/shopbox.css'
@@ -11,8 +12,8 @@ const ShopBox = () => {
 
     async function displayItems() {
     try {
-        const response = await fetch("http://localhost:3000/items")
-        const data = await response.json()
+        const response = await axios.get("http://localhost:3000/items")
+        const data = response.data
 
         if (Array.isArray(data.items)) {
           setItems(data.items);
