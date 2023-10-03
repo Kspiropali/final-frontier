@@ -25,10 +25,10 @@ const App = () => {
         <Route path='/profile' element={<ProtectedRoute redirectTo="/login-register"/>}>
           <Route index element={<Pages.Profile />} />
         </Route>
-{/* 
-        <Route path='/shop' element={<ProtectedRoute redirectTo="/login-register"/>}> */}
-          <Route path="/shop" element={<Pages.Shop />} />
-        {/* </Route> */}
+
+        <Route path='/shop' element={<ProtectedRoute redirectTo="/login-register"/>}>
+          <Route index element={<Pages.Shop />} />
+        </Route>
         
         <Route path='/selfcare' element={<ProtectedRoute redirectTo="/login-register"/>}>
           <Route index element={<Pages.SelfCare />} />

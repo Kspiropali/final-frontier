@@ -88,7 +88,7 @@
 }
 .service-img{
     
-    height: 7vw;
+    height: 7vh;
     border-radius: 80px 0 0 80px;
 }
 
@@ -102,7 +102,7 @@
 
 .service-description {
     width: inherit;
-    font-size: 2.3vh;
+    font-size: 2.1vh;
 }
 
 .center-cont {
@@ -112,9 +112,10 @@
 }
 
 .support-service-titles {
-    font-size: 3vh;
+    font-size: 2.6vh;
     margin-bottom: .1vh;
 }
+/* !!!ADD MEDIA QUERIES!!! */
 
 /* MODAL STYLES */
 
@@ -126,7 +127,7 @@
     background-color: #e3c2c2;
     padding: 4%;
     z-index: 1000;
-    width: 60vh;
+    width: 50vw;
     height: 70vh;
     /* CHILD STYLING */
     text-align: center;
