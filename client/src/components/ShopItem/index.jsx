@@ -6,7 +6,7 @@ const ShopItem = ({ item, onItemClick }) => {
         onItemClick(item);
       };
     
-  return (
+ return (
     <div className="shop-item" onClick={handleItemClick}>
         <img className="item-image" src={item.image} alt={item.name} />
         <div className="item-price">
