@@ -1,9 +1,9 @@
 from app.models.Task import Task
 
 
-def get_tasks():
-    tasks = Task.get_tasks()
-    return tasks
+# def get_tasks():
+#     tasks = Task.get_tasks()
+#     return tasks
 
 
 def update_task(task_id, data):

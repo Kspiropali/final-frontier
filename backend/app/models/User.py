@@ -1,9 +1,13 @@
-from sqlalchemy import text
+import json
+
+from sqlalchemy import text, Column, JSON
 
 from app.database.db import db
 
 
 class User:
+    allocated_tasks = Column(JSON)
+
     def __init__(self, id, email, username, password, coins, avatar, last_logged, items, ongoing_task, allocated_tasks,
                  is_activated):
         self.id = id
@@ -173,6 +177,23 @@ class User:
 
                 con.commit()
 
+                return result
+        except Exception as e:
+            return e
+        
+    @staticmethod
+    def initialise_tasks(user_id, tasks):
+        try:
+            updated_tasks_json = json.loads(tasks)
+            updated_tasks = [task["id"] for task in updated_tasks_json]
+            with db.engine.connect() as con:
+                result = con.execute(
+                    text("UPDATE member SET allocated_tasks = :tasks WHERE id = :user_id")
+                    .params(tasks=updated_tasks, user_id=user_id)
+                )
+
+                con.commit()
+                print("Successfully updated")
                 return result
         except Exception as e:
             return e
