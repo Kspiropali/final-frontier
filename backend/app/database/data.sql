@@ -20,6 +20,22 @@ INSERT INTO
     task(name, description, duration)
 VALUES ('task3', 'task3 description', 30);
 
+INSERT INTO
+    task(name, description, duration)
+VALUES ('task4', 'task4 description', 40);
+
+INSERT INTO
+    task(name, description, duration)
+VALUES ('task 5', 'task5 description', 50);
+
+INSERT INTO
+    task(name, description, duration)
+VALUES ('task 6', 'task6 description', 60);
+
+INSERT INTO
+    task(name, description, duration)
+VALUES ('task 7', 'task7 description', 70);
+
 -- ITEMS
 
 -- AVATARS

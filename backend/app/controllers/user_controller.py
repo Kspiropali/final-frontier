@@ -1,4 +1,5 @@
 import bcrypt
+import json
 
 from app.models.Email import Email
 from app.models.Session import Session
@@ -145,3 +146,30 @@ def update_user_basic_details(username, data):
         return result
     except Exception as e:
         return f"error: {str(e)}"
+    
+def get_tasks(token):
+    username = Session.get_username(token)
+    user = User.find_by_username(username)
+    user_json = jsonify({'user': {'id': user.id, 'email': user.email, 'username': user.username, 'tasks': user.allocated_tasks}})
+    user_object = user_json.json
+    tasks = user_object['user']['tasks']
+    if tasks == []:
+        new_tasks = Task.get_tasks()
+        task_dicts = [{'id': task.id, 'name': task.name, 'description': task.description, 'duration': task.duration} for task in new_tasks]
+        allocated_tasks_json = json.dumps(task_dicts)
+        result = User.initialise_tasks(user_object['user']['id'], allocated_tasks_json)
+        return result
+    latest_session = Session.get_session(token)
+    latest_session_str = latest_session.strftime('%Y-%m-%d %H:%M:%S')
+    current_date = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    current_date_obj = datetime.strptime(current_date, '%Y-%m-%d %H:%M:%S')
+    last_session_obj = datetime.strptime(latest_session_str, '%Y-%m-%d %H:%M:%S')
+    time_difference = (current_date_obj - last_session_obj).total_seconds()
+    print(time_difference)
+    if time_difference > 86400:
+        new_tasks = Task.get_tasks()
+        task_dicts = [{'id': task.id, 'name': task.name, 'description': task.description, 'duration': task.duration} for task in new_tasks]
+        allocated_tasks_json = json.dumps(task_dicts)
+        result = User.initialise_tasks(user_object['user']['id'], allocated_tasks_json)
+        return user_json
+    return user_json

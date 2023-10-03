@@ -188,6 +188,14 @@ def get_stats(token):
         return "FAILED!"
 
 
+@user_bp.route('/tasks', methods=['GET'])
+@requires_authorization_token()
+def list_tasks(token):
+    user = get_tasks(token)
+    return user
+    # return jsonify({'tasks': [{'id': task.id, 'name': task.name, 'description': task.description} for task in tasks]})
+
+
 @user_bp.get('/profile')
 @requires_authorization_token()
 def get_profile(token):
