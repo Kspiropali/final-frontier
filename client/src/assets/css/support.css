@@ -14,7 +14,7 @@
     font-weight: 600;
 }
 
-
+/* CAROUSEL */
 .support-icon{
     height: 30vh;
     width: 60vh;
@@ -47,42 +47,62 @@
     border-radius: 20px;
 }
 
-/* NO CAROUSEL */
+
+
+/* Services List Styles */
 
 .service-options-container {
-    background-color: #4F4792;
-    height: 28vh;
-    width: 70%;
+
+    height: 100%;
+    width: 100%;
     margin-top: 2vh;
     border: 2px solid black;
-    border-radius: 15px;
+    /* border-radius: 15px; */
     padding: 2.5%;
+    overflow: scroll;
 }
 
-.service-options-container {
+/* .service-options-container {
     display: flex;
     flex-direction: column;
-}
+} */
 
 .service-item {
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     margin-bottom: 12px;
+    height: 20%;
+    background-color: #fdd8d8;
+    border-radius: 80px 0 0 80px;
 }
 
-.service-img {
-    width: 45px;
-    aspect-ratio: 1/1;
-    background-color: #aba5d7;
-    border-radius: 50%;
+.service-img-cont {
+    height: 100%;
+    /* aspect-ratio: 1/1; */
+    /* background-color: #aba5d7; */
+    border-radius: 50% 0 0 50%;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
+}
+.service-img{
+    
+    height: 7vw;
+    border-radius: 80px 0 0 80px;
 }
 
 .service-text-area {
     text-align: center;
     height: 35px;
     width: 100%;
-    background-color: #211C4A;
+    /* background-color: #f8f7ff; */
 
+}
+
+.service-description {
+    width: inherit;
+    font-size: 2.3vh;
 }
 
 .center-cont {
@@ -91,10 +111,9 @@
     align-items: center;
 }
 
-a {
-    color: inherit;
-    font-size: inherit;
-    font-family: inherit;
+.support-service-titles {
+    font-size: 3vh;
+    margin-bottom: .1vh;
 }
 
 /* MODAL STYLES */
@@ -105,8 +124,15 @@ a {
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: #e3c2c2;
-    padding: 50px;
+    padding: 4%;
     z-index: 1000;
+    width: 60vh;
+    height: 70vh;
+    /* CHILD STYLING */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .support-overlay-styles {
@@ -118,3 +144,4 @@ a {
     background-color: rgba(0, 0, 0, .7);
     z-index: 1000;
 }
+

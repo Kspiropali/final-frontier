@@ -31,3 +31,7 @@ h2 {
 .has-pointer{
     cursor: pointer;
 }
+
+.a-tag-unset {
+    color: unset;
+}

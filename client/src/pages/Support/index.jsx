@@ -16,28 +16,28 @@ const Support = () => {
     type_name: "Talking",
     type_id: 1,
     icon_url: callOMG,
-    service_list: [{title: "Talking Service", url: "https://www.google.com/search?q=talk+to+someone"}]
+    service_list: [{title: "Talking Service", description: "description about the service" ,url: "https://www.google.com/search?q=talk+to+someone"}]
     },
     {
     id: 1,
     type_name: "Stress Management",
     type_id: 2,
     icon_url: mindfullnessOMG,
-    service_list: [{title: "Stress Management Service", url: "https://www.google.com/search?q=stress+management"}, {title: "Stress Management Service", url: "https://www.google.com/search?q=stress+management"}, {title: "Stress Management Service", url: "https://www.google.com/search?q=stress+management"}]
+    service_list: [{title: "Stress Management Service", description: "description about the service" ,url: "https://www.google.com/search?q=stress+management"}, {title: "Stress Management Service", description: "description about the service" ,url: "https://www.google.com/search?q=stress+management"}, {title: "Stress Management Service", description: "description about the service" ,url: "https://www.google.com/search?q=stress+management"}, {title: "Stress Management Service", description: "description about the service" ,url: "https://www.google.com/search?q=stress+management"}, {title: "Stress Management Service", description: "description about the service" ,url: "https://www.google.com/search?q=stress+management"}]
     },
     {
     id: 2,
     type_name: "Physical Wellness",
     type_id: 3,
     icon_url: exerciseOMG,
-    service_list: [{title: "Physical Wellness Service", url: "https://www.google.com/search?q=stress+management"}, {title: "Physical Wellness Service", url: "https://www.google.com/search?q=stress+management"}, {title: "Physical Wellness Service", url: "https://www.google.com/search?q=stress+management"}]
+    service_list: [{title: "Physical Wellness Service", description: "description about the service" ,url: "https://www.google.com/search?q=stress+management"}, {title: "Physical Wellness Service", description: "description about the service" ,url: "https://www.google.com/search?q=stress+management"}, {title: "Physical Wellness Service", description: "description about the service" ,url: "https://www.google.com/search?q=stress+management"}]
     },
     {
     id: 3,
     type_name: "Emotional Support",
     type_id: 4,
     icon_url: chillingOMG,
-    service_list: [{title: "Emotional Support Service", url: "https://www.google.com/search?q=stress+management"}, {title: "Emotional Support Service", url: "https://www.google.com/search?q=stress+management"}]
+    service_list: [{title: "Emotional Support Service", description: "description about the service" ,url: "https://www.google.com/search?q=stress+management"}, {title: "Emotional Support Service", description: "description about the service" ,url: "https://www.google.com/search?q=stress+management"}]
     }
 ]
 
@@ -68,10 +68,10 @@ const Support = () => {
       <SupportCarousel currentSelection={currentSelection} supportServiceSchema={supportServiceSchema} supportServices={supportServices} setIsOpen={setIsOpen} isOpen={isOpen} />
     </div>
     <ServicesModal open={isOpen} setIsOpen={setIsOpen}>
-      MY MODAL
+      <SupportServicesList supportServices={supportServices} serviceChoice={serviceChoice} />
     </ServicesModal>
     {/* {serviceChoice[0] ? <SupportServicesList supportServices={supportServices} serviceChoice={serviceChoice} /> : ""} */}
-    {/* <SupportServicesList supportServices={supportServices} serviceChoice={serviceChoice} /> */}
+    
     </>
   )
 }
