@@ -35,26 +35,14 @@ const SupportCarousel = ({currentSelection, supportServiceSchema, supportService
             <SupportItem service={service} currentSelection={currentSelection} />
             <Carousel.Caption>
               <h3 className='yellow-text'>{service.type_name}</h3>
+              {/* <button className=''>ffff</button> */}
             </Carousel.Caption>
           </Carousel.Item>
         )
         
       })}
       
-    </Carousel>
-    
-
-        {/* {supportServices.map((service, index) => {
-            return (
-                <>
-                <div className='support-item-container' >
-                <SupportItem service={service} currentSelection={currentSelection} key={index} />
-                <h3 className='yellow-text icon-title' key={`$h3{index}`}>{service.type_name}</h3>
-                </div>
-                </>
-            )
-        })} */}
-   
+    </Carousel>   
     </>
   )
 }

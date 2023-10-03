@@ -73,8 +73,8 @@ const Support = () => {
     <div className='carousel-comp-container'>
       <SupportCarousel currentSelection={currentSelection} supportServiceSchema={supportServiceSchema} supportServices={supportServices}/>
     </div>
-    {/* {serviceChoice[0] ? <SupportServicesList supportServices={supportServices} serviceChoice={serviceChoice} /> : ""}
-    <SupportServicesList supportServices={supportServices} serviceChoice={serviceChoice} /> */}
+    {/* {serviceChoice[0] ? <SupportServicesList supportServices={supportServices} serviceChoice={serviceChoice} /> : ""} */}
+    {/* <SupportServicesList supportServices={supportServices} serviceChoice={serviceChoice} /> */}
     </>
   )
 }
