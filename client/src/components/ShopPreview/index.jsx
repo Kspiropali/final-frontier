@@ -71,7 +71,7 @@ const ShopPreview = () => {
           <div className="item-details-container">
             <h2>{selectedItem.name}</h2>
             <h3>{selectedItem.type}</h3>
-            <h3>{selectedItem.description}</h3>
+            <h3 className="item-description">{selectedItem.description}</h3>
             <div className="price-preview">
               <img 
                 src={itemCoin} 

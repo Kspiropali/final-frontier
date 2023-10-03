@@ -46,6 +46,7 @@
 .item-details-container {
     color: black;
     background-color: #debb42;
+    margin-top: -10px;
     border-radius: 10px;
     margin-left: 10px;
     margin-right: 10px;
@@ -62,7 +63,7 @@
     color: black;
     font-weight: bolder;
     font-size: 25px;
-    padding-top: 20px;
+    padding-top: 15px;
     margin-left: 10px;
     margin-right: 10px;
     margin-bottom: 10px;
@@ -71,10 +72,15 @@
 .item-details-container h3 {
     color: black;
     font-weight: bold;
-    margin-top: 40px;
+    margin-top: 20px;
     margin-left: 10px;
     margin-right: 10px;
     text-transform: capitalize;
+    font-size: 18px;
+}
+
+.item-details-container .item-description {
+    font-size: 16px;
 }
 
 .buy-button-container {
@@ -100,7 +106,7 @@
 .price-preview {
     display: flex;
     align-items: center;
-    margin-top: 60px;
+    margin-top: 50px;
     margin-left: 10px;
     margin-right: 10px;
     font-weight: bold;
@@ -109,6 +115,10 @@
     text-align: center;
     transform: scale(1.5);
   }
+
+.price-preview .coin-image {
+    margin-top: -12px;
+}
 
 .price-preview p {
     margin-top: 2px;
