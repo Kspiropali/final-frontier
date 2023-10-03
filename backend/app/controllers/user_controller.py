@@ -1,14 +1,11 @@
 import bcrypt
 import json
 
-from ..models.Email import Email
-from ..models.Session import Session
-from ..models.User import User
-from ..middleware.mailer import send_activation_email, send_password_reset_email
-from ..config import DOMAIN
-from ..models.Task import Task
-from flask import jsonify
-from datetime import datetime
+from app.models.Email import Email
+from app.models.Session import Session
+from app.models.User import User
+from app.middleware.mailer import send_activation_email, send_password_reset_email
+from app.config import DOMAIN
 
 PASSWORD_REGEX = r'^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])(?!.*\s).{8,}$'
 
@@ -75,9 +72,7 @@ def activate_user(email_token):
 
 def logout_user(token):
     try:
-        result = Session.delete(token)
-
-        return result
+        return Session.delete(token)
     except Exception as e:
         return e
 

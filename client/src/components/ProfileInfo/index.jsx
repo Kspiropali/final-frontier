@@ -1,7 +1,19 @@
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useProfile } from '../../contexts/ProfileContext';
+import axios from 'axios';
 
 const ProfileInfo = () => {
+
+  const { setProfile } = useProfile();
+  useEffect(() => {
+    const fetchProfile = async () => {
+      const response = await axios.get('/profile');  
+      setProfile(response.data);
+    }
+
+  fetchProfile();
+}, [setProfile])
+  
   const { editing, profile, updateProfile } = useProfile();
   const [localProfile, setLocalProfile] = useState({ ...profile });
 

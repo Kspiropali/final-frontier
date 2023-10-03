@@ -4,6 +4,7 @@ import { Header } from './components'
 import * as Pages from './pages'
 
 import './assets/css/globalStyles.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
 

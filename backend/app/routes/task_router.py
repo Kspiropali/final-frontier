@@ -1,7 +1,8 @@
 from flask import Blueprint, request, jsonify
-from ..controllers.task_controller import *
-from ..middleware.authorization import requires_authorization_token
-from ..middleware.validate_json_params import validate_json_params
+
+from app.controllers.task_controller import *
+from app.middleware.authorization import requires_authorization_token
+from app.middleware.validate_json_params import validate_json_params
 
 task_bp = Blueprint('task', __name__)
 
@@ -37,3 +38,7 @@ def delete_one_task(task_id):
         return deleted
     except:
         return "FAILED!"
+    
+@task_bp.route('/tasks/<int:id>/complete', methods=['POST'])
+def complete_task(id):
+  return mark_task_completed(id)

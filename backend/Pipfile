@@ -7,7 +7,6 @@ name = "pypi"
 sqlalchemy = "*"
 flask-sqlalchemy = "*"
 python-dotenv = "*"
-psycopg2-binary = "*"
 requests = "*"
 flask-mail = "*"
 flask-oauthlib = "*"
@@ -15,17 +14,20 @@ bcrypt = "*"
 colorama = "*"
 psutil = "*"
 flask = "*"
-werkzeug = "*"
 flask-cors = "*"
+pytest = "*"
+werkzeug = "==2.2"
+psycopg2-binary = "*"
+pytest-cov = "*"
 
 [dev-packages]
 
 [requires]
 python_version = "3.11"
-python_full_version = "3.11.4"
 
 [scripts]
 start = "python entrypoint.py"
+test = "pytest --cov-report term-missing --cov=."
 setup_db = "python scripts/setup_db.py"
 setup_email = "python scripts/setup_email.py"
 cleanup_db = "python scripts/cleanup_db.py"

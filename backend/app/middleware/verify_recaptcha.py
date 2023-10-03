@@ -27,7 +27,7 @@ def verify_recaptcha(next):
                 return next(*args, **kwargs)
             else:
                 return jsonify({"error": "reCAPTCHA validation failed"}), 400
-        except Exception as e:
+        except Exception:
             return jsonify({"error": "reCAPTCHA validation failed"}), 500
 
     return captcha_wrapper

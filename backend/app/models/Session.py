@@ -2,7 +2,7 @@ import uuid
 
 from sqlalchemy import text
 
-from ..database.db import db
+from app.database.db import db
 
 
 class Session:
@@ -11,13 +11,6 @@ class Session:
         self.username = username
         self.token = token
         self.created_at = created_at
-
-    def __repr__(self):
-        # as json
-        return {"id": self.id, "user_id": self.user_id, "token": self.token, "expiry": self.expiry}
-
-    def __str__(self):
-        return f"<Session {self.id, self.user_id, self.token, self.expiry}>"
 
     @staticmethod
     def create(username):

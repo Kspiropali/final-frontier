@@ -2,7 +2,7 @@
      padding: 20px;
      background-color: #1d005c;
      border-radius: 10px;
-     height: 75vh;
+     height: 79vh;
      width: 150%;
      margin-top: 140px;
      margin-right: -50px;
@@ -24,7 +24,7 @@
     background-color: #391488;
     border-radius: 10px;
     max-width: 100%;
-    max-height: 400px;
+    max-height: 100%;
     margin: 0 auto;
     text-align: center;
     display: flex;
@@ -38,14 +38,15 @@
 
 .item-preview-container img {
     width: auto;
-    max-width: 100%; 
-    max-height: 100%;
+    width: 400px; 
+    height: 400px;
     transform: scale(0.6);
   }
 
 .item-details-container {
     color: black;
     background-color: #debb42;
+    margin-top: -10px;
     border-radius: 10px;
     margin-left: 10px;
     margin-right: 10px;
@@ -55,13 +56,14 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    height: 260px;
 }
 
 .item-details-container h2 {
     color: black;
     font-weight: bolder;
     font-size: 25px;
-    padding-top: 20px;
+    padding-top: 15px;
     margin-left: 10px;
     margin-right: 10px;
     margin-bottom: 10px;
@@ -70,9 +72,15 @@
 .item-details-container h3 {
     color: black;
     font-weight: bold;
-    margin-top: 40px;
+    margin-top: 20px;
     margin-left: 10px;
     margin-right: 10px;
+    text-transform: capitalize;
+    font-size: 18px;
+}
+
+.item-details-container .item-description {
+    font-size: 16px;
 }
 
 .buy-button-container {
@@ -105,9 +113,38 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    transform: scale(1.5);
   }
 
+.price-preview .coin-image {
+    margin-top: -12px;
+}
+
 .price-preview p {
-    margin-top: 1px;
-    margin-left: -8px;
+    margin-top: 2px;
   }
+
+.confirmation-modal {
+    background: rgba(218, 218, 218, 0.34);
+    margin-top: 10px;
+    text-align: center;
+    color: black;
+}
+
+.confirmation-modal h2 {
+    background: rgba(218, 218, 218, 0.34);
+    margin-top: 10px;
+    text-align: center;
+    color: black;
+}
+
+.buy-confirm {
+    margin-top: 5px;
+    background-color: #00a61a;
+    cursor: pointer;
+}
+
+.buy-cancel {
+    background-color: red;
+    cursor: pointer;
+}

@@ -6,7 +6,8 @@ const SearchItem = ({ searchQuery, setSearchQuery }) => {
     <section className="search-item">
       <input
         type="text"
-        placeholder="Search"
+        className="custom-input"
+        placeholder="Search by Name"
         value={searchQuery}
         onChange={(e) => {
           const searchTerm = e.target.value.toLowerCase();

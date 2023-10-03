@@ -12,7 +12,7 @@ import 'animate.css'
 const MySwal = withReactContent(Swal);
 
 const ShopSidebar = () => {
-    const { userDetails, openModal } = useShop()
+    const { userDetails, openModal, searchQuery, setSearchQuery } = useShop()
 
     const showModal = () => {
         MySwal.fire({
@@ -33,15 +33,23 @@ const ShopSidebar = () => {
   return (
     <>
       <div className="sidebar">
-        <div className="avatar-box">
-        <img
-          src={avatarImage}
-          alt="Avatar"
-          className="avatar"
-          onClick={showModal}
-        />
+        <div className="inventory-container" onClick={showModal}>
+            <div className="avatar-box">
+            <img
+            src={avatarImage}
+            alt="Avatar"
+            className="avatar"
+            onClick={showModal}
+            />
+            </div>
+            <div>
+                <button className="inventory"
+                onClick={showModal}
+                >
+                    Inventory</button>
+            </div>
         </div>
-        <SearchItem />
+        <SearchItem searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
         <h3 className="filters-header">Filters</h3>
         <FilterItems />
       </div>

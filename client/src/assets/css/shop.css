@@ -33,6 +33,10 @@
     padding: 20px;
   }
 
+.inventory-container {
+    cursor: pointer;
+}
+
 .avatar-box {
     width: 200px;
     height: 200px;
@@ -61,13 +65,17 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
-    margin-top: 40px;
+    margin-top: 30px;
   }
 
 .search-item input[type="text"] {
     outline: none;
     border-color: #9f9fa0;
   }
+
+.custom-input::placeholder {
+    color: black;
+}
 
 .filters-header {
     margin-top: 10px;
@@ -129,3 +137,14 @@ input[type="checkbox"]:checked::before {
 input[type="checkbox"]:focus {
     outline: max(0px, 0.15em) solid rgb(177, 157, 228);
   }
+
+.inventory {
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    text-decoration: none;
+    background-color:  #ffd700f0;
+    font-weight: bold;
+	font-family: "Inter", Helvetica;
+    margin-left: 60px;
+}

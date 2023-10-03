@@ -7,40 +7,41 @@ import chevronLeft from "../../assets/images/supportIcons/chevronLeft.svg"
 import chevronRight from "../../assets/images/supportIcons/chevronRight.svg"
 import { SupportItem } from '../../components'
 
+import Carousel from 'react-bootstrap/Carousel';
 const SupportCarousel = ({currentSelection, supportServiceSchema, supportServices}) => {
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const updateIndex = (newIndex) => {
-    if (newIndex < 0){
-        newIndex = 0;
-    } else if (newIndex >= supportServiceSchema.length){
-        newIndex = supportServiceSchema.length -1;
-    }
+  // const updateIndex = (newIndex) => {
+  //   if (newIndex < 0){
+  //       newIndex = 0;
+  //   } else if (newIndex >= supportServiceSchema.length){
+  //       newIndex = supportServiceSchema.length -1;
+  //   }
 
-    setCurrentIndex(newIndex);
-  }
+  //   setCurrentIndex(newIndex);
+  // }
 
-  const sliderStyles = {
-    height: "100%",
-    position: "relative"
-  }
-
-  const slideStyles = {
-    width: '100%',
-    height: '100%',
-    borderRadius: "10px",
-    backgroundPosition: "center",
-    backgroundSize: "cover",
-    backgroundImage: `url(${supportServiceSchema[currentIndex].icon_url})`
-  }
+  const handleSelect = (selectedIndex) => {
+    setCurrentIndex(selectedIndex);
+  };
 
   return (
     <>
-    <div style={sliderStyles}>
-        <div></div>
-        <div style={slideStyles}></div>
-    </div>
+    <Carousel activeIndex={currentIndex} onSelect={handleSelect} interval={null} keyboard touch>
+      {supportServiceSchema.map((service, index) => {
+        return (
+          <Carousel.Item key={index}>
+            <SupportItem service={service} currentSelection={currentSelection} />
+            <Carousel.Caption>
+              <h3 className='yellow-text'>{service.type_name}</h3>
+            </Carousel.Caption>
+          </Carousel.Item>
+        )
+        
+      })}
+      
+    </Carousel>
     
 
         {/* {supportServices.map((service, index) => {

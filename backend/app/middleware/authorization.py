@@ -2,7 +2,7 @@ from functools import wraps
 
 from flask import request, make_response, jsonify
 
-from ..models.Session import Session
+from app.models.Session import Session
 
 
 def requires_authorization_token():

@@ -1,13 +1,13 @@
 from flask import Blueprint, request, jsonify, make_response, redirect, url_for
 from sqlalchemy import CursorResult
 
-from ..controllers.user_controller import *
-from ..controllers.statistics_controller import *
-from ..controllers.task_controller import *
-from ..middleware.authorization import requires_authorization_token
-from ..middleware.validate_json_params import validate_json_params
-from ..middleware.validate_path_params import validate_path_params
-from ..models.Session import Session
+from app.controllers.user_controller import *
+from app.controllers.statistics_controller import *
+from ..controllers.profile_controller import *
+from app.middleware.authorization import requires_authorization_token
+from app.middleware.validate_json_params import validate_json_params
+from app.middleware.validate_path_params import validate_path_params
+from app.models.Session import Session
 
 user_bp = Blueprint('user', __name__)
 
@@ -65,7 +65,7 @@ def login():
                         httponly=True,
                         samesite='Strict',  # Set to 'None' for cross-origin
                         secure=True,  # Set to True for HTTPS
-                        domain='localhost',  # Common domain
+                        # domain='*',  # Common domain
                         path='/')  # Path where the cookie is accessible
 
         return resp
@@ -140,7 +140,7 @@ def reset():
         if result.startswith('error'):
             return jsonify({'error': result.split("error: ")[1].strip()}), 400
 
-        return jsonify({'message': 'Password reset successfully'}), 200
+        return jsonify({'message': 'Password reset email sent successfully'}), 200
     except Exception as e:
         return {'error': str(e)}, 400
 
@@ -187,9 +187,33 @@ def get_stats(token):
     except:
         return "FAILED!"
 
+
 @user_bp.route('/tasks', methods=['GET'])
 @requires_authorization_token()
 def list_tasks(token):
     user = get_tasks(token)
     return user
     # return jsonify({'tasks': [{'id': task.id, 'name': task.name, 'description': task.description} for task in tasks]})
+
+
+@user_bp.get('/profile')
+@requires_authorization_token()
+def get_profile(token):
+  try:
+    username = Session.get_username(token)
+    profile = get_profile_by_user(username)
+    return jsonify(profile.serialize) 
+  except Exception as e:
+    return {'error': str(e)}, 500
+
+
+@user_bp.patch('/profile')
+@requires_authorization_token()  
+def update_profile(token):
+  try:
+    username = Session.get_username(token)
+    data = request.get_json()
+    update_profile_by_user(username, data)
+    return '', 204
+  except Exception as e:
+    return {'error': str(e)}, 500

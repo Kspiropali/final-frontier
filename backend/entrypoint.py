@@ -1,9 +1,8 @@
 import os
-import time
-from glob import glob
 
-from flask import redirect, request
-from app.database.db import *
+from app import app
+
+from app.database.db import setup_tables, dummy_data
 from app.config.settings import Config
 from app.routes import user_routes, task_router
 from app.database import *
@@ -40,7 +39,6 @@ app.register_blueprint(facebook_oauth.facebook_auth_bp, url_prefix="/auth/facebo
 app.register_blueprint(google_oauth.google_oauth_bp, url_prefix="/auth/google")
 app.register_blueprint(secure_reloader.reload_bp, url_prefix="/admin")
 
-
 # Route for the index page
 @app.route("/")
 def index():
@@ -65,6 +63,7 @@ def before_request():
         url = request.url.replace('http://', 'https://', 1)
         return redirect(url, code=301)
 
+from app import MONITORED_FILES
 
 if __name__ == "__main__":
 
@@ -81,6 +80,5 @@ if __name__ == "__main__":
         app.run(host="0.0.0.0", port=Config.PORT, use_reloader=True, extra_files=MONITORED_FILES)
     elif Config.ENV == 'local':
         os.environ['DOMAIN'] = 'http://localhost:3000/'
-
 
         app.run(debug=True, port=3000, use_reloader=True, host="0.0.0.0", extra_files=MONITORED_FILES)

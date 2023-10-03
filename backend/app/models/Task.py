@@ -1,6 +1,5 @@
-from sqlalchemy import Column, Integer, String, select
-from sqlalchemy.sql import func
-from ..database.db import db
+from sqlalchemy import Column, Integer, String, Boolean
+from app.database.db import db
 
 
 class Task(db.Model):
@@ -12,13 +11,17 @@ class Task(db.Model):
     description = Column(String(10000), nullable=False)
     duration = Column(String(10000))
     # image = Column(String(10000), nullable=False)
+    completed = Column(Boolean, default=False)
 
-    def __init__(self, name, description, duration, image):
+    
+    #def __init__(self, name, description, duration, image):
+    def __init__(self, name, description, price, image, completed=False):
         self.id = id
         self.name = name
         self.description = description
         self.duration = duration
         # self.image = image
+        self.completed = completed
     
     def make_json(self):
         return {"name": self.name, "description": self.description, "duration": self.duration}
@@ -50,3 +53,6 @@ class Task(db.Model):
         db.session.commit()
         return "DONE"
 
+    def mark_completed(self):
+        self.completed = True
+        db.session.commit()

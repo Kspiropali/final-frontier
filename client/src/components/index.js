@@ -5,6 +5,7 @@ export { default as Footer } from './Footer'
 export { default as ProfileInfo } from './ProfileInfo'
 export { default as Buttons } from './Buttons'
 export { default as Stats } from './Stats'
+export { default as StatsModal } from './StatsModal'
 // about page components
 export { default as Founders } from './Founders'
 // support page components
@@ -28,7 +29,9 @@ export { default as ToggleShop } from './ToggleShop'
 export { default as CoinBalance } from './CoinBalance'
 export { default as Timer } from './Timer'
 export { default as ShopItem } from './ShopItem'
+export { default as InventoryItem } from './InventoryItem'
+export { default as ConfirmationModal } from './ConfirmationModal'
+
 // homepage components
 export { default as CompletionBar } from './CompletionBar'
-export { default as WalkingCharacter } from './WalkingCharacter'
 export { default as BackgroundImage } from './BackgroundImage'
