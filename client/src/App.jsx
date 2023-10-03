@@ -26,6 +26,7 @@ const App = () => {
         <Route path="/mystery" element={<Pages.Mystery />} />
       </Route>
       <Route path="reset-password" element={<Pages.PasswordReset/>} />
+      <Route path="/welcome" element={<Pages.Welcome/>} />
     </Routes>
   );
 }
