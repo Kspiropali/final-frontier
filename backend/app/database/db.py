@@ -14,7 +14,6 @@ def initialize_db(app: Flask):
 
 
 def is_db_connected():
-
     try:
         db.engine.connect()
         return True
@@ -48,8 +47,6 @@ def setup_tables():
             con.execute(text(sql))
             con.commit()
 
-        print("SQL schema executed successfully.")
-
     except Exception as e:
         print(f"Error: {e}")
         exit(1)
@@ -66,7 +63,21 @@ def dummy_data():
             con.execute(text(data))
             con.commit()
 
-        print("SQL dummy data inserted successfully.")
+    except Exception as e:
+        print(f"Error: {e}")
+        exit(1)
+
+
+def clean_tables():
+    try:
+        # Read the SQL script
+        with open('app/database/clean.sql', 'r') as f:
+            sql = f.read()
+
+        # Execute the SQL script
+        with db.engine.connect() as con:
+            con.execute(text(sql))
+            con.commit()
 
     except Exception as e:
         print(f"Error: {e}")

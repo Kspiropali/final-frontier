@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, String
-from ..database.db import db
+from app.database.db import db
 
 
 class Item(db.Model):
@@ -20,9 +20,6 @@ class Item(db.Model):
         self.description = description
         self.price = price
         self.image = image
-
-    def __repr__(self):
-        return f"<Item {self.name}>"
 
     @property
     def serialize(self):

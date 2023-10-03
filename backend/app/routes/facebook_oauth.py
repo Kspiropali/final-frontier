@@ -1,6 +1,6 @@
 from flask import Blueprint, redirect, url_for, request, session
 from flask_oauthlib.client import OAuth
-from ..config.settings import *
+from app.config.settings import *
 
 facebook_auth_bp = Blueprint('facebook_auth', __name__)
 
