@@ -143,8 +143,8 @@ VALUES ('sam', 'sam');
 
 -- MEMBER DETAILS
 INSERT INTO
-    member_detail(member_id, first_name, last_name, alias, quote, summary, gender, avatar)
-VALUES (1, 'Bobby', 'Baum', 'Bobman', 'Best mage in wotlk', 'I am a potato', 'male', 'sam.png');
+    member_detail(member_username, first_name, last_name, alias, quote, summary, gender)
+VALUES ('bob', 'Bobby', 'Baum', 'Bobman', 'Best mage in wotlk', 'I am a potato', 'male');
 
 -- STATISTICS
 INSERT INTO
