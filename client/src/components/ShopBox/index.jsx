@@ -5,8 +5,7 @@ import { useShop } from '../../contexts/ShopContext';
 import '../../assets/css/shopbox.css'
 
 const ShopBox = () => {
-    const { setSelectedItem, selectedFilters, searchQuery } = useShop(); 
-    const [items, setItems] = useState([]);
+    const { setSelectedItem, selectedFilters, searchQuery, items, setItems } = useShop(); 
 
     useEffect(() => {
 
@@ -41,14 +40,17 @@ const ShopBox = () => {
     return lowerCaseName.includes(lowerCaseQuery);
   });
 
+  const nonFeaturedItems = filteredItemsSearch.filter((item) => item.type !== 'featured');
+
   const categorizedItems = {};
 
-  filteredItemsSearch.forEach((item) => {
+  nonFeaturedItems.forEach((item) => {
     if (!categorizedItems[item.type]) {
       categorizedItems[item.type] = [];
     }
     categorizedItems[item.type].push(item);
   });
+
 
 const handleItemClick = (item) => {
     setSelectedItem(item);
@@ -59,7 +61,9 @@ return (
       <div className="shop-box-container">
         <h1 className="shop-header">Item Shop</h1>
       </div>
-      <FeaturedItems />
+      <div className="featured-container">
+        <FeaturedItems />
+      </div>
       <div className="box">
         <div className="shop-items-container">
           {Object.entries(categorizedItems).map(([category, items]) => (
