@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useShop } from '../../contexts/ShopContext'
-import {useEffect} from "react"
+import { useEffect, useState } from "react"
 import { AvatarModal } from '..';
 import avatarImage from '../../assets/images/testavatars/avi.png'
 import { StatsModal } from '..';
@@ -12,10 +12,13 @@ const MySwal = withReactContent(Swal);
 
 const Stats = () => {
 
+	const [stats, setStats] = useState([]);
+
 	async function fetchData(){
 		const response = await fetch("http://127.0.0.1:3000/users/1/statistics")
 		const data = await response.json()
 		console.log(data)
+		setStats(data)
 	}
 
 	useEffect(() => {
@@ -52,7 +55,7 @@ const Stats = () => {
           hideClass: {
             popup: 'animate__animated animate__fadeOutUp',
           },
-          html: <StatsModal avatarImage={avatarImage} userDetails={userDetails} />,
+          html: <StatsModal stats={stats} />,
           showConfirmButton: false,
           width: '600px'
         }).then(() => {
