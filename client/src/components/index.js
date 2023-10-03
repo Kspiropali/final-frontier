@@ -28,7 +28,6 @@ export { default as ToggleShop } from './ToggleShop'
 export { default as CoinBalance } from './CoinBalance'
 export { default as Timer } from './Timer'
 export { default as ShopItem } from './ShopItem'
-export { default as FetchAvatar } from './FetchAvatar'
 export { default as InventoryItem } from './InventoryItem'
 export { default as ConfirmationModal } from './ConfirmationModal'
 
