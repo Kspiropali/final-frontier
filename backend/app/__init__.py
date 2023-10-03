@@ -4,7 +4,7 @@ from glob import glob
 from flask import redirect, request, Flask
 from app.database import db
 from app.config.settings import Config
-from app.routes import user_routes, task_router
+from app.routes import user_routes, task_router, item_routes
 from app.database import *
 from app.middleware.mailer import configure_mail
 from app.routes import google_oauth, facebook_oauth, secure_reloader
@@ -14,6 +14,7 @@ MONITORED_FILES = glob(os.path.join(".", '**'), recursive=True)
 
 # create flask app and declare static folder
 app = Flask(__name__, static_folder="../static/", static_url_path="/")
+app.config['PREFERRED_URL_SCHEME'] = 'https'
 
 # Configure CORS
 # TODO: change it later, cookies change domains as well
@@ -33,6 +34,7 @@ with app.app_context():
 # Routes, order matters!
 app.register_blueprint(user_routes.user_bp, url_prefix="/users")
 app.register_blueprint(task_router.task_bp, url_prefix="/tasks")
+app.register_blueprint(item_routes.item_bp, url_prefix="/items")
 app.register_blueprint(facebook_oauth.facebook_auth_bp, url_prefix="/auth/facebook")
 app.register_blueprint(google_oauth.google_oauth_bp, url_prefix="/auth/google")
 app.register_blueprint(secure_reloader.reload_bp, url_prefix="/admin")
@@ -49,6 +51,7 @@ def redirect_to_root():
     return redirect('/')
 
 
+# do not remove error input parameter, it is required by flask
 @app.errorhandler(404)
 def page_not_found(error):
     return redirect('/')

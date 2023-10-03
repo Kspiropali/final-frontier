@@ -1,14 +1,10 @@
 from flask import Blueprint, request, jsonify
-from app.controllers.task_controller import get_tasks, update_task, get_task, delete_task
+
+from app.controllers.task_controller import *
+from app.middleware.authorization import requires_authorization_token
+from app.middleware.validate_json_params import validate_json_params
 
 task_bp = Blueprint('task', __name__)
-
-
-@task_bp.route('/', methods=['GET'])
-def list_tasks():
-    tasks = get_tasks()
-    print(task for task in tasks)
-    return jsonify({'tasks': [{'id': task.id, 'name': task.name, 'description': task.description} for task in tasks]})
 
 
 @task_bp.route('/<int:task_id>', methods=['PATCH'])
@@ -42,3 +38,7 @@ def delete_one_task(task_id):
         return deleted
     except:
         return "FAILED!"
+    
+@task_bp.route('/tasks/<int:id>/complete', methods=['POST'])
+def complete_task(id):
+  return mark_task_completed(id)

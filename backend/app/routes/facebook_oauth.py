@@ -11,10 +11,10 @@ facebook = oauth.remote_app(
     'facebook',
     consumer_key=FACEBOOK_APP_ID,
     consumer_secret=FACEBOOK_APP_SECRET,
-    request_token_params={'scope': 'email,public_profile,user_gender'},
+    request_token_params={'scope': 'email'},
     base_url='https://graph.facebook.com/',
     request_token_url=None,
-    access_token_method='POST',
+    access_token_method='GET',
     access_token_url='/oauth/access_token',
     authorize_url='https://www.facebook.com/dialog/oauth',
 )
@@ -29,6 +29,8 @@ def authorized():
             request.args['error_reason'],
             request.args['error_description']
         )
+
+    # TODO: dont forget to use DOMAIN for cookies
     session['facebook_token'] = (response['access_token'], '')
     user_info = facebook.get('userinfo')
     return 'Logged in as: ' + user_info.data['email']
