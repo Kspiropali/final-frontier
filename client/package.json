@@ -7,8 +7,7 @@
     "dev": "vite",
     "build": "vite build && cp -r dist/* ../backend/static/.",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview",
-    "dev-server": "json-server -p 8080 db.json"
+    "preview": "vite preview"
   },
   "dependencies": {
     "animate.css": "^4.1.1",
@@ -32,7 +31,6 @@
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
-    "json-server": "^0.17.3",
     "msw": "^1.3.1",
     "vite": "^4.4.5"
   }
