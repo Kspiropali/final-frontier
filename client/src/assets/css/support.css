@@ -20,24 +20,7 @@
     width: 60vh;
 } 
 
-/* .carousel-comp-container {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    height: fit-content;
-}
-
-.services-carousel {
-    overflow: hidden;
-    width: 700px;
-    font-family: "Roboto";
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.inner {
+/* .inner {
     display: flex;
     white-space: "nowrap";
     transition: transform 0.3s;
@@ -53,72 +36,7 @@
     aspect-ratio: 1/.7;
     border-radius: 25px;
     margin: auto;
-    
 } 
-/* inactive */
-/* .carousel-item {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 490px;
-    background-color: #fff;
-}
-
-
-
-.support-icon {
-    width: 80%;
-    padding: 6vh;
-}
-
-.icon-title {
-    text-align: center;
-    font-size: 23px;
-    white-space: normal;
-} */
-/* inactive */
-/* .carousel-item-text {
-    font-size: 1.15rem;
-    margin: 40px 0 40px 0;
-    padding: 0 20px 0 20px;
-    white-space: normal;
-    color: #617D98;
-}
-/
-.support-item-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 0 10px;
-    width: 100%;
-}
-
-.carousel-buttons {
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.indicators {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-
-}
-
-.indicator-buttons {
-    border: none;
-    cursor: pointer;
-}
-
-.indicator-buttons-active {
-    font-weight: 600;
-}
-
-.button-arrow {
-    cursor: pointer;
-    margin-top: 3vh;
-} */
 
 /* NO CAROUSEL */
 
