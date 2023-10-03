@@ -9,9 +9,9 @@
     color: var(--offYellow);
 }
 
-body {
+/* body {
     background: var(--darkBlueBG);
-}
+} */
 
 h2 {
     color: var(--offYellow);
@@ -30,4 +30,8 @@ h2 {
 
 .has-pointer{
     cursor: pointer;
+}
+
+.a-tag-unset {
+    color: unset;
 }
