@@ -3,7 +3,6 @@ import { useShop } from '../../contexts/ShopContext'
 
 const filterOptions = [
     { label: 'Backgrounds', key: 'background' },
-    { label: 'Accessories', key: 'accessory' },
     { label: 'Avatars', key: 'avatar' }
   ];
 

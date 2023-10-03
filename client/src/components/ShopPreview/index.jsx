@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import '../../assets/css/prevbox.css'
 import { useShop } from '../../contexts/ShopContext'
 import { ConfirmationModal } from '../../components/';
+import itemCoin from '../../assets/images/testitem/coin.png'
 
 const ShopPreview = () => {
     const { selectedItem } = useShop()
@@ -70,10 +71,10 @@ const ShopPreview = () => {
           <div className="item-details-container">
             <h2>{selectedItem.name}</h2>
             <h3>{selectedItem.type}</h3>
-            <h3>{selectedItem.description}</h3>
+            <h3 className="item-description">{selectedItem.description}</h3>
             <div className="price-preview">
               <img 
-                src={selectedItem.coinImage} 
+                src={itemCoin} 
                 alt="Coin" 
                 className="coin-image" 
               />
@@ -81,7 +82,6 @@ const ShopPreview = () => {
             </div>
             </div>
             <div className="buy-button-container">
-                <p>{userCoins}</p>
                 <button className="buy-btn" onClick={handleBuyClick}>Buy</button>
             </div>
           </>

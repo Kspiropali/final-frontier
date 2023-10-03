@@ -1,7 +1,7 @@
 .toggleshop-container {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 20px;
+    transform: scale(0.8);
   }
 
 .toggle-button {
