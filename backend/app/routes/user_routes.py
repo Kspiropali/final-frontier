@@ -3,7 +3,6 @@ from sqlalchemy import CursorResult
 
 from app.controllers.user_controller import *
 from app.controllers.statistics_controller import *
-from ..controllers.profile_controller import *
 from app.middleware.authorization import requires_authorization_token
 from app.middleware.validate_json_params import validate_json_params
 from app.middleware.validate_path_params import validate_path_params
@@ -58,6 +57,8 @@ def login():
         if token.startswith('error'):
             return jsonify({'error': token.split("DETAIL:")[1].strip().split("\n")[0]}), 400
 
+
+
         # send cookies
         resp = make_response(jsonify({'message': 'User logged in successfully'}), 200)
         resp.set_cookie('Authorization',
@@ -107,7 +108,6 @@ def verify(param):
         if not isinstance(result, CursorResult) and result.startswith('error'):
             return jsonify({'error': result.split("error: ")[1]}), 400
 
-        # TODO: return a redirect here instead of a message
         # redirect
         return redirect(url_for('index'))
     except Exception as e:
@@ -159,18 +159,43 @@ def reset_password(param):
         return {'error': str(e)}, 400
 
 
-@user_bp.post('/update')
+@user_bp.post('/profile/update')
 @requires_authorization_token()
 def update_basic_details(token):
     try:
         data = request.json
         username = Session.get_username(token)
         result = update_user_basic_details(username, data)
-
+        print(result)
         if result.startswith('error'):
             return jsonify({'error': result.split("error: ")[1]}), 400
 
         return jsonify({'message': 'User updated successfully'}), 200
+    except Exception as e:
+        return {'error': str(e)}, 400
+
+
+@user_bp.post('/profile')
+@requires_authorization_token()
+def get_basic_details(token):
+    try:
+        username = Session.get_username(token)
+        result = get_user_basic_details(username)
+
+        if type(result) is str and result.startswith('error'):
+            return jsonify({'error': result.split("error: ")[1]}), 400
+
+        profile = {
+            "first_name": result.first_name,
+            "last_name": result.last_name,
+            "alias": result.alias,
+            "quote": result.quote,
+            "summary": result.summary,
+            "gender": result.gender,
+            "avatar": result.avatar
+        }
+
+        return jsonify(profile), 200
     except Exception as e:
         return {'error': str(e)}, 400
 
@@ -183,37 +208,8 @@ def get_stats(token):
         print(username)
         stats = get_stats_by_user(username)
         print(stats)
-        return jsonify({'statistics': [{'id': stat.task_id, 'feedback': stat.feedback, 'duration': stat.total_time}] for stat in stats})
+        return jsonify(
+            {'statistics': [{'id': stat.task_id, 'feedback': stat.feedback, 'duration': stat.total_time}] for stat in
+             stats})
     except:
-        return "FAILED!"
-
-
-@user_bp.route('/tasks', methods=['GET'])
-@requires_authorization_token()
-def list_tasks(token):
-    user = get_tasks(token)
-    return user
-    # return jsonify({'tasks': [{'id': task.id, 'name': task.name, 'description': task.description} for task in tasks]})
-
-
-@user_bp.get('/profile')
-@requires_authorization_token()
-def get_profile(token):
-  try:
-    username = Session.get_username(token)
-    profile = get_profile_by_user(username)
-    return jsonify(profile.serialize) 
-  except Exception as e:
-    return {'error': str(e)}, 500
-
-
-@user_bp.patch('/profile')
-@requires_authorization_token()  
-def update_profile(token):
-  try:
-    username = Session.get_username(token)
-    data = request.get_json()
-    update_profile_by_user(username, data)
-    return '', 204
-  except Exception as e:
-    return {'error': str(e)}, 500
+        return "FAILED!", 400

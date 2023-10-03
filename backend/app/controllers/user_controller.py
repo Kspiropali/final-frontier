@@ -65,6 +65,10 @@ def activate_user(email_token):
         if email_result is None:
             return "error: Could not delete email token"
 
+        # create user's member_details info
+        result = User.create_member_details(user_to_activate.username)
+        print(result)
+
         return "success"
     except Exception as e:
         return f"error: Could not activate user: {str(e)}"
@@ -116,7 +120,7 @@ def reset_user_password(email_token, new_password):
         user = User.find_by_username(email.username)
         if user is None:
             return "error: User not found"
-        print( user)
+        print(user)
         # hash the new password
         salt = bcrypt.gensalt()
         hashed_password = bcrypt.hashpw(new_password.encode("utf-8"), salt)
@@ -135,15 +139,24 @@ def reset_user_password(email_token, new_password):
 def update_user_basic_details(username, data):
     try:
         user = User.find_by_username(username)
-        table_elements = ['first_name', 'last_name', 'alias', 'quote', 'summary', 'gender', 'avatar']
+        if user is None:
+            return "error: User not found"
 
-        for element in table_elements:
-            if data.get(element):
-                user[element] = data.get(element)
+        result = User.update(user.username, data)
+        if result is None:
+            return "error: Could not update user"
 
-        result = User.update(user)
+        return "success"
+    except Exception as e:
+        return f"error: {str(e)}"
 
-        return result
+
+def get_user_basic_details(username):
+    try:
+        user_details = User.get_user_basic_details(username)
+        if user_details is None:
+            return "error: User not found"
+        return user_details
     except Exception as e:
         return f"error: {str(e)}"
     
