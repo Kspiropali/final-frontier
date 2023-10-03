@@ -60,7 +60,7 @@ const SupportCarousel = ({currentSelection, supportServiceSchema, supportService
 
   return (
     <>
-    <Carousel activeIndex={currentIndex} onSelect={handleSelect} interval={null} fade>
+    <Carousel activeIndex={currentIndex} onSelect={handleSelect} interval={null}>
       {supportServiceSchema.map((service, index) => {
         return (
           <Carousel.Item key={index}>

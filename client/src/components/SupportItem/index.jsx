@@ -6,11 +6,9 @@ const SupportItem = ({service, currentSelection}) => {
     // icon link for icon
 
   return (
-    <>
-      <div className='support-icon-container' id={`sic-${service.type_id}`} onClick={(e) => currentSelection(e)}>
-        <img src={service.icon_url} alt="" className='support-icon' id={`si-${service.type_id}`} onClick={(e) => currentSelection(e)}/>
-      </div>
-    </>
+    <div className='support-icon-container' id={`sic-${service.type_id}`} onClick={(e) => currentSelection(e)}>
+      <img src={service.icon_url} alt="" className='support-icon' id={`si-${service.type_id}`} onClick={(e) => currentSelection(e)}/>
+    </div>
   )
 }
 
