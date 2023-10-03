@@ -63,11 +63,6 @@ const Support = () => {
 
     setServiceChoice(service)
   }
-  const containerStyles = {
-    width: '500px',
-    height: '280px',
-    margin: '0px auto'
-  };
 
   return (
     <>
@@ -75,7 +70,7 @@ const Support = () => {
     {/* <div className='page-description'>
       <h3 className='white-text white-h3'>We're Here to Help</h3>
     </div> */}
-    <div className='carousel-comp-container' style={containerStyles}>
+    <div className='carousel-comp-container'>
       <SupportCarousel currentSelection={currentSelection} supportServiceSchema={supportServiceSchema} supportServices={supportServices}/>
     </div>
     {/* {serviceChoice[0] ? <SupportServicesList supportServices={supportServices} serviceChoice={serviceChoice} /> : ""}
