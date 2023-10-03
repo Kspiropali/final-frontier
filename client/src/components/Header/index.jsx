@@ -14,8 +14,8 @@ const Header = () => {
 
       if(response.status == 200){
         console.log(response)
-        // setIsLoggedIn(false)
-        window.location.replace("/welcome")
+
+        window.location.reload()
       }
       else {
         console.log("header: user not logged in")
