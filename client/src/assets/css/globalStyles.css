@@ -27,3 +27,7 @@ h2 {
     text-align: center;
 
 }
+
+.has-pointer{
+    cursor: pointer;
+}
