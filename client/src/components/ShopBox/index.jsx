@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
-import { ToggleShop, ShopItem } from '../../components'
+import { ShopItem, FeaturedItems } from '../../components'
 import { useShop } from '../../contexts/ShopContext';
 import '../../assets/css/shopbox.css'
 
@@ -58,10 +58,8 @@ return (
     <>
       <div className="shop-box-container">
         <h1 className="shop-header">Item Shop</h1>
-        <div className="toggle-buttons-container">
-          <ToggleShop />
-        </div>
       </div>
+      <FeaturedItems />
       <div className="box">
         <div className="shop-items-container">
           {Object.entries(categorizedItems).map(([category, items]) => (

@@ -1,0 +1,9 @@
+/* Featured Items Container */
+.featured-items-container {
+    padding: 20px;
+    background-color: #ee374c;
+    border-radius: 10px;
+    /* Adjust the width and margin as needed to fit your layout */
+    width: 80%; /* Adjust the width as needed */
+    margin: 20px auto; /* Center the container horizontally and add margin as needed */
+  }
