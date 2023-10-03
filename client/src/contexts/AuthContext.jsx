@@ -15,7 +15,7 @@ export const AuthProvider = ({ children }) => {
       return false
     }
   }
-  const [isLoggedIn, setIsLoggedIn] = useState(checkIsLoggedIn() == true ? true : false)
+  const [isLoggedIn, setIsLoggedIn] = useState(checkIsLoggedIn() ? true : false)
 
   //if we implement account confirmation emails
   const [isConfirmed, setIsConfirmed] = useState(false)
