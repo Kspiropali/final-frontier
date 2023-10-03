@@ -19,17 +19,3 @@ def get_one_item(item_id):
         return jsonify({'items': [{'id': item.id, 'name': item.name, 'type': item.type, 'description': item.description, 'price': item.price}]})
     except:
         return "FAILED!"
-
-# Route to purchase an item
-# @item_bp.route('/<int:item_id>/purchase', methods=['POST'])
-# def purchase_item(item_id):
-#     try:
-#         user = get_current_user()  # Implement this function to get the current user
-#         result = purchase_item(item_id, user)
-        
-#         if "error" in result:
-#             return jsonify(result), 400
-
-#         return jsonify(result), 200
-#     except:
-#         return {"error": "Purchase failed"}, 500
