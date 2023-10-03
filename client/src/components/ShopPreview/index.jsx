@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import '../../assets/css/prevbox.css'
 import { useShop } from '../../contexts/ShopContext'
 import { ConfirmationModal } from '../../components/';
+import itemCoin from '../../assets/images/testitem/coin.png'
 
 const ShopPreview = () => {
     const { selectedItem } = useShop()
@@ -73,7 +74,7 @@ const ShopPreview = () => {
             <h3>{selectedItem.description}</h3>
             <div className="price-preview">
               <img 
-                src={selectedItem.coinImage} 
+                src={itemCoin} 
                 alt="Coin" 
                 className="coin-image" 
               />
