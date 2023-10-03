@@ -8,10 +8,10 @@ export const AuthProvider = ({ children }) => {
   async function checkIsLoggedIn(){
     try {
       const response = await fetch("/users/ping", {method: "POST"})
-      console.log(response)
+      console.log("AuthProvider", response)
       return true
     } catch (err) {
-      console.log(err)
+      console.log("AuthProvider", err)
       return false
     }
   }
