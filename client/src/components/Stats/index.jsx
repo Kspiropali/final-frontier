@@ -3,6 +3,7 @@ import { useShop } from '../../contexts/ShopContext'
 import {useEffect} from "react"
 import { AvatarModal } from '..';
 import avatarImage from '../../assets/images/testavatars/avi.png'
+import { StatsModal } from '..';
 
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
@@ -36,6 +37,22 @@ const Stats = () => {
             popup: 'animate__animated animate__fadeOutUp',
           },
           html: <AvatarModal avatarImage={avatarImage} userDetails={userDetails} />,
+          showConfirmButton: false,
+          width: '600px'
+        }).then(() => {
+          openModal();
+        });
+    };
+
+	const showModalStats = () => {
+        MySwal.fire({
+          showClass: {
+            popup: 'animate__animated animate__fadeInDown',
+          },
+          hideClass: {
+            popup: 'animate__animated animate__fadeOutUp',
+          },
+          html: <StatsModal avatarImage={avatarImage} userDetails={userDetails} />,
           showConfirmButton: false,
           width: '600px'
         }).then(() => {
@@ -78,9 +95,9 @@ const Stats = () => {
 			</div>
 			<div className="container5">
 					<div className="rectangle-5">
-						<div className="text-wrapper-11">Login streak</div>
+						<div className="text-wrapper-11">My Stats</div>
 						<div className="rectangle-6">
-							<div className="text-wrapper-12">5 days</div>
+						<button className="stats-button" onClick={showModalStats}>Open</button>
 						</div>
 				</div>
 			</div>
