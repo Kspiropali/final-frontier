@@ -46,7 +46,7 @@ const LoginForm = ({setPreResetState}) => {
 
             console.log(response)
             if (response.status == 200){
-              setDisplayMessage('Registration Successful. You can now login')
+              setDisplayMessage('Login Successful')
               setUsername('');
               setPassword('');
               setTimeout(() => {
