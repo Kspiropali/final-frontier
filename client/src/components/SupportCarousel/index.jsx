@@ -26,41 +26,9 @@ const SupportCarousel = ({currentSelection, supportServiceSchema, supportService
     setCurrentIndex(selectedIndex);
   };
 
-  /*
-  const sliderStyles = {
-    height: "100%",
-    position: "relative"
-  }
-
-  const slideStyles = {
-    width: '100%',
-    height: '100%',
-    borderRadius: "10px",
-    backgroundPosition: "center",
-    backgroundSize: "cover",
-    backgroundImage: `url(${supportServiceSchema[currentIndex].icon_url})`
-  }
-
-  const leftArrow = {
-    position: 'absolute',
-    top: '50%',
-    transform: 'translate(0, -50%)',
-    left: '32px',
-    zIndex: 1,
-    cursor: "pointer"
-  }
-  const rightArrow = {
-    position: 'absolute',
-    top: '50%',
-    transform: 'translate(0, -50%)',
-    right: '32px',
-    zIndex: 1,
-    cursor: "pointer"
-  } */
-
   return (
     <>
-    <Carousel activeIndex={currentIndex} onSelect={handleSelect} interval={null}>
+    <Carousel activeIndex={currentIndex} onSelect={handleSelect} interval={null} keyboard touch>
       {supportServiceSchema.map((service, index) => {
         return (
           <Carousel.Item key={index}>
