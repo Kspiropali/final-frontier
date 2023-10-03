@@ -20,12 +20,12 @@ const Login = () => {
     setActivePanel(panelName)
   }
 
-  useEffect(() => {
-    fetch("/users/ping", {method: "POST"})
-      .then(response => response.text())
-      .then(result => console.log(result))
-      .catch(error => console.log('error', error));
-  },[])
+  // useEffect(() => {
+  //   fetch("/users/ping", {method: "POST"})
+  //     .then(response => response.text())
+  //     .then(result => console.log(result))
+  //     .catch(error => console.log('error', error));
+  // },[])
 
   return (
     <>

@@ -5,7 +5,17 @@ const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
 
   //relies on cookies
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  async function checkIsLoggedIn(){
+    try {
+      const response = await fetch("/users/ping", {method: "POST"})
+      console.log(response)
+      return true
+    } catch (err) {
+      console.log(err)
+      return false
+    }
+  }
+  const [isLoggedIn, setIsLoggedIn] = useState(checkIsLoggedIn() == true ? true : false)
 
   //if we implement account confirmation emails
   const [isConfirmed, setIsConfirmed] = useState(false)

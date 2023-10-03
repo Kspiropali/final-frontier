@@ -2,6 +2,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom'
 import { Header } from './components'
 import * as Pages from './pages'
+import ProtectedRoute from './routes';
 
 import './assets/css/globalStyles.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
