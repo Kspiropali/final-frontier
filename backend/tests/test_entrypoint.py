@@ -68,7 +68,6 @@ def test_initialize_db(test_app):
 
 def test_register_blueprints(test_app):
     blueprints = test_app.application.blueprints
-    print(blueprints)
     assert 'user' in blueprints
     assert 'task' in blueprints
     assert 'facebook_auth' in blueprints

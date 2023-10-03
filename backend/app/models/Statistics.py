@@ -16,7 +16,6 @@ class Statistic(db.Model):
         self.total_time = total_time
 
     def get_statistics_by_user(username):
-        print("MODEL")
         query = Statistic.query.filter_by(username=username)
         tasks = query.all()
         return tasks
