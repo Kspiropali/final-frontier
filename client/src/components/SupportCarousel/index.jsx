@@ -18,7 +18,7 @@ const SupportCarousel = ({currentSelection, supportServiceSchema, supportService
 
   return (
     <>
-    <Carousel activeIndex={currentIndex} onSelect={handleSelect} interval={null} keyboard touch>
+    <Carousel activeIndex={currentIndex} onSelect={handleSelect} interval={null} keyboard touch data-bs-theme="dark">
       {supportServiceSchema.map((service, index) => {
         return (
           <Carousel.Item key={index}>
