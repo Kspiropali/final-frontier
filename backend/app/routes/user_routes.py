@@ -15,7 +15,7 @@ user_bp = Blueprint('user', __name__)
 
 
 @user_bp.post('/register')
-@verify_recaptcha()
+# @verify_recaptcha()
 @validate_json_params({
     'username': {'type': 'stringWithMaxLength', 'maxLength': 50},
     'password': {'type': 'stringWithMaxLength', 'maxLength': 50},
@@ -93,8 +93,9 @@ def logout(token):
                         samesite='Lax',
                         secure=True,
                         path='/',
-                        max_age=0,
-                        domain='localhost')
+                        max_age=0
+                        # domain='localhost'
+                        )
 
         return resp
     except Exception as e:
