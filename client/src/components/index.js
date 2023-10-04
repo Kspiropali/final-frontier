@@ -7,7 +7,7 @@ export { default as Buttons } from './Buttons'
 export { default as Stats } from './Stats'
 export { default as StatsModal } from './StatsModal'
 // about page components
-export { default as Founders } from './Founders'
+export { default as AboutCarousel } from './AboutCarousel'
 // support page components
 export {default as SupportServicesList} from './SupportServicesList'
 export {default as SupportCarousel} from './SupportCarousel'
