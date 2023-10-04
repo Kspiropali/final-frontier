@@ -1,4 +1,24 @@
 
+.welcome-ova-div{
+    animation: fadeInAnimation ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.welcome-qp-btn{
+    animation: fadeInAnimation ease 1s;
+}
+
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+     }
+}
+
 /* USERS CLICK WHICH FADES THE BG AND DISPLAYS A BUTTON */
 .welcome-quad-row {
     display: flex;
@@ -7,10 +27,32 @@
     /* position: relative; */
 }
 .welcome-quad-cont {
+    background-color: #ffbda8;
     text-align: center;
     width: 23vw;
     height: 55vh;
     border: 1px solid black;
+    padding: 1vh 1vw;
+}
+
+.welcome-padlock{
+    width: 50%;
+    margin-top: 4.5vh;
+}
+
+.welcome-quad-cont:focus{
+    border-width: 5px;
+}
+
+.welcome-quad-cont:hover {
+    background-color: darksalmon;
+    border: 1px solid black;
+
+}
+.welcome-quad-cont:focus-within {
+    background-color: darksalmon;
+    border: 1px solid black;
+
 }
 
 #welcome-quad-2{
@@ -21,6 +63,13 @@
 }
 #welcome-quad-4{
     margin-top: 25vh;
+}
+
+.welcome-qp-btn{
+    margin-top: 30%;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 1vh 2.5vw;
 }
 
 /* MEDIA QUERY FOR MOBILE VERTICAL STACK */

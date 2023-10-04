@@ -27,6 +27,7 @@ const Home = () => {
   }
 
   useEffect(() => {
+    // for password reset not auth checks
     searchParams.get('token') ? navigate("/reset-password", 
       {state: {token: searchParams.get('token')}}) : "", 
       checkLoggedIn()
