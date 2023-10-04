@@ -38,6 +38,23 @@ VALUES ('task 7', 'task7 description', 70);
 
 -- ITEMS
 
+-- FEATURED
+INSERT INTO
+    item(name, type, description, price, image)
+VALUES ('Alex', 'featured', 'Meet Adventurous Alex - The intrepid wanderer of the digital frontier! Alex is your passport to exciting online adventures, ready to conquer uncharted territories alongside you.', 20, 'https://api.dicebear.com/7.x/adventurer/png?backgroundColor=b6e3f4');
+
+INSERT INTO
+    item(name, type, description, price, image)
+VALUES ('Alex', 'featured', 'Meet Adventurous Alex - The intrepid wanderer of the digital frontier! Alex is your passport to exciting online adventures, ready to conquer uncharted territories alongside you.', 20, 'https://api.dicebear.com/7.x/adventurer/png?backgroundColor=b6e3f4');
+
+INSERT INTO
+    item(name, type, description, price, image)
+VALUES ('Alex', 'featured', 'Meet Adventurous Alex - The intrepid wanderer of the digital frontier! Alex is your passport to exciting online adventures, ready to conquer uncharted territories alongside you.', 20, 'https://api.dicebear.com/7.x/adventurer/png?backgroundColor=b6e3f4');
+
+INSERT INTO
+    item(name, type, description, price, image)
+VALUES ('Alex', 'featured', 'Meet Adventurous Alex - The intrepid wanderer of the digital frontier! Alex is your passport to exciting online adventures, ready to conquer uncharted territories alongside you.', 20, 'https://api.dicebear.com/7.x/adventurer/png?backgroundColor=b6e3f4');
+
 -- AVATARS
 INSERT INTO
     item(name, type, description, price, image)

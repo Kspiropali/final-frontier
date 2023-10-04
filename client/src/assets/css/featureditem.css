@@ -1,0 +1,35 @@
+.featured-items-box {
+    padding: 20px;
+    background-color: #ee374c;
+    border-radius: 10px;
+    width: 560px; 
+    margin-top: 80px;
+    position: relative; 
+    left: 95%; 
+    transform: translateX(-50%);
+  }
+
+.featured-category {
+    color: #ffd700f0;
+    padding: 10px;
+    margin: 0;
+    text-transform: capitalize;
+    font-size: 25px;
+}
+
+.featured-item-row {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    max-width: 100%; 
+  }
+
+  @media (max-width: 768px) {
+    .featured-items-box {
+      width: 100%; /* Adjust as needed for smaller screens */
+    }
+  
+    .featured-item-row {
+      /* Add styles for smaller screens, e.g., smaller font sizes, margins, etc. */
+    }
+  }

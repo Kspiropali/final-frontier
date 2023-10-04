@@ -10,6 +10,7 @@ export const ShopProvider = ({ children }) => {
   const [showFeaturedItems, setShowFeaturedItems] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
+  const [items, setItems] = useState([]);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -44,7 +45,9 @@ export const ShopProvider = ({ children }) => {
     selectedItem,
     setSelectedItem,
     searchQuery,
-    setSearchQuery
+    setSearchQuery,
+    items,
+    setItems
   };
 
   return (
