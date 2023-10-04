@@ -116,7 +116,27 @@ VALUES ('Bigsmile', 'avatar', 'Meet the Big Smile Avatar! your ticket to spreadi
 
 INSERT INTO
     item(name, type, description, price, image)
-VALUES ('name', 'character', 'desc', 20, '');
+VALUES ('Jack', 'character', 'Meet Jack, your personal motivator! With his infectious enthusiasm and can-do attitude, he is here to keep you inspired on your journey to better habits.', 20, '../../backend/static/assets/002.png');
+
+INSERT INTO
+    item(name, type, description, price, image)
+VALUES ('Holly', 'character', 'Holly brings a sense of peace and tranquility to your journey. She is your go-to character for finding inner calm and mindfulness.', 20, '../../backend/static/assets/003.png');
+
+INSERT INTO
+    item(name, type, description, price, image)
+VALUES ('Bill', 'character', 'Bill is all about pushing boundaries and breaking through obstacles. Choose Bill if you are ready to blaze new trails in your habit-building adventure.', 20, '../../backend/static/assets/004.png');
+
+INSERT INTO
+    item(name, type, description, price, image)
+VALUES ('Emma', 'character', 'Emma radiates positivity and optimism. She is your daily dose of sunshine, reminding you to stay upbeat and focus on the bright side.', 20, '../../backend/static/assets/005.png');
+
+INSERT INTO
+    item(name, type, description, price, image)
+VALUES ('Nick', 'character', 'Nick embodies resilience and strength. He is your ally in building mental toughness and bouncing back from setbacks.', 20, '../../backend/static/assets/006.png');
+
+INSERT INTO
+    item(name, type, description, price, image)
+VALUES ('Rob', 'character', 'Rob is your go-to character for tackling challenges head-on. He is a strategic thinker, helping you find creative solutions to lifes hurdles.', 20, '../../backend/static/assets/007.png');
 
 -- BACKGROUNDS
 INSERT INTO
