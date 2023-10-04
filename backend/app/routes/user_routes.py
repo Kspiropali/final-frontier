@@ -15,6 +15,7 @@ user_bp = Blueprint('user', __name__)
 
 
 @user_bp.post('/register')
+@verify_recaptcha()
 @validate_json_params({
     'username': {'type': 'stringWithMaxLength', 'maxLength': 50},
     'password': {'type': 'stringWithMaxLength', 'maxLength': 50},
@@ -38,7 +39,6 @@ def register():
 
 
 @user_bp.post('/login')
-@verify_recaptcha()
 @validate_json_params({
     'username': {'type': 'stringWithMaxLength', 'maxLength': 50},
     'password': {'type': 'stringWithMaxLength', 'maxLength': 50}

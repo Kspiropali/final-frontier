@@ -9,9 +9,9 @@
     color: var(--offYellow);
 }
 
-body {
+/* body {
     background: var(--darkBlueBG);
-}
+} */
 
 h2 {
     color: var(--offYellow);
@@ -26,4 +26,12 @@ h2 {
     font-size: 38px;
     text-align: center;
 
+}
+
+.has-pointer{
+    cursor: pointer;
+}
+
+.a-tag-unset {
+    color: unset;
 }
