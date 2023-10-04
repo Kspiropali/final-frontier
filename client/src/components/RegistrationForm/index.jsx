@@ -10,6 +10,7 @@ const RECAPTCHA_CLIENT_KEY = import.meta.env.VITE_API_RECAPTCHA_CLIENT_KEY
 
 const RegistrationForm = ({setActivePanel}) => {
   const recaptchaRef = useRef(null);
+
   const {confirmationPassword, setConfirmationPassword, confirmationEmail, setConfirmationEmail, email, setEmail, password, setPassword, username, setUsername, displayMessage, setDisplayMessage} = useAuth()
 
   const [regPasswordSatisfied, setRegPasswordSatisfied] = useState()
@@ -78,8 +79,8 @@ const RegistrationForm = ({setActivePanel}) => {
         const data = JSON.stringify({
           username: username,
           password: password,
-          email: email,
-          "g-recaptcha-response": await recaptchaRef.current.getValue(),
+          email: email
+          // "g-recaptcha-response": await recaptchaRef.current.getValue(),
         });
 
         let config = {
@@ -127,7 +128,7 @@ const RegistrationForm = ({setActivePanel}) => {
       }, 3000);
     }
 
-    recaptchaRef.current.reset();
+    // recaptchaRef.current.reset();
   }
   return (
     <>
