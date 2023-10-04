@@ -1,7 +1,19 @@
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useProfile } from '../../contexts/ProfileContext';
+import axios from 'axios';
 
 const ProfileInfo = () => {
+
+  const { setProfile } = useProfile();
+  useEffect(() => {
+    const fetchProfile = async () => {
+      const response = await axios.get('/profile');  
+      setProfile(response.data);
+    }
+
+  fetchProfile();
+}, [setProfile])
+  
   const { editing, profile, updateProfile } = useProfile();
   const [localProfile, setLocalProfile] = useState({ ...profile });
 
@@ -20,7 +32,7 @@ const ProfileInfo = () => {
   return (
     <div>
       {editing ? (
-        <div className="container1">
+        <div className="flex-container-profile">
           {/* <label htmlFor="image">Image URL:</label>
           <input
             type="text"
@@ -88,7 +100,7 @@ const ProfileInfo = () => {
           </div>
         </div>
       ) : (
-        <div className="container1">
+        <div className="flex-container-profile">
           <img
             className="ellipse"
             alt="Ellipse"

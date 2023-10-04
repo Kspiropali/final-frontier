@@ -1,10 +1,8 @@
 import os
+from app import MONITORED_FILES, app
 
-from app import app
-
-from app.database.db import setup_tables, dummy_data
 from app.config.settings import Config
-from app import MONITORED_FILES
+from app.database.db import setup_tables, dummy_data
 
 if __name__ == "__main__":
 

@@ -1,0 +1,26 @@
+
+/* USERS CLICK WHICH FADES THE BG AND DISPLAYS A BUTTON */
+.welcome-quad-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 1vw;
+    /* position: relative; */
+}
+.welcome-quad-cont {
+    text-align: center;
+    width: 23vw;
+    height: 55vh;
+    border: 1px solid black;
+}
+
+#welcome-quad-2{
+    margin-top: 8.3vh;
+}
+#welcome-quad-3{
+    margin-top: 16.7vh;
+}
+#welcome-quad-4{
+    margin-top: 25vh;
+}
+
+/* MEDIA QUERY FOR MOBILE VERTICAL STACK */

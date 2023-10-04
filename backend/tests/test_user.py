@@ -35,7 +35,7 @@ def test_update_user(app):
     User.create(username='test_user', password='test_password', email='test@example.com')
     updated_data = {'coins': 100}
     result = User.update(user_id, updated_data)
-    assert result.rowcount == 1
+    assert result == 'success'
 
 def test_delete_user(app):
     user_id = 1

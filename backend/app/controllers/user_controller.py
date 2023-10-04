@@ -1,4 +1,5 @@
 import bcrypt
+import json
 
 from app.models.Email import Email
 from app.models.Session import Session
@@ -9,7 +10,7 @@ from app.config import DOMAIN
 PASSWORD_REGEX = r'^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])(?!.*\s).{8,}$'
 
 
-def register_user(username, password, email):
+def register_user(username, password, email, is_oauth=False):
     # Hash password
     salt = bcrypt.gensalt()
     hashed_password = bcrypt.hashpw(password.encode("utf-8"), salt)
@@ -20,7 +21,8 @@ def register_user(username, password, email):
 
         activation_token = Email.create(username, False)
 
-        send_activation_email(email, DOMAIN + 'users/verify/' + activation_token)
+        if not is_oauth:
+            send_activation_email(email, DOMAIN + 'users/verify/' + activation_token)
 
         return result
     except Exception as e:
@@ -63,6 +65,10 @@ def activate_user(email_token):
         email_result = Email.delete(user_email_token.token)
         if email_result is None:
             return "error: Could not delete email token"
+
+        # create user's member_details info
+        result = User.create_member_details(user_to_activate.username)
+        print(result)
 
         return "success"
     except Exception as e:
@@ -115,7 +121,7 @@ def reset_user_password(email_token, new_password):
         user = User.find_by_username(email.username)
         if user is None:
             return "error: User not found"
-        print( user)
+        print(user)
         # hash the new password
         salt = bcrypt.gensalt()
         hashed_password = bcrypt.hashpw(new_password.encode("utf-8"), salt)
@@ -134,14 +140,50 @@ def reset_user_password(email_token, new_password):
 def update_user_basic_details(username, data):
     try:
         user = User.find_by_username(username)
-        table_elements = ['first_name', 'last_name', 'alias', 'quote', 'summary', 'gender', 'avatar']
+        if user is None:
+            return "error: User not found"
 
-        for element in table_elements:
-            if data.get(element):
-                user[element] = data.get(element)
+        result = User.update(user.username, data)
+        if result is None:
+            return "error: Could not update user"
 
-        result = User.update(user)
-
-        return result
+        return "success"
     except Exception as e:
         return f"error: {str(e)}"
+
+
+def get_user_basic_details(username):
+    try:
+        user_details = User.get_user_basic_details(username)
+        if user_details is None:
+            return "error: User not found"
+        return user_details
+    except Exception as e:
+        return f"error: {str(e)}"
+    
+def get_tasks(token):
+    username = Session.get_username(token)
+    user = User.find_by_username(username)
+    user_json = jsonify({'user': {'id': user.id, 'email': user.email, 'username': user.username, 'tasks': user.allocated_tasks}})
+    user_object = user_json.json
+    tasks = user_object['user']['tasks']
+    if tasks == []:
+        new_tasks = Task.get_tasks()
+        task_dicts = [{'id': task.id, 'name': task.name, 'description': task.description, 'duration': task.duration} for task in new_tasks]
+        allocated_tasks_json = json.dumps(task_dicts)
+        result = User.initialise_tasks(user_object['user']['id'], allocated_tasks_json)
+        return result
+    latest_session = Session.get_session(token)
+    latest_session_str = latest_session.strftime('%Y-%m-%d %H:%M:%S')
+    current_date = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    current_date_obj = datetime.strptime(current_date, '%Y-%m-%d %H:%M:%S')
+    last_session_obj = datetime.strptime(latest_session_str, '%Y-%m-%d %H:%M:%S')
+    time_difference = (current_date_obj - last_session_obj).total_seconds()
+    print(time_difference)
+    if time_difference > 86400:
+        new_tasks = Task.get_tasks()
+        task_dicts = [{'id': task.id, 'name': task.name, 'description': task.description, 'duration': task.duration} for task in new_tasks]
+        allocated_tasks_json = json.dumps(task_dicts)
+        result = User.initialise_tasks(user_object['user']['id'], allocated_tasks_json)
+        return user_json
+    return user_json

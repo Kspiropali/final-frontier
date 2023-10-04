@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import { useShop } from '../../contexts/ShopContext'
-import {useEffect} from "react"
+import { useEffect, useState } from "react"
 import { AvatarModal } from '..';
 import avatarImage from '../../assets/images/testavatars/avi.png'
+import { StatsModal } from '..';
 
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
@@ -11,10 +12,13 @@ const MySwal = withReactContent(Swal);
 
 const Stats = () => {
 
+	const [stats, setStats] = useState([]);
+
 	async function fetchData(){
 		const response = await fetch("http://127.0.0.1:3000/users/1/statistics")
 		const data = await response.json()
 		console.log(data)
+		setStats(data)
 	}
 
 	useEffect(() => {
@@ -43,8 +47,24 @@ const Stats = () => {
         });
     };
 
+	const showModalStats = () => {
+        MySwal.fire({
+          showClass: {
+            popup: 'animate__animated animate__fadeInDown',
+          },
+          hideClass: {
+            popup: 'animate__animated animate__fadeOutUp',
+          },
+          html: <StatsModal stats={stats} />,
+          showConfirmButton: false,
+          width: '600px'
+        }).then(() => {
+          openModal();
+        });
+    };
+
 	return (
-		<div className="flex-container">
+		<div className="flex-container-stat">
 			<div className="container2">
 				<div className="rectangle-1">
 					<div className="text-wrapper-6">My coins</div>
@@ -78,9 +98,9 @@ const Stats = () => {
 			</div>
 			<div className="container5">
 					<div className="rectangle-5">
-						<div className="text-wrapper-11">Login streak</div>
+						<div className="text-wrapper-11">My Stats</div>
 						<div className="rectangle-6">
-							<div className="text-wrapper-12">5 days</div>
+						<button className="shop-button" onClick={showModalStats}>Open</button>
 						</div>
 				</div>
 			</div>
