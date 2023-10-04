@@ -15,9 +15,7 @@ const Home = () => {
     searchParams.get('token') ? navigate("/reset-password", 
       {state: {token: searchParams.get('token')}}) : ""
   }, [])
-  const checkLoggedIn = () => {
-    //if 401 is returned then user is logged out
-  }
+
   return (
     <>
     <div className="index-home">
