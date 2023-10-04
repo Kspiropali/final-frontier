@@ -6,6 +6,7 @@ import "../../assets/css/home.css";
 import blue from '../../assets/images/homeicons/blue.gif';
 import c1 from '../../assets/images/homeicons/c1.png';
 import { useTaskContext } from '../../contexts/TaskContext';
+import { useAuth } from '../../contexts/AuthContext';
 
 const ResetProgressButton = () => {
   const { resetProgress } = useTaskContext();
@@ -18,7 +19,7 @@ const ResetProgressButton = () => {
 const Home = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
-  const [isLoggedIn, setIsLoggedIn] = useState(true); // Track user authentication status
+  const {isLoggedIn, setIsLoggedIn} = useAuth(); // Track user authentication status
 
   const checkLoggedIn = () => {
     if(isLoggedIn) {
@@ -29,15 +30,13 @@ const Home = () => {
   useEffect(() => {
     // for password reset not auth checks
     searchParams.get('token') ? navigate("/reset-password", 
-      {state: {token: searchParams.get('token')}}) : "", 
+      {state: {token: searchParams.get('token')}}) : "",
+
       checkLoggedIn()
   }, [])
 
   return (
     <>
-      {!isLoggedIn ? (
-        <h1 className="welcome">Welcome to WellSpace!</h1>
-      ) : (
         <div className="index-home">
           
           <CompletionBar />
@@ -87,7 +86,6 @@ const Home = () => {
           </div>
           <ResetProgressButton />
         </div>
-      )}
     </>
   );
 }

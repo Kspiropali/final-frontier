@@ -17,7 +17,10 @@ const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Header />}>
-        <Route index element={<Pages.Home />} />
+        <Route path='/' element={<ProtectedRoute redirectTo="/welcome"/>}>
+          <Route index element={<Pages.Home />} />
+        </Route>
+        
         <Route path="/about" element={<Pages.About />} />
         <Route path="/support" element={<Pages.Support />} />
         <Route path="/login-register" element={<Pages.Login />}/>
@@ -26,7 +29,7 @@ const App = () => {
           <Route index element={<Pages.Profile />} />
         </Route>
 
-        <Route path='/shop' element={<ProtectedRoute redirectTo="/login-register"/>}>
+        <Route path='/shop' element={<ProtectedRoute redirectTo="/welcome"/>}>
           <Route index element={<Pages.Shop />} />
         </Route>
         

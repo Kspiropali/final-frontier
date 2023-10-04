@@ -15,14 +15,13 @@ const Welcome = () => {
     try {
       const response = await fetch("/users/ping", {method: "POST"})
       if(response.status == 200) {
-        console.log(`logged in as ${response}`)
         setIsLoggedIn(true)
       } else {
-
         setIsLoggedIn(false)
       }
     } catch (error) {
       setIsLoggedIn(false)
+      console.log(error)
     }
       
   }

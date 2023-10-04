@@ -36,17 +36,16 @@
     margin-bottom: 2vh;
     background-color: #fdd8d8;
     height: 4.7vh;
-    width: 21vw;
+    width: 22vw;
     border-radius: 20px;
 }
 .support-carousel-btn:hover{
     background-color: #fdd8d8;
-    border-radius: 20px;
+
     border: 2px solid #f9bcbc;
 }
 .support-carousel-btn:active{
     background-color: #f9bcbc;
-    border-radius: 20px;
     border: 2px solid #f1a8a8;
 }
 
