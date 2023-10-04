@@ -5,6 +5,7 @@ import { ShopItem } from '../../components/'
 import { useShop } from '../../contexts/ShopContext';
 
 const FeaturedItems = () => {
+    const { setSelectedItem } = useShop();
     const [featuredItems, setFeaturedItems] = useState([]);
 
     useEffect(() => {

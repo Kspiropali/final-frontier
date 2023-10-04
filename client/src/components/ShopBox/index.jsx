@@ -5,7 +5,7 @@ import { useShop } from '../../contexts/ShopContext';
 import '../../assets/css/shopbox.css'
 
 const ShopBox = () => {
-    const { setSelectedItem, selectedFilters, searchQuery, items, setItems } = useShop(); 
+    const { setSelectedItem, selectedFilters, searchQuery, items, setItems } = useShop();
 
     useEffect(() => {
 
