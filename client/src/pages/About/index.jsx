@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Founders, Footer } from '../../components'
+import { Founders, Footer, AboutCarousel } from '../../components'
 
 import "../../assets/css/about.css";
 
@@ -18,7 +18,8 @@ const About = () => {
     <>
     <h1 className='top-header'>About WellSpace</h1>
     <h3 className='mission-subhead'>Our Mission</h3>
-    {missionStatement.map((paragraph, index) => <p key={index} className='about-para white-text'>{paragraph}</p>)}
+    <AboutCarousel/>
+    {missionStatement.map((paragraph, index) => <p key={index} className='about-para'>{paragraph}</p>)}
     <Founders/>
     <Footer/>
     </>
