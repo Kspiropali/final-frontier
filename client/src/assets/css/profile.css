@@ -3,6 +3,7 @@ div,
 p {
   margin: 0;
   padding: 0;
+  background-color: var(--darkBlueBG)
 }
 
 .indexP {
@@ -11,22 +12,20 @@ p {
   max-height: 100vh;
 }
 
-.container1 {
+.flex-container-profile {
 	height: 336px;
 	left: 104px;
 	position: absolute;
-	top: 78px;
-	width: 1190px;
+	top: 15%;
+	width: 90%;
 	display: flex;
-	justify-content: center;
 	flex-wrap: wrap;
 	align-items: center;
-	flex: 1 0 auto;
 }
 
 .ellipse {
 	height: 220px;
-	left: 80px;
+	left: 10%;
 	object-fit: cover;
 	position: absolute;
 	width: 220px;
@@ -34,12 +33,12 @@ p {
 }
 
 .text-wrapper-1 {
-	color: #ffd700f0;
+	color: var(--tealBlue);
 	font-family: "Inter", Helvetica;
-	font-size: 40px;
-	font-weight: 400;
-	height: 61px;
-	left: 366px;
+	font-size: 35px;
+	font-weight: 600;
+	height: 60px;
+	left: 30%;
 	letter-spacing: 0;
 	line-height: normal;
 	position: absolute;
@@ -47,12 +46,11 @@ p {
 }
 
 .text-wrapper-2 {
-	color: #f5f5f5;
+	color: var(--whiteText);
 	font-family: "Inter", Helvetica;
 	font-size: 16px;
 	font-weight: 400;
-	height: 21px;
-	left: 366px;
+	left: 30%;
 	letter-spacing: 0;
 	line-height: normal;
 	position: absolute;
@@ -61,12 +59,12 @@ p {
 }
 
 .text-wrapper-22 {
-	color: #f5f5f5;
+	color: var(--whiteText);
 	font-family: "Inter", Helvetica;
 	font-size: 16px;
 	font-weight: 400;
 	height: 21px;
-	left:600px;
+	left: 30%;
 	letter-spacing: 0;
 	line-height: normal;
 	position: absolute;
@@ -75,12 +73,12 @@ p {
 }
 
 .text-wrapper-3 {
-	color: #ffd700f0;
+	color: var(--tealBlue);
 	font-family: "Inter", Helvetica;
 	font-size: 24px;
 	font-weight: 400;
 	height: 40px;
-	left: 366px;
+	left: 30%;
 	letter-spacing: 0;
 	line-height: normal;
 	position: absolute;
@@ -89,12 +87,12 @@ p {
 }
 
 .p {
-	color: #f5f5f5;
+	color: var(--whiteText);
 	font-family: "Inter", Helvetica;
 	font-size: 16px;
 	font-weight: 400;
 	height: 23px;
-	left: 366px;
+	left: 30%;
 	letter-spacing: 0;
 	line-height: normal;
 	position: absolute;
@@ -103,12 +101,12 @@ p {
 }
 
 .text-wrapper-4 {
-	color: #ffd700f0;
+	color: var(--tealBlue);
 	font-family: "Inter", Helvetica;
 	font-size: 24px;
 	font-weight: 400;
 	height: 40px;
-	left: 366px;
+	left: 30%;
 	letter-spacing: 0;
 	line-height: normal;
 	position: absolute;
@@ -117,12 +115,12 @@ p {
 }
 
 .text-wrapper-5 {
-	color: #f5f5f5;
+	color: var(--whiteText);
 	font-family: "Inter", Helvetica;
 	font-size: 16px;
 	font-weight: 400;
 	height: 88px;
-	left: 366px;
+	left: 30%;
 	letter-spacing: 0;
 	line-height: normal;
 	position: absolute;
@@ -131,7 +129,7 @@ p {
 }
 
 .edit-button {
-	background-color: #ffd700f0;
+	background-color: var(--tealBlue);
 	border-color: #0f0e06f0;
 	border-radius: 10px;
 	height: 33px;
@@ -139,14 +137,14 @@ p {
 }
 
 .save-button {
-	background-color: #ffd700f0;
+	background-color: var(--tealBlue);
 	border-color: #0f0e06f0;
 	border-radius: 10px;
 	height: 33px;
 	width: 130px;
 }
 
-.flex-container {
+.flex-container-stat {
   display: flex; 
   justify-content: space-between;
   align-items: center;
@@ -154,6 +152,7 @@ p {
   margin: 460px auto 0;
   height: 190px;
   position: relative;
+  background-color: var(--gray);
 }
 
 .container2, 
@@ -169,7 +168,7 @@ p {
 
 /* My coins box */
 .rectangle-1 {
-	background-color: #ffd700f0;
+	background-color: var(--lightPurple);
 	border-radius: 10px;
 	height: 125px;
   width: 100%;
@@ -180,7 +179,7 @@ p {
 }
 
 .text-wrapper-6 {
-	color: #000000;
+	color: var(--tealBlue);
 	font-family: "Inter", Helvetica;
 	font-size: 20px;
 	font-weight: bold;
@@ -206,7 +205,7 @@ p {
 }
 
 .text-wrapper-7 {
-	color: #000000;
+	color: var(--tealBlue);
 	font-family: "Inter", Helvetica;
 	font-size: 24px;
 	font-weight: 400;
@@ -230,7 +229,7 @@ p {
 
 /* shop box */
 .rectangle-3 {
-	background-color: #ffd700f0;
+	background-color: var(--lightPurple);
 	border-radius: 10px;
 	height: 125px;
 	left: 0;
@@ -242,7 +241,7 @@ p {
 }
 
 .text-wrapper-9 {
-	color: #000000;
+	color: var(--tealBlue);
 	font-family: "Inter", Helvetica;
 	font-size: 20px;
 	font-weight: bold;
@@ -260,7 +259,7 @@ p {
 	background-color: #f5f5f5;
 	border-color: #f5f5f5;
 	border-radius: 10px;
-	color: #000000;
+	color: var(--tealBlue);
 	font-family: "Inter", Helvetica;
 	font-size: 24px;
 	font-weight: 400;
@@ -275,7 +274,7 @@ p {
 /* login streak */
 
 .rectangle-5 {
-	background-color: #ffd700f0;
+	background-color: var(--lightPurple);
 	border-radius: 10px;
 	height: 125px;
 	left: 0;
@@ -287,7 +286,7 @@ p {
 }
 
 .text-wrapper-11 {
-	color: #000000;
+	color: var(--tealBlue);
 	font-family: "Inter", Helvetica;
 	font-size: 20px;
 	font-weight: bold;
@@ -313,7 +312,7 @@ p {
 }
 
 .text-wrapper-12 {
-	color: #000000;
+	color: var(--tealBlue);
 	font-family: "Inter", Helvetica;
 	font-size: 24px;
 	font-weight: 400;
@@ -356,7 +355,7 @@ p {
 }
 
 .text-wrapper-13 {
-	color: #000000;
+	color: var(--tealBlue);
 	font-family: "Inter", Helvetica;
 	font-size: 16px;
 	font-weight: 400;

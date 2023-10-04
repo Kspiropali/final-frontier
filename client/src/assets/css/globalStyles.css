@@ -1,20 +1,27 @@
 /* for all the styles we want across the app :) */
 :root {
-    --offYellow: #A69C4D;
-    --darkBlueBG: linear-gradient(180deg,#080117,#190445,#1f0750);
-    --whiteText: #FFFFFF;
+    --tealBlue: #4dc7b0;
+    --darkBlueBG: #1c1d56;
+    --whiteText: #f4f7ff;
+    --lightPurple: #e5c7e3;
+    --gray: #757780;
 }
 
 .yellow-text, .top-header {
-    color: var(--offYellow);
+    color: var(--tealBlue);
+    text-align: center;
 }
 
 body {
-    background: var(--darkBlueBG);
+    background-color: var(--darkBlueBG);
 }
 
 h2 {
-    color: var(--offYellow);
+    color: var(--lightPurple);
+}
+
+h3 {
+    color: var(--lightPurple);
 }
 
 .white-text {
@@ -25,5 +32,4 @@ h2 {
     margin: 3vh 0px 5vh;
     font-size: 38px;
     text-align: center;
-
 }

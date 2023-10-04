@@ -4,12 +4,12 @@ import CompletionBar from '../../components/CompletionBar';
 import BackgroundImage from '../../components/BackgroundImage';
 import "../../assets/css/home.css";
 import blue from '../../assets/images/homeicons/blue.gif';
-import meditation from '../../assets/images/homeicons/meditation.gif';
+import c1 from '../../assets/images/homeicons/c1.png';
 
 const Home = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // Track user authentication status
+  const [isLoggedIn, setIsLoggedIn] = useState(true); // Track user authentication status
 
   const checkLoggedIn = () => {
     if(isLoggedIn) {
@@ -29,45 +29,47 @@ const Home = () => {
         <h1 className="welcome">Welcome to WellSpace!</h1>
       ) : (
         <div className="index-home">
-          <BackgroundImage />
+          
           <CompletionBar />
+          <img className="character" src={c1} width="150" height="150" alt="Character" />
+          <BackgroundImage />
 
-          <div className="grid">
-            <div className="grid-item image1">
+          <div className="grid-home">
+            <div className="grid-home-item image1">
               <Link to="/selfcare">
                 <img src={blue} width="175" height="150" alt="Image 1" />
               </Link>
             </div>
 
-            <div className="grid-item image2">
+            <div className="grid-home-item image2">
               <Link to="/breathe">
                 <img src={blue} width="175" height="150" alt="Image 2" />
               </Link>
             </div>
 
-            <div className="grid-item image3">
+            <div className="grid-home-item image3">
               <Link to="/familyfriends">
                 <img src={blue} width="175" height="150" alt="Image 3" />
               </Link>
             </div>
+{/* 
+            <div className="grid-home-item bg">
+              <BackgroundImage />
+            </div> */}
 
-            <div className="grid-item character">
-              <img className="character" src={meditation} width="150" height="150" alt="Character" />
-            </div>
-
-            <div className="grid-item image4">
+            <div className="grid-home-item image4">
               <Link to="/air">
                 <img src={blue} width="175" height="150" alt="Image 4" />
               </Link>
             </div>
 
-            <div className="grid-item image5">
+            <div className="grid-home-item image5">
               <Link to="/playlist">
                 <img src={blue} width="175" height="150" alt="Image 5" />
               </Link>
             </div>
 
-            <div className="grid-item image6">
+            <div className="grid-home-item image6">
               <Link to="/mystery">
                 <img src={blue} width="175" height="150" alt="Image 6" />
               </Link>

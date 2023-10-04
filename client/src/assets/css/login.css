@@ -1,23 +1,27 @@
-:root{
-    --lighter-purple: #4F4792;
-    --yellow-border: #FEEFBA; 
+.login-page {
+    height: 100vh;
+    overflow-y: hidden;
 }
+
 .login-container {
     margin: auto;
     /* display: flex; */
-    background-color: #211C4A;
+    background-color: var(--lightPurple);
+    color: var(--darkBlueBG);
     width: 60vh;
-    height: 60vh;
-    border: 2px solid #A69C4D;
+    height: 65vh;
+    border-radius: 5px;
+    border: 3px solid var(--gray);
 }
 
 /* not working for some reason */
-.active-log-btn {
+/* .active-log-btn {
     border-bottom: 0px;
-}
+    background-color: var(--tealBlue);
+} */
 
 .log-reg-btn {
-    border-color: #A69C4D;
+    border-color: var(--gray);
     border-style: solid;
     border-top: 0px;
     border-bottom: 0px;
@@ -25,11 +29,16 @@
     height: 6vh;
     width: 50%;
     font-size: 25px;
+    background-color: var(--lightPurple);
 }
+
 .log-reg-btn:nth-child(2) {
     border-right: 0px;
 }
 
+.log-reg-btn:active {
+    color: var(--tealBlue);
+}
 
 button {
     background-color: inherit;
@@ -51,12 +60,13 @@ button {
     width: auto;
     margin: 0px 6%;
     height: 66%;
+    background-color: var(--lightPurple)
     /* border: .5px solid #A69C4D; */
 }
 
 ::placeholder {
-    color: #feefba;
-    opacity: 0.4;
+    color: var(--darkBlueBG);
+    opacity: 0.8;
 }
 
 input {
@@ -68,11 +78,11 @@ input {
     height: 4vh;
     text-align: center;
     /* color: #FEEFBA; */
-    background-color: var(--lighter-purple);
-    border-radius: 0px;
-    border-color: unset;
+    background-color: var(--whiteText);
+    border-radius: 2px;
+    border-color: var(--darkBlueBG);
     /* font-size: 14px; */
-    color: #FFFFFF;
+    color: var(--lightPurple);
 }
 
 /* .correct {
@@ -90,7 +100,7 @@ input {
 
 .input-area-container p {
     margin-top: .1vh;
-    color: #FBDB68;
+    color: var(--tealBlue);
     font-size: .8rem;
 }
 
@@ -109,10 +119,10 @@ input {
     align-items: center;
     margin: auto;
     margin-top: 1vh;
-    border: 1px solid var(--yellow-border);
-    background-color: var(--lighter-purple);
+    border: 1px solid var(--darkBlueBG);
+    background-color: #d8afd5;
     height: 5vh;
-    width: 26vh;
+    width: 28vh;
     padding: 3px;
     border-radius: 14px;
 }
