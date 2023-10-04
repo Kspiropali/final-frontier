@@ -45,7 +45,7 @@ VALUES ('Shaggy', 'featured', 'An avatar to unleash your inner creativity and qu
 
 INSERT INTO
     item(name, type, description, price, image)
-VALUES ('Thumb', 'featured', 'Just a happy thumb really, nothing more!', 20, 'https://api.dicebear.com/7.x/thumbs/png?seed=Aneka');
+VALUES ('Thumb', 'featured', 'Just a happy thumb really, nothing more!', 0, 'https://api.dicebear.com/7.x/thumbs/png?seed=Aneka');
 
 INSERT INTO
     item(name, type, description, price, image)

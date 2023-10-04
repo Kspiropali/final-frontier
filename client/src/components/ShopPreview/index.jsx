@@ -6,14 +6,11 @@ import { ConfirmationModal } from '../../components/';
 import itemCoin from '../../assets/images/testitem/coin.png'
 
 const ShopPreview = () => {
-    const { selectedItem } = useShop()
-    const userCoins = 721; // Replace with the user's actual coin balance
+    const { selectedItem, userCoinBalance, setUserCoinBalance } = useShop();
 
     const [isBuyConfirmationVisible, setBuyConfirmationVisible] = useState(false);
     const [purchaseItem, setPurchaseItem] = useState(null);
-
     const [userInventory, setUserInventory] = useState([]);
-
 
     const showBuyConfirmation = () => {
         setPurchaseItem(selectedItem);
@@ -25,7 +22,7 @@ const ShopPreview = () => {
     };
 
     const handleBuyClick = () => {
-        if (selectedItem && userCoins >= selectedItem.price) {
+        if (selectedItem && userCoinBalance >= selectedItem.price) {
             showBuyConfirmation();
         } else {
             alert('You do not have enough coins to make this purchase.');
@@ -39,14 +36,13 @@ const ShopPreview = () => {
     
             if (response.data.success) {
               // Deduct the item's price from the user's coins
-              const updatedUserCoins = userCoins - purchaseItem.price;
+              const updatedUserCoins = userCoinBalance - purchaseItem.price;
+
+              // Update the user's coin balance from the context
+              setUserCoinBalance(updatedUserCoins);
     
               // Close the confirmation modal
               hideBuyConfirmation();
-    
-              // Update the user's coin balance (may need an API call to update the balance)
-              // Log the update
-              console.log(`Updated user coin balance: ${updatedUserCoins}`);
     
               // Log the purchase
               console.log(`Purchased ${purchaseItem.name}`);

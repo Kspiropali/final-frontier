@@ -11,6 +11,7 @@ export const ShopProvider = ({ children }) => {
   const [selectedItem, setSelectedItem] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [items, setItems] = useState([]);
+  const [userCoinBalance, setUserCoinBalance] = useState(0);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -47,7 +48,9 @@ export const ShopProvider = ({ children }) => {
     searchQuery,
     setSearchQuery,
     items,
-    setItems
+    setItems,
+    userCoinBalance,
+    setUserCoinBalance
   };
 
   return (
