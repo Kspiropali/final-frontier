@@ -32,7 +32,7 @@ const ProfileInfo = () => {
   return (
     <div>
       {editing ? (
-        <div className="container1">
+        <div className="flex-container-profile">
           {/* <label htmlFor="image">Image URL:</label>
           <input
             type="text"
@@ -100,7 +100,7 @@ const ProfileInfo = () => {
           </div>
         </div>
       ) : (
-        <div className="container1">
+        <div className="flex-container-profile">
           <img
             className="ellipse"
             alt="Ellipse"

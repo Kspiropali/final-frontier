@@ -13,6 +13,8 @@ const Login = () => {
   const [activePanel, setActivePanel] = useState('Login')
   const [preResetState, setPreResetState] = useState('')
 
+  const [activeBtn, setActiveBtn] = useState('');
+  
   const handlePanelToggle = (panelName) => {
     if (panelName == "Login") {
       setPreResetState(false)
@@ -29,6 +31,7 @@ const Login = () => {
 
   return (
     <>
+    <div className="login-page">
     <h1 className='top-header yellow-text'>WellSpace</h1>
     {/* Container for the Login compents */}
     <div className='login-container'>
@@ -42,6 +45,7 @@ const Login = () => {
         {!preResetState && activePanel == "Login" ? <OAuthButtons/> : ''}
       </div>
       {displayMessage && <p className='white-text' id='result-message'>{displayMessage}</p>}
+    </div>
     </div>
     </>
   )
