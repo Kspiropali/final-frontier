@@ -1,4 +1,6 @@
 /* for all the styles we want across the app :) */
+
+/* Try not to change any margins, alignment or sizing on global elements without a go-ahead from everyone. */
 :root {
     --tealBlue: #4dc7b0;
     --darkBlueBG: #1c1d56;

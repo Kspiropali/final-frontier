@@ -52,7 +52,7 @@ const Header = () => {
           <NavLink to="/support" className="navi-link">Support</NavLink>
           <NavLink to="/profile" className="navi-link">Profile</NavLink>
           <NavLink to="/shop" className="navi-link">Shop</NavLink>
-          {isLoggedIn ? <p className="navi-link has-pointer" onClick={() => handleLogout()}>logout</p>: <NavLink to="/login-register" className="navi-link">Login/Register</NavLink>}
+          {isLoggedIn ? <p className='navi-link has-pointer' onClick={() => handleLogout()}>Logout</p>: <NavLink to="/login-register" className="navi-link">Login/Register</NavLink>}
         </nav>
       </header>
       <Outlet />

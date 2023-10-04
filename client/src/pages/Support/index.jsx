@@ -61,9 +61,6 @@ const Support = () => {
   return (
     <>
     <h1 className='top-header' >Support</h1>
-    {/* <div className='page-description'>
-      <h3 className='white-text white-h3'>We're Here to Help</h3>
-    </div> */}
     <div className='carousel-comp-container'>
       <SupportCarousel currentSelection={currentSelection} supportServiceSchema={supportServiceSchema} supportServices={supportServices} setIsOpen={setIsOpen} isOpen={isOpen} />
     </div>
