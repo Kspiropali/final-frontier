@@ -1,18 +1,32 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 import { SearchItem, FilterItems, AvatarModal } from '..';
 import { useShop } from '../../contexts/ShopContext'
-
-import avatarImage from '../../assets/images/testavatars/avi.png'
-
+import 'animate.css'
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
-
-import 'animate.css'
 
 const MySwal = withReactContent(Swal);
 
 const ShopSidebar = () => {
     const { userDetails, openModal, searchQuery, setSearchQuery } = useShop()
+    const [avatarImage, setAvatarImage] = useState(null);
+
+    useEffect(() => {
+        async function fetchUserProfile() {
+          try {
+            const response = await axios.post('/users/profile');
+            if (response.data.avatar) {
+              // Set the avatarImage state with the fetched URL
+              setAvatarImage(response.data.avatar);
+            }
+          } catch (error) {
+            console.error('Error fetching user profile:', error);
+          }
+        }
+    
+        fetchUserProfile();
+      }, []); 
 
     const showModal = () => {
         MySwal.fire({
@@ -35,12 +49,14 @@ const ShopSidebar = () => {
       <div className="sidebar">
         <div className="inventory-container" onClick={showModal}>
             <div className="avatar-box">
-            <img
-            src={avatarImage}
-            alt="Avatar"
-            className="avatar"
-            onClick={showModal}
-            />
+              {avatarImage && (
+                <img
+                  src={avatarImage}
+                  alt="Avatar"
+                  className="avatar"
+                  onClick={showModal}
+                />
+              )}
             </div>
             <div>
                 <button className="inventory"
