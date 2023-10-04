@@ -1,38 +1,32 @@
 import { useTaskContext } from '../../contexts/TaskContext';
 
 const BackgroundImage = () => {
-
   const { completionPercentage } = useTaskContext();
+  const progress = completionPercentage;
 
-  const progress = completionPercentage;  
+  const initialBlur = 100; 
+  const initialOpacity = 0.1;
 
-	const initialSize = 200;
-	const initialRadius = 50; 
+  const maxBlur = 0;
+  const minOpacity = 1;
 
-  const maxRadius = 50;
-  const maxSize = 2000;  
+  const blur = initialBlur - (progress / 100) * (initialBlur - maxBlur);
 
-	const radius = initialRadius + (progress/100) * (maxRadius - initialRadius);
-	const size = initialSize + (progress/100) * (maxSize - initialSize);
+  const opacity = initialOpacity - (progress / 100) * (initialOpacity - minOpacity);
 
   return (
-    <div 
-      className="bg-image-wrapper"
-      style={{
-        width: `${size}px`,
-        height: `${size}px`,
-        borderRadius: `${radius}%`
-      }} 
-    >
-      <img 
+    <div className="bg-image-wrapper">
+      <img
         className="backgroundim"
-        src="/src/assets/images/testbg/rainbow.jpg" 
+        src="/src/assets/images/testbg/rainbow.jpg"
+        style={{
+          filter: `blur(${blur}px)`,
+          opacity: opacity,
+        }}
+        alt="Background"
       />
     </div>
   );
-
 };
 
 export default BackgroundImage;
-
-
