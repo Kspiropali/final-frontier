@@ -32,7 +32,7 @@ const About = () => {
     </div>
     <div className='about-demo-container'>
       <div className='about-ourmission-left-col'>
-        
+        VIDEO HERE
       </div>
         <div className='about-ourmission-right-col'>
           <h3 className='mission-subhead'>A WellSpace Demonstration</h3>
