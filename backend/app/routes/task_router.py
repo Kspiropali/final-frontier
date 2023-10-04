@@ -14,8 +14,8 @@ def update_single_task(task_id):
         data = request.json
         result = update_task(task_id, data)
 
-        if result.startswith('error'):
-            return jsonify({'error': result.split("DETAIL:")[1].strip().split("\n")[0]}), 400
+        # if result.startswith('error'):
+        #     return jsonify({'error': result.split("DETAIL:")[1].strip().split("\n")[0]}), 400
 
         return jsonify({'message': 'User updated successfully'}), 200
     except Exception as e:
