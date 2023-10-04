@@ -1,6 +1,6 @@
 .prev-box {
      padding: 20px;
-     background-color: #1d005c;
+     background-color: #4dc7b0;
      border-radius: 10px;
      height: 84vh;
      width: 150%;
@@ -25,7 +25,7 @@
 }
 
 .item-preview-container {
-    background-color: #391488;
+    background-color: #499c8c;
     border-radius: 10px;
     width: 100%;
     height: 50%;
@@ -49,7 +49,7 @@
 
 .item-details-container {
     color: black;
-    background-color: #6d6d6d;
+    background-color: rgb(64, 158, 141);
     width: 100%;
     margin-top: -10px;
     border-radius: 10px;
@@ -98,7 +98,7 @@
 }
 
 .buy-btn {
-    background-color: #00a61a;
+    background-color: #e5c7e3;
 	font-family: "Inter", Helvetica;
     font-weight: bold;
     border-radius: 10px;
@@ -131,25 +131,29 @@
   }
 
 .confirmation-modal {
-    background: rgba(218, 218, 218, 0.34);
+    background: #e5c7e3;
     margin-top: 10px;
     text-align: center;
-    color: black;
+    color: #757780;
+    border-radius: 10px;
 }
 
 .confirmation-modal h2 {
     margin-top: 10px;
+    font-size: 20px;
     text-align: center;
-    color: black;
+    color: #757780;
 }
 
 .buy-confirm {
     margin-top: 5px;
     background-color: #00a61a;
     cursor: pointer;
+    margin-bottom: 5px;
 }
 
 .buy-cancel {
     background-color: red;
     cursor: pointer;
+    margin-bottom: 5px;
 }

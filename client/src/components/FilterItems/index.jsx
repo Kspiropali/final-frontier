@@ -2,8 +2,9 @@ import React from 'react'
 import { useShop } from '../../contexts/ShopContext'
 
 const filterOptions = [
-    { label: 'Backgrounds', key: 'background' },
-    { label: 'Avatars', key: 'avatar' }
+    { label: 'Avatars', key: 'avatar' },
+    { label: 'Characters', key: 'character' },
+    { label: 'Backgrounds', key: 'background' }
   ];
 
 const FilterItems = () => {

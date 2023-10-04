@@ -5,7 +5,8 @@
     width: 100%;
     min-height: 100vh;
 	font-family: "Inter", Helvetica;
-    background-color: rgb(171, 171, 171);
+    background-color: #1c1d56;
+    color: #f4f7ff;
   }
   
 .box-container {
@@ -16,14 +17,14 @@
   }
 
 .sidebar {
-    color: #ffd700f0;
+    color: #f4f7ff;
     width: 250px;
-    border-right: 1px solid #000000;
+    border-right: 1px solid #f4f7ff6f;
     padding: 20px;
   }
 
 .shop .shop-content {
-    color: #ffd700f0;
+    color: #f4f7ff;
     flex: 1;
     padding: 20px;
   }
@@ -38,7 +39,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 4px solid rgb(139, 106, 223); 
+    border: 4px solid #757780; 
     border-radius: 10%;
     overflow: hidden; 
     margin-top: 10px;
@@ -113,15 +114,15 @@ input[type="checkbox"]::before {
     width: 0.75em;
     height: 0.6em;
     transform: scale(0);
-    box-shadow: inset 1em 1em rgb(104, 68, 163);
+    box-shadow: inset 1em 1em #e5c7e3;
     background-color: transparent;
     text-align: center;
     font-size: 10px;
   }
   
 input[type="checkbox"]:checked {
-    background-color: rgb(104, 68, 163);
-    border-color: rgb(104, 68, 163);
+    background-color: #e5c7e3;
+    border-color: #e5c7e3;
 }
 
 input[type="checkbox"]:checked::before {
@@ -130,16 +131,18 @@ input[type="checkbox"]:checked::before {
   }
   
 input[type="checkbox"]:focus {
-    outline: max(0px, 0.15em) solid rgb(177, 157, 228);
+    outline: max(0px, 0.15em) solid #e6d6e5;
   }
 
 .inventory {
     padding: 5px 10px;
+    border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
     text-decoration: none;
-    background-color:  #ff00d9f0;
+    background-color:  #4dc7b0;
     font-weight: bold;
 	font-family: "Inter", Helvetica;
     margin-left: 60px;
+    margin-top: 5px;
 }

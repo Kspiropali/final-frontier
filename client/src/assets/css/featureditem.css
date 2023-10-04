@@ -1,16 +1,16 @@
 .featured-items-box {
     padding: 20px;
-    background-color: #ee374c;
+    background-color: #4dc7b0;
     border-radius: 10px;
-    width: 560px; 
+    width: 690px; 
     margin-top: 80px;
     position: relative; 
-    left: 95%; 
+    left: 80%; 
     transform: translateX(-50%);
   }
 
 .featured-category {
-    color: #ffd700f0;
+    color: #f4f7ff;
     padding: 10px;
     margin: 0;
     text-transform: capitalize;
