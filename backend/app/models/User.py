@@ -297,5 +297,17 @@ class User:
         except Exception as e:
             return e
 
+    @staticmethod
+    def get_coins(username):
+        try:
+            with db.engine.connect() as con:
+                result = con.execute(
+                    text("SELECT coins FROM member WHERE username = :username")
+                    .params(username=username)
+                )
+
+                return result.fetchone()
+        except Exception as e:
+            return e
 
 export = User

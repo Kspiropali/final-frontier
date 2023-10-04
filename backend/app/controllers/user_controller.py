@@ -187,3 +187,12 @@ def get_tasks(token):
         result = User.initialise_tasks(user_object['user']['id'], allocated_tasks_json)
         return user_json
     return user_json
+
+def get_coins_by_user(username):
+    try:
+        user = User.find_by_username(username)
+        if user is None:
+            return "error: User not found"
+        return user.coins
+    except Exception as e:
+        return f"error: {str(e)}"

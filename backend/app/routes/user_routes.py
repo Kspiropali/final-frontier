@@ -234,3 +234,15 @@ def get_owned_items(token):
         return jsonify({'items': [dict(zip(keys, item)) for item in items_details]}), 200
     except Exception as e:
         return {'error': str(e)}, 400
+
+
+@user_bp.post('/coins')
+@requires_authorization_token()
+def get_coins(token):
+    try:
+        username = Session.get_username(token)
+        coins = get_coins_by_user(username)
+
+        return jsonify({'coins': coins}), 200
+    except Exception as e:
+        return {'error': str(e)}, 400
