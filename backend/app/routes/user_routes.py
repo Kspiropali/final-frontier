@@ -7,6 +7,7 @@ from app.controllers.item_controller import *
 from app.middleware.authorization import requires_authorization_token
 from app.middleware.validate_json_params import validate_json_params
 from app.middleware.validate_path_params import validate_path_params
+from app.middleware.verify_recaptcha import verify_recaptcha
 from app.models.Session import Session
 from app.config.settings import DOMAIN
 
@@ -37,6 +38,7 @@ def register():
 
 
 @user_bp.post('/login')
+@verify_recaptcha()
 @validate_json_params({
     'username': {'type': 'stringWithMaxLength', 'maxLength': 50},
     'password': {'type': 'stringWithMaxLength', 'maxLength': 50}
