@@ -47,4 +47,3 @@ def test_delete_all_by_username(email):
     with app.app_context():
         result = Email.delete_all_by_username(email.username)
         assert result == "success"
-
