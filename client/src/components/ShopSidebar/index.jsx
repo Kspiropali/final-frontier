@@ -9,8 +9,7 @@ import withReactContent from 'sweetalert2-react-content';
 const MySwal = withReactContent(Swal);
 
 const ShopSidebar = () => {
-    const { userDetails, openModal, searchQuery, setSearchQuery } = useShop()
-    const [avatarImage, setAvatarImage] = useState(null);
+    const { userDetails, openModal, searchQuery, setSearchQuery, avatarImage, setAvatarImage } = useShop()
 
     useEffect(() => {
         async function fetchUserProfile() {
@@ -36,7 +35,7 @@ const ShopSidebar = () => {
           hideClass: {
             popup: 'animate__animated animate__fadeOutUp',
           },
-          html: <AvatarModal avatarImage={avatarImage} userDetails={userDetails} />,
+          html: <AvatarModal />,
           showConfirmButton: false,
           width: '600px'
         }).then(() => {
