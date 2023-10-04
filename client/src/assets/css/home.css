@@ -1,7 +1,3 @@
-body {
-  color: var(--darkBlueBG);
-}
-
 .index-home {
 	display: flex;
 	flex-direction: column;

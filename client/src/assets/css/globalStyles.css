@@ -16,7 +16,7 @@
 }
 
 body {
-    background-color: var(--darkBlueBG);
+    color: var(--darkBlueBG);
 }
 
 h2 {

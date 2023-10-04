@@ -24,7 +24,7 @@ const Mystery = () => {
   return (
     <div className="indexT">
     <div className="divT">
-      <div className="text-wrapper">Mystery Task</div>
+      <div className="task-wrapper">Mystery Task</div>
       <div className="boxT">
         <img
           className="image"
