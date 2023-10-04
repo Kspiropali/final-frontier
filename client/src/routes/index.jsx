@@ -21,5 +21,8 @@ export default function ProtectedRoute({ redirectTo }) {
         checkAuth()
     }, [])
 
+    // IF YOU NEED TO TURN OFF THE ROUTE PROTECT UNCOMMENT LINE 25 and COMMENT OUT LINE 7-22 & 27
+    // return <Outlet/>
+
     return isLoggedIn ? <Outlet /> : <Navigate to={redirectTo} />
 }
