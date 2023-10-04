@@ -24,7 +24,7 @@ const FreshAir = () => {
   return (
     <div className="indexT">
     <div className="divT">
-      <div className="text-wrapper">Fresh air</div>
+      <div className="task-wrapper">Fresh air</div>
       <div className="boxT">
         <img
           className="image"

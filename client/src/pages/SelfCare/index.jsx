@@ -24,7 +24,7 @@ const SelfCare = () => {
   return (
     <div className="indexT">
       <div className="divT">
-        <div className="text-wrapper">Self-care</div>
+        <div className="task-wrapper">Self-care</div>
         <div className="boxT">
           <img
             className="image"

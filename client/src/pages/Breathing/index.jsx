@@ -24,7 +24,7 @@ const Breathing = () => {
   return (
     <div className="indexT">
       <div className="divT">
-        <div className="text-wrapper">Breathing exercise</div>
+        <div className="task-wrapper">Breathing exercise</div>
         <div className="boxT">
           <img
             className="image"

@@ -1,3 +1,7 @@
+body {
+  color: var(--darkBlueBG);
+}
+
 .index-home {
 	display: flex;
 	flex-direction: column;
@@ -6,13 +10,12 @@
 	width: 100%;
   flex: 1 0 auto;
   padding-top: 5%;
-  background-color: var(--darkBlueBG);
 }
 
 .character {
   height: 250px;
   width: 150px;
-  z-index: 2;
+  z-index: 3;
   position: absolute;
   left: 50%;
   top: 60%;
@@ -83,7 +86,7 @@
   top: 60%;
   transform: translate(-50%, -50%);
   background-color: none;
-  z-index: -2;
+  z-index: 2;
 }
 
 .grid-home-item {

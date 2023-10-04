@@ -24,7 +24,7 @@ const Playlist = () => {
   return (
     <div className="indexT">
     <div className="divT">
-      <div className="text-wrapper">My playlist</div>
+      <div className="task-wrapper">My playlist</div>
       <div className="boxT">
         <img
           className="image"

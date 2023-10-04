@@ -25,7 +25,7 @@ const FamFri = () => {
   return (
     <div className="indexT">
       <div className="divT">
-        <div className="text-wrapper">Spend time with family and friends</div>
+        <div className="task-wrapper">Spend time with family and friends</div>
         <div className="boxT">
           <img
             className="image"
