@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Timer from '../../components/Timer';
 import { useTaskContext } from '../../contexts/TaskContext';
@@ -8,17 +8,28 @@ import '../../assets/css/task.css';
 const SelfCare = () => {
   const [timerStarted, setTimerStarted] = useState(false);
 
-  const [taskCompleted, setTaskCompleted] = useState(false);
+  const { completedTasks, markTaskCompleted } = useTaskContext();
 
-  const { markTaskCompleted } = useTaskContext();
+  const taskId = 'selfcare';
+
+  const taskCompleted = completedTasks.includes(taskId);
+
+  const [showMessage, setShowMessage] = useState(false);
+
+  useEffect(() => {
+    if (taskCompleted) {
+      setShowMessage(true);
+    }
+  }, [taskCompleted]);
 
   const handleStartTask = () => {
+    if (!taskCompleted) {
     setTimerStarted(true);
+    }
   };
 
   const handleTimerFinish = () => {
-    setTaskCompleted(true);
-    markTaskCompleted('selfcare');
+    markTaskCompleted(taskId);
   };
 
   return (
@@ -35,17 +46,18 @@ const SelfCare = () => {
             Time for some self-care! Spend 10 minutes doing something for yourself. This can be doing a skincare routine or even eating a snack! It&apos;s all about what makes you happy and feel good.
           </p>
           <div className="button-start">
-            {taskCompleted && (
+            {taskCompleted && showMessage && (
               <div className="message-done">
-                Task has been completed for today! Keep at it to your hearts desire
+                Task has been completed for today! Keep at it to your heart&apos;s desire
               </div>
             )}
-            {timerStarted ? (
-              <div className="timer-wrapper">
-              <Timer initialTime={10} onFinish={handleTimerFinish} />
-              </div>
-            ) : (
+            {!taskCompleted && !timerStarted && (
               <button className="button-link" onClick={handleStartTask}>Start Task</button>
+            )}
+            {timerStarted && (
+              <div className="timer-wrapper">
+                <Timer initialTime={10} onFinish={handleTimerFinish} />
+              </div>
             )}
           </div>
         </div>

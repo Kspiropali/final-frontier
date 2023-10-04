@@ -8,13 +8,25 @@ export const useTaskContext = () => {
 };
 
 export const TaskProvider = ({ children }) => {
-  const [completedTasks, setCompletedTasks] = useState([]);
+  const [completedTasks, setCompletedTasks] = useState(
+    JSON.parse(localStorage.getItem('completedTasks')) || []
+  );
+
   const [completionPercentage, setCompletionPercentage] = useState(0);
 
   const markTaskCompleted = (taskId) => {
     if (!completedTasks.includes(taskId)) {
-      setCompletedTasks([...completedTasks, taskId]);
+      const updatedCompletedTasks = [...completedTasks, taskId];
+      setCompletedTasks(updatedCompletedTasks);
+      localStorage.setItem('completedTasks', JSON.stringify(updatedCompletedTasks));
     }
+  };
+
+  const resetProgress = () => {
+    setCompletedTasks([]);
+    setCompletionPercentage(0);
+    // You may also want to clear the localStorage here
+    localStorage.removeItem('completedTasks');
   };
 
   useEffect(() => {
@@ -23,11 +35,12 @@ export const TaskProvider = ({ children }) => {
   }, [completedTasks]);
 
   return (
-    <TaskContext.Provider value={{ completedTasks, markTaskCompleted, completionPercentage }}>
+    <TaskContext.Provider value={{ completedTasks, markTaskCompleted, completionPercentage, resetProgress }}>
       {children}
     </TaskContext.Provider>
   );
 };
+
 
 TaskProvider.propTypes = {
   children: PropTypes.node.isRequired,

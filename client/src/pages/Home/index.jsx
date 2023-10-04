@@ -5,6 +5,15 @@ import BackgroundImage from '../../components/BackgroundImage';
 import "../../assets/css/home.css";
 import blue from '../../assets/images/homeicons/blue.gif';
 import c1 from '../../assets/images/homeicons/c1.png';
+import { useTaskContext } from '../../contexts/TaskContext';
+
+const ResetProgressButton = () => {
+  const { resetProgress } = useTaskContext();
+
+  return (
+    <button onClick={resetProgress}>Reset Progress</button>
+  );
+};
 
 const Home = () => {
   const navigate = useNavigate();
@@ -75,6 +84,7 @@ const Home = () => {
               </Link>
             </div>
           </div>
+          <ResetProgressButton />
         </div>
       )}
     </>
