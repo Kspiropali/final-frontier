@@ -41,19 +41,23 @@ VALUES ('task 7', 'task7 description', 70);
 -- FEATURED
 INSERT INTO
     item(name, type, description, price, image)
-VALUES ('Alex', 'featured', 'Meet Adventurous Alex - The intrepid wanderer of the digital frontier! Alex is your passport to exciting online adventures, ready to conquer uncharted territories alongside you.', 20, 'https://api.dicebear.com/7.x/adventurer/png?backgroundColor=b6e3f4');
+VALUES ('Shaggy', 'featured', 'An avatar to unleash your inner creativity and quirkiness! Stand out from the crowd with this limited time avatar.', 30, 'https://api.dicebear.com/7.x/open-peeps/png?seed=Felix');
 
 INSERT INTO
     item(name, type, description, price, image)
-VALUES ('Alex', 'featured', 'Meet Adventurous Alex - The intrepid wanderer of the digital frontier! Alex is your passport to exciting online adventures, ready to conquer uncharted territories alongside you.', 20, 'https://api.dicebear.com/7.x/adventurer/png?backgroundColor=b6e3f4');
+VALUES ('Thumb', 'featured', 'Just a happy thumb really, nothing more!', 20, 'https://api.dicebear.com/7.x/thumbs/png?seed=Aneka');
 
 INSERT INTO
     item(name, type, description, price, image)
-VALUES ('Alex', 'featured', 'Meet Adventurous Alex - The intrepid wanderer of the digital frontier! Alex is your passport to exciting online adventures, ready to conquer uncharted territories alongside you.', 20, 'https://api.dicebear.com/7.x/adventurer/png?backgroundColor=b6e3f4');
+VALUES ('Milky Way', 'featured', 'Immerse yourself in the tranquil beauty of the Milky Way. Find solace in the vastness of the cosmos, making your habit-building journey truly cosmic.', 30, 'https://images.unsplash.com/photo-1689286927869-19783d353200?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1032&q=80');
 
 INSERT INTO
     item(name, type, description, price, image)
-VALUES ('Alex', 'featured', 'Meet Adventurous Alex - The intrepid wanderer of the digital frontier! Alex is your passport to exciting online adventures, ready to conquer uncharted territories alongside you.', 20, 'https://api.dicebear.com/7.x/adventurer/png?backgroundColor=b6e3f4');
+VALUES ('Orion Nebula', 'featured', 'Dive into the mesmerizing depths of the Orion Nebula. Lose yourself in the swirling clouds of colorful cosmic gas and dust, where new stars are born.', 30, 'https://images.unsplash.com/photo-1680967764054-97e008c5235b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1168&q=80');
+
+INSERT INTO
+    item(name, type, description, price, image)
+VALUES ('Shelly', 'featured', 'Meet Shelly, your pocket-sized dose of happiness! This adorable and lovable avatar is all about spreading joy and positivity.', 10, 'https://api.dicebear.com/7.x/open-peeps/png?seed=Aneka');
 
 -- AVATARS
 INSERT INTO
@@ -107,6 +111,12 @@ VALUES ('Simon', 'avatar', 'Retro Vibes: Simon Avatar - What a sophisticated you
 INSERT INTO
     item(name, type, description, price, image)
 VALUES ('Bigsmile', 'avatar', 'Meet the Big Smile Avatar! your ticket to spreading happiness in the digital world!', 20, 'https://api.dicebear.com/7.x/big-smile/png?seed=Aneka');
+
+-- CHARACTERS
+
+INSERT INTO
+    item(name, type, description, price, image)
+VALUES ('name', 'character', 'desc', 20, '');
 
 -- BACKGROUNDS
 INSERT INTO
