@@ -64,7 +64,7 @@ const Stats = () => {
     };
 
 	return (
-		<div className="flex-container">
+		<div className="flex-container-stat">
 			<div className="container2">
 				<div className="rectangle-1">
 					<div className="text-wrapper-6">My coins</div>
@@ -100,7 +100,7 @@ const Stats = () => {
 					<div className="rectangle-5">
 						<div className="text-wrapper-11">My Stats</div>
 						<div className="rectangle-6">
-						<button className="stats-button" onClick={showModalStats}>Open</button>
+						<button className="shop-button" onClick={showModalStats}>Open</button>
 						</div>
 				</div>
 			</div>
