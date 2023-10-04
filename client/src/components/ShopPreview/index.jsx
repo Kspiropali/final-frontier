@@ -12,7 +12,7 @@ const ShopPreview = () => {
     const [isBuyConfirmationVisible, setBuyConfirmationVisible] = useState(false);
     const [purchaseItem, setPurchaseItem] = useState(null);
 
-    const [userInventory, setUserInventory] = useState([]); // Initialize as an empty array
+    const [userInventory, setUserInventory] = useState([]);
 
 
     const showBuyConfirmation = () => {
@@ -34,29 +34,27 @@ const ShopPreview = () => {
 
     const confirmPurchase = async () => {
         try {
-          // Check if the purchaseItem is not null
           if (purchaseItem) {
-            // Send a POST request to the inventory endpoint to add the item to the user's inventory
-            const response = await axios.post('http://127.0.0.1:3000/inventory', purchaseItem);
+            const response = await axios.post(`/items/buy/${purchaseItem.id}`);
     
-            if (response.status === 201) {
+            if (response.data.success) {
               // Deduct the item's price from the user's coins
-              const updatedUserCoins = userCoins - selectedItem.price;
+              const updatedUserCoins = userCoins - purchaseItem.price;
     
               // Close the confirmation modal
               hideBuyConfirmation();
     
-              // Update the user's coin balance (you may need an API call to update the balance)
-              // For now, just log the update
+              // Update the user's coin balance (may need an API call to update the balance)
+              // Log the update
               console.log(`Updated user coin balance: ${updatedUserCoins}`);
     
               // Log the purchase
-              console.log(`Purchased ${selectedItem.name}`);
+              console.log(`Purchased ${purchaseItem.name}`);
     
               // Add the purchased item to the user's inventory in the state
               setUserInventory([...userInventory, purchaseItem]);
             } else {
-              console.error('Failed to add item to inventory.');
+              console.error('Failed to purchase item.');
             }
           }
         } catch (error) {
@@ -93,7 +91,6 @@ const ShopPreview = () => {
             </div>
           </>
         )}
-          {/* Render the ConfirmationModal component */}
           <ConfirmationModal
                 isVisible={isBuyConfirmationVisible}
                 item={purchaseItem}

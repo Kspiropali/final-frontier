@@ -11,7 +11,7 @@ const ShopBox = () => {
 
     async function displayItems() {
     try {
-        const response = await axios.get("http://127.0.0.1:3000/items")
+        const response = await axios.post("/items/all")
         const data = response.data
 
         if (Array.isArray(data.items)) {
