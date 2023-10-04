@@ -52,7 +52,7 @@ const ProfileInfo = () => {
               onChange={handleInputChange}
             />
           </div>
-          <div className='itext-wrapper-2'>
+          <div className='itext-wrapper-22'>
             <label htmlFor="age">Age:</label>
             <input
               type="text"
@@ -62,7 +62,7 @@ const ProfileInfo = () => {
               onChange={handleInputChange}
             />
           </div>
-          <div className='itext-wrapper-22'>
+          <div className='itext-wrapper-222'>
           <label htmlFor="gender">Gender:</label>
           <input
             type="text"

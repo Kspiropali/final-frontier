@@ -1,5 +1,5 @@
 header {
-  background-color: var(--darkBlueBG);
+  background-color: #ffffff;
   display: flex;
 }
 
@@ -24,7 +24,7 @@ nav {
 	margin-right: 10px;
   font-weight: 50px;
   font-size: 18px;
-  color: var(--whiteText);
+  color: black;
 	font-family: "Inter", Helvetica;
 }
 

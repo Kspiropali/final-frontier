@@ -8,15 +8,19 @@
     --lightPurple: #e5c7e3;
     --diffPurple: #986595;
     --gray: #757780;
+
+    --pink: #fad3d4;
+    --green: #8cbeaa;
+    --darkOrange: #b6702a;
+    --white: #ffffff;
+    --lightOrange: #e6a157;
+    --offBlack: #110f0f;
+
 }
 
 .yellow-text, .top-header {
     color: var(--tealBlue);
     text-align: center;
-}
-
-body {
-    color: var(--darkBlueBG);
 }
 
 h2 {
