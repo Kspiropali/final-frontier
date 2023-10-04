@@ -93,8 +93,9 @@ def logout(token):
                         samesite='Lax',
                         secure=True,
                         path='/',
-                        max_age=0,
-                        domain='localhost')
+                        max_age=0
+                        # domain='localhost'
+                        )
 
         return resp
     except Exception as e:
