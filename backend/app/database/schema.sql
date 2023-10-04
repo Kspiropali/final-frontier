@@ -65,9 +65,10 @@ CREATE TABLE member_detail (
 );
 
 CREATE TABLE statistics (
-    username VARCHAR(255) REFERENCES member(username) NOT NULL,
-    task_id INTEGER REFERENCES task(id) NOT NULL,
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(255) REFERENCES member(username),
+    task_id INTEGER REFERENCES task(id),
     feedback VARCHAR(255) DEFAULT NULL,
-    total_time INTEGER DEFAULT 0,
-    primary key (username, task_id) -- COMPOSITE KEY
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    total_time INTEGER DEFAULT 0
 );
