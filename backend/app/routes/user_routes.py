@@ -194,7 +194,7 @@ def get_basic_details(token):
             "quote": result.quote,
             "summary": result.summary,
             "gender": result.gender,
-            "avatar": result.avatar
+            "avatar": result.avatar.tobytes().decode('utf-8')
         }
 
         return jsonify(profile), 200

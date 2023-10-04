@@ -6,6 +6,7 @@
     --darkBlueBG: #1c1d56;
     --whiteText: #f4f7ff;
     --lightPurple: #e5c7e3;
+    --diffPurple: #986595;
     --gray: #757780;
 }
 
@@ -15,7 +16,7 @@
 }
 
 body {
-    background-color: var(--darkBlueBG);
+    color: var(--darkBlueBG);
 }
 
 h2 {

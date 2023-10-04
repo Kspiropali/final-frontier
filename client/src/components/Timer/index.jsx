@@ -24,7 +24,7 @@ const Timer = ({ initialTime, onFinish }) => {
 
 	return (
 		<div className="countdown-timer">
-			<p>Time remaining: {formatTime(time)}</p>
+			<p className="timer-text">Time remaining: {formatTime(time)}</p>
 		</div>
 	);
 };
