@@ -14,6 +14,7 @@ MONITORED_FILES = glob(os.path.join(".", '**'), recursive=True)
 
 # create flask app and declare static folder
 app = Flask(__name__, static_folder="../static/", static_url_path="/")
+app.config['PREFERRED_URL_SCHEME'] = 'https'
 
 # Configure CORS
 # TODO: change it later, cookies change domains as well
@@ -50,6 +51,7 @@ def redirect_to_root():
     return redirect('/')
 
 
+# do not remove error input parameter, it is required by flask
 @app.errorhandler(404)
 def page_not_found(error):
     return redirect('/')

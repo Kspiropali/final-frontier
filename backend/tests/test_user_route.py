@@ -14,8 +14,8 @@ def test_register_success(client):
         data = {"username": "test_user", "password": "test_password", "email": "test@example.com"}
         response = client.post('/users/register', json=data, headers={'Content-Type': 'application/json'})
 
-        assert response.status_code == 400
-        assert b'error' in response.data
+        assert response.status_code == 201
+        assert b'{"message":"User created successfully"}\n' in response.data
 
 
 def test_register_failure_invalid_params(client):

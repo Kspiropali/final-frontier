@@ -79,12 +79,11 @@ class User:
             # Fetch all rows from the query result
             rows = result.fetchall()
 
-            # Print the rows or process them as needed
+            # Returns the rows or process them as needed
             return rows
 
     @staticmethod
     def update(username, data):
-        print(username)
         valid_fields = ['first_name', 'last_name', 'gender', 'alias', 'summary', 'quote']
 
         try:
@@ -96,7 +95,7 @@ class User:
                         text(f"UPDATE member_detail SET {set_clause} WHERE member_username = :username")
                         .params(**data, username=username)
                     )
-                    print(result)
+
                     con.commit()
 
             return "success"
@@ -188,7 +187,7 @@ class User:
                 return result
         except Exception as e:
             return e
-        
+
     @staticmethod
     def initialise_tasks(user_id, tasks):
         try:
@@ -201,7 +200,7 @@ class User:
                 )
 
                 con.commit()
-                print("Successfully updated")
+
                 return result
         except Exception as e:
             return e
@@ -228,6 +227,69 @@ class User:
             with db.engine.connect() as con:
                 result = con.execute(
                     text("SELECT * FROM member_detail WHERE member_username = :username")
+                    .params(username=username)
+                )
+
+                return result.fetchone()
+        except Exception as e:
+            return e
+
+    @staticmethod
+    def activate_by_email(email):
+        try:
+            with db.engine.connect() as con:
+                result = con.execute(
+                    text("UPDATE member SET is_activated = true WHERE email = :email")
+                    .params(email=email)
+                )
+
+                con.commit()
+
+                return result
+        except Exception as e:
+            return e
+
+    @staticmethod
+    def has_item(username, item_id):
+        try:
+            with db.engine.connect() as con:
+                result = con.execute(
+                    text("SELECT * FROM member_item WHERE member_username = :username AND item_id = :item_id")
+                    .params(username=username, item_id=item_id)
+                )
+
+                return result.fetchone() is not None
+        except Exception as e:
+            return e
+
+    @staticmethod
+    def add_item(username, item):
+        try:
+            with db.engine.connect() as con:
+                # update the member table, add the item to the user's items, and remove the price from the user's money,
+                con.execute(
+                    text("UPDATE member SET coins = coins - :price WHERE username = :username")
+                    .params(price=item.price, username=username)
+                )
+
+                # items in user table is a list of item ids, append the new item id to the list
+                con.execute(
+                    text("UPDATE member SET items = array_append(items, :item_id) WHERE username = :username")
+                    .params(item_id=item.id, username=username)
+                )
+
+                con.commit()
+
+                return result
+        except Exception as e:
+            return f"error: {str(e)}"
+
+    @staticmethod
+    def get_items(username):
+        try:
+            with db.engine.connect() as con:
+                result = con.execute(
+                    text("SELECT items FROM member WHERE username = :username")
                     .params(username=username)
                 )
 

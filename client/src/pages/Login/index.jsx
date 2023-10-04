@@ -8,7 +8,7 @@ const Login = () => {
 
   const containerTitle = ["Return To Your WellSpace", "Create Your Own WellSpace", "Reset Password"]
 
-  const {displayMessage} = useAuth()
+  const {displayMessage, isLoggedIn} = useAuth()
 
   const [activePanel, setActivePanel] = useState('Login')
   const [preResetState, setPreResetState] = useState('')
@@ -21,6 +21,13 @@ const Login = () => {
     }
     setActivePanel(panelName)
   }
+
+  // useEffect(() => {
+  //   fetch("/users/ping", {method: "POST"})
+  //     .then(response => response.text())
+  //     .then(result => console.log(result))
+  //     .catch(error => console.log('error', error));
+  // },[])
 
   return (
     <>
