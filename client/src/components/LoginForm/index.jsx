@@ -3,7 +3,6 @@ import { useAuth } from '../../contexts/AuthContext'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
-
 const LoginForm = ({setPreResetState}) => {
 
   const navigate = useNavigate()
@@ -99,6 +98,7 @@ const LoginForm = ({setPreResetState}) => {
             placeholder='password'
             className='input-field white-text password-field'/>
         </div>
+
         <input aria-label='submit button' role='submit' className='login-btn' type="submit" value="Login" />
     </form>
     <p className='yellow-text has-pointer' id='forgot-password' onClick={() => setPreResetState(true)}>forgot password?</p>

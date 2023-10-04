@@ -45,14 +45,14 @@ const Header = () => {
       <header>
       <img src={logo} className="logo" />
         <nav>
-          <NavLink to="/" className="nav-link" activeclassname="active">
+          <NavLink to="/" className="navi-link" activeclassname="active">
             Home
           </NavLink>
-          <NavLink to="/about" className="nav-link">About</NavLink>
-          <NavLink to="/support" className="nav-link">Support</NavLink>
-          <NavLink to="/profile" className="nav-link">Profile</NavLink>
-          <NavLink to="/shop" className="nav-link">Shop</NavLink>
-          {isLoggedIn ? <p className='nav-link has-pointer' onClick={() => handleLogout()}>Logout</p>: <NavLink to="/login-register" className="nav-link">Login/Register</NavLink>}
+          <NavLink to="/about" className="navi-link">About</NavLink>
+          <NavLink to="/support" className="navi-link">Support</NavLink>
+          <NavLink to="/profile" className="navi-link">Profile</NavLink>
+          <NavLink to="/shop" className="navi-link">Shop</NavLink>
+          {isLoggedIn ? <p className='navi-link has-pointer' onClick={() => handleLogout()}>Logout</p>: <NavLink to="/login-register" className="navi-link">Login/Register</NavLink>}
         </nav>
       </header>
       <Outlet />

@@ -1,12 +1,15 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import { useAuth } from '../../contexts/AuthContext'
 import axios from 'axios'
+import ReCAPTCHA from 'react-google-recaptcha';
 
 import check from '../../assets/images/loginReg/check.png'
 import close from '../../assets/images/loginReg/close.png'
 
+const RECAPTCHA_CLIENT_KEY = import.meta.env.VITE_API_RECAPTCHA_CLIENT_KEY
+
 const RegistrationForm = ({setActivePanel}) => {
-  
+  const recaptchaRef = useRef(null);
   const {confirmationPassword, setConfirmationPassword, confirmationEmail, setConfirmationEmail, email, setEmail, password, setPassword, username, setUsername, displayMessage, setDisplayMessage} = useAuth()
 
   const [regPasswordSatisfied, setRegPasswordSatisfied] = useState()
@@ -75,7 +78,8 @@ const RegistrationForm = ({setActivePanel}) => {
         const data = JSON.stringify({
           username: username,
           password: password,
-          email: email
+          email: email,
+          "g-recaptcha-response": await recaptchaRef.current.getValue(),
         });
 
         let config = {
@@ -122,6 +126,8 @@ const RegistrationForm = ({setActivePanel}) => {
         setDisplayMessage('')
       }, 3000);
     }
+
+    recaptchaRef.current.reset();
   }
   return (
     <>
@@ -209,6 +215,8 @@ const RegistrationForm = ({setActivePanel}) => {
             alt={password.length > 6 && confirmationPassword == password ? "green color check representing matching passwords" : "red color cross representing mismatching passwords"}></img>
           </div>
       </div>
+      {RECAPTCHA_CLIENT_KEY &&
+        <ReCAPTCHA style={{marginLeft: 210}} ref={recaptchaRef} theme="dark" sitekey={RECAPTCHA_CLIENT_KEY} />}
       <input className='login-btn' type="submit" value="Register" />
     </form>
     </>

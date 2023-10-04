@@ -20,18 +20,11 @@
     width: 60vh;
 } 
 
-/* .inner {
-    display: flex;
-    white-space: "nowrap";
-    transition: transform 0.3s;
-    box-shadow: 0 5px rgb(0, 0, 0, 0.05);
-} */
+
 .support-icon-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* background-color: #FBDB68; */
-    /* border: 2.8px solid #A69C4D;  */
     width: 101.5vh;
     aspect-ratio: 1/.7;
     border-radius: 25px;
@@ -61,11 +54,6 @@
     padding: 2.5%;
     overflow: scroll;
 }
-
-/* .service-options-container {
-    display: flex;
-    flex-direction: column;
-} */
 
 .service-item {
     display: flex;
@@ -103,12 +91,6 @@
 .service-description {
     width: inherit;
     font-size: 2.1vh;
-}
-
-.center-cont {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 .support-service-titles {
