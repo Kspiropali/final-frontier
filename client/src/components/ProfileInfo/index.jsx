@@ -41,8 +41,8 @@ const ProfileInfo = () => {
             value={localProfile.image}
             onChange={handleInputChange}
           /> */}
-          <div className='text-wrapper'>
-          <div className='text-wrapper-1'>
+          <div className='itext-wrapper'>
+          <div className='itext-wrapper-1'>
             <label htmlFor="alias">Alias:</label>
             <input
               type="text"
@@ -52,7 +52,7 @@ const ProfileInfo = () => {
               onChange={handleInputChange}
             />
           </div>
-          <div className='text-wrapper-2'>
+          <div className='itext-wrapper-2'>
             <label htmlFor="age">Age:</label>
             <input
               type="text"
@@ -62,7 +62,7 @@ const ProfileInfo = () => {
               onChange={handleInputChange}
             />
           </div>
-          <div className='text-wrapper-22'>
+          <div className='itext-wrapper-22'>
           <label htmlFor="gender">Gender:</label>
           <input
             type="text"
@@ -72,7 +72,7 @@ const ProfileInfo = () => {
             onChange={handleInputChange}
           />
           </div>
-          <div className='text-wrapper-3'>
+          <div className='itext-wrapper-3'>
           <label htmlFor="quote"> My quote</label>
           <input
             type="text"
@@ -82,7 +82,7 @@ const ProfileInfo = () => {
             onChange={handleInputChange}
           />
           </div>
-          <div className='text-wrapper-4'>
+          <div className='itext-wrapper-4'>
           <label htmlFor="goals">My goals</label>
           <input
             type="text"
@@ -93,8 +93,8 @@ const ProfileInfo = () => {
           />
           </div>
           </div>
-          <div className='div-wrapper2'>
-            <div className='text-wrapper-13'>
+          <div className='idiv-wrapper2'>
+            <div className='itext-wrapper-13'>
             <button className="save-button" onClick={handleSave}>Save Changes</button>
             </div>
           </div>
@@ -106,15 +106,15 @@ const ProfileInfo = () => {
             alt="Ellipse"
             src={profile.image}
           />
-          <div className="text-wrapper">
-            <div className="text-wrapper-1">{profile.alias}</div>
-            <div className="text-wrapper-2">
+          <div className="itext-wrapper">
+            <div className="itext-wrapper-1">{profile.alias}</div>
+            <div className="itext-wrapper-2">
               {`${profile.username}, ${profile.age}, ${profile.gender}`}
             </div>
-            <div className="text-wrapper-3">My quote</div>
-            <p className="p">{profile.quote}</p>
-            <div className="text-wrapper-4">My goals</div>
-            <p className="text-wrapper-5">{profile.goals}</p>
+            <div className="itext-wrapper-3">My quote</div>
+            <p className="ip">{profile.quote}</p>
+            <div className="itext-wrapper-4">My goals</div>
+            <p className="itext-wrapper-5">{profile.goals}</p>
           </div>
         </div>
       )}

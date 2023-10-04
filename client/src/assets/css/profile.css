@@ -24,7 +24,7 @@
 	border-radius: 50%;
 }
 
-.text-wrapper-1 {
+.itext-wrapper-1 {
 	color: var(--tealBlue);
 	font-family: "Inter", Helvetica;
 	font-size: 35px;
@@ -37,7 +37,7 @@
 	top: 0;
 }
 
-.text-wrapper-2 {
+.itext-wrapper-2 {
 	color: var(--whiteText);
 	font-family: "Inter", Helvetica;
 	font-size: 16px;
@@ -50,7 +50,7 @@
 	width: 321px;
 }
 
-.text-wrapper-22 {
+.itext-wrapper-22 {
 	color: var(--whiteText);
 	font-family: "Inter", Helvetica;
 	font-size: 16px;
@@ -64,7 +64,7 @@
 	width: 321px;
 }
 
-.text-wrapper-3 {
+.itext-wrapper-3 {
 	color: var(--tealBlue);
 	font-family: "Inter", Helvetica;
 	font-size: 24px;
@@ -78,7 +78,7 @@
 	width: 205px;
 }
 
-.p {
+.ip {
 	color: var(--whiteText);
 	font-family: "Inter", Helvetica;
 	font-size: 16px;
@@ -92,7 +92,7 @@
 	width: 824px;
 }
 
-.text-wrapper-4 {
+.itext-wrapper-4 {
 	color: var(--tealBlue);
 	font-family: "Inter", Helvetica;
 	font-size: 24px;
@@ -106,7 +106,7 @@
 	width: 205px;
 }
 
-.text-wrapper-5 {
+.itext-wrapper-5 {
 	color: var(--whiteText);
 	font-family: "Inter", Helvetica;
 	font-size: 16px;
@@ -147,10 +147,10 @@
   background-color: var(--gray);
 }
 
-.container2, 
-.container3,
-.container4,
-.container5 {
+.icontainer2, 
+.icontainer3,
+.icontainer4,
+.icontainer5 {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -159,7 +159,7 @@
 }
 
 /* My coins box */
-.rectangle-1 {
+.irectangle-1 {
 	background-color: var(--lightPurple);
 	border-radius: 10px;
 	height: 125px;
@@ -170,7 +170,7 @@
   align-items: center;
 }
 
-.text-wrapper-6 {
+.itext-wrapper-6 {
 	color: var(--tealBlue);
 	font-family: "Inter", Helvetica;
 	font-size: 20px;
@@ -185,7 +185,7 @@
 	padding-top: 10px;
 }
 
-.rectangle-2 {
+.irectangle-2 {
 	background-color: #f5f5f5;
 	border-radius: 10px;
 	height: 52px;
@@ -196,7 +196,7 @@
 	padding-left: 20px;
 }
 
-.text-wrapper-7 {
+.itext-wrapper-7 {
 	color: var(--tealBlue);
 	font-family: "Inter", Helvetica;
 	font-size: 24px;
@@ -220,7 +220,7 @@
 }
 
 /* shop box */
-.rectangle-3 {
+.irectangle-3 {
 	background-color: var(--lightPurple);
 	border-radius: 10px;
 	height: 125px;
@@ -232,7 +232,7 @@
   align-items: center;
 }
 
-.text-wrapper-9 {
+.itext-wrapper-9 {
 	color: var(--tealBlue);
 	font-family: "Inter", Helvetica;
 	font-size: 20px;
@@ -247,7 +247,7 @@
 	padding-top: 10px;
 }
 
-.shop-button {
+.pro-button {
 	background-color: #f5f5f5;
 	border-color: #f5f5f5;
 	border-radius: 10px;
@@ -260,12 +260,12 @@
 	display: flex;
 	padding-top: 10px;
 	flex-direction: column;
-  align-items: center;
+  	align-items: center;
 }
 
 /* login streak */
 
-.rectangle-5 {
+.irectangle-5 {
 	background-color: var(--lightPurple);
 	border-radius: 10px;
 	height: 125px;
@@ -274,10 +274,10 @@
 	width: 224px;
 	display: flex;
 	flex-direction: column;
-  align-items: center;
+  	align-items: center;
 }
 
-.text-wrapper-11 {
+.itext-wrapper-11 {
 	color: var(--tealBlue);
 	font-family: "Inter", Helvetica;
 	font-size: 20px;
@@ -292,18 +292,17 @@
 	padding-top: 10px;
 }
 
-.rectangle-6 {
+.irectangle-6 {
 	background-color: #f5f5f5;
 	border-radius: 10px;
 	height: 52px;
 	width: 150px;
-	padding-top: 12px;
 	display: flex;
 	flex-direction: column;
   align-items: center;
 }
 
-.text-wrapper-12 {
+.itext-wrapper-12 {
 	color: var(--tealBlue);
 	font-family: "Inter", Helvetica;
 	font-size: 24px;
@@ -333,20 +332,20 @@
 }
 
 /* edit profile button */
-.div-wrapper {
+.idiv-wrapper {
 	left: 465px;
 	position: absolute;
 	top: 434px;
 }
 
-.div-wrapper2 {
+.idiv-wrapper2 {
 	left: 465px;
 	position: absolute;
 	top: 356px;
 	z-index: 1;
 }
 
-.text-wrapper-13 {
+.itext-wrapper-13 {
 	color: var(--tealBlue);
 	font-family: "Inter", Helvetica;
 	font-size: 16px;
