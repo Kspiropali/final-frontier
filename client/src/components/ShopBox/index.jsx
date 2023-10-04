@@ -1,18 +1,17 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
-import { ToggleShop, ShopItem } from '../../components'
+import { ShopItem, FeaturedItems } from '../../components'
 import { useShop } from '../../contexts/ShopContext';
 import '../../assets/css/shopbox.css'
 
 const ShopBox = () => {
-    const { setSelectedItem, selectedFilters, searchQuery } = useShop(); 
-    const [items, setItems] = useState([]);
+    const { setSelectedItem, selectedFilters, searchQuery, items, setItems } = useShop();
 
     useEffect(() => {
 
     async function displayItems() {
     try {
-        const response = await axios.get("http://localhost:3000/items")
+        const response = await axios.post("/items/all")
         const data = response.data
 
         if (Array.isArray(data.items)) {
@@ -41,14 +40,17 @@ const ShopBox = () => {
     return lowerCaseName.includes(lowerCaseQuery);
   });
 
+  const nonFeaturedItems = filteredItemsSearch.filter((item) => item.type !== 'featured');
+
   const categorizedItems = {};
 
-  filteredItemsSearch.forEach((item) => {
+  nonFeaturedItems.forEach((item) => {
     if (!categorizedItems[item.type]) {
       categorizedItems[item.type] = [];
     }
     categorizedItems[item.type].push(item);
   });
+
 
 const handleItemClick = (item) => {
     setSelectedItem(item);
@@ -58,9 +60,9 @@ return (
     <>
       <div className="shop-box-container">
         <h1 className="shop-header">Item Shop</h1>
-        <div className="toggle-buttons-container">
-          <ToggleShop />
-        </div>
+      </div>
+      <div className="featured-container">
+        <FeaturedItems />
       </div>
       <div className="box">
         <div className="shop-items-container">
