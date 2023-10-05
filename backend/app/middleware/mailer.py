@@ -1,6 +1,6 @@
 from flask import current_app
 from flask_mail import Mail, Message
-from app.config.settings import MAIL
+from app.config.settings import MAIL, MAIL_RECIPIENT, MAIL_USERNAME, MAIL_PASSWORD
 mail = Mail()
 
 
@@ -13,6 +13,7 @@ def init_mail(app=None):
 
 
 def configure_mail(app):
+    print(MAIL.split(": ")[0])
     app.config['MAIL_SERVER'] = MAIL.split(":")[0]
     app.config['MAIL_PORT'] = MAIL.split(":")[1]
     app.config['MAIL_USE_TLS'] = False
@@ -21,8 +22,8 @@ def configure_mail(app):
     app.config['MAIL_SUPPRESS_SEND'] = False
     app.config['MAIL_ASCII_ATTACHMENTS'] = False
     app.config['MAIL_MAX_EMAILS'] = None
-    app.config['MAIL_USERNAME'] = None
-    app.config['MAIL_PASSWORD'] = None
+    app.config['MAIL_USERNAME'] = MAIL_USERNAME
+    app.config['MAIL_PASSWORD'] = MAIL_PASSWORD
 
     mail.init_app(app)
 
@@ -32,8 +33,8 @@ def send_email(subject, recipients, html_body):
     mail.connect()
     try:
         message = Message(subject=subject,
-                          recipients=recipients,
-                          sender="finfrontend@support.uk")
+                          recipients=[MAIL_RECIPIENT],
+                          sender=MAIL_USERNAME)
         message.html = html_body
         mail.send(message)
         return True  # Email sent successfully

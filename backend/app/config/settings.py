@@ -19,5 +19,10 @@ class Config:
     RECAPTCHA_SECRET_KEY = RECAPTCHA_SECRET_KEY
     # secret key
     SECRET_KEY = SECRET_KEY
+    # domain of the deployed app
     DOMAIN = DOMAIN
+    # mail stuff
     MAIL = MAIL
+    MAIL_USERNAME = MAIL_USERNAME
+    MAIL_PASSWORD = MAIL_PASSWORD
+    MAIL_RECIPIENT = MAIL_RECIPIENT
