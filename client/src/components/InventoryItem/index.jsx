@@ -27,7 +27,7 @@ const InventoryItem = ({ item, onEquip }) => {
   };
 
   return (
-    <div className="inventory-item">
+    <div className="inventory-item" onClick={equipItem}>
       <img className="inventory-image" src={item.image} alt={item.name} onClick={equipItem} />
       <p>{item.name}</p>
     </div>
