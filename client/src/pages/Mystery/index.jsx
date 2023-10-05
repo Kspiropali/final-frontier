@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Timer from '../../components/Timer';
 import { useTaskContext } from '../../contexts/TaskContext';
+import image4 from "../../assets/images/taskIcons/4.png"
 
 import '../../assets/css/task.css';
 
@@ -40,7 +41,7 @@ const Mystery = () => {
           <img
             className="image-task"
             alt="Image"
-            src="/src/assets/images/taskIcons/4.png"
+            src={image4}
           />
           <p className="content">
             Time for some self-care! Spend 10 minutes doing something for yourself. This can be doing a skincare routine or even eating a snack! It&apos;s all about what makes you happy and feel good.
