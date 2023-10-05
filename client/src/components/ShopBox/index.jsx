@@ -5,13 +5,13 @@ import { useShop } from '../../contexts/ShopContext';
 import '../../assets/css/shopbox.css'
 
 const ShopBox = () => {
-    const { setSelectedItem, selectedFilters, searchQuery, items, setItems, isLoading, setIsLoading } = useShop();
+    const { setSelectedItem, selectedFilters, searchQuery, items, setItems } = useShop();
 
     useEffect(() => {
 
     async function displayItems() {
     try {
-        const response = await axios.post("/items/al")
+        const response = await axios.post("/items/all")
         const data = response.data
 
         if (Array.isArray(data.items)) {
@@ -58,43 +58,34 @@ const handleItemClick = (item) => {
 
 return (
     <>
-      <div className="shop-box-container">
-        <h1 className="shop-header">Item Shop</h1>
-      </div>
       <div className="box">
-        {isLoading ? (
-          <p>Loading...</p>
-        ) : (
-          <div className="shop-items-container">
-            {Object.entries(categorizedItems).map(([category, items]) => (
-              <div key={category}>
-                <h2 className="category-header">{category}</h2>
-                <div className="item-row">
-                  {category === 'avatar'
-                    ? items.map((item) => (
-                        <ShopItem
-                          key={item.id}
-                          item={item}
-                          onItemClick={() => handleItemClick(item)}
-                        />
-                      ))
-                    : items.map((item) => (
-                        <ShopItem
-                          key={item.id}
-                          item={item}
-                          onItemClick={() => handleItemClick(item)}
-                        />
-                      ))}
-                </div>
+        <div className="shop-items-container">
+          {Object.entries(categorizedItems).map(([category, items]) => (
+            <div key={category}>
+              <h2 className="category-header">{category}</h2>
+              <div className="item-row">
+                {category === 'avatar'
+                  ? items.map((item) => (
+                      <ShopItem
+                        key={item.id}
+                        item={item}
+                        onItemClick={() => handleItemClick(item)}
+                      />
+                    ))
+                  : items.map((item) => (
+                      <ShopItem
+                        key={item.id}
+                        item={item}
+                        onItemClick={() => handleItemClick(item)}
+                      />
+                    ))}
               </div>
-            ))}
-          </div>
-        )}
+            </div>
+          ))}
+        </div>
       </div>
     </>
   );
 };
 
 export default ShopBox;
-
-

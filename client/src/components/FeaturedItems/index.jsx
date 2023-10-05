@@ -8,9 +8,10 @@ const FeaturedItems = () => {
     const { setSelectedItem, featuredItems, setFeaturedItems, isLoading, setIsLoading } = useShop();
 
     useEffect(() => {
+        // Fetch featured items
         async function fetchFeaturedItems() {
           try {
-            const response = await axios.post('/items/al')
+            const response = await axios.post('/items/all')
             const data = response.data;
     
             if (Array.isArray(data.items)) {
@@ -34,9 +35,6 @@ const FeaturedItems = () => {
       return (
         <div className="featured-items-box">
             <h2 className="featured-category">Featured</h2>
-            {isLoading ? (
-              <p>Loading...</p>
-            ) : (
             <div className="featured-item-row">
             {featuredItems.map((item) => (
                 <ShopItem
@@ -44,11 +42,10 @@ const FeaturedItems = () => {
                 item={item}
                 onItemClick={() => handleItemClick(item)}
                 />
-              ))}
+            ))}
             </div>
-          )}
         </div>
-      );
-    }            
+        );
+    }
 
 export default FeaturedItems
