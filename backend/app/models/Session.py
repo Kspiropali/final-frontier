@@ -6,11 +6,11 @@ from app.database.db import db
 
 
 class Session:
-    def __init__(self, id, username, token, created_at):
-        self.id = id
-        self.username = username
-        self.token = token
-        self.created_at = created_at
+    # def __init__(self, id, username, token, created_at):
+    #     self.id = id
+    #     self.username = username
+    #     self.token = token
+    #     self.created_at = created_at
 
     @staticmethod
     def create(username):
