@@ -1,5 +1,6 @@
 
 .welcome-ova-div{
+    padding: 0vh 3.5vw;
     animation: fadeInAnimation ease 2s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
@@ -38,7 +39,7 @@
 .welcome-quad-cont {
     background: radial-gradient(circle, rgba(250,211,212,1) 48%, rgba(238,166,168,0.8) 100%);
     text-align: center;
-    width: 23vw;
+    width: 20vw;
     height: 55vh;
     border: 2.5px solid var(--darkOrange);
     padding: 1vh 1vw;
@@ -71,19 +72,19 @@
     margin-top: 8.3vh;
     transform: translate(-50%, -50%);
     animation: quad-2-float 3s ease-in-out infinite;
-    animation-delay: .45s;
+    animation-delay: .5s;
 }
 
 #welcome-quad-3{
     margin-top: 16.7vh;
     animation: quad-2-float 3s ease-in-out infinite;
-    animation-delay: .8s;
+    animation-delay: 1s;
 }
 
 #welcome-quad-4{
     margin-top: 25vh;
     animation: quad-2-float 3s ease-in-out infinite;
-    animation-delay: 1.25s;
+    animation-delay: 1.5s;
 }
 
 @keyframes quad-2-float {
