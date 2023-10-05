@@ -18,12 +18,16 @@ def get_items(token):
         if type(items) is str and items.startswith('error'):
             return jsonify({'error': items.split("error: ")[1]}), 400
 
-        return jsonify({'items': [{'id': item.id,
-                                   'name': item.name,
-                                   'type': item.type,
-                                   'description': item.description,
-                                   'price': item.price,
-                                   'image': item.image} for item in items]})
+        keys = ['id', 'name', 'type', 'description', 'price', 'image']
+        serialized_items = []
+
+        for item in items:
+            image_data = item.image.tobytes().decode('utf-8')
+
+            serialized_item = dict(zip(keys, item[:-1] + (image_data,)))
+            serialized_items.append(serialized_item)
+
+        return jsonify({'items': serialized_items}), 200
     except Exception as e:
         return {'error': str(e)}, 400
 
@@ -38,12 +42,10 @@ def get_one_item(token, param):  # order matters, first requires param and then 
         if type(item) is str and item.startswith('error'):
             return jsonify({'error': 'Item does not exist'}), 400
 
-        return jsonify({'item': {'id': item.id,
-                                 'name': item.name,
-                                 'type': item.type,
-                                 'description': item.description,
-                                 'price': item.price,
-                                 'image': item.image}})
+        keys = ['id', 'name', 'type', 'description', 'price', 'image']
+        serialized_item = dict(zip(keys, item[:-1] + (item.image.tobytes().decode('utf-8'),)))
+
+        return jsonify({'item': serialized_item}), 200
     except Exception as e:
         return jsonify({'error': 'Item does not exist'}), 400
 
