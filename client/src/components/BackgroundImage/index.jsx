@@ -1,11 +1,12 @@
 import { useTaskContext } from '../../contexts/TaskContext';
+import background from "../../assets/images/testbg/rainbow.jpg"
 
 const BackgroundImage = () => {
   const { completionPercentage } = useTaskContext();
   const progress = completionPercentage;
 
   const initialBlur = 100; 
-  const initialOpacity = 0.1;
+  const initialOpacity = 0.2;
 
   const maxBlur = 0;
   const minOpacity = 1;
@@ -18,7 +19,7 @@ const BackgroundImage = () => {
     <div className="bg-image-wrapper">
       <img
         className="backgroundim"
-        src="/src/assets/images/testbg/rainbow.jpg"
+        src={background}
         style={{
           filter: `blur(${blur}px)`,
           opacity: opacity,

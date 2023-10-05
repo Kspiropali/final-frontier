@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Timer from '../../components/Timer';
 import { useTaskContext } from '../../contexts/TaskContext';
+import { useShop } from '../../contexts/ShopContext';
+import image3 from "../../assets/images/taskIcons/3.png"
 
 import '../../assets/css/task.css';
 
@@ -15,6 +17,8 @@ const FreshAir = () => {
   const taskCompleted = completedTasks.includes(taskId);
 
   const [showMessage, setShowMessage] = useState(false);
+
+  const { userCoinBalance, setUserCoinBalance } = useShop();
 
   useEffect(() => {
     if (taskCompleted) {
@@ -30,6 +34,9 @@ const FreshAir = () => {
 
   const handleTimerFinish = () => {
     markTaskCompleted(taskId);
+    if (!taskCompleted) {
+      setUserCoinBalance(userCoinBalance + 10);
+    }
   };
 
   return (
@@ -40,10 +47,10 @@ const FreshAir = () => {
           <img
             className="image-task"
             alt="Image"
-            src="/src/assets/images/taskIcons/3.png"
+            src={image3}
           />
           <p className="content">
-            Physcial wellbeing is equally as important as mental wellbeing. Be sure to get up have a stretch and take a step outside for 10 minutes. Breathing in fresh air can provide the brain with fresh oxygen and in turn will boost your productivity.
+            Physcial wellbeing is equally as important as mental wellbeing. Be sure to get up have a stretch and take a step outside for 15 minutes. Breathing in fresh air can provide the brain with fresh oxygen and in turn will boost your productivity.
           </p>
           <div className="button-start">
             {taskCompleted && showMessage && (
@@ -56,7 +63,7 @@ const FreshAir = () => {
             )}
             {timerStarted && (
               <div className="timer-wrapper">
-                <Timer initialTime={10} onFinish={handleTimerFinish} />
+                <Timer initialTime={5} onFinish={handleTimerFinish} />
               </div>
             )}
           </div>

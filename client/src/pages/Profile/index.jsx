@@ -9,7 +9,7 @@ const Profile = () => {
   return (
     <ProfileProvider>
       <div className="indexP">
-        <p className="profile-title">My Profile</p>
+        <h1 className="top-header">My Profile</h1>
         <ProfileInfo />
         <Stats /> 
         <Buttons />

@@ -18,9 +18,16 @@
 
 }
 
-.yellow-text, .top-header {
+.yellow-text {
     color: var(--green);
     text-align: center;
+}
+
+.top-header {
+    color: var(--darkOrange);
+    text-align: center;
+    font-weight: 700;
+    font-size: 40px;
 }
 
 h2 {

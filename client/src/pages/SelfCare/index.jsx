@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Timer from '../../components/Timer';
 import { useTaskContext } from '../../contexts/TaskContext';
+import { useShop } from '../../contexts/ShopContext';
+import image6 from "../../assets/images/taskIcons/6.png"
 
 import '../../assets/css/task.css';
 
@@ -15,6 +17,8 @@ const SelfCare = () => {
   const taskCompleted = completedTasks.includes(taskId);
 
   const [showMessage, setShowMessage] = useState(false);
+
+  const { userCoinBalance, setUserCoinBalance } = useShop();
 
   useEffect(() => {
     if (taskCompleted) {
@@ -30,6 +34,9 @@ const SelfCare = () => {
 
   const handleTimerFinish = () => {
     markTaskCompleted(taskId);
+    if (!taskCompleted) {
+      setUserCoinBalance(userCoinBalance + 10);
+    }
   };
 
   return (
@@ -40,7 +47,7 @@ const SelfCare = () => {
           <img
             className="image-task"
             alt="Image"
-            src="/src/assets/images/taskIcons/6.png"
+            src={image6}
           />
           <p className="content">
             Time for some self-care! Spend 10 minutes doing something for yourself. This can be doing a skincare routine or even eating a snack! It&apos;s all about what makes you happy and feel good.
@@ -56,7 +63,7 @@ const SelfCare = () => {
             )}
             {timerStarted && (
               <div className="timer-wrapper">
-                <Timer initialTime={10} onFinish={handleTimerFinish} />
+                <Timer initialTime={5} onFinish={handleTimerFinish} />
               </div>
             )}
           </div>

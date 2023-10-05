@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Timer from '../../components/Timer';
 import { useTaskContext } from '../../contexts/TaskContext';
+import { useShop } from '../../contexts/ShopContext';
+import image4 from "../../assets/images/taskIcons/4.png"
 
 import '../../assets/css/task.css';
 
@@ -15,6 +17,8 @@ const Mystery = () => {
   const taskCompleted = completedTasks.includes(taskId);
 
   const [showMessage, setShowMessage] = useState(false);
+
+  const { userCoinBalance, setUserCoinBalance } = useShop();
 
   useEffect(() => {
     if (taskCompleted) {
@@ -30,6 +34,9 @@ const Mystery = () => {
 
   const handleTimerFinish = () => {
     markTaskCompleted(taskId);
+    if (!taskCompleted) {
+      setUserCoinBalance(userCoinBalance + 10);
+    }
   };
 
   return (
@@ -40,12 +47,12 @@ const Mystery = () => {
           <img
             className="image-task"
             alt="Image"
-            src="/src/assets/images/taskIcons/4.png"
+            src={image4}
           />
           <p className="content">
             Time for some self-care! Spend 10 minutes doing something for yourself. This can be doing a skincare routine or even eating a snack! It&apos;s all about what makes you happy and feel good.
           </p>
-          <p className="task-content"> Today&apos;s mystery task is: Self-refelection. Take a piece of paper and write down about your week. How did it go? What did you like and not like? Take 30 minutes for self-reflection. </p>
+          <p className="task-content"> Today&apos;s mystery task is: Self-refelection. Take a piece of paper and write down about your week. How did it go? What did you like and not like? Take 10 minutes for self-reflection. </p>
           <div className="button-start">
             {taskCompleted && showMessage && (
               <div className="message-done">
@@ -57,7 +64,7 @@ const Mystery = () => {
             )}
             {timerStarted && (
               <div className="timer-wrapper">
-                <Timer initialTime={10} onFinish={handleTimerFinish} />
+                <Timer initialTime={600} onFinish={handleTimerFinish} />
               </div>
             )}
           </div>

@@ -9,7 +9,7 @@ def initialize_db(app: Flask):
 
     # Check if the database connection is valid
     if not is_db_connected():
-        raise Exception("Database connection is not valid. Check your configuration.")
+        raise Exception("Failed to initialize. Is the db online?")
 
 
 def is_db_connected():
@@ -27,8 +27,8 @@ def check_db_connection():
         connection.close()
 
         print("Database health check: OK")
-    except Exception as e:
-        raise e
+    except Exception:
+        raise Exception("Database health check: Failed")
 
     return
 
@@ -58,8 +58,8 @@ def setup_tables():
             con.execute(text(sql))
             con.commit()
 
-    except Exception as e:
-        raise e
+    except Exception:
+        raise Exception("Failed to setup tables")
 
 
 def dummy_data():
@@ -101,7 +101,7 @@ def dummy_data():
             con.commit()
 
     except Exception as e:
-        raise e
+        raise Exception("Failed to insert dummy data")
 
 
 def clean_tables():
@@ -116,4 +116,4 @@ def clean_tables():
             con.commit()
 
     except Exception as e:
-        raise e
+        raise Exception("Failed to clean tables")

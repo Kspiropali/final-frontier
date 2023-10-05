@@ -6,7 +6,7 @@ import ReCAPTCHA from 'react-google-recaptcha';
 import check from '../../assets/images/loginReg/check.png'
 import close from '../../assets/images/loginReg/close.png'
 
-const RECAPTCHA_CLIENT_KEY = import.meta.env.VITE_API_RECAPTCHA_CLIENT_KEY
+const RECAPTCHA_CLIENT_KEY = "6LdFunMoAAAAAE7ZKHkweFD1cRUw0cEISOckT7g7"
 
 const RegistrationForm = ({setActivePanel}) => {
   const recaptchaRef = useRef(null);
@@ -79,14 +79,14 @@ const RegistrationForm = ({setActivePanel}) => {
         const data = JSON.stringify({
           username: username,
           password: password,
-          email: email
-          // "g-recaptcha-response": await recaptchaRef.current.getValue(),
+          email: email,
+          "g-recaptcha-response": await recaptchaRef.current.getValue(),
         });
 
         let config = {
           method: 'post',
           maxBodyLength: Infinity,
-          url: 'http://127.0.0.1:3000/users/register',
+          url: '/users/register',
           headers: {
             'Content-Type': 'application/json'
           },

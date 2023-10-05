@@ -1,0 +1,58 @@
+echo "
+============================= test session starts ==============================
+platform linux -- Python 3.11.5, pytest-7.4.2, pluggy-1.3.0
+rootdir: /home/kspir/PycharmProjects/final-frontier/backend
+plugins: mock-3.11.1, cov-4.1.0
+collected 91 items
+
+tests/test_authorization.py\033[32m ....                                         [  2%]\033[0m
+tests/test_database.py\033[32m ......                                            [  6%]\033[0m
+tests/test_email_model.py\033[32m .......                                        [ 12%]\033[0m
+tests/test_entrypoint.py\033[32m .........                                       [ 19%]\033[0m
+tests/test_facebook.py\033[32m .......                                           [ 25%]\033[0m
+tests/test_facebook_0auth.py\033[32m ....                                        [ 27%]\033[0m
+tests/test_google_0auth.py\033[32m .....                                         [ 29%]\033[0m
+tests/test_json_params.py\033[32m ........                                       [ 36%]\033[0m
+tests/test_mailer.py\033[32m ........                                            [ 43%]\033[0m
+tests/test_path_params.py\033[32m ........                                       [ 51%]\033[0m
+tests/test_session_model.py\033[32m ........                                     [ 60%]\033[0m
+tests/test_task.py\033[32m ......                                                [ 67%]\033[0m
+tests/test_user.py\033[32m ............                                          [ 80%]\033[0m
+tests/test_user_controller.py\033[32m ..........                                 [ 83%]\033[0m
+tests/test_user_route.py\033[32m ...................                             [100%]\033[0m
+
+---------- coverage: platform linux, python 3.11.5-final-0 -----------
+Name                                       Stmts   Miss  Cover   Missing
+------------------------------------------------------------------------
+app/__init__.py                               39      2    95%   65-66
+app/config/__init__.py                        14      0   100%
+app/config/settings.py                        13      0   100%
+app/controllers/item_controller.py            38     31    78%   6-10
+app/controllers/statistics_controller.py       7      4    63%   4-5, 8-9
+app/controllers/task_controller.py            19     12    77%   9-10, 14-15, 18-19
+app/controllers/user_controller.py           159    104    85%   33-34, 45-50
+app/database/__init__.py                       2      0   100%
+app/database/db.py                            77     32    89%   66-80
+app/middleware/authorization.py               15      0   100%
+app/middleware/mailer.py                      39      0   100%
+app/middleware/validate_json_params.py        31      5    95%   23, 25
+app/middleware/validate_path_params.py        22      2    91%   19, 36
+app/middleware/verify_recaptcha.py            18      5    72%   17-31
+app/models/Email.py                           53      6    89%   32, 51-52, 81-83
+app/models/Item.py                            35     25    89%   7-12
+app/models/Session.py                         68     17    75%   31, 47, 63, 66-67, 78, 86-97, 111, 114-115
+app/models/Statistics.py                      40     27    62%   13-16, 20-34, 38-58
+app/models/Task.py                            59      9    85%   76-77, 81-92
+app/models/User.py                           184     75    89%   54-55, 260-269, 273-282, 287-305
+app/routes/facebook_oauth.py                  24      4    83%   34-36, 54
+app/routes/google_oauth.py                    40     17    78%   43-60
+app/routes/item_routes.py                     49     30    89%   15-27
+app/routes/task_router.py                     33     20    85%   12-24
+app/routes/user_routes.py                    193    106    85%   26-39, 61-92
+entrypoint.py                                 17     17   100%
+------------------------------------------------------------------------
+TOTAL                                       2563    574    89%
+
+
+\033[32m============================== 115 passed in 7.77s ==============================
+"

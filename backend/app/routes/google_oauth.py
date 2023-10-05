@@ -67,15 +67,16 @@ def authorized():
 
     # reset global variable access_token
     token = 0
-
+    print(DOMAIN)
     resp = make_response(redirect('/'), 302)
     resp.set_cookie('Authorization',
                     user_local_token,
                     httponly=True,
                     samesite='Strict',  # Set to 'None' for cross-origin
                     secure=True,  # Set to True for HTTPS
-                    domain=DOMAIN,  # Common domain
-                    path='/')  # Path where the cookie is accessible
+                    #domain=DOMAIN,  # Common domain
+                    path='/'
+                    )  # Path where the cookie is accessible
 
     # return cookie and redirect as well
     return resp

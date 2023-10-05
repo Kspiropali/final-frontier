@@ -8,6 +8,12 @@ import brown from '../../assets/images/homeicons/brown_leaf.gif';
 import c1 from '../../assets/images/homeicons/c1.png';
 import { useTaskContext } from '../../contexts/TaskContext';
 import { useAuth } from '../../contexts/AuthContext';
+import { MessageCarousel, HelpModal, CoinBalance } from '../../components';
+
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
+
+const MySwal = withReactContent(Swal);
 
 const ResetProgressButton = () => {
   const { resetProgress } = useTaskContext();
@@ -36,10 +42,41 @@ const Home = () => {
       checkLoggedIn()
   }, [])
 
+  const showModalHome = () => {
+    MySwal.fire({
+      showClass: {
+        popup: 'animate__animated animate__fadeInDown',
+      },
+      hideClass: {
+        popup: 'animate__animated animate__fadeOutUp',
+      },
+      html: <HelpModal />,
+      showConfirmButton: false,
+      width: '600px'
+    }).then(() => {
+    });
+  };
+
+  const messages = [
+    'Welcome to our website!',
+    'You can do it keep going!',
+    'Need some help check out our support page!',
+    'You are strong! You are amazing!',
+    'Just take it slow. One day at a time.',
+    'This here is the progress bar!',
+    'You are loved!, You are important!',
+    'Just like you do now. Just keep it up!',
+    "Don't panic when you encounter tides, follow them."
+  ];
+
   return (
     <>
         <div className="index-home">
-          
+          <button className="help-button" onClick={showModalHome}>Help</button>
+          <div className='coins'> <CoinBalance /> </div>
+          <div className="message-carosuel">
+            <MessageCarousel messages={messages} interval={3000} />
+          </div>
           <CompletionBar />
           <img className="character" src={c1} alt="Character" />
           <BackgroundImage />
@@ -62,7 +99,7 @@ const Home = () => {
                 <img src={brown} width="150" height="150" alt="Image 3" />
               </Link>
             </div>
-{/* 
+            {/* 
             <div className="grid-home-item bg">
               <BackgroundImage />
             </div> */}
@@ -85,7 +122,7 @@ const Home = () => {
               </Link>
             </div>
           </div>
-          <ResetProgressButton />
+          {/* <ResetProgressButton /> */}
         </div>
     </>
   );
