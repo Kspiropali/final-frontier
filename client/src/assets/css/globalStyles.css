@@ -12,14 +12,14 @@
     --pink: #fad3d4;
     --green: #8cbeaa;
     --darkOrange: #b6702a;
-    --white: #ffffff;
+    --white: #fffcf5;
     --lightOrange: #e6a157;
     --offBlack: #110f0f;
 
 }
 
 .yellow-text, .top-header {
-    color: var(--tealBlue);
+    color: var(--green);
     text-align: center;
 }
 

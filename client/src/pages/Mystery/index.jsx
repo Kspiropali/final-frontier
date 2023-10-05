@@ -38,9 +38,9 @@ const Mystery = () => {
         <div className="task-wrapper">Mystery task</div>
         <div className="boxT">
           <img
-            className="image"
+            className="image-task"
             alt="Image"
-            src="https://cdn.animaapp.com/projects/651165e23f4e55995d9af710/releases/6512cd5a23aefc58b04855f5/img/image-1@2x.png"
+            src="/src/assets/images/taskIcons/4.png"
           />
           <p className="content">
             Time for some self-care! Spend 10 minutes doing something for yourself. This can be doing a skincare routine or even eating a snack! It&apos;s all about what makes you happy and feel good.

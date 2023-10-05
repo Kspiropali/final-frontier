@@ -38,9 +38,9 @@ const Breathing = () => {
         <div className="task-wrapper">Breathing</div>
         <div className="boxT">
           <img
-            className="image"
+            className="image-task"
             alt="Image"
-            src="https://cdn.animaapp.com/projects/651165e23f4e55995d9af710/releases/6512cd5a23aefc58b04855f5/img/image-1@2x.png"
+            src="/src/assets/images/taskIcons/1.png"
           />
           <p className="content">
             Breathing has many benefits and can be very helpful. For this task take 5 minutes to deep breath using the 4-7-8 method.
