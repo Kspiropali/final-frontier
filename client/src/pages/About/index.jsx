@@ -3,7 +3,7 @@ import React from 'react'
 import { Footer, AboutCarousel } from '../../components'
 
 import "../../assets/css/about.css";
-
+import logo from '../../assets/images/logo.png'
 import krisOptimised from "../../assets/images/krisOptimised.png"
 import raviaOptimised from "../../assets/images/raviaOptimised.png"
 import camilleOptimised from "../../assets/images/camilleOptimised.png"
@@ -30,10 +30,11 @@ const About = () => {
         <AboutCarousel />
       </div>
       {/* <div className='about-ourmission-right-col'>LOGO HERE</div> */}
+    {/*<div className='about-ourmission-right-col' id="about-mission-right-col"><img className='about-logo' src={logo} alt="WellSpace logo" /></div> */}
     </div>
     <div className='about-demo-container'>
-      <div className='about-ourmission-left-col'>
-        VIDEO HERE
+      <div className='about-ourmission-left-col' id='about-demo-left-col'>
+        <img className='about-logo' src={logo} alt="WellSpace logo" />
       </div>
       <div className='about-ourmission-right-col'>
         <h3 className='mission-subhead'>A WellSpace Demonstration</h3>

@@ -12,7 +12,7 @@
     /* display: flex; */
     background-color: var(--pink);
     color: var(--offBlack);
-    width: 60vh;
+    width: 35vw;
     height: 65vh;
     border-radius: 5px;
     border: 4px solid var(--darkOrange);
@@ -37,6 +37,9 @@
 }
 
 .log-reg-btn:hover {
+    background-color: var(--pink);
+}
+.log-reg-btn:focus {
     background-color: var(--pink);
 }
 
@@ -64,8 +67,6 @@ button {
     width: auto;
     margin: 0px 6%;
     height: 66%;
-    background-color: var(--pink)
-    /* border: .5px solid #A69C4D; */
 }
 
 ::placeholder {
@@ -81,11 +82,9 @@ input {
     width: 100%;
     height: 4vh;
     text-align: center;
-    /* color: #FEEFBA; */
     background-color: var(--white);
     border-radius: 2px;
     border-color: var(--offBlack);
-    /* font-size: 14px; */
     color: var(--pink);
 }
 
@@ -102,6 +101,9 @@ input {
 
 #forgot-password, #return-to-login {
     text-decoration: underline;
+    /* display: inline-block;
+    margin-left: 50%;
+    transform: translate(-50%); */
 }
 
 #result-message {
@@ -128,10 +130,6 @@ input {
     margin-right: 1vh;
 }
 
-/* .password-field {
-
-} */
-
 .requirements-container {
     margin-top: .5vh;
     display: flex;
@@ -152,8 +150,6 @@ input {
     .login-container {
         margin: auto;
         /* display: flex; */
-        background-color: var(--lightPurple);
-        color: var(--darkBlueBG);
         width: 94vw;
         height: 65vh;
         border-radius: 5px;
@@ -165,7 +161,6 @@ input {
         width: auto;
         margin: 0px 6%;
         height: 61.5%;
-        background-color: var(--lightPurple)
     }
 
     #iac-Register {
@@ -173,7 +168,6 @@ input {
         width: auto;
         margin: 0px 6%;
         height: 68.5%;
-        background-color: var(--lightPurple)
     }
 
     #id-Login{

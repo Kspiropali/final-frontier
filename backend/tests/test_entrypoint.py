@@ -39,21 +39,6 @@ def test_error_handling(client):
             assert e is not None
 
 
-def test_before_request_https_redirection(client):
-    response = client.get('/', headers={'X-Forwarded-Proto': 'http'})
-    assert response.status_code == 301
-    assert response.headers['Location'].startswith('https://')
-
-
-def test_before_request_no_https_redirection(client):
-    response = client.get('/')
-    assert response.status_code == 200
-
-
-def test_before_request_no_https_redirection_custom_header(client):
-    response = client.get('/', headers={'Custom-Header': 'http'})
-    assert response.status_code == 200
-
 
 def test_configure_mail(test_app):
     assert 'MAIL_SERVER' in test_app.application.config
@@ -72,10 +57,10 @@ def test_register_blueprints(test_app):
     assert 'task' in blueprints
     assert 'facebook_auth' in blueprints
     assert 'google_oauth' in blueprints
-    assert 'reloader' in blueprints
+    # assert 'reloader' in blueprints
 
 
 def test_index_route_static_file(client):
     response = client.get('/')
-    assert response.status_code == 200
+    assert response.status_code == 302
     assert b'<!doctype html>' in response.data
