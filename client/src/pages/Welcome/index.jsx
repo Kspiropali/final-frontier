@@ -32,7 +32,7 @@ const Welcome = () => {
 
   return (
     <div className='welcome-ova-div'>
-    <h1 className='top-header'>Welcome To WellSpace</h1>
+    <h1 className='top-header' id='welcome-header'>Welcome To WellSpace</h1>
     <div className='welcome-quad-row'>
 
       <button className='welcome-quad-cont' id='welcome-quad-1' onClick={() => quadPanel == "about" ? setQuadPanel("") : setQuadPanel("about")}>
