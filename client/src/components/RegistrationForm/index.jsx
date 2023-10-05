@@ -143,7 +143,8 @@ const RegistrationForm = ({setActivePanel}) => {
           id="username"
           onChange={handleUsername}
           value={username}
-          placeholder='username'
+          placeholder='username' 
+          autoComplete='off'
           className={`input-field`}/>
         <div className='requirements-container'>
           <p className='reg-req-text'>{usernameRequirements[0]}</p><img className='requirement-icons' 

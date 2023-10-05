@@ -63,8 +63,7 @@ const PasswordReset = () => {
   
           const response = await axios.request(config)
   
-          console.log(JSON.stringify(response.data))
-  
+          // console.log(JSON.stringify(response.data))
           setDisplayMessage('Password Changed Successfully')
           setPassword(''),
           setConfirmationPassword('')

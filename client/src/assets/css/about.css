@@ -1,3 +1,10 @@
+.about-container-full {
+    width: 100%;
+    height: 100%;
+    align-content: center;
+    background-image: url('/src/assets/images/testbg/background.png');
+	background-position: center;
+}
 
 .about-ourmission-container, 
 .about-demo-container{
@@ -5,36 +12,44 @@
     margin: 4vh 2vw;
     display: flex;
     padding: 2vh 2vw;
-    border: 1px solid black;
+    background-color: var(--white);
+    border: 4px dashed var(--darkOrange);
+}
+
+.about-demo-container{
+
+    align-items: center;
 }
 
 .about-founders-container{
-    height: 70vh;
+    height: 90vh;
     margin: 4vh 2vw;
     display: flex;
     flex-direction: column;
+    background-color: var(--white);
     padding: 2vh 2vw;
-    border: 1px solid black;
-}
-
-.about-ourmission-left-col, 
-.about-ourmission-right-col {
-    width: 48vw;
+    padding-bottom: 10px;
+    border: 4px dashed var(--darkOrange);
+    font-size: 25px;
+    font-weight: 600;
+    color: var(--green);
 }
 
 .about-mission-carousel{
     margin-top: 4vh;
     height: 80%;
+    align-content: center;
 }
 
 .mission-carousel-strong-text{
-    font-size: 2.7vw;
+    font-size: 25px;
 }
 
 .mission-carousel-text,
 .mission-demo-text{
     width: 90%;
-    font-size: 1.8vw;
+    font-size: 1.6vw;
+    align-items: center;
 }
 
 .mission-demo-text{
@@ -43,36 +58,33 @@
 .about-founders-center{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: center;
+}
+
+.about-logo{
+    width: 80%;
 }
 
 /* OLD */
 
-.founders-all-container {
+/* .founders-all-container {
     margin-bottom: 10vh;
     display: flex;
-    justify-content: space-evenly;
-}
+    justify-content: space-around;
+} */
 
 .mission-subhead {
     text-align: center;
-    color: var(--lightPurple);
-}
-
-.about-para {
-    text-align: center;
-    margin-bottom: 3vh;
-    margin-left: 5%;
-    margin-right: 5%;
+    color: var(--lightOrange);
 }
 
 .founder-container {
-    margin: 1.2vh 4vw;
+    margin: 1.2vh 5vw;
     height: auto;
 }
 
 .founder-img {
-    width: 17vw;
+    width: 15vw;
     aspect-ratio: 1/1;
     border-radius: 50%;
 }
@@ -82,18 +94,18 @@
     margin-top: .9vh;
 }
 
-@media screen and (max-width: 620px){
+@media screen and (max-width: 720px){
     .about-ourmission-container, 
     .about-demo-container{
-        height: 70vh;
+        height: 500px;
         margin: 2vh 2vw;
         display: flex;
         flex-direction: column-reverse;
         padding: 2vh 2vw;
-        border: 1px solid black;
+        border: 3px solid var(--darkOrange);
     }
 
-    .about-ourmission-left-col{
+    /* .about-ourmission-left-col{
         width: 100%;
         height: 60%;
     }
@@ -101,32 +113,30 @@
     .about-ourmission-right-col {
         width: 100%;
         height: auto;
-    }
+    } */
 
     .about-mission-carousel{
         text-align: center;
         margin-top: 1.3vh;
         height: 80%;
+        width: 90%;
     }
 
     .mission-carousel-strong-text{
-        font-size: 4.2vw;
+        font-size: 3.2vw;
     }
 
     .mission-carousel-text,
     .mission-demo-text{
         width: 90%;
-        font-size: 3.6vw;
+        font-size: 20px;
     }
-
+/* 
     .about-founders-container{
-        height: 70vh;
-        margin: 4vh 2vw;
         display: flex;
         flex-direction: column;
-        padding: 2vh 2vw;
         border: 1px solid black;
-    }
+    } */
 
     .about-founders-center{
         display: flex;
@@ -138,9 +148,8 @@
     .founder-container {
         display: flex;
         flex-direction: column;
-
         align-items: center;
         margin: 1.2vh 4vw;
-        height: auto;
+
     }
 }
