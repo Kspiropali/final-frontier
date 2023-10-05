@@ -68,7 +68,7 @@ def login():
         print(data)
         streak = data[0]
         display = data[1]
-
+        print(DOMAIN)
         # send cookies
         resp = make_response(jsonify({'message': 'User logged in successfully',
                                       'streak': streak}), 200)
@@ -83,7 +83,7 @@ def login():
                         httponly=True,
                         samesite='Strict',  # Set to 'None' for cross-origin
                         secure=True,  # Set to True for HTTPS
-                        domain=DOMAIN,
+                        #domain=DOMAIN,
                         path='/',
                         )
 
@@ -110,7 +110,7 @@ def logout(token):
                         secure=True,
                         path='/',
                         max_age=0,
-                        domain=DOMAIN
+                        #domain=DOMAIN
                         )
 
         return resp

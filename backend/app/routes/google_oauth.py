@@ -74,7 +74,7 @@ def authorized():
                     httponly=True,
                     samesite='Strict',  # Set to 'None' for cross-origin
                     secure=True,  # Set to True for HTTPS
-                    domain=DOMAIN,  # Common domain
+                    #domain=DOMAIN,  # Common domain
                     path='/'
                     )  # Path where the cookie is accessible
 
