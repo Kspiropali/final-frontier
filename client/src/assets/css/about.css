@@ -8,6 +8,11 @@
     border: 1px solid black;
 }
 
+.about-demo-container{
+
+    align-items: center;
+}
+
 .about-founders-container{
     height: 70vh;
     margin: 4vh 2vw;
@@ -28,13 +33,19 @@
 }
 
 .mission-carousel-strong-text{
-    font-size: 2.7vw;
+    font-size: 25px;
 }
 
 .mission-carousel-text,
 .mission-demo-text{
     width: 90%;
-    font-size: 1.8vw;
+    font-size: 18px;
+}
+
+#about-mission-right-col{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .mission-demo-text{
@@ -43,36 +54,33 @@
 .about-founders-center{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: center;
+}
+
+.about-logo{
+    width: 80%;
 }
 
 /* OLD */
 
-.founders-all-container {
+/* .founders-all-container {
     margin-bottom: 10vh;
     display: flex;
-    justify-content: space-evenly;
-}
+    justify-content: space-around;
+} */
 
 .mission-subhead {
     text-align: center;
     color: var(--lightPurple);
 }
 
-.about-para {
-    text-align: center;
-    margin-bottom: 3vh;
-    margin-left: 5%;
-    margin-right: 5%;
-}
-
 .founder-container {
-    margin: 1.2vh 4vw;
+    margin: 1.2vh 5vw;
     height: auto;
 }
 
 .founder-img {
-    width: 17vw;
+    width: 150px;
     aspect-ratio: 1/1;
     border-radius: 50%;
 }
@@ -82,10 +90,10 @@
     margin-top: .9vh;
 }
 
-@media screen and (max-width: 620px){
+@media screen and (max-width: 720px){
     .about-ourmission-container, 
     .about-demo-container{
-        height: 70vh;
+        height: 500px;
         margin: 2vh 2vw;
         display: flex;
         flex-direction: column-reverse;
@@ -110,17 +118,17 @@
     }
 
     .mission-carousel-strong-text{
-        font-size: 4.2vw;
+        font-size: 23px;
     }
 
     .mission-carousel-text,
     .mission-demo-text{
         width: 90%;
-        font-size: 3.6vw;
+        font-size: 20px;
     }
 
     .about-founders-container{
-        height: 70vh;
+        height: auto;
         margin: 4vh 2vw;
         display: flex;
         flex-direction: column;
@@ -138,9 +146,8 @@
     .founder-container {
         display: flex;
         flex-direction: column;
-
         align-items: center;
-        margin: 1.2vh 4vw;
+        margin: 1.2vh 3vw;
         height: auto;
     }
 }

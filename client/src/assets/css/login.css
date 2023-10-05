@@ -39,6 +39,9 @@
 .log-reg-btn:hover {
     background-color: var(--pink);
 }
+.log-reg-btn:focus {
+    background-color: var(--pink);
+}
 
 .log-reg-btn:nth-child(2) {
     border-right: 0px;
@@ -64,8 +67,6 @@ button {
     width: auto;
     margin: 0px 6%;
     height: 66%;
-    background-color: var(--pink)
-    /* border: .5px solid #A69C4D; */
 }
 
 ::placeholder {
@@ -81,11 +82,9 @@ input {
     width: 100%;
     height: 4vh;
     text-align: center;
-    /* color: #FEEFBA; */
     background-color: var(--white);
     border-radius: 2px;
     border-color: var(--offBlack);
-    /* font-size: 14px; */
     color: var(--pink);
 }
 
@@ -151,8 +150,6 @@ input {
     .login-container {
         margin: auto;
         /* display: flex; */
-        background-color: var(--lightPurple);
-        color: var(--darkBlueBG);
         width: 94vw;
         height: 65vh;
         border-radius: 5px;
@@ -164,7 +161,6 @@ input {
         width: auto;
         margin: 0px 6%;
         height: 61.5%;
-        background-color: var(--lightPurple)
     }
 
     #iac-Register {
@@ -172,7 +168,6 @@ input {
         width: auto;
         margin: 0px 6%;
         height: 68.5%;
-        background-color: var(--lightPurple)
     }
 
     #id-Login{
