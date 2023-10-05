@@ -3,6 +3,7 @@ import { useShop } from '../../contexts/ShopContext'
 import { useEffect, useState } from "react"
 import { AvatarModal } from '..';
 import avatarImage from '../../assets/images/testavatars/avi.png'
+import coin from '../../assets/images/testitem/coin.png'
 import { StatsModal } from '..';
 
 import Swal from 'sweetalert2';
@@ -15,7 +16,7 @@ const Stats = () => {
 	const [stats, setStats] = useState([]);
 
 	async function fetchData(){
-		const response = await fetch("http://127.0.0.1:3000/users/1/statistics")
+		const response = await fetch("/users/1/statistics")
 		const data = await response.json()
 		console.log(data)
 		setStats(data)
@@ -72,7 +73,7 @@ const Stats = () => {
 						<img
 						className="img"
 						alt="Image"
-						src="/src/assets/images/testitem/coin.png"
+						src={coin}
 						/>
 						<div className="itext-wrapper-7">950</div>
 					</div>

@@ -85,7 +85,7 @@ input {
     background-color: var(--white);
     border-radius: 2px;
     border-color: var(--offBlack);
-    color: var(--pink);
+    color: var(--offBlack);
 }
 
 .input-idv-container {

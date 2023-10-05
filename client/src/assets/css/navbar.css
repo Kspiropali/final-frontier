@@ -16,6 +16,7 @@ nav {
 	margin-left: 30px;
   height: 55px;
   width: 300px;
+  transform: scale(0.9);
 }
 
 .navi-link {

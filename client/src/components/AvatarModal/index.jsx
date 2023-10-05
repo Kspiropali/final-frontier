@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react'
 import { InventoryItem } from '../../components'
 import axios from 'axios';
 import '../../assets/css/modal.css'
+import { useShop } from '../../contexts/ShopContext';
 
-const AvatarModal = ({ avatarImage }) => {
+const AvatarModal = () => {
     const [inventory, setInventory] = useState([]);
-
+    // const  {setAvatarImage} = useShop()
     useEffect(() => {
         async function fetchUserInventory() {
           try {
@@ -24,6 +25,11 @@ const AvatarModal = ({ avatarImage }) => {
     
         fetchUserInventory();
       }, []);
+
+      // const updateAvatarImage = (newAvatarImage) => {
+      //   // setLocalAvatarImage(newAvatarImage);
+      //   setAvatarImage(newAvatarImage); // Update the global state (if needed)
+      // };
 
     return (
         <div>
