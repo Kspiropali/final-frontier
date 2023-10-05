@@ -24,7 +24,6 @@
     display: flex;
     justify-content: space-between;
     padding: 1vw;
-    /* position: relative; */
 }
 .welcome-quad-cont {
     background-color: #ffbda8;
@@ -73,3 +72,45 @@
 }
 
 /* MEDIA QUERY FOR MOBILE VERTICAL STACK */
+
+@media screen and (max-width: 620px) {
+
+    .welcome-ova-div{
+        padding: 0 4vw;
+    }
+
+    .welcome-quad-row {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 1vw;
+        /* position: relative; */
+    }
+
+    .welcome-quad-cont {
+        background-color: #ffbda8;
+        text-align: center;
+        width: 100%;
+        height: 17vh;
+        border: 1px solid black;
+        padding: 1vh 1vw;
+    }
+
+    .welcome-qp-btn{
+        margin-top: 0;
+        border: 1px solid black;
+        border-radius: 10px;
+        padding: 1vh 2.5vw;
+    }
+
+    .welcome-padlock{
+        width: 50px;
+        margin-top: 0;
+    }
+
+    #welcome-quad-2, 
+    #welcome-quad-3, 
+    #welcome-quad-4{
+        margin-top: 2.3vh;
+    }
+}
