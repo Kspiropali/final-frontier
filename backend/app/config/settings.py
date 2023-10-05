@@ -20,3 +20,4 @@ class Config:
     # secret key
     SECRET_KEY = SECRET_KEY
     DOMAIN = DOMAIN
+    MAIL = MAIL

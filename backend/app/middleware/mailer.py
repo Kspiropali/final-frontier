@@ -1,6 +1,6 @@
 from flask import current_app
 from flask_mail import Mail, Message
-
+from app.config.settings import MAIL
 mail = Mail()
 
 
@@ -13,8 +13,8 @@ def init_mail(app=None):
 
 
 def configure_mail(app):
-    app.config['MAIL_SERVER'] = 'localhost'
-    app.config['MAIL_PORT'] = 1025
+    app.config['MAIL_SERVER'] = MAIL.split(":")[0]
+    app.config['MAIL_PORT'] = MAIL.split(":")[1]
     app.config['MAIL_USE_TLS'] = False
     app.config['MAIL_USE_SSL'] = False
     app.config['MAIL_DEBUG'] = False
@@ -29,6 +29,7 @@ def configure_mail(app):
 
 # Not to be used directly
 def send_email(subject, recipients, html_body):
+    mail.connect()
     try:
         message = Message(subject=subject,
                           recipients=recipients,
