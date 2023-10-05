@@ -29,18 +29,6 @@
      }
 }
 
-@keyframes float {
-    0% {
-      transform: translate(-50%, -50%) translateY(0);  
-    }
-    50% {
-      transform: translate(-50%, -50%) translateY(-10px);
-    }
-    100% {
-      transform: translate(-50%, -50%) translateY(0);
-    }
-  }
-
 /* USERS CLICK WHICH FADES THE BG AND DISPLAYS A BUTTON */
 .welcome-quad-row {
     display: flex;
@@ -48,7 +36,7 @@
     padding: 1vw;
 }
 .welcome-quad-cont {
-    background-color: var(--pink);
+    background: radial-gradient(circle, rgba(250,211,212,1) 48%, rgba(238,166,168,0.8) 100%);
     text-align: center;
     width: 23vw;
     height: 55vh;
@@ -68,24 +56,47 @@
 
 .welcome-quad-cont:hover {
     background-color: var(--lightOrange);
-    border: 1px solid black;
-
 }
-.welcome-quad-cont:focus-within {
-    background-color: #cb8a49;
-    border: 1px solid black;
+.welcome-quad-cont:focus {
+    background: radial-gradient(circle, rgba(250,211,212,1) 48%, rgba(237,154,156,0.8) 100%);
+    background-color: #f4a44d;
+    border-width: 3px;
+}
 
+#welcome-quad-1{
+    animation: quad-2-float 3s ease-in-out infinite;
 }
 
 #welcome-quad-2{
     margin-top: 8.3vh;
+    transform: translate(-50%, -50%);
+    animation: quad-2-float 3s ease-in-out infinite;
+    animation-delay: .45s;
 }
+
 #welcome-quad-3{
     margin-top: 16.7vh;
+    animation: quad-2-float 3s ease-in-out infinite;
+    animation-delay: .8s;
 }
+
 #welcome-quad-4{
     margin-top: 25vh;
+    animation: quad-2-float 3s ease-in-out infinite;
+    animation-delay: 1.25s;
 }
+
+@keyframes quad-2-float {
+    0% {
+      transform:  translateY(0);  
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
 
 .welcome-qp-btn{
     margin-top: 30%;

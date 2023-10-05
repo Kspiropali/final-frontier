@@ -121,7 +121,7 @@ const Home = () => {
               </Link>
             </div>
           </div>
-          {/* <ResetProgressButton /> */}
+          <ResetProgressButton />
         </div>
     </>
   );
