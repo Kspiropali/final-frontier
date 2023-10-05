@@ -5,8 +5,7 @@ import { ShopItem } from '../../components/'
 import { useShop } from '../../contexts/ShopContext';
 
 const FeaturedItems = () => {
-    const { setSelectedItem } = useShop();
-    const [featuredItems, setFeaturedItems] = useState([]);
+    const { setSelectedItem, featuredItems, setFeaturedItems, isLoading, setIsLoading } = useShop();
 
     useEffect(() => {
         // Fetch featured items

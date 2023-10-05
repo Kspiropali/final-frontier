@@ -3,17 +3,13 @@
     background-color: #fad3d4;
     border: 2.5px solid #b6702a;
     border-radius: 7px;
-    width: 100%; 
-    margin-top: 80px;
-    position: relative; 
-    left: 80%; 
-    transform: translateX(-50%);
+    width: 44.3%; 
+    margin-top: 50px;
+    margin-left: 450px;
   }
 
 .featured-category {
     color: #b6702a;
-    padding: 10px;
-    margin: 0;
     text-transform: capitalize;
     font-size: 25px;
 }

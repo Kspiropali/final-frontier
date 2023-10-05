@@ -2,14 +2,14 @@ import { useState, useContext, createContext } from "react";
 import PropTypes from 'prop-types';
 
 const ProfileContext = createContext(); 
-
+import panda from '../assets/images/avatars/panda.png'
 export const ProfileProvider = ({ children }) => {
 
   const [editing, setEditing] = useState(false);
   
   const [profile, setProfile] = useState({
     alias: 'Your Alias',
-    image: '/src/assets/images/avatars/panda.png',
+    image: panda,
     username: 'your username',
     age: 'your age',
     gender: 'your gender',

@@ -8,12 +8,15 @@ const Shop = () => {
             <ShopSidebar />
             <div className="shop-content"> 
                 <div className="box-container">
-                    <div className="featured-container">
+                    <div className="shop-side">
+                        <h1 className="shop-header">Item Shop</h1>
                         <FeaturedItems />
+                        <ShopBox />
                     </div>
-                    <ShopBox />
-                    <ShopPreview />
-                    <CoinBalance />
+                    <div className="prev-side">
+                        <CoinBalance />
+                        <ShopPreview />
+                    </div>
                 </div>
             </div>
     </main>

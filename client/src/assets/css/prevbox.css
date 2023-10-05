@@ -3,25 +3,16 @@
      background-color: #fad3d4;
      border: 2.5px solid #b6702a;
      border-radius: 7px;
-     height: 120vh;
-     width: 150%;
-     margin-top: 80px;
-     margin-right: -50px;
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-     overflow: hidden; /* Prevent content overflow */
-}
-
-.prevbox-container {
-    position: relative;
-    left: 116px;
+     width: 100%;
+     margin-top: 50px;
+     margin-left: 10px;
+     margin-right: 20px;
 }
 
 .preview-header {
     font-size: 32px;
     margin-top: 10px;
-    margin-left: 28px;
+    margin-left: 10px;
     white-space: nowrap;
 }
 
@@ -37,8 +28,6 @@
     align-items: center;
     margin-top: 10px;
     margin-bottom: 50px;
-    margin-left: 10px;
-    margin-right: 10px;
 }
 
 .item-preview-container img {
@@ -54,9 +43,7 @@
     width: 100%;
     margin-top: -10px;
     border-radius: 10px;
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     padding-bottom: 20px;
     flex-direction: column;
     justify-content: center;
@@ -86,7 +73,7 @@
 }
 
 .item-details-container .item-description {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 500;
     color: #fffcf5;
 }

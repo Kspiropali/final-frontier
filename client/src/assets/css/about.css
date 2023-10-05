@@ -4,6 +4,7 @@
     align-content: center;
     background-image: url('/src/assets/images/testbg/background.png');
 	background-position: center;
+    padding: 0vh 4vw;
 }
 
 .about-ourmission-container, 
@@ -51,6 +52,10 @@
     font-size: 1.6vw;
     align-items: center;
 }
+#about-demo-subhead{
+    text-align: right;
+    margin-right: 4.95vw;
+}
 
 .mission-demo-text{
     text-align: right;
@@ -79,12 +84,13 @@
 }
 
 .founder-container {
+    padding-top: 1vh;
     margin: 1.2vh 5vw;
     height: auto;
 }
 
 .founder-img {
-    width: 15vw;
+    width: 13vw;
     aspect-ratio: 1/1;
     border-radius: 50%;
 }
