@@ -1,5 +1,5 @@
 import { useTaskContext } from '../../contexts/TaskContext';
-import background "../../assets/images/testbg/rainbow.jpg"
+import background from "../../assets/images/testbg/rainbow.jpg"
 
 const BackgroundImage = () => {
   const { completionPercentage } = useTaskContext();
