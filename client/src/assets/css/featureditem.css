@@ -1,8 +1,8 @@
 .featured-items-box {
     padding: 20px;
-    background-color: #4dc7b0;
-    border-radius: 10px;
-    width: 690px; 
+    background-color: #fad3d4;
+    border: 4px solid #b6702a;
+    width: 100%; 
     margin-top: 80px;
     position: relative; 
     left: 80%; 
@@ -10,7 +10,7 @@
   }
 
 .featured-category {
-    color: #f4f7ff;
+    color: #b6702a;
     padding: 10px;
     margin: 0;
     text-transform: capitalize;
@@ -24,12 +24,8 @@
     max-width: 100%; 
   }
 
-  @media (max-width: 768px) {
+@media (max-width: 768px) {
     .featured-items-box {
-      width: 100%; /* Adjust as needed for smaller screens */
+        width: 100%;
     }
-  
-    .featured-item-row {
-      /* Add styles for smaller screens, e.g., smaller font sizes, margins, etc. */
-    }
-  }
+}

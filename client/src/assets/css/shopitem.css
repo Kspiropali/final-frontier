@@ -5,7 +5,7 @@
   }
 
 .category-header {
-    color: #f4f7ff;
+    color: #b6702a;
     padding: 10px;
     margin: 0;
     text-transform: capitalize;
@@ -21,7 +21,7 @@
     margin: 10px;
     width: 110px;
     height: 120px;
-    background-color: #f4f7ff; 
+    background-color: #fffcf5; 
     cursor: pointer;
     box-shadow: 0 2px 4px rgba(255, 255, 255, 0.564);
     transition: box-shadow 0.3s ease, transform 0.3s ease;

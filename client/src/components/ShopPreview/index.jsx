@@ -36,6 +36,10 @@ const ShopPreview = () => {
     fetchUserInventory();
   }, []);
 
+  useEffect(() => {
+    hideBuyConfirmation();
+  }, [selectedItem]);
+
   const showBuyConfirmation = () => {
     setPurchaseItem(selectedItem);
     setBuyConfirmationVisible(true);

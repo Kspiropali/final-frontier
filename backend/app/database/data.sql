@@ -41,7 +41,7 @@ VALUES ('task 7', 'task7 description', 70);
 -- FEATURED
 INSERT INTO
     item(name, type, description, price, image)
-VALUES ('Shaggy', 'featured', 'An avatar to unleash your inner creativity and quirkiness! Stand out from the crowd with this limited time avatar.', 30, 'https://api.dicebear.com/7.x/open-peeps/png?seed=Felix');
+VALUES ('Shaggy', 'featured', 'An avatar to unleash your inner creativity and quirkiness! Stand out from the crowd with this limited time avatar.', 0, 'https://api.dicebear.com/7.x/open-peeps/png?seed=Felix');
 
 INSERT INTO
     item(name, type, description, price, image)
@@ -53,7 +53,7 @@ VALUES ('Milky Way', 'featured', 'Immerse yourself in the tranquil beauty of the
 
 INSERT INTO
     item(name, type, description, price, image)
-VALUES ('Orion Nebula', 'featured', 'Dive into the mesmerizing depths of the Orion Nebula. Lose yourself in the swirling clouds of colorful cosmic gas and dust, where new stars are born.', 30, 'https://images.unsplash.com/photo-1680967764054-97e008c5235b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1168&q=80');
+VALUES ('Orion Nebula', 'featured', 'Dive into the mesmerizing depths of the Orion Nebula. Lose yourself in the swirling clouds of colorful cosmic gas and dust, where new stars are born.', 20, 'https://images.unsplash.com/photo-1680967764054-97e008c5235b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1168&q=80');
 
 INSERT INTO
     item(name, type, description, price, image)
@@ -62,11 +62,11 @@ VALUES ('Shelly', 'featured', 'Meet Shelly, your pocket-sized dose of happiness!
 -- AVATARS
 INSERT INTO
     item(name, type, description, price, image)
-VALUES ('Alex', 'avatar', 'Meet Adventurous Alex - The intrepid wanderer of the digital frontier! Alex is your passport to exciting online adventures, ready to conquer uncharted territories alongside you.', 20, 'https://api.dicebear.com/7.x/adventurer/png?backgroundColor=b6e3f4');
+VALUES ('Alex', 'avatar', 'Meet Adventurous Alex - The intrepid wanderer of the digital frontier! Alex is your passport to exciting online adventures, ready to conquer uncharted territories alongside you.', 10, 'https://api.dicebear.com/7.x/adventurer/png?backgroundColor=b6e3f4');
 
 INSERT INTO
     item(name, type, description, price, image)
-VALUES ('Ellie', 'avatar', 'Embrace Explorer Ellie - Your fearless guide to epic digital quests! With Ellie as your adventuring avatar, embark on thrilling journeys and conquer new realms in style.', 20, 'https://api.dicebear.com/7.x/adventurer/png?seed=AnekabackgroundColor=c0aede');
+VALUES ('Ellie', 'avatar', 'Embrace Explorer Ellie - Your fearless guide to epic digital quests! With Ellie as your adventuring avatar, embark on thrilling journeys and conquer new realms in style.', 10, 'https://api.dicebear.com/7.x/adventurer/png?seed=AnekabackgroundColor=c0aede');
 
 INSERT INTO
     item(name, type, description, price, image)
@@ -78,35 +78,35 @@ VALUES ('Notionista Nora', 'avatar', 'Notionista Nora, Your organizational guru 
 
 INSERT INTO
     item(name, type, description, price, image)
-VALUES ('Whacky', 'avatar', 'The goofiest bot in town! Wacky is your trusty AI companion, here to add a touch of randomness and hilarity to your gaming quests.', 20, 'https://api.dicebear.com/7.x/bottts-neutral/png?');
+VALUES ('Whacky', 'avatar', 'The goofiest bot in town! Wacky is your trusty AI companion, here to add a touch of randomness and hilarity to your gaming quests.', 5, 'https://api.dicebear.com/7.x/bottts-neutral/png?');
 
 INSERT INTO
     item(name, type, description, price, image)
-VALUES ('Rusty', 'avatar', 'Your quirky sidekick for digital adventures! With a heart of code and a dash of whimsy, Rusty will keep you entertained and protected in the gaming world.', 20, 'https://api.dicebear.com/7.x/bottts-neutral/png?seed=Aneka');
+VALUES ('Rusty', 'avatar', 'Your quirky sidekick for digital adventures! With a heart of code and a dash of whimsy, Rusty will keep you entertained and protected in the gaming world.', 10, 'https://api.dicebear.com/7.x/bottts-neutral/png?seed=Aneka');
 
 INSERT INTO
     item(name, type, description, price, image)
-VALUES ('Ollie', 'avatar', 'Say hello to Ollie - The Classic Avatar! Elevate your online presence with this timeless character. Embrace Ollie and bring a dash of fun and style to your digital adventures.', 20, 'https://api.dicebear.com/7.x/micah/png?flip=false');
+VALUES ('Ollie', 'avatar', 'Say hello to Ollie - The Classic Avatar! Elevate your online presence with this timeless character. Embrace Ollie and bring a dash of fun and style to your digital adventures.', 5, 'https://api.dicebear.com/7.x/micah/png?flip=false');
 
 INSERT INTO
     item(name, type, description, price, image)
-VALUES ('Rosie', 'avatar', 'Elevate your online presence with this vibrant character. Stand out in style with Rosie and add a pop of color to your digital world.', 20, 'https://api.dicebear.com/7.x/micah/png?seed=FelixcbackgroundColor=ffd5dc');
+VALUES ('Rosie', 'avatar', 'Elevate your online presence with this vibrant character. Stand out in style with Rosie and add a pop of color to your digital world.', 0, 'https://api.dicebear.com/7.x/micah/png?seed=FelixcbackgroundColor=ffd5dc');
 
 INSERT INTO
     item(name, type, description, price, image)
-VALUES ('Luna', 'avatar', 'Introducing Luna the Luminous Avatar! Elevate your online presence with this enchanting character. Stand out in style with Luna and add a touch of magic to your digital world.', 20, 'https://api.dicebear.com/7.x/micah/png?seed=AnekabackgroundColor=d8ec8f');
+VALUES ('Luna', 'avatar', 'Introducing Luna the Luminous Avatar! Elevate your online presence with this enchanting character. Stand out in style with Luna and add a touch of magic to your digital world.', 15, 'https://api.dicebear.com/7.x/micah/png?seed=AnekabackgroundColor=d8ec8f');
 
 INSERT INTO
     item(name, type, description, price, image)
-VALUES ('Becky', 'avatar', 'Meet Becky - Your pixelated companion in the digital world!', 20, 'https://api.dicebear.com/7.x/pixel-art/png?seed=Felix');
+VALUES ('Becky', 'avatar', 'Meet Becky - Your pixelated companion in the digital world!', 10, 'https://api.dicebear.com/7.x/pixel-art/png?seed=Felix');
 
 INSERT INTO
     item(name, type, description, price, image)
-VALUES ('Classic', 'avatar', 'Classic Charm: Pixel Art Avatar - Timeless style for your online presence!', 20, 'https://api.dicebear.com/7.x/pixel-art/png?backgroundColor=d1d4f9');
+VALUES ('Classic', 'avatar', 'Classic Charm: Pixel Art Avatar - Timeless style for your online presence!', 40, 'https://api.dicebear.com/7.x/pixel-art/png?backgroundColor=d1d4f9');
 
 INSERT INTO
     item(name, type, description, price, image)
-VALUES ('Simon', 'avatar', 'Retro Vibes: Simon Avatar - What a sophisticated young man, get your dose of nostalgia!', 20, 'https://api.dicebear.com/7.x/pixel-art/png?seed=AnekabackgroundColor=d1d4f9');
+VALUES ('Simon', 'avatar', 'Retro Vibes: Simon Avatar - What a sophisticated young man, get your dose of nostalgia!', 50, 'https://api.dicebear.com/7.x/pixel-art/png?seed=AnekabackgroundColor=d1d4f9');
 
 INSERT INTO
     item(name, type, description, price, image)
@@ -115,23 +115,23 @@ VALUES ('Bigsmile', 'avatar', 'Meet the Big Smile Avatar! your ticket to spreadi
 -- CHARACTERS
 INSERT INTO
     item(name, type, description, price, image)
-VALUES ('Jack', 'character', 'Meet Jack, your personal motivator! With his infectious enthusiasm and can-do attitude, he is here to keep you inspired on your journey to better habits.', 20, 'image.png');
+VALUES ('Jack', 'character', 'Meet Jack, your personal motivator! With his infectious enthusiasm and can-do attitude, he is here to keep you inspired on your journey to better habits.', 50, 'image.png');
 
 INSERT INTO
     item(name, type, description, price, image)
-VALUES ('Holly', 'character', 'Holly brings a sense of peace and tranquility to your journey. She is your go-to character for finding inner calm and mindfulness.', 20, 'image.png');
+VALUES ('Holly', 'character', 'Holly brings a sense of peace and tranquility to your journey. She is your go-to character for finding inner calm and mindfulness.', 50, 'image.png');
 
 INSERT INTO
     item(name, type, description, price, image)
-VALUES ('Bill', 'character', 'Bill is all about pushing boundaries and breaking through obstacles. Choose Bill if you are ready to blaze new trails in your habit-building adventure.', 20, 'image.png');
+VALUES ('Bill', 'character', 'Bill is all about pushing boundaries and breaking through obstacles. Choose Bill if you are ready to blaze new trails in your habit-building adventure.', 70, 'image.png');
 
 INSERT INTO
     item(name, type, description, price, image)
-VALUES ('Emma', 'character', 'Emma radiates positivity and optimism. She is your daily dose of sunshine, reminding you to stay upbeat and focus on the bright side.', 20, 'image.png');
+VALUES ('Emma', 'character', 'Emma radiates positivity and optimism. She is your daily dose of sunshine, reminding you to stay upbeat and focus on the bright side.', 0, 'image.png');
 
 INSERT INTO
     item(name, type, description, price, image)
-VALUES ('Nick', 'character', 'Nick embodies resilience and strength. He is your ally in building mental toughness and bouncing back from setbacks.', 20, 'image.png');
+VALUES ('Nick', 'character', 'Nick embodies resilience and strength. He is your ally in building mental toughness and bouncing back from setbacks.', 40, 'image.png');
 
 -- BACKGROUNDS
 INSERT INTO
@@ -168,7 +168,7 @@ VALUES ('Natures Harmony', 'background', 'Immerse yourself in the harmonious bea
 
 INSERT INTO
     item(name, type, description, price, image)
-VALUES ('Starry Dreamscape', 'background', 'Under the Starry Dreamscape, your habits become stepping stones to reach for the stars in your journey. Each task takes you closer to your dreams.', 20, 'https://images.unsplash.com/photo-1693467855454-b12ce0cc0be9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1228&q=80');
+VALUES ('Starry Dreamscape', 'background', 'Under the Starry Dreamscape, your habits become stepping stones to reach for the stars in your journey. Each task takes you closer to your dreams.', 0, 'https://images.unsplash.com/photo-1693467855454-b12ce0cc0be9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1228&q=80');
 
 INSERT INTO
     item(name, type, description, price, image)
@@ -184,7 +184,7 @@ VALUES ('Leaf Cascade', 'background',  'Embrace the tranquil beauty of Leaf Casc
 
 INSERT INTO
     item(name, type, description, price, image)
-VALUES ('Bamboo Bliss', 'background', 'Find serenity within Bamboo Bliss while cultivating habits. The steadfastness of bamboo mirrors your dedication to self-improvement.', 20, 'https://images.unsplash.com/photo-1690573838349-f20a683a596b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');
+VALUES ('Bamboo Bliss', 'background', 'Find serenity within Bamboo Bliss while cultivating habits. The steadfastness of bamboo mirrors your dedication to self-improvement.', 0, 'https://images.unsplash.com/photo-1690573838349-f20a683a596b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');
 
 INSERT INTO
     item(name, type, description, price, image)

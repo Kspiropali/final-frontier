@@ -9,7 +9,7 @@ import withReactContent from 'sweetalert2-react-content';
 const MySwal = withReactContent(Swal);
 
 const ShopSidebar = () => {
-    const { userDetails, openModal, searchQuery, setSearchQuery, avatarImage, setAvatarImage } = useShop()
+    const { openModal, searchQuery, setSearchQuery, avatarImage, setAvatarImage } = useShop()
 
     useEffect(() => {
         async function fetchUserProfile() {
@@ -37,7 +37,11 @@ const ShopSidebar = () => {
           },
           html: <AvatarModal />,
           showConfirmButton: false,
-          width: '600px'
+          width: '600px',
+          customClass: {
+            container: 'custom-modal'
+          },
+          background: '#fad3d4'
         }).then(() => {
           openModal();
         });

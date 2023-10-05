@@ -6,9 +6,14 @@
     animation: swal2-hide 0.2s;
   }
 
+.custom-modal .swal2-popup {
+    background-color: #fad3d4; 
+    border: 4px solid #b6702a; 
+  }
+  
 .modal-content {
     text-align: left;
-    background-color: #e1e1e173;
+    background-color: #8cbeaa;
     border-radius: 10px;
     padding: 50px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
@@ -19,7 +24,7 @@
   }
 
 .inventory-header {
-    color: black;
+    color: #b6702a;
     font-size: 24px;
     width: 500px;
     margin-top: -40px;
@@ -31,8 +36,8 @@
 
 .inventory-items {
     display: flex;
-    flex-wrap: wrap; /* Allow items to wrap to the next line if needed */
-    justify-content: flex-start; /* Distribute items evenly within the container */
+    flex-wrap: wrap;
+    justify-content: flex-start;
     border-top: black;
     background-color: rgba(118, 118, 118, 0.218);
 }

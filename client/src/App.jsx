@@ -24,14 +24,15 @@ const App = () => {
         <Route path="/about" element={<Pages.About />} />
         <Route path="/support" element={<Pages.Support />} />
         <Route path="/login-register" element={<Pages.Login />}/>
+        <Route path="/shop" element={<Pages.Shop />}/>
 
         <Route path='/profile' element={<ProtectedRoute redirectTo="/login-register"/>}>
           <Route index element={<Pages.Profile />} />
         </Route>
 
-        <Route path='/shop' element={<ProtectedRoute redirectTo="/welcome"/>}>
+        {/* <Route path='/shop' element={<ProtectedRoute redirectTo="/welcome"/>}>
           <Route index element={<Pages.Shop />} />
-        </Route>
+        </Route> */}
         
         <Route path='/selfcare' element={<ProtectedRoute redirectTo="/login-register"/>}>
           <Route index element={<Pages.SelfCare />} />
