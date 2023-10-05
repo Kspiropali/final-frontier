@@ -175,16 +175,17 @@ class User:
     def initialise_tasks(user_id, tasks):
         try:
             updated_tasks_json = json.loads(tasks)
-            updated_tasks = [task["id"] for task in updated_tasks_json]
+            updated_tasks = [int(task["id"]) for task in updated_tasks_json]
+
             with db.engine.connect() as con:
-                result = con.execute(
-                    text("UPDATE member SET allocated_tasks = :tasks WHERE id = :user_id")
+                con.execute(
+                    text("UPDATE member SET allocated_tasks = :tasks WHERE id = :user_id RETURNING allocated_tasks")
                     .params(tasks=updated_tasks, user_id=user_id)
                 )
 
                 con.commit()
 
-                return result
+                return updated_tasks
         except Exception as e:
             return e
 

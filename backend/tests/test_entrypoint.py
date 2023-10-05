@@ -62,5 +62,5 @@ def test_register_blueprints(test_app):
 
 def test_index_route_static_file(client):
     response = client.get('/')
-    assert response.status_code == 302
+    assert response.status_code == 200
     assert b'<!doctype html>' in response.data

@@ -294,6 +294,14 @@ def get_coins(token):
 def initialiise_tasks(token):
     try:
         tasks = get_tasks(token)
-        return tasks
+        # if task is an arr
+        if type(tasks) is list:
+            task_details = get_task_by_arr(tasks)
+            response = task_details
+        else:
+            task_details = get_task_by_arr(tasks["user"]["tasks"])
+            response = task_details
+
+        return jsonify({"tasks": response}), 200
     except Exception as e:
         return {'error': str(e)}, 400
