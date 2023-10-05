@@ -129,3 +129,25 @@ body {
   grid-row: 2;
   grid-column: 3;
 }
+
+/* help button */
+
+.help-button {
+  border: 3px solid var(--darkOrange);
+  border-radius: 50px;
+  width: 90px;
+  height: 40px;
+  background-color: var(--lightOrange);
+  color: var(--white);
+  font-size: 20px;
+  font-weight: 600;
+  position: absolute;
+  left: 2%;
+  top: 9%;
+}
+
+.help-button:hover {
+  background-color: var(--green);
+  color: var(--white);
+  cursor: pointer;
+}

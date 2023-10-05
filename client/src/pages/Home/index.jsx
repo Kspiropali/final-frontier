@@ -8,6 +8,12 @@ import brown from '../../assets/images/homeicons/brown_leaf.gif';
 import c1 from '../../assets/images/homeicons/c1.png';
 import { useTaskContext } from '../../contexts/TaskContext';
 import { useAuth } from '../../contexts/AuthContext';
+import { HelpModal } from '../../components';
+
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
+
+const MySwal = withReactContent(Swal);
 
 const ResetProgressButton = () => {
   const { resetProgress } = useTaskContext();
@@ -36,10 +42,26 @@ const Home = () => {
       checkLoggedIn()
   }, [])
 
+  const showModalHome = () => {
+    MySwal.fire({
+      showClass: {
+        popup: 'animate__animated animate__fadeInDown',
+      },
+      hideClass: {
+        popup: 'animate__animated animate__fadeOutUp',
+      },
+      html: <HelpModal />,
+      showConfirmButton: false,
+      width: '600px'
+    }).then(() => {
+    });
+};
+
   return (
     <>
         <div className="index-home">
-          
+          <button className="help-button" onClick={showModalHome}>Help</button>
+
           <CompletionBar />
           <img className="character" src={c1} alt="Character" />
           <BackgroundImage />
@@ -62,7 +84,7 @@ const Home = () => {
                 <img src={brown} width="150" height="150" alt="Image 3" />
               </Link>
             </div>
-{/* 
+            {/* 
             <div className="grid-home-item bg">
               <BackgroundImage />
             </div> */}
