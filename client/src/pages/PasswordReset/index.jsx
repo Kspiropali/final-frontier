@@ -124,19 +124,19 @@ const PasswordReset = () => {
                     placeholder='confirm password'
                     className='input-field password-field'/>
                     <div className='requirements-container'>
-                      <p className={``}>{newPasswordRequirements[0]}</p><img className='requirement-icons' 
+                      <p className='reg-req-text'>{newPasswordRequirements[0]}</p><img className='requirement-icons' 
                       src={password.length > 6 ? check : close} 
                       alt={password.length > 6 ? "green color check to represent valid password length" : "red color cross to represent invalid password length"}></img>
 
-                      <p className={``}>{newPasswordRequirements[1]}</p><img className='requirement-icons' 
+                      <p className='reg-req-text'>{newPasswordRequirements[1]}</p><img className='requirement-icons' 
                       src={password.match(/(\d+)/) ? check : close} 
                       alt={password.match(/(\d+)/) ? "green color check to represent a password containing a number" : "red color cross to represent a password not containing a number"}></img>
 
-                      <p className={``}>{newPasswordRequirements[2]}</p><img className='requirement-icons' 
+                      <p className='reg-req-text'>{newPasswordRequirements[2]}</p><img className='requirement-icons' 
                       src={password.match(/[!-\/:-@[-`{-~]/) ? check : close} 
                       alt={password.match(/[!-\/:-@[-`{-~]/) ? "green color check representing a password containing a special character" : "red color cross representing a password not containing a special character"}></img>
                       
-                      <p className={``}>{newPasswordRequirements[3]}</p><img className='requirement-icons' 
+                      <p className='reg-req-text'>{newPasswordRequirements[3]}</p><img className='requirement-icons' 
                       src={password.length > 6 && confirmationPassword == password ? check : close} 
                       alt={password.length > 6 && confirmationPassword == password ? "green color check representing matching passwords" : "red color cross representing mismatching passwords"}></img>
                     </div>

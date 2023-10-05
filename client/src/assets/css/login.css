@@ -8,7 +8,7 @@
     /* display: flex; */
     background-color: var(--lightPurple);
     color: var(--darkBlueBG);
-    width: 60vh;
+    width: 60vw;
     height: 65vh;
     border-radius: 5px;
     border: 3px solid var(--gray);
@@ -85,14 +85,6 @@ input {
     color: var(--lightPurple);
 }
 
-/* .correct {
-    border: 2px solid rgb(70, 113, 51);
-}
-
-.no-match {
-    border: 2px solid rgb(50, 168, 222);
-} */
-
 .input-idv-container {
     margin-bottom: 1vh;
     text-align: center;
@@ -146,4 +138,21 @@ input {
 .requirement-icons {
     height: 1.5vh;
     margin: 0 1vh 0 .6vh;
+}
+
+.reg-req-text{
+    margin-bottom: .3vh;
+}
+
+@media screen and (max-width: 620px){
+    .login-container {
+        margin: auto;
+        /* display: flex; */
+        background-color: var(--lightPurple);
+        color: var(--darkBlueBG);
+        width: 94vw;
+        height: 65vh;
+        border-radius: 5px;
+        border: 3px solid var(--gray);
+    }
 }
