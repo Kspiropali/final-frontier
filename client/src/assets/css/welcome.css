@@ -4,6 +4,14 @@
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
 }
+.welcome-ova-div{
+    height: 100vh;
+    overflow-y: hidden;
+    background-image: url('/src/assets/images/testbg/loginbg.png');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
 
 .welcome-qp-btn{
     animation: fadeInAnimation ease 1s;
@@ -19,6 +27,18 @@
      }
 }
 
+@keyframes float {
+    0% {
+      transform: translate(-50%, -50%) translateY(0);  
+    }
+    50% {
+      transform: translate(-50%, -50%) translateY(-10px);
+    }
+    100% {
+      transform: translate(-50%, -50%) translateY(0);
+    }
+  }
+
 /* USERS CLICK WHICH FADES THE BG AND DISPLAYS A BUTTON */
 .welcome-quad-row {
     display: flex;
@@ -26,12 +46,13 @@
     padding: 1vw;
 }
 .welcome-quad-cont {
-    background-color: #ffbda8;
+    background-color: var(--pink);
     text-align: center;
     width: 23vw;
     height: 55vh;
-    border: 1px solid black;
+    border: 2.5px solid var(--darkOrange);
     padding: 1vh 1vw;
+    border-radius: 7px;
 }
 
 .welcome-padlock{
@@ -44,12 +65,12 @@
 }
 
 .welcome-quad-cont:hover {
-    background-color: darksalmon;
+    background-color: var(--lightOrange);
     border: 1px solid black;
 
 }
 .welcome-quad-cont:focus-within {
-    background-color: darksalmon;
+    background-color: #cb8a49;
     border: 1px solid black;
 
 }

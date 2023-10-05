@@ -32,7 +32,7 @@ const Login = () => {
   return (
     <>
     <div className="login-page">
-    <h1 className='top-header yellow-text'>WellSpace</h1>
+    <h1 className='top-header' id='login-page-header'>WellSpace</h1>
     {/* Container for the Login compents */}
     <div className='login-container' id={`id-${activePanel}`}>
       <div className='log-reg-btn-container'>
@@ -44,7 +44,6 @@ const Login = () => {
         {activePanel == "Register" ? <RegistrationForm setActivePanel={setActivePanel}/> : !preResetState ? <Loginform setPreResetState={setPreResetState} /> : <PreResetPassword setPreResetState={setPreResetState} />}
         {!preResetState && activePanel == "Login" ? <OAuthButtons/> : ''}
       </div>
-      <p id='result-message'>hjjhhjhjhjjjjhjhjh</p>
       {displayMessage && <p className='white-text' id='result-message'>{displayMessage}</p>}
     </div>
     </div>
