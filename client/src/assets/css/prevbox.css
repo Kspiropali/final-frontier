@@ -85,7 +85,7 @@
 }
 
 .item-details-container .item-description {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 500;
     color: #fffcf5;
 }
@@ -123,14 +123,15 @@
 .price-preview {
     display: flex;
     align-items: center;
-    margin-top: 50px;
+    margin-top: 40px;
     margin-left: 10px;
     margin-right: 10px;
+    margin-bottom: 10px;
     font-weight: bold;
     justify-content: center;
     align-items: center;
     text-align: center;
-    transform: scale(1.5);
+    transform: scale(1.2);
   }
 
 .price-preview .coin-image {

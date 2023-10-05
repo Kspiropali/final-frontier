@@ -9,7 +9,9 @@ import withReactContent from 'sweetalert2-react-content';
 const MySwal = withReactContent(Swal);
 
 const ShopSidebar = () => {
-    const { openModal, searchQuery, setSearchQuery, avatarImage, setAvatarImage } = useShop()
+    const { openModal, searchQuery, setSearchQuery, setAvatarImage } = useShop()
+    const [avatarImage, setLocalAvatarImage] = useState(null); // Local state for avatar image
+
 
     useEffect(() => {
         async function fetchUserProfile() {
@@ -17,6 +19,7 @@ const ShopSidebar = () => {
             const response = await axios.post('/users/profile');
             if (response.data.avatar) {
               // Set the avatarImage state with the fetched URL
+              setLocalAvatarImage(response.data.avatar);
               setAvatarImage(response.data.avatar);
             }
           } catch (error) {
@@ -25,7 +28,7 @@ const ShopSidebar = () => {
         }
     
         fetchUserProfile();
-      }, []); 
+      }, [setAvatarImage]); 
 
     const showModal = () => {
         MySwal.fire({
@@ -47,6 +50,11 @@ const ShopSidebar = () => {
         });
     };
 
+    const updateAvatarImage = (newAvatarImage) => {
+        setLocalAvatarImage(newAvatarImage);
+        setAvatarImage(newAvatarImage); // Update the global state (if needed)
+      };
+    
   return (
     <>
       <div className="sidebar">
@@ -62,10 +70,9 @@ const ShopSidebar = () => {
               )}
             </div>
             <div>
-                <button className="inventory"
-                onClick={showModal}
-                >
-                    Inventory</button>
+                <button className="inventory" onClick={showModal}>
+                  Inventory
+                </button>
             </div>
         </div>
         <SearchItem searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
