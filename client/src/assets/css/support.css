@@ -14,77 +14,117 @@
     font-weight: 600;
 }
 
-
+/* CAROUSEL */
 .support-icon{
     height: 30vh;
     width: 60vh;
 } 
 
-/* .inner {
-    display: flex;
-    white-space: "nowrap";
-    transition: transform 0.3s;
-    box-shadow: 0 5px rgb(0, 0, 0, 0.05);
-} */
+
 .support-icon-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* background-color: #FBDB68; */
-    /* border: 2.8px solid #A69C4D;  */
     width: 101.5vh;
     aspect-ratio: 1/.7;
     border-radius: 25px;
     margin: auto;
 } 
 
-/* NO CAROUSEL */
-
-.service-options-container {
-    background-color: #4F4792;
-    height: 28vh;
-    width: 70%;
-    margin-top: 2vh;
-    border: 2px solid black;
-    border-radius: 15px;
-    padding: 2.5%;
+.support-carousel-btn{
+    margin-top: 1vh;
+    margin-bottom: 2vh;
+    background-color: #fdd8d8;
+    height: 4.7vh;
+    width: 41vh;
+    border-radius: 20px;
 }
 
+
+
+/* Services List Styles */
+
 .service-options-container {
-    display: flex;
-    flex-direction: column;
+
+    height: 100%;
+    width: 100%;
+    margin-top: 2vh;
+    border: 2px solid black;
+    /* border-radius: 15px; */
+    padding: 2.5%;
+    overflow: scroll;
 }
 
 .service-item {
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     margin-bottom: 12px;
+    height: 20%;
+    background-color: #fdd8d8;
+    border-radius: 80px 0 0 80px;
 }
 
-.service-img {
-    width: 45px;
-    aspect-ratio: 1/1;
-    background-color: #aba5d7;
-    border-radius: 50%;
+.service-img-cont {
+    height: 100%;
+    /* aspect-ratio: 1/1; */
+    /* background-color: #aba5d7; */
+    border-radius: 50% 0 0 50%;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
+}
+.service-img{
+    
+    height: 7vh;
+    border-radius: 80px 0 0 80px;
 }
 
 .service-text-area {
     text-align: center;
     height: 35px;
     width: 100%;
-    background-color: #211C4A;
+    /* background-color: #f8f7ff; */
 
 }
 
-.center-cont {
+.service-description {
+    width: inherit;
+    font-size: 2.1vh;
+}
+
+.support-service-titles {
+    font-size: 2.6vh;
+    margin-bottom: .1vh;
+}
+/* !!!ADD MEDIA QUERIES!!! */
+
+/* MODAL STYLES */
+
+.support-modal-styles{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #e3c2c2;
+    padding: 4%;
+    z-index: 1000;
+    width: 50vw;
+    height: 70vh;
+    /* CHILD STYLING */
+    text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-a {
-    color: inherit;
-    font-size: inherit;
-    font-family: inherit;
+.support-overlay-styles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .7);
+    z-index: 1000;
 }
 

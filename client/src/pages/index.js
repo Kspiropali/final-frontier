@@ -14,3 +14,4 @@ export { default as SelfCare } from './SelfCare'
 export { default as Mystery } from './Mystery'
 
 export {default as PasswordReset} from './PasswordReset'
+export {default as Welcome} from './Welcome'

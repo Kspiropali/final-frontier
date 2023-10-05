@@ -1,18 +1,16 @@
 import React, { useState } from 'react'
+import axios from 'axios';
 import '../../assets/css/prevbox.css'
 import { useShop } from '../../contexts/ShopContext'
 import { ConfirmationModal } from '../../components/';
 import itemCoin from '../../assets/images/testitem/coin.png'
 
 const ShopPreview = () => {
-    const { selectedItem } = useShop()
-    const userCoins = 721; // Replace with the user's actual coin balance
+    const { selectedItem, userCoinBalance, setUserCoinBalance } = useShop();
 
     const [isBuyConfirmationVisible, setBuyConfirmationVisible] = useState(false);
     const [purchaseItem, setPurchaseItem] = useState(null);
-
-    const [userInventory, setUserInventory] = useState([]); // Initialize as an empty array
-
+    const [userInventory, setUserInventory] = useState([]);
 
     const showBuyConfirmation = () => {
         setPurchaseItem(selectedItem);
@@ -24,38 +22,41 @@ const ShopPreview = () => {
     };
 
     const handleBuyClick = () => {
-        if (selectedItem && userCoins >= selectedItem.price) {
+        if (selectedItem && userCoinBalance >= selectedItem.price) {
             showBuyConfirmation();
         } else {
             alert('You do not have enough coins to make this purchase.');
         }
     };
 
-    const confirmPurchase = () => {
-        // Deduct the item's price from the user's coins
-        const updatedUserCoins = userCoins - selectedItem.price;
+    const confirmPurchase = async () => {
+        try {
+          if (purchaseItem) {
+            const response = await axios.post(`/items/buy/${purchaseItem.id}`);
+    
+            if (response.data.success) {
+              // Deduct the item's price from the user's coins
+              const updatedUserCoins = userCoinBalance - purchaseItem.price;
 
-        // Add the purchased item to the user's inventory
-        const updatedInventory = [...userInventory, selectedItem];
-        setUserInventory(updatedInventory);
-
-        // Close the confirmation modal
-        hideBuyConfirmation();
-
-        // Update the user's coin balance
-        // Directly update the userCoins state variable
-        // This assumes that you have access to userCoins as a state variable
-        // If userCoins is not a state variable, you should manage it as a state variable
-        // or use a global state management solution like Redux
-        // userCoins = updatedUserCoins;
-
-        // Update the user's coin balance
-        // setUserCoins(updatedUserCoins); // Uncomment when you have the actual endpoint
-
-        // Log the purchase
-        console.log(`Purchased ${selectedItem.name}`);
-    };
-
+              // Update the user's coin balance from the context
+              setUserCoinBalance(updatedUserCoins);
+    
+              // Close the confirmation modal
+              hideBuyConfirmation();
+    
+              // Log the purchase
+              console.log(`Purchased ${purchaseItem.name}`);
+    
+              // Add the purchased item to the user's inventory in the state
+              setUserInventory([...userInventory, purchaseItem]);
+            } else {
+              console.error('Failed to purchase item.');
+            }
+          }
+        } catch (error) {
+          console.error(error);
+        }
+      };
 
   return (
     <>
@@ -86,7 +87,6 @@ const ShopPreview = () => {
             </div>
           </>
         )}
-          {/* Render the ConfirmationModal component */}
           <ConfirmationModal
                 isVisible={isBuyConfirmationVisible}
                 item={purchaseItem}

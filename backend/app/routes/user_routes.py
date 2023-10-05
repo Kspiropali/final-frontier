@@ -3,15 +3,19 @@ from sqlalchemy import CursorResult
 
 from app.controllers.user_controller import *
 from app.controllers.statistics_controller import *
+from app.controllers.item_controller import *
 from app.middleware.authorization import requires_authorization_token
 from app.middleware.validate_json_params import validate_json_params
 from app.middleware.validate_path_params import validate_path_params
+from app.middleware.verify_recaptcha import verify_recaptcha
 from app.models.Session import Session
+from app.config.settings import DOMAIN
 
 user_bp = Blueprint('user', __name__)
 
 
 @user_bp.post('/register')
+# @verify_recaptcha()
 @validate_json_params({
     'username': {'type': 'stringWithMaxLength', 'maxLength': 50},
     'password': {'type': 'stringWithMaxLength', 'maxLength': 50},
@@ -57,8 +61,6 @@ def login():
         if token.startswith('error'):
             return jsonify({'error': token.split("DETAIL:")[1].strip().split("\n")[0]}), 400
 
-
-
         # send cookies
         resp = make_response(jsonify({'message': 'User logged in successfully'}), 200)
         resp.set_cookie('Authorization',
@@ -66,7 +68,7 @@ def login():
                         httponly=True,
                         samesite='Strict',  # Set to 'None' for cross-origin
                         secure=True,  # Set to True for HTTPS
-                        # domain='*',  # Common domain
+                        # domain=DOMAIN,  # Common domain
                         path='/')  # Path where the cookie is accessible
 
         return resp
@@ -78,7 +80,7 @@ def login():
 @requires_authorization_token()
 def logout(token):
     try:
-        print(token)
+
         result = logout_user(token)
 
         if result.startswith('error'):
@@ -91,8 +93,9 @@ def logout(token):
                         samesite='Lax',
                         secure=True,
                         path='/',
-                        max_age=0,
-                        domain='localhost')
+                        max_age=0
+                        # domain='localhost'
+                        )
 
         return resp
     except Exception as e:
@@ -150,7 +153,7 @@ def reset():
 def reset_password(param):
     try:
         result = reset_user_password(param, request.json.get('password'))
-        print(result)
+
         if not isinstance(result, CursorResult) and result.startswith('error'):
             return jsonify({'error': result.split("error: ")[1]}), 400
 
@@ -166,7 +169,7 @@ def update_basic_details(token):
         data = request.json
         username = Session.get_username(token)
         result = update_user_basic_details(username, data)
-        print(result)
+
         if result.startswith('error'):
             return jsonify({'error': result.split("error: ")[1]}), 400
 
@@ -192,7 +195,7 @@ def get_basic_details(token):
             "quote": result.quote,
             "summary": result.summary,
             "gender": result.gender,
-            "avatar": result.avatar
+            "avatar": result.avatar.tobytes().decode('utf-8')
         }
 
         return jsonify(profile), 200
@@ -205,11 +208,59 @@ def get_basic_details(token):
 def get_stats(token):
     try:
         username = Session.get_username(token)
-        print(username)
+
         stats = get_stats_by_user(username)
-        print(stats)
-        return jsonify(
-            {'statistics': [{'id': stat.task_id, 'feedback': stat.feedback, 'duration': stat.total_time}] for stat in
-             stats})
+
+        return jsonify([{
+            "task_id": stat.task_id,
+            "date": stat.created_at,
+            "feedback": stat.feedback
+            } for stat in stats])
+
     except:
         return "FAILED!", 400
+
+@user_bp.post('/statistics')
+def create_statistic():
+    try:
+        data = request.json
+        stat = create_stat(data)
+
+        if stat:
+            return "Stat Created!", 200
+        else:
+            return "FAILED!", 400
+    except:
+        return "FAILED!", 400
+
+
+
+@user_bp.post('/items')
+@requires_authorization_token()
+def get_owned_items(token):
+    try:
+        username = Session.get_username(token)
+        item_ids = get_items_by_user(username)
+
+        if item_ids and not item_ids[0]:
+            return jsonify({'items': []}), 200
+
+        items_details = get_items_by_arr(item_ids)
+        # keys in the item table
+        keys = ['id', 'name', 'type', 'description', 'price', 'image']
+        # return as parsed dict json
+        return jsonify({'items': [dict(zip(keys, item)) for item in items_details]}), 200
+    except Exception as e:
+        return {'error': str(e)}, 400
+
+
+@user_bp.post('/coins')
+@requires_authorization_token()
+def get_coins(token):
+    try:
+        username = Session.get_username(token)
+        coins = get_coins_by_user(username)
+
+        return jsonify({'coins': coins}), 200
+    except Exception as e:
+        return {'error': str(e)}, 400

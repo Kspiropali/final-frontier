@@ -90,9 +90,26 @@ class Session:
                     .params(token=token)
                 )
                 if result.rowcount == 1:
-                    print("TOKEN")
                     return result.fetchone()[0]
                 else:
                     return "error: Session not found"
+        except Exception as e:
+            return f"error: {str(e)}"
+
+    @staticmethod
+    def delete_all_sessions(username):
+        try:
+            with db.engine.connect() as con:
+                result = con.execute(
+                    text("DELETE FROM session WHERE username = :username")
+                    .params(username=username)
+                )
+
+                con.commit()
+
+                if result.rowcount >= 1:
+                    return "success"
+                else:
+                    return "error: Sessions not deleted"
         except Exception as e:
             return f"error: {str(e)}"

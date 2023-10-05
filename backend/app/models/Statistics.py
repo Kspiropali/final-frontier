@@ -15,24 +15,44 @@ class Statistic(db.Model):
         self.feedback = feedback
         self.total_time = total_time
 
-    def get_statistics_by_user(username):
-        print("MODEL")
-        query = Statistic.query.filter_by(username=username)
-        tasks = query.all()
-        return tasks
-    
     @staticmethod
-    def create(username, task_id, feedback, total_time):
+    def get_statistics_by_user(username):
         try:
             with db.engine.connect() as con:
                 result = con.execute(
-                    text("INSERT INTO statistics (username, task_id, feedback, total_time) VALUES (:username, :task_id, :feedback, :total_time)")
-                    .params(username=username, task_id=task_id, feedback=feedback, total_time=total_time)
+                    text("SELECT * FROM statistics WHERE username = :username")
+                    .params(username=username)
+                )
+
+                print(result.rowcount)
+
+                if result.rowcount != 0:
+                    return result.fetchall()
+                else:
+                    return "error: Session not found"
+        except Exception as e:
+            return f"error {str(e)}"
+    
+    @staticmethod
+    def create_statistic(data):
+        print(data)
+        task_id = data['task_id']
+        username = data['username']
+        feedback = data['feedback']
+        total_time = data['total_time']
+
+        try:
+            with db.engine.connect() as con:
+                result = con.execute(
+                    text("INSERT INTO statistics (task_id, username, feedback, total_time) VALUES (:task_id, :username, :feedback, :total_time)")
+                    .params(task_id=task_id, username=username, feedback=feedback, total_time=total_time)
                 )
 
                 con.commit()
 
                 if result.rowcount == 1:
-                    return "success"
+                    return result
+                else:
+                    return "error: Session not created"
         except Exception as e:
-            return f"error: {str(e)}"    
+            return f"error {str(e)}"

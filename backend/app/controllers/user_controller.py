@@ -10,7 +10,7 @@ from app.config import DOMAIN
 PASSWORD_REGEX = r'^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])(?!.*\s).{8,}$'
 
 
-def register_user(username, password, email):
+def register_user(username, password, email, is_oauth=False):
     # Hash password
     salt = bcrypt.gensalt()
     hashed_password = bcrypt.hashpw(password.encode("utf-8"), salt)
@@ -21,7 +21,8 @@ def register_user(username, password, email):
 
         activation_token = Email.create(username, False)
 
-        send_activation_email(email, DOMAIN + 'users/verify/' + activation_token)
+        if not is_oauth:
+            send_activation_email(email, DOMAIN + 'users/verify/' + activation_token)
 
         return result
     except Exception as e:
@@ -186,3 +187,12 @@ def get_tasks(token):
         result = User.initialise_tasks(user_object['user']['id'], allocated_tasks_json)
         return user_json
     return user_json
+
+def get_coins_by_user(username):
+    try:
+        user = User.find_by_username(username)
+        if user is None:
+            return "error: User not found"
+        return user.coins
+    except Exception as e:
+        return f"error: {str(e)}"

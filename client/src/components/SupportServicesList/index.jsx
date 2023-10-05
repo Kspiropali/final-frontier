@@ -1,26 +1,28 @@
 import React from 'react'
-
+import mindfullnessOMG from "../../assets/images/supportIcons/mindfullnessOMG.svg"
 const SupportServicesList = ({supportServices, serviceChoice}) => {
 
   return (
     <>
-    <div className='center-cont'>
-      <h3 className='icon-title yellow-text'>{serviceChoice[0] ? `${serviceChoice[0].type_name} services` : "select a service"}</h3>
+ 
+      <h3 className=''>{serviceChoice[0] ? `${serviceChoice[0].type_name} services` : "select a service"}</h3>
       <div className='service-options-container'>
         {!serviceChoice[0] ? "" : serviceChoice[0].service_list.map((service, index) => {
           return (
             <div className="service-item" key={index}>
-              <div className='service-img'>
-                <img src="" alt="" />
+              <div className='service-img-cont'>
+                <img className='service-img' src={mindfullnessOMG} alt="" />
               </div>
               <div className='service-text-area'>
-                <p className='white-text'><a href={service.url} target='_blank'>{service.title}</a></p>
+                <h4 className='support-service-titles'><a href={service.url} target='_blank' className='a-tag-unset'>{service.title}</a></h4>
+                <p className='service-description'>{service.description}</p>
               </div>
+              
             </div>
           )
         })} 
       </div>
-    </div>
+
     </>
   )
 }

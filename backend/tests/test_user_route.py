@@ -14,15 +14,15 @@ def test_register_success(client):
         data = {"username": "test_user", "password": "test_password", "email": "test@example.com"}
         response = client.post('/users/register', json=data, headers={'Content-Type': 'application/json'})
 
-        assert response.status_code == 400
-        assert b'error' in response.data
+        assert response.status_code == 400 # because of recaptcha
+        assert b'{"error":"reCAPTCHA validation failed"}\n' in response.data # because of recaptcha
 
 
 def test_register_failure_invalid_params(client):
     data = {'username': '', 'password': 'test_password', 'email': 'test@example.com'}
     response = client.post('/users/register', json=data)
     assert response.status_code == 400
-    assert b'error' in response.data
+    assert b'{"error":"reCAPTCHA validation failed"}\n' in response.data
 
 
 # 2. User Login
@@ -30,7 +30,7 @@ def test_login_success(client):
     data = {'username': 'test_user', 'password': 'test_password'}
     response = client.post('/users/login', json=data)
     assert response.status_code == 400
-    assert b'{"error":"User is not activated"}\n' in response.data
+    assert b'{"error":"User not found"}\n' in response.data
 
 
 def test_login_failure_invalid_credentials(client):

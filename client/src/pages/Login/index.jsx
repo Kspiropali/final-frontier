@@ -8,11 +8,13 @@ const Login = () => {
 
   const containerTitle = ["Return To Your WellSpace", "Create Your Own WellSpace", "Reset Password"]
 
-  const {displayMessage} = useAuth()
+  const {displayMessage, isLoggedIn} = useAuth()
 
   const [activePanel, setActivePanel] = useState('Login')
   const [preResetState, setPreResetState] = useState('')
 
+  const [activeBtn, setActiveBtn] = useState('');
+  
   const handlePanelToggle = (panelName) => {
     if (panelName == "Login") {
       setPreResetState(false)
@@ -20,8 +22,16 @@ const Login = () => {
     setActivePanel(panelName)
   }
 
+  // useEffect(() => {
+  //   fetch("/users/ping", {method: "POST"})
+  //     .then(response => response.text())
+  //     .then(result => console.log(result))
+  //     .catch(error => console.log('error', error));
+  // },[])
+
   return (
     <>
+    <div className="login-page">
     <h1 className='top-header yellow-text'>WellSpace</h1>
     {/* Container for the Login compents */}
     <div className='login-container'>
@@ -35,6 +45,7 @@ const Login = () => {
         {!preResetState && activePanel == "Login" ? <OAuthButtons/> : ''}
       </div>
       {displayMessage && <p className='white-text' id='result-message'>{displayMessage}</p>}
+    </div>
     </div>
     </>
   )

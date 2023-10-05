@@ -7,11 +7,12 @@ export { default as Buttons } from './Buttons'
 export { default as Stats } from './Stats'
 export { default as StatsModal } from './StatsModal'
 // about page components
-export { default as Founders } from './Founders'
+export { default as AboutCarousel } from './AboutCarousel'
 // support page components
 export {default as SupportServicesList} from './SupportServicesList'
 export {default as SupportCarousel} from './SupportCarousel'
 export {default as SupportItem} from './SupportItem'
+export {default as ServicesModal} from './ServicesModal'
 //login page components
 export {default as Loginform } from './LoginForm'
 export { default as RegistrationForm } from './RegistrationForm'
@@ -25,12 +26,12 @@ export { default as FilterItems } from './FilterItems'
 export { default as ShopBox } from './ShopBox'
 export { default as AvatarModal } from './AvatarModal'
 export { default as ShopPreview } from './ShopPreview'
-export { default as ToggleShop } from './ToggleShop'
 export { default as CoinBalance } from './CoinBalance'
 export { default as Timer } from './Timer'
 export { default as ShopItem } from './ShopItem'
 export { default as InventoryItem } from './InventoryItem'
 export { default as ConfirmationModal } from './ConfirmationModal'
+export { default as FeaturedItems } from './FeaturedItems'
 
 // homepage components
 export { default as CompletionBar } from './CompletionBar'

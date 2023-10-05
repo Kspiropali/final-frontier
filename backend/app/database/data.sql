@@ -38,6 +38,27 @@ VALUES ('task 7', 'task7 description', 70);
 
 -- ITEMS
 
+-- FEATURED
+INSERT INTO
+    item(name, type, description, price, image)
+VALUES ('Shaggy', 'featured', 'An avatar to unleash your inner creativity and quirkiness! Stand out from the crowd with this limited time avatar.', 30, 'https://api.dicebear.com/7.x/open-peeps/png?seed=Felix');
+
+INSERT INTO
+    item(name, type, description, price, image)
+VALUES ('Thumb', 'featured', 'Just a happy thumb really, nothing more!', 0, 'https://api.dicebear.com/7.x/thumbs/png?seed=Aneka');
+
+INSERT INTO
+    item(name, type, description, price, image)
+VALUES ('Milky Way', 'featured', 'Immerse yourself in the tranquil beauty of the Milky Way. Find solace in the vastness of the cosmos, making your habit-building journey truly cosmic.', 30, 'https://images.unsplash.com/photo-1689286927869-19783d353200?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1032&q=80');
+
+INSERT INTO
+    item(name, type, description, price, image)
+VALUES ('Orion Nebula', 'featured', 'Dive into the mesmerizing depths of the Orion Nebula. Lose yourself in the swirling clouds of colorful cosmic gas and dust, where new stars are born.', 30, 'https://images.unsplash.com/photo-1680967764054-97e008c5235b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1168&q=80');
+
+INSERT INTO
+    item(name, type, description, price, image)
+VALUES ('Shelly', 'featured', 'Meet Shelly, your pocket-sized dose of happiness! This adorable and lovable avatar is all about spreading joy and positivity.', 10, 'https://api.dicebear.com/7.x/open-peeps/png?seed=Aneka');
+
 -- AVATARS
 INSERT INTO
     item(name, type, description, price, image)
@@ -90,6 +111,27 @@ VALUES ('Simon', 'avatar', 'Retro Vibes: Simon Avatar - What a sophisticated you
 INSERT INTO
     item(name, type, description, price, image)
 VALUES ('Bigsmile', 'avatar', 'Meet the Big Smile Avatar! your ticket to spreading happiness in the digital world!', 20, 'https://api.dicebear.com/7.x/big-smile/png?seed=Aneka');
+
+-- CHARACTERS
+INSERT INTO
+    item(name, type, description, price, image)
+VALUES ('Jack', 'character', 'Meet Jack, your personal motivator! With his infectious enthusiasm and can-do attitude, he is here to keep you inspired on your journey to better habits.', 20, 'image.png');
+
+INSERT INTO
+    item(name, type, description, price, image)
+VALUES ('Holly', 'character', 'Holly brings a sense of peace and tranquility to your journey. She is your go-to character for finding inner calm and mindfulness.', 20, 'image.png');
+
+INSERT INTO
+    item(name, type, description, price, image)
+VALUES ('Bill', 'character', 'Bill is all about pushing boundaries and breaking through obstacles. Choose Bill if you are ready to blaze new trails in your habit-building adventure.', 20, 'image.png');
+
+INSERT INTO
+    item(name, type, description, price, image)
+VALUES ('Emma', 'character', 'Emma radiates positivity and optimism. She is your daily dose of sunshine, reminding you to stay upbeat and focus on the bright side.', 20, 'image.png');
+
+INSERT INTO
+    item(name, type, description, price, image)
+VALUES ('Nick', 'character', 'Nick embodies resilience and strength. He is your ally in building mental toughness and bouncing back from setbacks.', 20, 'image.png');
 
 -- BACKGROUNDS
 INSERT INTO

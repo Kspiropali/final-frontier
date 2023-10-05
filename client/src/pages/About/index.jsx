@@ -1,25 +1,56 @@
 import React from 'react'
 
-import { Founders, Footer } from '../../components'
+import { Footer, AboutCarousel } from '../../components'
 
 import "../../assets/css/about.css";
 
+import krisOptimised from "../../assets/images/krisOptimised.png"
+import raviaOptimised from "../../assets/images/raviaOptimised.png"
+import camilleOptimised from "../../assets/images/camilleOptimised.png"
+import samOptimised from "../../assets/images/samOptimised.png"
+import nicOptimised from "../../assets/images/nicOptimised.png"
+
 const About = () => {
 
-  const missionStatement = [
-    "Welcome to your new virtual wellness space at WellSpace. Our mission is to build a self-care app that tackles the issue of user drop-off and motivates our users to complete small wellness tasks each day, with the overall message that wellness doesn't have to be large efforts, but instead can be small managable intentions that are fulfilled daily.",
-
-    "Our app achieves this by providing a combination of set wellness tasks and mystery tasks for users to complete each day. As users complete their tasks, they are rewarded in 3 ways:\nA homepage that brightens with each task completed\nCoins that can be redeemed in the WellSpace shop to decorate your avater and WellSpace\nPhysical and mental wellness benefits",
-
-    "The combination of set and mystery tasks was done intentionally, so users can develop their core consistency through their set tasks, but also keep things fresh with mystery tasks that give them the opportunity to try other wellness activities they might not usually gravitate towards.", "We hope for our users to feel a sense of pride and accomplishment everytime they enter their WellSpace and see the new furnishings and personalisations, reflective of their consistent daily wellness habits."
+  const foundersList = [
+    {imgUrl: krisOptimised, altText: "Kristian Spiropali headshot", subText: "Kristian Spiropali"}, 
+    {imgUrl: raviaOptimised, altText: "Ravia Saini headshot", subText: "Ravia Saini"}, 
+    {imgUrl: camilleOptimised, altText: "Camille Francis headshot", subText: "Camille Francis"}, 
+    {imgUrl: samOptimised, altText: "Sam Merrick headshot", subText: "Sam Merrick"}, 
+    {imgUrl: nicOptimised, altText: "Nicolas Sanschagrin headshot", subText: "Nicolas Sanschagrin"}
   ]
 
-  return (
+    return (
     <>
     <h1 className='top-header'>About WellSpace</h1>
-    <h3 className='mission-subhead'>Our Mission</h3>
-    {missionStatement.map((paragraph, index) => <p key={index} className='about-para white-text'>{paragraph}</p>)}
-    <Founders/>
+    <div className='about-ourmission-container'>
+      <div className='about-ourmission-left-col'>
+        <h3 className='mission-subhead'>Our Mission</h3>
+        <AboutCarousel />
+      </div>
+      <div className='about-ourmission-right-col'>LOGO HERE</div>
+    </div>
+    <div className='about-demo-container'>
+      <div className='about-ourmission-left-col'>
+        VIDEO HERE
+      </div>
+        <div className='about-ourmission-right-col'>
+          <h3 className='mission-subhead'>A WellSpace Demonstration</h3>
+          <p className='mission-demo-text'>Take a look at our app demo for a glimpse of our app features demonstrated by a member of the WellSpace team.</p>
+          <p className='mission-demo-text'>Be sure to give the WellSpace app a try for yourself. <a href='/login-register'><strong>Simply register to get started</strong></a>.</p>
+        </div>
+    </div>
+    <div className='about-founders-container'>
+      <h3 className='mission-subhead'>Meet The Founders</h3>
+      <div className='about-founders-center'>
+        {foundersList.map((person, index) => {
+          return (<div className='founder-container' key={index}>
+            <img src={person.imgUrl} alt={person.altText} className='founder-img'/>
+            <p className='founder-subtext'>{person.subText}</p>
+          </div>)
+        })}
+      </div>
+    </div>
     <Footer/>
     </>
   )

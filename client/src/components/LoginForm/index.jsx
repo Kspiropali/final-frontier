@@ -3,7 +3,6 @@ import { useAuth } from '../../contexts/AuthContext'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
-
 const LoginForm = ({setPreResetState}) => {
 
   const navigate = useNavigate()
@@ -45,14 +44,17 @@ const LoginForm = ({setPreResetState}) => {
             const response = await axios.request(config)
 
             console.log(response)
-    
-            setDisplayMessage('Registration Successful. You can now login')
-            setUsername('');
-            setPassword('');
-            setTimeout(() => {
-              setDisplayMessage('')
-              navigate('/');
-            }, 2000);
+            if (response.status == 200){
+              setDisplayMessage('Login Successful')
+              setUsername('');
+              setPassword('');
+              setTimeout(() => {
+                setDisplayMessage('')
+                setIsLoggedIn(true)
+                navigate('/');
+              }, 2000);
+            }
+            
           }
           catch (err){
             setDisplayMessage('Invalid username or password')
@@ -96,10 +98,10 @@ const LoginForm = ({setPreResetState}) => {
             placeholder='password'
             className='input-field white-text password-field'/>
         </div>
+
         <input aria-label='submit button' role='submit' className='login-btn' type="submit" value="Login" />
     </form>
-    <a href="javascript:void(0)">
-    <p className='yellow-text' id='forgot-password' onClick={() => setPreResetState(true)}>forgot password?</p></a>
+    <p className='yellow-text has-pointer' id='forgot-password' onClick={() => setPreResetState(true)}>forgot password?</p>
     </>
   )
 }
