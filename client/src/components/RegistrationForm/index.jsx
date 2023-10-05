@@ -10,6 +10,7 @@ const RECAPTCHA_CLIENT_KEY = import.meta.env.VITE_API_RECAPTCHA_CLIENT_KEY
 
 const RegistrationForm = ({setActivePanel}) => {
   const recaptchaRef = useRef(null);
+
   const {confirmationPassword, setConfirmationPassword, confirmationEmail, setConfirmationEmail, email, setEmail, password, setPassword, username, setUsername, displayMessage, setDisplayMessage} = useAuth()
 
   const [regPasswordSatisfied, setRegPasswordSatisfied] = useState()
@@ -78,8 +79,8 @@ const RegistrationForm = ({setActivePanel}) => {
         const data = JSON.stringify({
           username: username,
           password: password,
-          email: email,
-          "g-recaptcha-response": await recaptchaRef.current.getValue(),
+          email: email
+          // "g-recaptcha-response": await recaptchaRef.current.getValue(),
         });
 
         let config = {
@@ -127,7 +128,7 @@ const RegistrationForm = ({setActivePanel}) => {
       }, 3000);
     }
 
-    recaptchaRef.current.reset();
+    // recaptchaRef.current.reset();
   }
   return (
     <>
@@ -145,7 +146,7 @@ const RegistrationForm = ({setActivePanel}) => {
           placeholder='username'
           className={`input-field`}/>
         <div className='requirements-container'>
-          <p className={``}>{usernameRequirements[0]}</p><img className='requirement-icons' 
+          <p className='reg-req-text'>{usernameRequirements[0]}</p><img className='requirement-icons' 
           src={username.length > 3 && regUsernameSatisfied ? check : close}
           alt={regUsernameSatisfied ? "green color check to represent valid username" : "red color cross to represent invalid username"}></img>
         </div>
@@ -170,10 +171,10 @@ const RegistrationForm = ({setActivePanel}) => {
           placeholder='confirm email'
           className='input-field'/>
           <div className='requirements-container'>
-            <p className={``}>{emailRequirements[0]}</p><img className='requirement-icons'
+            <p className='reg-req-text'>{emailRequirements[0]}</p><img className='requirement-icons'
             src={email.includes('@') ? check : close} 
             alt={email.includes('@') ? "green color check to represent a valid email" : "red color cross to represent an invalid email"}></img>
-            <p className={``}>{emailRequirements[1]}</p><img className='requirement-icons'
+            <p className='reg-req-text'>{emailRequirements[1]}</p><img className='requirement-icons'
             src={email.includes('@') && confirmationEmail == email ? check : close} 
             alt={email.includes('@') && confirmationEmail == email ? "green color check to represent matching emails" : "red color cross to represent mismatching emails"}></img>
           </div>
@@ -198,19 +199,19 @@ const RegistrationForm = ({setActivePanel}) => {
           placeholder='confirm password'
           className='input-field password-field'/>
           <div className='requirements-container'>
-            <p className={``}>{passwordRequirements[0]}</p><img className='requirement-icons' 
+            <p className='reg-req-text'>{passwordRequirements[0]}</p><img className='requirement-icons' 
             src={password.length > 6 ? check : close} 
             alt={password.length > 6 ? "green color check to represent valid password length" : "red color cross to represent invalid password length"}></img>
 
-            <p className={``}>{passwordRequirements[1]}</p><img className='requirement-icons' 
+            <p className='reg-req-text'>{passwordRequirements[1]}</p><img className='requirement-icons' 
             src={password.match(/(\d+)/) ? check : close} 
             alt={password.match(/(\d+)/) ? "green color check to represent a password containing a number" : "red color cross to represent a password not containing a number"}></img>
 
-            <p className={``}>{passwordRequirements[2]}</p><img className='requirement-icons' 
+            <p className='reg-req-text'>{passwordRequirements[2]}</p><img className='requirement-icons' 
             src={password.match(/[!-\/:-@[-`{-~]/) ? check : close} 
             alt={password.match(/[!-\/:-@[-`{-~]/) ? "green color check representing a password containing a special character" : "red color cross representing a password not containing a special character"}></img>
             
-            <p className={``}>{passwordRequirements[3]}</p><img className='requirement-icons' 
+            <p className='reg-req-text'>{passwordRequirements[3]}</p><img className='requirement-icons' 
             src={password.length > 6 && confirmationPassword == password ? check : close} 
             alt={password.length > 6 && confirmationPassword == password ? "green color check representing matching passwords" : "red color cross representing mismatching passwords"}></img>
           </div>

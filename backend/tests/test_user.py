@@ -17,7 +17,7 @@ def app():
 
 def test_create_user_with_constructor(app):
     user = User(0, 'test_email', 'test_username', 'test_password',
-                100, 'data:image', "date", [], [], True, True)
+                100, 'data:image', "date", [], [], True, True, 1, "asd")
     assert user.email == 'test_email'
 
 
@@ -98,5 +98,3 @@ def test_update_coins(app):
     new_coins = 100
     result = User.update_coins(user_id, new_coins)
     assert result.rowcount == 1
-
-

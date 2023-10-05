@@ -23,6 +23,8 @@ CREATE TABLE member (
   coins INTEGER NOT NULL DEFAULT 0,
   items INTEGER[] NOT NULL DEFAULT '{}',
   allocated_tasks INTEGER[] NOT NULL DEFAULT '{}',
+  streak INTEGER NOT NULL DEFAULT 0,
+  day_start TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   is_activated BOOLEAN NOT NULL DEFAULT FALSE
 );
 
@@ -50,14 +52,6 @@ CREATE TABLE email (
     expires_at TIMESTAMP NOT NULL DEFAULT NOW() + INTERVAL '10 minutes'
 );
 
-CREATE TABLE statistics (
-    username VARCHAR(255) REFERENCES member(username) NOT NULL,
-    task_id INTEGER REFERENCES task(id) NOT NULL,
-    feedback VARCHAR(255) DEFAULT NULL,
-    total_time INTEGER DEFAULT 0,
-    primary key (username, task_id) -- COMPOSITE KEY
-);
-
 CREATE TABLE member_detail (
     member_username VARCHAR(255) PRIMARY KEY REFERENCES member(username) NOT NULL,
     avatar BYTEA DEFAULT '{{DEFAULT_AVATAR}}',
@@ -70,4 +64,13 @@ CREATE TABLE member_detail (
     quote VARCHAR(255) DEFAULT NULL,
     summary VARCHAR(255) DEFAULT NULL,
     gender VARCHAR(255) DEFAULT NULL
+);
+
+CREATE TABLE statistics (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(255) REFERENCES member(username),
+    task_id INTEGER REFERENCES task(id),
+    feedback VARCHAR(255) DEFAULT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    total_time INTEGER DEFAULT 0
 );

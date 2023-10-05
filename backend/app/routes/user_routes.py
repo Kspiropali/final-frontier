@@ -61,14 +61,28 @@ def login():
         if token.startswith('error'):
             return jsonify({'error': token.split("DETAIL:")[1].strip().split("\n")[0]}), 400
 
+        # check for streak
+        # parse the {streak, display} from the tuple
+        data = get_or_update_streak(username)
+        print(data)
+        streak = data[0]
+        display = data[1]
+
         # send cookies
-        resp = make_response(jsonify({'message': 'User logged in successfully'}), 200)
+        resp = make_response(jsonify({'message': 'User logged in successfully',
+                                      'streak': streak}), 200)
+        if display:
+            # append to response json
+            resp.data = resp.data[:-2] + b', "banner": true}'
+        else:
+            # append to response json
+            resp.data = resp.data[:-2] + b', "banner": false}'
         resp.set_cookie('Authorization',
                         token,
                         httponly=True,
                         samesite='Strict',  # Set to 'None' for cross-origin
                         secure=True,  # Set to True for HTTPS
-                        # domain=DOMAIN,  # TODO: add domain here
+                        # domain=DOMAIN,  # Common domain
                         path='/')  # Path where the cookie is accessible
 
         return resp
@@ -93,8 +107,8 @@ def logout(token):
                         samesite='Lax',
                         secure=True,
                         path='/',
-                        max_age=0,
-                        #domain='' TODO: add domain later
+                        max_age=0
+                        # domain='localhost'
                         )
 
         return resp
@@ -211,13 +225,30 @@ def get_stats(token):
 
         stats = get_stats_by_user(username)
 
-        return jsonify(
-            {'statistics': [{'id': stat.task_id, 'feedback': stat.feedback, 'duration': stat.total_time}] for stat in
-             stats})
+        return jsonify([{
+            "task_id": stat.task_id,
+            "date": stat.created_at,
+            "feedback": stat.feedback
+        } for stat in stats])
+
     except:
         return "FAILED!", 400
 
 
+@user_bp.post('/statistics')
+def create_statistic():
+    try:
+        data = request.json
+        stat = create_stat(data)
+
+        if stat:
+            return "Stat Created!", 200
+        else:
+            return "FAILED!", 400
+    except:
+        return "FAILED!", 400
+
+import base64
 @user_bp.post('/items')
 @requires_authorization_token()
 def get_owned_items(token):
@@ -231,8 +262,17 @@ def get_owned_items(token):
         items_details = get_items_by_arr(item_ids)
         # keys in the item table
         keys = ['id', 'name', 'type', 'description', 'price', 'image']
+
+        # Convert base64-encoded image to regular string
+        serialized_items = []
+        for item in items_details:
+            image_data = item.image.tobytes().decode('utf-8')
+
+            serialized_item = dict(zip(keys, item[:-1] + (image_data,)))
+            serialized_items.append(serialized_item)
+
         # return as parsed dict json
-        return jsonify({'items': [dict(zip(keys, item)) for item in items_details]}), 200
+        return jsonify({'items': serialized_items}), 200
     except Exception as e:
         return {'error': str(e)}, 400
 

@@ -27,7 +27,7 @@ python_version = "3.11"
 
 [scripts]
 start = "python entrypoint.py"
-test = "pytest --cov-report term-missing --cov=."
+test = "python scripts/test.py"
 setup_db = "python scripts/setup_db.py"
 setup_email = "python scripts/setup_email.py"
 cleanup_db = "python scripts/cleanup_db.py"

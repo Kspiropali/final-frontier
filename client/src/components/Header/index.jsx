@@ -9,7 +9,9 @@ const Header = () => {
   const {isLoggedIn, setIsLoggedIn} = useAuth()
 
   const handleLogout = async () => {
+    console.log("entered logout")
     try {
+      console.log("entered try")
       const response = await fetch("/users/logout", {"method": "POST"})
 
       if(response.status == 200){
@@ -18,7 +20,8 @@ const Header = () => {
         window.location.reload()
       }
       else {
-        console.log("header: user not logged in")
+        console.log("logout function: not 200")
+        console.log("received", response.status)
       }
     } catch (err) {
       console.log("Error",err)

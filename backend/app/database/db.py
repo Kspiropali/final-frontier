@@ -68,27 +68,32 @@ def dummy_data():
         with open('app/database/data.sql', 'r') as f:
             data = f.read()
 
-        with open('app/database/data/character2.txt', 'r') as f:
-            character2 = f.read()
+        for i in range(2, 7):
+            character_file = f'app/database/data/character{i}.txt'
+            with open(character_file, 'r') as f:
+                character_content = f.read()
 
-        with open('app/database/data/character3.txt', 'r') as f:
-            character3 = f.read()
+            # Replace the placeholder in the data
+            placeholder = "{" + f'{{CHARACTER{i}}}' + "}"
+            data = data.replace(placeholder, character_content)
 
-        with open('app/database/data/character4.txt', 'r') as f:
-            character4 = f.read()
+        for i in range (1, 19):
+            item = f'app/database/data/item{i}.txt'
+            with open(item, 'r') as f:
+                item_content = f.read()
 
-        with open('app/database/data/character5.txt', 'r') as f:
-            character5 = f.read()
+            # Replace the placeholder in the data
+            placeholder = "{" + f'{{ITEM{i}}}' + "}"
+            data = data.replace(placeholder, item_content)
 
-        with open('app/database/data/character6.txt', 'r') as f:
-            character6 = f.read()
+        for i in range (1, 16):
+            background = f'app/database/data/background{i}.txt'
+            with open(background, 'r') as f:
+                background_content = f.read()
 
-        # replace strings
-        data = data.replace("{{CHARACTER2}}", character2)
-        data = data.replace("{{CHARACTER3}}", character3)
-        data = data.replace("{{CHARACTER4}}", character4)
-        data = data.replace("{{CHARACTER5}}", character5)
-        data = data.replace("{{CHARACTER6}}", character6)
+            # Replace the placeholder in the data
+            placeholder = "{" + f'{{BACKGROUND{i}}}' + "}"
+            data = data.replace(placeholder, background_content)
 
         # Execute the SQL script
         with db.engine.connect() as con:
