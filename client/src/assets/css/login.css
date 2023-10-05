@@ -60,10 +60,6 @@ button {
 }
 
 .input-area-container {
-    /* display: flex;
-    flex-direction: column; */
-    /* justify-content: center;
-    align-items: center; */
     text-align: center;
     width: auto;
     margin: 0px 6%;
@@ -92,14 +88,6 @@ input {
     /* font-size: 14px; */
     color: var(--pink);
 }
-
-/* .correct {
-    border: 2px solid rgb(70, 113, 51);
-}
-
-.no-match {
-    border: 2px solid rgb(50, 168, 222);
-} */
 
 .input-idv-container {
     margin-bottom: 1vh;
@@ -154,4 +142,53 @@ input {
 .requirement-icons {
     height: 1.5vh;
     margin: 0 1vh 0 .6vh;
+}
+
+.reg-req-text{
+    margin-bottom: .3vh;
+}
+
+@media screen and (max-width: 620px){
+    .login-container {
+        margin: auto;
+        /* display: flex; */
+        background-color: var(--lightPurple);
+        color: var(--darkBlueBG);
+        width: 94vw;
+        height: 65vh;
+        border-radius: 5px;
+        border: 3px solid var(--gray);
+    }
+    
+    #iac-Login {
+        text-align: center;
+        width: auto;
+        margin: 0px 6%;
+        height: 61.5%;
+        background-color: var(--lightPurple)
+    }
+
+    #iac-Register {
+        text-align: center;
+        width: auto;
+        margin: 0px 6%;
+        height: 68.5%;
+        background-color: var(--lightPurple)
+    }
+
+    #id-Login{
+        height: 56vh;
+    }
+
+    #id-Register{
+        height: 65.5vh;
+    }
+
+    #result-message {
+        margin-top: 0;
+    }
+
+    .OAuth-btn:nth-child(1){
+        margin-bottom: 1vh;
+    }
 }

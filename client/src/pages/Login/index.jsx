@@ -34,16 +34,17 @@ const Login = () => {
     <div className="login-page">
     <h1 className='top-header yellow-text'>WellSpace</h1>
     {/* Container for the Login compents */}
-    <div className='login-container'>
+    <div className='login-container' id={`id-${activePanel}`}>
       <div className='log-reg-btn-container'>
         <button className={`white-text log-reg-btn ${activePanel === "Login" ? 'active-log-btn': ''}`} id='login-btn' onClick={() => handlePanelToggle('Login')}>Login</button>
         <button className={`white-text log-reg-btn ${activePanel === "Register" ? 'active-log-btn': ''}`} id='register-btn' onClick={() => handlePanelToggle('Register')}>Register</button>
       </div>
       <h2 className='log-reg-title'>{activePanel == "Register" ? containerTitle[1]: !preResetState ? containerTitle[0]: containerTitle[2]}</h2>
-      <div className='input-area-container'>
+      <div className='input-area-container' id={`iac-${activePanel}`}>
         {activePanel == "Register" ? <RegistrationForm setActivePanel={setActivePanel}/> : !preResetState ? <Loginform setPreResetState={setPreResetState} /> : <PreResetPassword setPreResetState={setPreResetState} />}
         {!preResetState && activePanel == "Login" ? <OAuthButtons/> : ''}
       </div>
+      <p id='result-message'>hjjhhjhjhjjjjhjhjh</p>
       {displayMessage && <p className='white-text' id='result-message'>{displayMessage}</p>}
     </div>
     </div>

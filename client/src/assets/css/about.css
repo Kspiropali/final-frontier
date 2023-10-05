@@ -29,7 +29,6 @@
 
 .mission-carousel-strong-text{
     font-size: 2.7vw;
-
 }
 
 .mission-carousel-text,
@@ -81,4 +80,67 @@
 .founder-subtext{
     text-align: center;
     margin-top: .9vh;
+}
+
+@media screen and (max-width: 620px){
+    .about-ourmission-container, 
+    .about-demo-container{
+        height: 70vh;
+        margin: 2vh 2vw;
+        display: flex;
+        flex-direction: column-reverse;
+        padding: 2vh 2vw;
+        border: 1px solid black;
+    }
+
+    .about-ourmission-left-col{
+        width: 100%;
+        height: 60%;
+    }
+    
+    .about-ourmission-right-col {
+        width: 100%;
+        height: auto;
+    }
+
+    .about-mission-carousel{
+        text-align: center;
+        margin-top: 1.3vh;
+        height: 80%;
+    }
+
+    .mission-carousel-strong-text{
+        font-size: 4.2vw;
+    }
+
+    .mission-carousel-text,
+    .mission-demo-text{
+        width: 90%;
+        font-size: 3.6vw;
+    }
+
+    .about-founders-container{
+        height: 70vh;
+        margin: 4vh 2vw;
+        display: flex;
+        flex-direction: column;
+        padding: 2vh 2vw;
+        border: 1px solid black;
+    }
+
+    .about-founders-center{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .founder-container {
+        display: flex;
+        flex-direction: column;
+
+        align-items: center;
+        margin: 1.2vh 4vw;
+        height: auto;
+    }
 }
