@@ -1,5 +1,20 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto");
 
+.support-modal-styles{
+    animation: fadeInAnimation ease .7s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+     }
+}
+
 .page-description {
     text-align: center;
     justify-self: center;
@@ -36,8 +51,17 @@
     margin-bottom: 2vh;
     background-color: #fdd8d8;
     height: 4.7vh;
-    width: 41vh;
+    width: 22vw;
     border-radius: 20px;
+}
+.support-carousel-btn:hover{
+    background-color: #fdd8d8;
+
+    border: 2px solid #f9bcbc;
+}
+.support-carousel-btn:active{
+    background-color: #f9bcbc;
+    border: 2px solid #f1a8a8;
 }
 
 
@@ -128,3 +152,35 @@
     z-index: 1000;
 }
 
+@media screen and (max-width: 620px) {
+    .carousel-item {
+        width: 100%;
+    }
+
+    .carousel-comp-container{
+        padding: 0 5vw;
+    }
+
+    .support-icon-container {
+        display: flex;
+        justify-content:center;
+        align-items:flex-start;
+        width: 80vw;
+        height: 60vh;
+        aspect-ratio: 1/.7;
+        border-radius: 25px;
+    }
+
+    .support-icon{
+        width: 100%;
+    }
+
+    .support-modal-styles{
+        width: 90vw;
+        height: 70vh;
+    }
+
+    .support-carousel-btn{
+        width: 70vw;
+    }
+}

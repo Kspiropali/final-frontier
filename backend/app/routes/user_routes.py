@@ -211,11 +211,28 @@ def get_stats(token):
 
         stats = get_stats_by_user(username)
 
-        return jsonify(
-            {'statistics': [{'id': stat.task_id, 'feedback': stat.feedback, 'duration': stat.total_time}] for stat in
-             stats})
+        return jsonify([{
+            "task_id": stat.task_id,
+            "date": stat.created_at,
+            "feedback": stat.feedback
+            } for stat in stats])
+
     except:
         return "FAILED!", 400
+
+@user_bp.post('/statistics')
+def create_statistic():
+    try:
+        data = request.json
+        stat = create_stat(data)
+
+        if stat:
+            return "Stat Created!", 200
+        else:
+            return "FAILED!", 400
+    except:
+        return "FAILED!", 400
+
 
 
 @user_bp.post('/items')

@@ -58,8 +58,6 @@ const LoginForm = ({setPreResetState}) => {
           }
           catch (err){
             setDisplayMessage('Invalid username or password')
-            setUsername(''),
-            setPassword(''),
             setTimeout(() => {
               setDisplayMessage('')
             }, 3000);
