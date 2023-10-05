@@ -1,10 +1,14 @@
 import bcrypt
 import json
+
 from datetime import datetime, timedelta
+from flask import jsonify
+
 
 from app.models.Email import Email
 from app.models.Session import Session
 from app.models.User import User
+from app.models.Task import Task
 from app.middleware.mailer import send_activation_email, send_password_reset_email
 from app.config import DOMAIN
 
