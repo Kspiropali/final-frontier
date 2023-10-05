@@ -49,6 +49,7 @@
 .welcome-padlock{
     width: 50%;
     margin-top: 4.5vh;
+    opacity: .2;
 }
 
 .welcome-quad-cont:focus{

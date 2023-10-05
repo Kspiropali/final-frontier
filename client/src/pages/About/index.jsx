@@ -37,9 +37,10 @@ const About = () => {
         <img className='about-logo' src={logo} alt="WellSpace logo" />
       </div>
       <div className='about-ourmission-right-col'>
-        <h3 className='mission-subhead'>A WellSpace Demonstration</h3>
-        <p className='mission-demo-text'>Take a look at our app demo for a glimpse of our app features demonstrated by a member of the WellSpace team.</p>
-        <p className='mission-demo-text'>Be sure to give the WellSpace app a try for yourself. <a href='/login-register'><strong>Simply register to get started</strong></a>.</p>
+        <h3 className='mission-subhead' id='about-demo-subhead'>A WellSpace Demonstration</h3>
+        <p className='mission-demo-text'>Take a look at our app demo for a glimpse of our app features, demonstrated by a member of the WellSpace team.</p>
+        <p className='mission-demo-text'>Be sure to give the WellSpace app a try for yourself.</p>
+        <p className='mission-demo-text'><a href='/login-register'><strong>Simply register to get started</strong></a></p>
       </div>
     </div>
     <div className='about-founders-container'>
