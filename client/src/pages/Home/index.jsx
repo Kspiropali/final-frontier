@@ -8,7 +8,7 @@ import brown from '../../assets/images/homeicons/brown_leaf.gif';
 import c1 from '../../assets/images/homeicons/c1.png';
 import { useTaskContext } from '../../contexts/TaskContext';
 import { useAuth } from '../../contexts/AuthContext';
-import { HelpModal } from '../../components';
+import { MessageCarousel, HelpModal } from '../../components';
 
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
@@ -55,13 +55,28 @@ const Home = () => {
       width: '600px'
     }).then(() => {
     });
-};
+  };
+
+  const messages = [
+    'Welcome to our website!',
+    'You can do it keep going!',
+    'Need some help check out our support page!',
+    'You are doing great keep it up!',
+    'You are not alone!',
+    'You are strong!',
+    'You are amazing!',
+    'You are beautiful!',
+    'You are loved!',
+    'You are important!',
+  ];
 
   return (
     <>
         <div className="index-home">
           <button className="help-button" onClick={showModalHome}>Help</button>
-
+          <div className="message-carosuel">
+            <MessageCarousel messages={messages} interval={1000} />
+          </div>
           <CompletionBar />
           <img className="character" src={c1} alt="Character" />
           <BackgroundImage />

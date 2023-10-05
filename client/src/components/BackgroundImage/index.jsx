@@ -5,7 +5,7 @@ const BackgroundImage = () => {
   const progress = completionPercentage;
 
   const initialBlur = 100; 
-  const initialOpacity = 0.1;
+  const initialOpacity = 0.2;
 
   const maxBlur = 0;
   const minOpacity = 1;

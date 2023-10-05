@@ -11,8 +11,9 @@ nav {
 }
 
 .logo {
+  padding-top: 5px;
   margin-right: auto; 
-	margin-left: 20px;
+	margin-left: 30px;
   height: 55px;
   width: 300px;
 }
@@ -23,12 +24,13 @@ nav {
 	margin: 0;
 	margin-left: 20px;
 	margin-right: 10px;
-  font-weight: 50px;
+  font-weight: 800;
   font-size: 18px;
-  color: black;
+  color: var(--darkOrange);
 	font-family: "Inter", Helvetica;
 }
 
 .active {
-  color: var(--tealBlue);
+  color: var(--green);
+  font-weight: 800;
 }
