@@ -59,7 +59,7 @@ const Support = () => {
   }
 
   return (
-    <>
+    <div className='support-ova'>
     <h1 className='top-header' >Support</h1>
     <div className='carousel-comp-container'>
       <SupportCarousel currentSelection={currentSelection} supportServiceSchema={supportServiceSchema} supportServices={supportServices} setIsOpen={setIsOpen} isOpen={isOpen} />
@@ -69,7 +69,7 @@ const Support = () => {
     </ServicesModal>
     {/* {serviceChoice[0] ? <SupportServicesList supportServices={supportServices} serviceChoice={serviceChoice} /> : ""} */}
     
-    </>
+    </div>
   )
 }
 

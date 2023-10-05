@@ -1,5 +1,14 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto");
 
+.support-ova{
+    height: 100vh;
+    overflow-y: hidden;
+    background-image: url('/src/assets/images/testbg/background2.png');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
 .support-modal-styles{
     animation: fadeInAnimation ease .7s;
     animation-iteration-count: 1;
