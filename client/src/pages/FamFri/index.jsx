@@ -38,9 +38,9 @@ const FamFri = () => {
         <div className="task-wrapper">Family and friends time</div>
         <div className="boxT">
           <img
-            className="image"
+            className="image-task"
             alt="Image"
-            src="https://cdn.animaapp.com/projects/651165e23f4e55995d9af710/releases/6512cd5a23aefc58b04855f5/img/image-1@2x.png"
+            src="/src/assets/images/taskIcons/2.png"
           />
           <p className="content">
             One of the best ways one can relax and find out more about themselves and the world, is to connect and spend time with those who you love and appriciate. Take 30 mins to spend some quality time with loved ones.

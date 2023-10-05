@@ -7,13 +7,14 @@ import { ProfileProvider } from '../../contexts/ProfileContext';
 
 const Profile = () => {
   return (
-  <ProfileProvider>
-		<div className="indexP">
-      <ProfileInfo />
-      <Stats /> 
-      <Buttons />
-    </div>
-  </ProfileProvider>
+    <ProfileProvider>
+      <div className="indexP">
+        <p className="profile-title">My Profile</p>
+        <ProfileInfo />
+        <Stats /> 
+        <Buttons />
+      </div>
+    </ProfileProvider>
   )
 }
 
