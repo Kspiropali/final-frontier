@@ -20,20 +20,17 @@ const PreResetPassword = ({ setPreResetState }) => {
         });
 
         // ADD THE END POINT WHEN YOU GET IT
-        // let config = {
-        //   method: 'post',
-        //   maxBodyLength: Infinity,
-        //   url: 'http://127.0.0.1:3000/',
-        //   headers: {
-        //     'Content-Type': 'application/json'
-        //   },
-        //   data : data
-        // };
+        let config = {
+          method: 'post',
+          maxBodyLength: Infinity,
+          url: '/users/reset',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          data : data
+        };
 
         const response = await axios.request(config)
-
-        console.log(JSON.stringify(response.data))
-
 
         setDisplayMessage('A password reset link has been sent')
         setEmail(''),
@@ -52,6 +49,10 @@ const PreResetPassword = ({ setPreResetState }) => {
     }
     else {
       console.log("incomplete form!")
+      setDisplayMessage('No Email Provided')
+      setTimeout(() => {
+        setDisplayMessage('')
+      }, 3000);
     }
   }
 
@@ -62,14 +63,12 @@ const PreResetPassword = ({ setPreResetState }) => {
     onSubmit={handleSubmit}>
       <div className='input-idv-container'>
         <input
-        type="text"
+        type="email"
         id="email"
         onChange={handleEmail}
         value={email}
         placeholder='email'
-        required
         className='input-field'/>
-        <p>must contain @</p>
       </div>
       <input className='login-btn' type="submit" value="Send" />
     </form>

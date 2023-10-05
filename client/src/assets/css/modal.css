@@ -6,9 +6,15 @@
     animation: swal2-hide 0.2s;
   }
 
+.custom-modal .swal2-popup {
+    background-color: #fad3d4; 
+    border: 4px solid #b6702a; 
+  }
+  
 .modal-content {
     text-align: left;
-    background-color: #ffffff;
+    background-color: #8cbeaa;
+    border-radius: 10px;
     padding: 50px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     display: flex;
@@ -17,78 +23,50 @@
     font-family: "Inter", Helvetica;
   }
 
-.top-section {
-    display: flex;
-    align-items: center;
-    margin-bottom: 30px;
-    margin-left: -235px;
-  }
+.inventory-header {
+    color: #b6702a;
+    font-size: 24px;
+    width: 500px;
+    margin-top: -40px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #7e7e7e16;
 
-.avatar-image {
-    width: 100px;
-    height: 100px;
-    border-radius: 10%;
-    margin-right: 20px;
-    display: block;
-    border: 3px solid rgb(139, 106, 223); 
-    cursor: pointer;
-  }
-  
-.alias-username {
+}
+
+.inventory-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    border-top: black;
+    background-color: rgba(118, 118, 118, 0.218);
+}
+
+.inventory-item {
     display: flex;
     flex-direction: column;
-  }
-  
-.alias {
-    font-size: 24px;
-    margin: 0;
-    font-weight: bold;
-    color: rebeccapurple;
-  }
-  
-.username {
-    font-size: 18px;
-    margin: 5px 0;
-  }
-
-.about {
-    border-bottom: 1px solid #b4b4b4;
-    padding-bottom: 10px;
-    font-weight: bold;
-    margin-bottom: 20px;
-  }
-
-.user-info {
-    font-size: 16px;
-    margin: 5px 0;
-    margin-left: -18px;
-  }
-
-.user-info p {
-    margin-bottom: 20px;
-  }
-
-.goals {
-    border-bottom: 1px solid #b4b4b4;
-    padding-bottom: 10px;
-    font-weight: bold;
-    margin-bottom: 20px;
-  }
-  
-.coin-balance {
-    display: flex;
     align-items: center;
-    margin-top: 20px;
-    margin-bottom: -20px;
-  }
-  
-.coin-image {
-    width: 24px;
-    height: 24px;
-    margin-right: 8px;
-  }
-  
-.coin-info {
+    border-radius: 4px;
     font-size: 16px;
-    margin-left: 5px;
+    padding: 10px;
+    width: 110px;
+    height: 120px;
+    background-color: #fff; 
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.564);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    transform: scale(0.9);
+  }
+  
+.inventory-item:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    transform: scale(0.95);
+  }
+
+.inventory-image {
+    width: 90px;
+    height: 100px; 
+    object-fit: contain;
+    margin-top: -10px;
+    transform: scale(0.8);
   }

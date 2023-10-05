@@ -1,17 +1,18 @@
 import requests
 from flask import request, jsonify
+from app.config.settings import RECAPTCHA_SECRET_KEY
+from functools import wraps
 
-RECAPTCHA_SECRET_KEY = "YOUR_RECAPTCHA_SECRET_KEY"
 
+def verify_recaptcha():
+    def middleware(route_function):
+        @wraps(route_function)
+        def captcha_wrapper(*args, **kwargs):
+            recaptcha_response = request.json.get("g-recaptcha-response")
+            print(recaptcha_response)
+            if not recaptcha_response:
+                return jsonify({"error": "reCAPTCHA validation failed"}), 400
 
-def verify_recaptcha(next):
-    def captcha_wrapper(*args, **kwargs):
-        recaptcha_response = request.form.get("g-recaptcha-response")
-
-        if not recaptcha_response:
-            return jsonify({"error": "reCAPTCHA validation failed"}), 400
-
-        try:
             response = requests.post(
                 "https://www.google.com/recaptcha/api/siteverify",
                 data={
@@ -24,10 +25,10 @@ def verify_recaptcha(next):
             response_data = response.json()
 
             if response_data["success"]:
-                return next(*args, **kwargs)
+                return route_function(*args, **kwargs)
             else:
                 return jsonify({"error": "reCAPTCHA validation failed"}), 400
-        except Exception as e:
-            return jsonify({"error": "reCAPTCHA validation failed"}), 500
 
-    return captcha_wrapper
+        return captcha_wrapper
+
+    return middleware

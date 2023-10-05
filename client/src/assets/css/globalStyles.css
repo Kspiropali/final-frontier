@@ -1,20 +1,41 @@
 /* for all the styles we want across the app :) */
+
+/* Try not to change any margins, alignment or sizing on global elements without a go-ahead from everyone. */
 :root {
-    --offYellow: #A69C4D;
-    --darkBlueBG: linear-gradient(180deg,#080117,#190445,#1f0750);
-    --whiteText: #FFFFFF;
+    --tealBlue: #4dc7b0;
+    --darkBlueBG: #1c1d56;
+    --whiteText: #f4f7ff;
+    --lightPurple: #e5c7e3;
+    --diffPurple: #986595;
+    --gray: #757780;
+
+    --pink: #fad3d4;
+    --green: #8cbeaa;
+    --darkOrange: #b6702a;
+    --white: #fffcf5;
+    --lightOrange: #e6a157;
+    --offBlack: #110f0f;
+
 }
 
-.yellow-text, .top-header {
-    color: var(--offYellow);
+.yellow-text {
+    color: var(--green);
+    text-align: center;
 }
 
-body {
-    background: var(--darkBlueBG);
+.top-header {
+    color: var(--darkOrange);
+    text-align: center;
+    font-weight: 700;
+    font-size: 40px;
 }
 
 h2 {
-    color: var(--offYellow);
+    color: var(--lightPurple);
+}
+
+h3 {
+    color: var(--lightPurple);
 }
 
 .white-text {
@@ -25,5 +46,12 @@ h2 {
     margin: 3vh 0px 5vh;
     font-size: 38px;
     text-align: center;
+}
 
+.has-pointer{
+    cursor: pointer;
+}
+
+.a-tag-unset {
+    color: unset;
 }

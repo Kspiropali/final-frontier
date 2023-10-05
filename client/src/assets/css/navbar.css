@@ -1,6 +1,7 @@
 header {
-  background-color: #080117;
+  background-color: var(--white);
   display: flex;
+  max-height: 50px;
 }
 
 nav {
@@ -10,25 +11,26 @@ nav {
 }
 
 .logo {
+  padding-top: 5px;
   margin-right: auto; 
-	margin-left: 20px;
-  height: 50px;
-  width: 100px;
+	margin-left: 30px;
+  height: 55px;
+  width: 300px;
 }
 
-.nav-link {
+.navi-link {
   display: inline-block;
   padding: 10px 8px;
-  background-color: #080117;
 	margin: 0;
 	margin-left: 20px;
 	margin-right: 10px;
-  font-weight: 50px;
+  font-weight: 800;
   font-size: 18px;
-  color: #ffd700f0;
+  color: var(--darkOrange);
 	font-family: "Inter", Helvetica;
 }
 
 .active {
-  text-decoration: underline;
+  color: var(--green);
+  font-weight: 800;
 }

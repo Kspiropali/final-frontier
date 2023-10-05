@@ -1,11 +1,22 @@
-import React, { useState, useContext, createContext } from "react";
+import React, { useState, useContext, createContext, useEffect } from "react";
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
 
   //relies on cookies
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  async function handleAuth(){
+    const response = await fetch("/users/ping", {method: "POST"})
+    return response.ok
+    if(response.status == 200) {
+      console.log("sucess")
+      return true
+    } else {
+      console.log(response.status)
+      return false
+    }
+  }
+  const [isLoggedIn, setIsLoggedIn] = useState(() => handleAuth())
 
   //if we implement account confirmation emails
   const [isConfirmed, setIsConfirmed] = useState(false)

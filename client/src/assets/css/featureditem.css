@@ -1,0 +1,32 @@
+.featured-items-box {
+    padding: 20px;
+    background-color: #fad3d4;
+    border: 2.5px solid #b6702a;
+    border-radius: 7px;
+    width: 100%; 
+    margin-top: 80px;
+    position: relative; 
+    left: 80%; 
+    transform: translateX(-50%);
+  }
+
+.featured-category {
+    color: #b6702a;
+    padding: 10px;
+    margin: 0;
+    text-transform: capitalize;
+    font-size: 25px;
+}
+
+.featured-item-row {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    max-width: 100%; 
+  }
+
+@media (max-width: 768px) {
+    .featured-items-box {
+        width: 100%;
+    }
+}

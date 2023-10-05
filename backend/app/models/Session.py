@@ -2,22 +2,15 @@ import uuid
 
 from sqlalchemy import text
 
-from ..database.db import db
+from app.database.db import db
 
 
 class Session:
-    def __init__(self, id, username, token, created_at):
-        self.id = id
-        self.username = username
-        self.token = token
-        self.created_at = created_at
-
-    def __repr__(self):
-        # as json
-        return {"id": self.id, "user_id": self.user_id, "token": self.token, "expiry": self.expiry}
-
-    def __str__(self):
-        return f"<Session {self.id, self.user_id, self.token, self.expiry}>"
+    # def __init__(self, id, username, token, created_at):
+    #     self.id = id
+    #     self.username = username
+    #     self.token = token
+    #     self.created_at = created_at
 
     @staticmethod
     def create(username):
@@ -70,5 +63,53 @@ class Session:
                     return True
                 else:
                     return False
+        except Exception as e:
+            return f"error: {str(e)}"
+
+    @staticmethod
+    def get_username(token):
+        try:
+            with db.engine.connect() as con:
+                result = con.execute(
+                    text("SELECT username FROM session WHERE token = :token")
+                    .params(token=token)
+                )
+                if result.rowcount == 1:
+                    return result.fetchone()[0]
+                else:
+                    return "error: Session not found"
+        except Exception as e:
+            return f"error: {str(e)}"
+        
+    @staticmethod
+    def get_session(token):
+        try:
+            with db.engine.connect() as con:
+                result = con.execute(
+                    text("SELECT created_at FROM session WHERE token = :token")
+                    .params(token=token)
+                )
+                if result.rowcount == 1:
+                    return result.fetchone()[0]
+                else:
+                    return "error: Session not found"
+        except Exception as e:
+            return f"error: {str(e)}"
+
+    @staticmethod
+    def delete_all_sessions(username):
+        try:
+            with db.engine.connect() as con:
+                result = con.execute(
+                    text("DELETE FROM session WHERE username = :username")
+                    .params(username=username)
+                )
+
+                con.commit()
+
+                if result.rowcount >= 1:
+                    return "success"
+                else:
+                    return "error: Sessions not deleted"
         except Exception as e:
             return f"error: {str(e)}"

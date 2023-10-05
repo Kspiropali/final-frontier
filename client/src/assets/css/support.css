@@ -1,3 +1,28 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+
+.support-ova{
+    height: 100vh;
+    overflow-y: hidden;
+    background-image: url('/src/assets/images/testbg/background2.png');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.support-modal-styles{
+    animation: fadeInAnimation ease .7s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+     }
+}
 
 .page-description {
     text-align: center;
@@ -12,86 +37,159 @@
     margin-bottom: .5vh;
     font-weight: 600;
 }
+
+/* CAROUSEL */
+.support-icon{
+    height: 30vh;
+    width: 60vh;
+} 
+
+
 .support-icon-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #FBDB68;
-    border: 2.8px solid #A69C4D;
-    width: 120px;
-    aspect-ratio: 1/1;
+    width: 101.5vh;
+    aspect-ratio: 1/.7;
     border-radius: 25px;
-    margin: 1vh 2vh;
+    margin: auto;
+} 
+
+.support-carousel-btn{
+    margin-top: 1vh;
+    margin-bottom: 2vh;
+    background-color: #fdd8d8;
+    height: 4.7vh;
+    width: 22vw;
+    border-radius: 20px;
+}
+.support-carousel-btn:hover{
+    background-color: #fdd8d8;
+
+    border: 2px solid #f9bcbc;
+}
+.support-carousel-btn:active{
+    background-color: #f9bcbc;
+    border: 2px solid #f1a8a8;
 }
 
-.all-icons-container {
-    display: flex;
-    margin: 20px 6vh;
-    justify-content: center;
-}
 
-.support-icon {
-    width: 90px;
-}
 
-.icon-title {
-    text-align: center;
-    font-size: 23px;
-}
-
-.support-item-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    align-items: center;
-    margin: 0 10px;
-    width: 135px;
-}
+/* Services List Styles */
 
 .service-options-container {
-    background-color: #4F4792;
-    height: 28vh;
-    width: 70%;
+
+    height: 100%;
+    width: 100%;
     margin-top: 2vh;
     border: 2px solid black;
-    border-radius: 15px;
+    /* border-radius: 15px; */
     padding: 2.5%;
-}
-
-.service-options-container {
-    display: flex;
-    flex-direction: column;
+    overflow: scroll;
 }
 
 .service-item {
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     margin-bottom: 12px;
+    height: 25%;
+    background-color: #fdd8d8;
+    border-radius: 80px 0 0 80px;
 }
 
-.service-img {
-    width: 45px;
-    aspect-ratio: 1/1;
-    background-color: #aba5d7;
-    border-radius: 50%;
+.service-img-cont {
+    height: 100%;
+    /* aspect-ratio: 1/1; */
+    /* background-color: #aba5d7; */
+    border-radius: 50% 0 0 50%;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
+}
+.service-img{
+    
+    height: 7vh;
+    border-radius: 80px 0 0 80px;
 }
 
 .service-text-area {
     text-align: center;
     height: 35px;
     width: 100%;
-    background-color: #211C4A;
+    /* background-color: #f8f7ff; */
 
 }
 
-.center-cont {
+.service-description {
+    width: inherit;
+    font-size: 2.1vh;
+}
+
+.support-service-titles {
+    font-size: 2.6vh;
+    margin-bottom: .1vh;
+}
+/* !!!ADD MEDIA QUERIES!!! */
+
+/* MODAL STYLES */
+
+.support-modal-styles{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #e3c2c2;
+    padding: 4%;
+    z-index: 1000;
+    width: 50vw;
+    height: 70vh;
+    /* CHILD STYLING */
+    text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-a {
-    color: inherit;
-    font-size: inherit;
-    font-family: inherit;
+.support-overlay-styles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .7);
+    z-index: 1000;
+}
+
+@media screen and (max-width: 620px) {
+    .carousel-item {
+        width: 100%;
+    }
+
+    .carousel-comp-container{
+        padding: 0 5vw;
+    }
+
+    .support-icon-container {
+        display: flex;
+        justify-content:center;
+        align-items:flex-start;
+        width: 80vw;
+        height: 60vh;
+        aspect-ratio: 1/.7;
+        border-radius: 25px;
+    }
+
+    .support-icon{
+        width: 100%;
+    }
+
+    .support-modal-styles{
+        width: 90vw;
+        height: 70vh;
+    }
+
+    .support-carousel-btn{
+        width: 70vw;
+    }
 }

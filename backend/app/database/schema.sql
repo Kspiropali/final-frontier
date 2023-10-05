@@ -9,9 +9,10 @@ DROP TABLE IF EXISTS statistics CASCADE;
 CREATE TABLE item (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
+    type VARCHAR(255) NOT NULL,
     description VARCHAR(255) NOT NULL,
     price INTEGER NOT NULL,
-    image VARCHAR(255) NOT NULL
+    image BYTEA NOT NULL
 );
 
 CREATE TABLE member (
@@ -20,11 +21,10 @@ CREATE TABLE member (
   username VARCHAR(255) UNIQUE NOT NULL,
   password VARCHAR(255) NOT NULL,
   coins INTEGER NOT NULL DEFAULT 0,
-  avatar VARCHAR(255) NOT NULL DEFAULT 'https://www.kindpng.com/picc/m/421-4212275_transparent-default-avatar-png-avatar-img-png-download.png',
-  last_logged TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, -- probably not needed
   items INTEGER[] NOT NULL DEFAULT '{}',
-  ongoing_task jsonb NOT NULL DEFAULT '{}', -- will be in format {task_id: 1, start_time: TIMESTAMP}, TODO: endpoint for start time
   allocated_tasks INTEGER[] NOT NULL DEFAULT '{}',
+  streak INTEGER NOT NULL DEFAULT 0,
+  day_start TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   is_activated BOOLEAN NOT NULL DEFAULT FALSE
 );
 
@@ -32,7 +32,8 @@ CREATE TABLE task (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     description VARCHAR(255) NOT NULL,
-    duration INTEGER NOT NULL
+    duration INTEGER NOT NULL,
+    completed BOOLEAN DEFAULT FALSE
 );
 
 CREATE TABLE session (
@@ -52,7 +53,11 @@ CREATE TABLE email (
 );
 
 CREATE TABLE member_detail (
-    member_id INTEGER PRIMARY KEY REFERENCES member(id) NOT NULL,
+    member_username VARCHAR(255) PRIMARY KEY REFERENCES member(username) NOT NULL,
+    avatar BYTEA DEFAULT '{{DEFAULT_AVATAR}}',
+    character BYTEA DEFAULT '{{DEFAULT_CHARACTER}}',
+    background BYTEA DEFAULT '{{DEFAULT_BACKGROUND}}',
+    username VARCHAR(255) REFERENCES member(username),
     first_name VARCHAR(255) DEFAULT NULL,
     last_name VARCHAR(255) DEFAULT NULL,
     alias VARCHAR(255) DEFAULT NULL,
@@ -62,9 +67,10 @@ CREATE TABLE member_detail (
 );
 
 CREATE TABLE statistics (
-    member_id INTEGER REFERENCES member(id) NOT NULL,
-    task_id INTEGER REFERENCES task(id) NOT NULL,
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(255) REFERENCES member(username),
+    task_id INTEGER REFERENCES task(id),
     feedback VARCHAR(255) DEFAULT NULL,
-    total_time INTEGER DEFAULT 0,
-    primary key (member_id, task_id) -- COMPOSITE KEY
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    total_time INTEGER DEFAULT 0
 );

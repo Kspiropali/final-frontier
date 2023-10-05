@@ -1,23 +1,31 @@
-:root{
-    --lighter-purple: #4F4792;
-    --yellow-border: #FEEFBA; 
+.login-page {
+    height: 100vh;
+    overflow-y: hidden;
+    background-image: url('/src/assets/images/testbg/loginbg.png');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
 }
+
 .login-container {
     margin: auto;
     /* display: flex; */
-    background-color: #211C4A;
-    width: 60vh;
-    height: 60vh;
-    border: 2px solid #A69C4D;
+    background-color: var(--pink);
+    color: var(--offBlack);
+    width: 35vw;
+    height: 65vh;
+    border-radius: 5px;
+    border: 4px solid var(--darkOrange);
 }
 
 /* not working for some reason */
-.active-log-btn {
+/* .active-log-btn {
     border-bottom: 0px;
-}
+    background-color: var(--green);
+} */
 
 .log-reg-btn {
-    border-color: #A69C4D;
+    border-color: var(--darkOrange);
     border-style: solid;
     border-top: 0px;
     border-bottom: 0px;
@@ -25,11 +33,23 @@
     height: 6vh;
     width: 50%;
     font-size: 25px;
+    background-color: var(--green);
 }
+
+.log-reg-btn:hover {
+    background-color: var(--pink);
+}
+.log-reg-btn:focus {
+    background-color: var(--pink);
+}
+
 .log-reg-btn:nth-child(2) {
     border-right: 0px;
 }
 
+.log-reg-btn:active {
+    color: var(--pink);
+}
 
 button {
     background-color: inherit;
@@ -43,20 +63,15 @@ button {
 }
 
 .input-area-container {
-    /* display: flex;
-    flex-direction: column; */
-    /* justify-content: center;
-    align-items: center; */
     text-align: center;
     width: auto;
     margin: 0px 6%;
     height: 66%;
-    /* border: .5px solid #A69C4D; */
 }
 
 ::placeholder {
-    color: #feefba;
-    opacity: 0.4;
+    color: var(--offBlack);
+    opacity: 0.8;
 }
 
 input {
@@ -67,21 +82,11 @@ input {
     width: 100%;
     height: 4vh;
     text-align: center;
-    /* color: #FEEFBA; */
-    background-color: var(--lighter-purple);
-    border-radius: 0px;
-    border-color: unset;
-    /* font-size: 14px; */
-    color: #FFFFFF;
+    background-color: var(--white);
+    border-radius: 2px;
+    border-color: var(--offBlack);
+    color: var(--pink);
 }
-
-/* .correct {
-    border: 2px solid rgb(70, 113, 51);
-}
-
-.no-match {
-    border: 2px solid rgb(50, 168, 222);
-} */
 
 .input-idv-container {
     margin-bottom: 1vh;
@@ -90,12 +95,15 @@ input {
 
 .input-area-container p {
     margin-top: .1vh;
-    color: #FBDB68;
+    color: var(--darkOrange);
     font-size: .8rem;
 }
 
 #forgot-password, #return-to-login {
     text-decoration: underline;
+    /* display: inline-block;
+    margin-left: 50%;
+    transform: translate(-50%); */
 }
 
 #result-message {
@@ -109,10 +117,10 @@ input {
     align-items: center;
     margin: auto;
     margin-top: 1vh;
-    border: 1px solid var(--yellow-border);
-    background-color: var(--lighter-purple);
+    border: 1px solid var(--offBlack);
+    background-color: #dec8dd;
     height: 5vh;
-    width: 26vh;
+    width: 28vh;
     padding: 3px;
     border-radius: 14px;
 }
@@ -121,10 +129,6 @@ input {
     height: 87%;
     margin-right: 1vh;
 }
-
-/* .password-field {
-
-} */
 
 .requirements-container {
     margin-top: .5vh;
@@ -136,4 +140,49 @@ input {
 .requirement-icons {
     height: 1.5vh;
     margin: 0 1vh 0 .6vh;
+}
+
+.reg-req-text{
+    margin-bottom: .3vh;
+}
+
+@media screen and (max-width: 620px){
+    .login-container {
+        margin: auto;
+        /* display: flex; */
+        width: 94vw;
+        height: 65vh;
+        border-radius: 5px;
+        border: 3px solid var(--gray);
+    }
+    
+    #iac-Login {
+        text-align: center;
+        width: auto;
+        margin: 0px 6%;
+        height: 61.5%;
+    }
+
+    #iac-Register {
+        text-align: center;
+        width: auto;
+        margin: 0px 6%;
+        height: 68.5%;
+    }
+
+    #id-Login{
+        height: 56vh;
+    }
+
+    #id-Register{
+        height: 65.5vh;
+    }
+
+    #result-message {
+        margin-top: 0;
+    }
+
+    .OAuth-btn:nth-child(1){
+        margin-bottom: 1vh;
+    }
 }

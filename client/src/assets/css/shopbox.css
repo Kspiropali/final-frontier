@@ -2,25 +2,32 @@
 
 .box {
     padding: 20px;
-    background-color: #1d005c;
-    border-radius: 10px;
-    height: 75vh;
+    background-color: #fad3d4;
+    border: 2.5px solid #b6702a;
+    border-radius: 7px;
+    /* height: 100vh; */
     width: 400%;
-    margin-top: 140px;
-    margin-left: -152px;
+    margin-top: 350px;
+    margin-left: -670px;
     margin-right: -50px;
   }
 
 .shop-header {
     font-size: 32px;
-    margin-top: 20px;
-    margin-left: 28px;
+    margin-top: 10px;
+    margin-left: -670px;
+    margin-bottom: -10px;
     white-space: nowrap;
+    font-weight: 500;
   }
 
-  .preview-header {
-    font-size: 32px;
-    margin-top: 20px;
-    white-space: nowrap;
+  .item-row {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: flex-start; 
+  }
+  
+  .shop-item {
+    margin: 10px;
   }
 
