@@ -22,23 +22,25 @@ const About = () => {
 
     return (
     <>
+    <div className='about-container-full'>
     <h1 className='top-header'>About WellSpace</h1>
     <div className='about-ourmission-container'>
       <div className='about-ourmission-left-col'>
         <h3 className='mission-subhead'>Our Mission</h3>
         <AboutCarousel />
       </div>
-      <div className='about-ourmission-right-col' id="about-mission-right-col"><img className='about-logo' src={logo} alt="WellSpace logo" /></div>
+      {/* <div className='about-ourmission-right-col'>LOGO HERE</div> */}
+    {/*<div className='about-ourmission-right-col' id="about-mission-right-col"><img className='about-logo' src={logo} alt="WellSpace logo" /></div> */}
     </div>
     <div className='about-demo-container'>
       <div className='about-ourmission-left-col' id='about-demo-left-col'>
         <img className='about-logo' src={logo} alt="WellSpace logo" />
       </div>
-        <div className='about-ourmission-right-col' id='about-demo-right-col'>
-          <h3 className='mission-subhead'>A WellSpace Demonstration</h3>
-          <p className='mission-demo-text'>Take a look at our app demo for a glimpse of our app features demonstrated by a member of the WellSpace team.</p>
-          <p className='mission-demo-text'>Be sure to give the WellSpace app a try for yourself. <a href='/login-register'><strong>Simply register to get started</strong></a>.</p>
-        </div>
+      <div className='about-ourmission-right-col'>
+        <h3 className='mission-subhead'>A WellSpace Demonstration</h3>
+        <p className='mission-demo-text'>Take a look at our app demo for a glimpse of our app features demonstrated by a member of the WellSpace team.</p>
+        <p className='mission-demo-text'>Be sure to give the WellSpace app a try for yourself. <a href='/login-register'><strong>Simply register to get started</strong></a>.</p>
+      </div>
     </div>
     <div className='about-founders-container'>
       <h3 className='mission-subhead'>Meet The Founders</h3>
@@ -52,6 +54,7 @@ const About = () => {
       </div>
     </div>
     <Footer/>
+    </div>
     </>
   )
 }

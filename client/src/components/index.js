@@ -36,3 +36,5 @@ export { default as FeaturedItems } from './FeaturedItems'
 // homepage components
 export { default as CompletionBar } from './CompletionBar'
 export { default as BackgroundImage } from './BackgroundImage'
+export { default as HelpModal } from './HelpModal'
+export { default as MessageCarousel } from './MessageCarousel'

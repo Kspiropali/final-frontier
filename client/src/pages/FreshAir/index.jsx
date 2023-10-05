@@ -43,7 +43,7 @@ const FreshAir = () => {
             src="/src/assets/images/taskIcons/3.png"
           />
           <p className="content">
-            Physcial wellbeing is equally as important as mental wellbeing. Be sure to get up have a stretch and take a step outside for 10 minutes. Breathing in fresh air can provide the brain with fresh oxygen and in turn will boost your productivity.
+            Physcial wellbeing is equally as important as mental wellbeing. Be sure to get up have a stretch and take a step outside for 15 minutes. Breathing in fresh air can provide the brain with fresh oxygen and in turn will boost your productivity.
           </p>
           <div className="button-start">
             {taskCompleted && showMessage && (
@@ -56,7 +56,7 @@ const FreshAir = () => {
             )}
             {timerStarted && (
               <div className="timer-wrapper">
-                <Timer initialTime={10} onFinish={handleTimerFinish} />
+                <Timer initialTime={5} onFinish={handleTimerFinish} />
               </div>
             )}
           </div>

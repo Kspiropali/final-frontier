@@ -45,7 +45,7 @@ const Mystery = () => {
           <p className="content">
             Time for some self-care! Spend 10 minutes doing something for yourself. This can be doing a skincare routine or even eating a snack! It&apos;s all about what makes you happy and feel good.
           </p>
-          <p className="task-content"> Today&apos;s mystery task is: Self-refelection. Take a piece of paper and write down about your week. How did it go? What did you like and not like? Take 30 minutes for self-reflection. </p>
+          <p className="task-content"> Today&apos;s mystery task is: Self-refelection. Take a piece of paper and write down about your week. How did it go? What did you like and not like? Take 10 minutes for self-reflection. </p>
           <div className="button-start">
             {taskCompleted && showMessage && (
               <div className="message-done">
@@ -57,7 +57,7 @@ const Mystery = () => {
             )}
             {timerStarted && (
               <div className="timer-wrapper">
-                <Timer initialTime={10} onFinish={handleTimerFinish} />
+                <Timer initialTime={600} onFinish={handleTimerFinish} />
               </div>
             )}
           </div>

@@ -56,7 +56,7 @@ const SelfCare = () => {
             )}
             {timerStarted && (
               <div className="timer-wrapper">
-                <Timer initialTime={10} onFinish={handleTimerFinish} />
+                <Timer initialTime={5} onFinish={handleTimerFinish} />
               </div>
             )}
           </div>
