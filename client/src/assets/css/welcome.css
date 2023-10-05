@@ -12,7 +12,9 @@
 	background-repeat: no-repeat;
 	background-position: center;
 }
-
+#welcome-header{
+    color: var(--offBlack);
+}
 .welcome-qp-btn{
     animation: fadeInAnimation ease 1s;
 }

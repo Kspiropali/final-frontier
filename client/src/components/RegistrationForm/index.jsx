@@ -86,7 +86,7 @@ const RegistrationForm = ({setActivePanel}) => {
         let config = {
           method: 'post',
           maxBodyLength: Infinity,
-          url: 'http://127.0.0.1:3000/users/register',
+          url: '/users/register',
           headers: {
             'Content-Type': 'application/json'
           },

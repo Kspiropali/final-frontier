@@ -34,7 +34,7 @@ const LoginForm = ({setPreResetState}) => {
             let config = {
               method: 'post',
               maxBodyLength: Infinity,
-              url: 'http://localhost:3000/users/login',
+              url: '/users/login',
               headers: {
                 'Content-Type': 'application/json'
               },

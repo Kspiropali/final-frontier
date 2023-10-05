@@ -23,7 +23,7 @@ const PreResetPassword = ({ setPreResetState }) => {
         let config = {
           method: 'post',
           maxBodyLength: Infinity,
-          url: 'http://127.0.0.1:3000/users/reset',
+          url: '/users/reset',
           headers: {
             'Content-Type': 'application/json'
           },
