@@ -12,6 +12,11 @@ export const ShopProvider = ({ children }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [items, setItems] = useState([]);
   const [userCoinBalance, setUserCoinBalance] = useState(0);
+  const [avatarImage, setAvatarImage] = useState(null);
+  const [isBuyConfirmationVisible, setBuyConfirmationVisible] = useState(false);
+  const [purchaseItem, setPurchaseItem] = useState(null);
+  const [userInventory, setUserInventory] = useState([]);
+  const [purchasedItemIds, setPurchasedItemIds] = useState([]);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -50,7 +55,17 @@ export const ShopProvider = ({ children }) => {
     items,
     setItems,
     userCoinBalance,
-    setUserCoinBalance
+    setUserCoinBalance,
+    avatarImage,
+    setAvatarImage,
+    isBuyConfirmationVisible,
+    setBuyConfirmationVisible,
+    purchaseItem,
+    setPurchaseItem,
+    userInventory,
+    setUserInventory,
+    purchasedItemIds,
+    setPurchasedItemIds
   };
 
   return (

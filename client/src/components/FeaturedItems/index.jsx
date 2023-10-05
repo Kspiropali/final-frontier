@@ -35,7 +35,7 @@ const FeaturedItems = () => {
 
       return (
         <div className="featured-items-box">
-            <h2 className="featured-category">Featured Items</h2>
+            <h2 className="featured-category">Featured</h2>
             <div className="featured-item-row">
             {featuredItems.map((item) => (
                 <ShopItem

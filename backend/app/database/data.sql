@@ -41,7 +41,7 @@ VALUES ('task 7', 'task7 description', 70);
 -- FEATURED
 INSERT INTO
     item(name, type, description, price, image)
-VALUES ('Shaggy', 'featured', 'An avatar to unleash your inner creativity and quirkiness! Stand out from the crowd with this limited time avatar.', 30, '{{ITEM1}}');
+VALUES ('Shaggy', 'featured', 'An avatar to unleash your inner creativity and quirkiness! Stand out from the crowd with this limited time avatar.', 0, '{{ITEM1}}');
 
 INSERT INTO
     item(name, type, description, price, image)
@@ -53,7 +53,7 @@ VALUES ('Milky Way', 'featured', 'Immerse yourself in the tranquil beauty of the
 
 INSERT INTO
     item(name, type, description, price, image)
-VALUES ('Orion Nebula', 'featured', 'Dive into the mesmerizing depths of the Orion Nebula. Lose yourself in the swirling clouds of colorful cosmic gas and dust, where new stars are born.', 30, '{{ITEM4}}');
+VALUES ('Orion Nebula', 'featured', 'Dive into the mesmerizing depths of the Orion Nebula. Lose yourself in the swirling clouds of colorful cosmic gas and dust, where new stars are born.', 0, '{{ITEM4}}');
 
 INSERT INTO
     item(name, type, description, price, image)
@@ -62,11 +62,11 @@ VALUES ('Shelly', 'featured', 'Meet Shelly, your pocket-sized dose of happiness!
 -- AVATARS
 INSERT INTO
     item(name, type, description, price, image)
-VALUES ('Alex', 'avatar', 'Meet Adventurous Alex - The intrepid wanderer of the digital frontier! Alex is your passport to exciting online adventures, ready to conquer uncharted territories alongside you.', 20, '{{ITEM6}}');
+VALUES ('Alex', 'avatar', 'Meet Adventurous Alex - The intrepid wanderer of the digital frontier! Alex is your passport to exciting online adventures, ready to conquer uncharted territories alongside you.', 10, '{{ITEM6}}');
 
 INSERT INTO
     item(name, type, description, price, image)
-VALUES ('Ellie', 'avatar', 'Embrace Explorer Ellie - Your fearless guide to epic digital quests! With Ellie as your adventuring avatar, embark on thrilling journeys and conquer new realms in style.', 20, '{{ITEM7}}');
+VALUES ('Ellie', 'avatar', 'Embrace Explorer Ellie - Your fearless guide to epic digital quests! With Ellie as your adventuring avatar, embark on thrilling journeys and conquer new realms in style.', 10, '{{ITEM7}}');
 
 INSERT INTO
     item(name, type, description, price, image)
@@ -78,35 +78,35 @@ VALUES ('Notionista Nora', 'avatar', 'Notionista Nora, Your organizational guru 
 
 INSERT INTO
     item(name, type, description, price, image)
-VALUES ('Whacky', 'avatar', 'The goofiest bot in town! Wacky is your trusty AI companion, here to add a touch of randomness and hilarity to your gaming quests.', 20, '{{ITEM10}}');
+VALUES ('Whacky', 'avatar', 'The goofiest bot in town! Wacky is your trusty AI companion, here to add a touch of randomness and hilarity to your gaming quests.', 5, '{{ITEM10}}');
 
 INSERT INTO
     item(name, type, description, price, image)
-VALUES ('Rusty', 'avatar', 'Your quirky sidekick for digital adventures! With a heart of code and a dash of whimsy, Rusty will keep you entertained and protected in the gaming world.', 20, '{{ITEM11}}');
+VALUES ('Rusty', 'avatar', 'Your quirky sidekick for digital adventures! With a heart of code and a dash of whimsy, Rusty will keep you entertained and protected in the gaming world.', 10, '{{ITEM11}}');
 
 INSERT INTO
     item(name, type, description, price, image)
-VALUES ('Ollie', 'avatar', 'Say hello to Ollie - The Classic Avatar! Elevate your online presence with this timeless character. Embrace Ollie and bring a dash of fun and style to your digital adventures.', 20, '{{ITEM12}}');
+VALUES ('Ollie', 'avatar', 'Say hello to Ollie - The Classic Avatar! Elevate your online presence with this timeless character. Embrace Ollie and bring a dash of fun and style to your digital adventures.', 5, '{{ITEM12}}');
 
 INSERT INTO
     item(name, type, description, price, image)
-VALUES ('Rosie', 'avatar', 'Elevate your online presence with this vibrant character. Stand out in style with Rosie and add a pop of color to your digital world.', 20, '{{ITEM13}}');
+VALUES ('Rosie', 'avatar', 'Elevate your online presence with this vibrant character. Stand out in style with Rosie and add a pop of color to your digital world.', 0, '{{ITEM13}}');
 
 INSERT INTO
     item(name, type, description, price, image)
-VALUES ('Luna', 'avatar', 'Introducing Luna the Luminous Avatar! Elevate your online presence with this enchanting character. Stand out in style with Luna and add a touch of magic to your digital world.', 20, '{{ITEM14}}');
+VALUES ('Luna', 'avatar', 'Introducing Luna the Luminous Avatar! Elevate your online presence with this enchanting character. Stand out in style with Luna and add a touch of magic to your digital world.', 15, '{{ITEM14}}');
 
 INSERT INTO
     item(name, type, description, price, image)
-VALUES ('Becky', 'avatar', 'Meet Becky - Your pixelated companion in the digital world!', 20, '{{ITEM15}}');
+VALUES ('Becky', 'avatar', 'Meet Becky - Your pixelated companion in the digital world!', 10, '{{ITEM15}}');
 
 INSERT INTO
     item(name, type, description, price, image)
-VALUES ('Classic', 'avatar', 'Classic Charm: Pixel Art Avatar - Timeless style for your online presence!', 20, '{{ITEM16}}');
+VALUES ('Classic', 'avatar', 'Classic Charm: Pixel Art Avatar - Timeless style for your online presence!', 40, '{{ITEM16}}');
 
 INSERT INTO
     item(name, type, description, price, image)
-VALUES ('Simon', 'avatar', 'Retro Vibes: Simon Avatar - What a sophisticated young man, get your dose of nostalgia!', 20, '{{ITEM17}}');
+VALUES ('Simon', 'avatar', 'Retro Vibes: Simon Avatar - What a sophisticated young man, get your dose of nostalgia!', 50, '{{ITEM17}}');
 
 INSERT INTO
     item(name, type, description, price, image)
@@ -115,23 +115,23 @@ VALUES ('Bigsmile', 'avatar', 'Meet the Big Smile Avatar! your ticket to spreadi
 -- CHARACTERS
 INSERT INTO
     item(name, type, description, price, image)
-VALUES ('Jack', 'character', 'Meet Jack, your personal motivator! With his infectious enthusiasm and can-do attitude, he is here to keep you inspired on your journey to better habits.', 20, '{{CHARACTER2}}');
+VALUES ('Jack', 'character', 'Meet Jack, your personal motivator! With his infectious enthusiasm and can-do attitude, he is here to keep you inspired on your journey to better habits.', 50, '{{CHARACTER2}}');
 
 INSERT INTO
     item(name, type, description, price, image)
-VALUES ('Holly', 'character', 'Holly brings a sense of peace and tranquility to your journey. She is your go-to character for finding inner calm and mindfulness.', 20, '{{CHARACTER3}}');
+VALUES ('Holly', 'character', 'Holly brings a sense of peace and tranquility to your journey. She is your go-to character for finding inner calm and mindfulness.', 50, '{{CHARACTER3}}');
 
 INSERT INTO
     item(name, type, description, price, image)
-VALUES ('Bill', 'character', 'Bill is all about pushing boundaries and breaking through obstacles. Choose Bill if you are ready to blaze new trails in your habit-building adventure.', 20, '{{CHARACTER4}}');
+VALUES ('Bill', 'character', 'Bill is all about pushing boundaries and breaking through obstacles. Choose Bill if you are ready to blaze new trails in your habit-building adventure.', 70, '{{CHARACTER4}}');
 
 INSERT INTO
     item(name, type, description, price, image)
-VALUES ('Emma', 'character', 'Emma radiates positivity and optimism. She is your daily dose of sunshine, reminding you to stay upbeat and focus on the bright side.', 20, '{{CHARACTER5}}');
+VALUES ('Emma', 'character', 'Emma radiates positivity and optimism. She is your daily dose of sunshine, reminding you to stay upbeat and focus on the bright side.', 0, '{{CHARACTER5}}');
 
 INSERT INTO
     item(name, type, description, price, image)
-VALUES ('Nick', 'character', 'Nick embodies resilience and strength. He is your ally in building mental toughness and bouncing back from setbacks.', 20, '{{CHARACTER6}}');
+VALUES ('Nick', 'character', 'Nick embodies resilience and strength. He is your ally in building mental toughness and bouncing back from setbacks.', 40, '{{CHARACTER6}}');
 
 -- BACKGROUNDS
 INSERT INTO
@@ -168,7 +168,7 @@ VALUES ('Natures Harmony', 'background', 'Immerse yourself in the harmonious bea
 
 INSERT INTO
     item(name, type, description, price, image)
-VALUES ('Starry Dreamscape', 'background', 'Under the Starry Dreamscape, your habits become stepping stones to reach for the stars in your journey. Each task takes you closer to your dreams.', 20, '{{BACKGROUND9}}');
+VALUES ('Starry Dreamscape', 'background', 'Under the Starry Dreamscape, your habits become stepping stones to reach for the stars in your journey. Each task takes you closer to your dreams.', 0, '{{BACKGROUND9}}');
 
 INSERT INTO
     item(name, type, description, price, image)
@@ -184,7 +184,7 @@ VALUES ('Leaf Cascade', 'background',  'Embrace the tranquil beauty of Leaf Casc
 
 INSERT INTO
     item(name, type, description, price, image)
-VALUES ('Bamboo Bliss', 'background', 'Find serenity within Bamboo Bliss while cultivating habits. The steadfastness of bamboo mirrors your dedication to self-improvement.', 20, '{{BACKGROUND13}}');
+VALUES ('Bamboo Bliss', 'background', 'Find serenity within Bamboo Bliss while cultivating habits. The steadfastness of bamboo mirrors your dedication to self-improvement.', 0, '{{BACKGROUND13}}');
 
 INSERT INTO
     item(name, type, description, price, image)
