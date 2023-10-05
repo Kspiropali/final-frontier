@@ -1,7 +1,8 @@
 .prev-box {
      padding: 20px;
      background-color: #fad3d4;
-     border: 4px solid #b6702a;
+     border: 2.5px solid #b6702a;
+     border-radius: 7px;
      height: 120vh;
      width: 150%;
      margin-top: 80px;
