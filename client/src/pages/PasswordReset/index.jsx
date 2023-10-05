@@ -67,10 +67,10 @@ const PasswordReset = () => {
   
           setDisplayMessage('Password Changed Successfully')
           setPassword(''),
-          setConfirmationPassword(''),
-          setTimeout(() => {
-            setDisplayMessage('')
-          }, 3000);
+          setConfirmationPassword('')
+          // setTimeout(() => {
+          //   setDisplayMessage('')
+          // }, 3000);
         }
         catch (err){
           console.log(err)
@@ -146,7 +146,7 @@ const PasswordReset = () => {
           </div>
           {displayMessage && <p className='white-text' id='result-message'>{displayMessage}</p>}
       </div>
-      {displayMessage == "Password Changed Successfully" && <p className='white-text' id='exit-reset-page' onClick={() => returnToLogin}>Return to Login Page</p>}
+      <h2 className='' id='exit-reset-page' onClick={() => navigate("/login-register")}>Return to Login Page</h2>
       </>
   )
 }

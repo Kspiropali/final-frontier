@@ -8,7 +8,7 @@
     /* display: flex; */
     background-color: var(--lightPurple);
     color: var(--darkBlueBG);
-    width: 60vw;
+    width: 35vw;
     height: 65vh;
     border-radius: 5px;
     border: 3px solid var(--gray);
@@ -94,6 +94,9 @@ input {
 
 #forgot-password, #return-to-login {
     text-decoration: underline;
+    /* display: inline-block;
+    margin-left: 50%;
+    transform: translate(-50%); */
 }
 
 #result-message {
@@ -119,10 +122,6 @@ input {
     height: 87%;
     margin-right: 1vh;
 }
-
-/* .password-field {
-
-} */
 
 .requirements-container {
     margin-top: .5vh;
