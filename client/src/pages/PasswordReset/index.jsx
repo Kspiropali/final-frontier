@@ -146,7 +146,10 @@ const PasswordReset = () => {
           </div>
           {displayMessage && <p className='white-text' id='result-message'>{displayMessage}</p>}
       </div>
-      <h2 className='' id='exit-reset-page' onClick={() => navigate("/login-register")}>Return to Login Page</h2>
+      <h2 className='' id='exit-reset-page' onClick={() => {
+        setDisplayMessage('')
+        navigate("/login-register")
+        }}>Return to Login Page</h2>
       </>
   )
 }
