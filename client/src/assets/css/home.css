@@ -158,3 +158,9 @@ body {
   transition: ease-in 0.5s;
   padding-bottom: 15px;
 }
+
+.coins {
+  position: absolute;
+  left: 90%;
+  top: 9%;
+}
