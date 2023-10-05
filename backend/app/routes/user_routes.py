@@ -4,6 +4,7 @@ from sqlalchemy import CursorResult
 from app.controllers.user_controller import *
 from app.controllers.statistics_controller import *
 from app.controllers.item_controller import *
+from app.controllers.task_controller import *
 from app.middleware.authorization import requires_authorization_token
 from app.middleware.validate_json_params import validate_json_params
 from app.middleware.validate_path_params import validate_path_params
@@ -262,5 +263,14 @@ def get_coins(token):
         coins = get_coins_by_user(username)
 
         return jsonify({'coins': coins}), 200
+    except Exception as e:
+        return {'error': str(e)}, 400
+
+@user_bp.get('/tasks')
+@requires_authorization_token()
+def initialiise_tasks(token):
+    try:
+        tasks = get_tasks(token)
+        return tasks
     except Exception as e:
         return {'error': str(e)}, 400
