@@ -14,9 +14,9 @@ if __name__ == "__main__":
         os.environ['DOMAIN'] = 'http://localhost:5000/'
         app.run(debug=True, use_reloader=True, host="0.0.0.0", port=5000, extra_files=MONITORED_FILES)
     elif Config.ENV == 'production':
-        os.environ['DOMAIN'] = 'http://localhost:8080/'
+        os.environ['DOMAIN'] = 'https://finfrontier.onrender.com'
         # TODO: https and more security headers, possibly gunicorn
-        app.run(host="0.0.0.0", port=Config.PORT, use_reloader=True, extra_files=MONITORED_FILES)
+        app.run(host="0.0.0.0", port=Config.PORT, extra_files=MONITORED_FILES)
     elif Config.ENV == 'local':
         os.environ['DOMAIN'] = 'http://localhost:3000/'
 

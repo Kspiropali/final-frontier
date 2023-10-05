@@ -9,16 +9,14 @@ const InventoryItem = ({ item, onEquip, updateAvatarImage }) => {
     if (confirmEquip) {
       try {
         // Make an API call to equip the selected item
-        const response = await axios.post('/users/profile/update', {
-            equippedItemId: item.id, // Send the item ID to equip
-          });
+        const response = await axios.post('/users/profile/update', item)
 
         if (response.data.success) {
           // Inform the parent component that the item was equipped
           onEquip(item);
 
           if (item.type === 'avatar') {
-            updateAvatarImage(item.image);
+            updateAvatarImage(response.data.avatar);
           }
 
           // Log the success message or perform other actions as needed

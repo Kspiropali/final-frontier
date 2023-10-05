@@ -26,3 +26,7 @@ def mark_task_completed(task_id):
   task = Task.query.get(task_id)
   task.mark_completed()
   return {"message": "Task marked completed"}
+
+def get_task_by_arr(ids):
+
+    return Task.get_task_by_arr(ids)

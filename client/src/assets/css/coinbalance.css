@@ -2,11 +2,11 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    margin-right: 10px; 
+    margin-right: 30px; 
     margin-top: -10px;
   }
   .shop-coin-balance p {
-    margin-top: 12px;
+    margin-top: 18px;
   }
   
 .shop-coin-icon {
@@ -17,5 +17,6 @@
 
 .shop-coin-info {
     font-size: 18px;
+    font-weight: 500;
     cursor: pointer;
 }

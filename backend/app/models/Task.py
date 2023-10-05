@@ -75,3 +75,18 @@ class Task(db.Model):
                     return "success"
         except Exception as e:
             return f"error: {str(e)}"        
+
+    @staticmethod
+    def get_task_by_arr(arr):
+        try:
+            with db.engine.connect() as connection:
+                tasks = connection.execute(
+                    text("SELECT * FROM task WHERE id = ANY(:arr)")
+                    .params(arr=arr)
+                )
+                # Convert each tuple to a dictionary
+                task_dicts = [dict(zip(tasks.keys(), task)) for task in tasks]
+
+                return task_dicts
+        except Exception as e:
+            return f"error: {e}"

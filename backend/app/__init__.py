@@ -10,23 +10,23 @@ from app.middleware.mailer import configure_mail
 from app.routes import google_oauth, facebook_oauth
 from flask_cors import CORS
 
+
 MONITORED_FILES = glob(os.path.join(".", '**'), recursive=True)
 
 # create flask app and declare static folder
 app = Flask(__name__, static_folder="../static/", static_url_path="/")
 app.config['PREFERRED_URL_SCHEME'] = 'https'
+# use the config file
+app.config.from_object(Config)
+app.secret_key = Config.SECRET_KEY
 
 # Configure CORS
-# TODO: change it later, cookies change domains as well
 CORS(app, supports_credentials=True)
-cors = CORS(app, resources={r"/*": {"origins": "http://localhost:5173", "supports_credentials": True}})
+cors = CORS(app, resources={r"/*": {"origins": Config.DOMAIN, "supports_credentials": True}})
 
 # configure the mailer
 configure_mail(app)
 
-# use the config file
-app.config.from_object(Config)
-app.secret_key = Config.SECRET_KEY
 # Initialize the SQLAlchemy instance
 with app.app_context():
     db.initialize_db(app)

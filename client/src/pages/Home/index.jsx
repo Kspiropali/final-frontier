@@ -8,7 +8,7 @@ import brown from '../../assets/images/homeicons/brown_leaf.gif';
 import c1 from '../../assets/images/homeicons/c1.png';
 import { useTaskContext } from '../../contexts/TaskContext';
 import { useAuth } from '../../contexts/AuthContext';
-import { MessageCarousel, HelpModal } from '../../components';
+import { MessageCarousel, HelpModal, CoinBalance } from '../../components';
 
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
@@ -73,6 +73,7 @@ const Home = () => {
     <>
         <div className="index-home">
           <button className="help-button" onClick={showModalHome}>Help</button>
+          <div className='coins'> <CoinBalance /> </div>
           <div className="message-carosuel">
             <MessageCarousel messages={messages} interval={3000} />
           </div>

@@ -58,9 +58,6 @@ const handleItemClick = (item) => {
 
 return (
     <>
-      <div className="shop-box-container">
-        <h1 className="shop-header">Item Shop</h1>
-      </div>
       <div className="box">
         <div className="shop-items-container">
           {Object.entries(categorizedItems).map(([category, items]) => (
