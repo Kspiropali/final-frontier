@@ -5,7 +5,7 @@ const ShopContext = createContext();
 export const ShopProvider = ({ children }) => {
   const [selectedFilters, setSelectedFilters] = useState({});
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [userDetails, setUserDetails] = useState({ /* User details here */ });
+  const [userDetails, setUserDetails] = useState({});
   const [showAllItems, setShowAllItems] = useState(false);
   const [showFeaturedItems, setShowFeaturedItems] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
@@ -17,6 +17,9 @@ export const ShopProvider = ({ children }) => {
   const [purchaseItem, setPurchaseItem] = useState(null);
   const [userInventory, setUserInventory] = useState([]);
   const [purchasedItemIds, setPurchasedItemIds] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [featuredItems, setFeaturedItems] = useState([]);
+
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -65,7 +68,11 @@ export const ShopProvider = ({ children }) => {
     userInventory,
     setUserInventory,
     purchasedItemIds,
-    setPurchasedItemIds
+    setPurchasedItemIds,
+    isLoading,
+    setIsLoading,
+    featuredItems,
+    setFeaturedItems
   };
 
   return (
