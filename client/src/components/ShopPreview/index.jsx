@@ -6,23 +6,27 @@ import { ConfirmationModal } from '../../components/';
 import itemCoin from '../../assets/images/testitem/coin.png';
 
 const ShopPreview = () => {
-  const { selectedItem, userCoinBalance, setUserCoinBalance } = useShop();
-
-  const [isBuyConfirmationVisible, setBuyConfirmationVisible] = useState(false);
-  const [purchaseItem, setPurchaseItem] = useState(null);
-  const [userInventory, setUserInventory] = useState([]);
-  const [purchasedItemIds, setPurchasedItemIds] = useState(
-    JSON.parse(localStorage.getItem('purchasedItemIds')) || []
-  );
+  const { 
+    selectedItem, 
+    userCoinBalance, 
+    setUserCoinBalance, 
+    isBuyConfirmationVisible,
+    setBuyConfirmationVisible,
+    purchaseItem,
+    setPurchaseItem,
+    userInventory,
+    setUserInventory,
+    purchasedItemIds, 
+    setPurchasedItemIds
+    } = useShop();
 
   useEffect(() => {
     async function fetchUserInventory() {
       try {
         const response = await axios.get('/users/items');
         if (Array.isArray(response.data)) {
-          const purchasedItems = response.data.map((item) => item.id);
-          setPurchasedItemIds(purchasedItems);
-          localStorage.setItem('purchasedItemIds', JSON.stringify(purchasedItems));
+            const purchasedItems = response.data.map((item) => item.id);
+            setPurchasedItemIds(purchasedItems);
         }
       } catch (error) {
         console.error('Error fetching user inventory:', error);
@@ -72,7 +76,6 @@ const ShopPreview = () => {
 
           // Add the purchased item's ID to the purchasedItemIds state
           setPurchasedItemIds([...purchasedItemIds, purchaseItem.id]);
-          localStorage.setItem('purchasedItemIds', JSON.stringify([...purchasedItemIds, purchaseItem.id])); // Store in localStorage
         } else {
           console.error('Failed to purchase item.');
         }
