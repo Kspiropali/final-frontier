@@ -38,9 +38,9 @@ const FreshAir = () => {
         <div className="task-wrapper">Get some freah air!</div>
         <div className="boxT">
           <img
-            className="image"
+            className="image-task"
             alt="Image"
-            src="https://cdn.animaapp.com/projects/651165e23f4e55995d9af710/releases/6512cd5a23aefc58b04855f5/img/image-1@2x.png"
+            src="/src/assets/images/taskIcons/3.png"
           />
           <p className="content">
             Physcial wellbeing is equally as important as mental wellbeing. Be sure to get up have a stretch and take a step outside for 10 minutes. Breathing in fresh air can provide the brain with fresh oxygen and in turn will boost your productivity.
