@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Timer from '../../components/Timer';
 import { useTaskContext } from '../../contexts/TaskContext';
+import { useShop } from '../../contexts/ShopContext';
 import image4 from "../../assets/images/taskIcons/4.png"
 
 import '../../assets/css/task.css';
@@ -17,6 +18,8 @@ const Mystery = () => {
 
   const [showMessage, setShowMessage] = useState(false);
 
+  const { userCoinBalance, setUserCoinBalance } = useShop();
+
   useEffect(() => {
     if (taskCompleted) {
       setShowMessage(true);
@@ -31,6 +34,9 @@ const Mystery = () => {
 
   const handleTimerFinish = () => {
     markTaskCompleted(taskId);
+    if (!taskCompleted) {
+      setUserCoinBalance(userCoinBalance + 10);
+    }
   };
 
   return (

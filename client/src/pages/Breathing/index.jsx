@@ -2,10 +2,10 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Timer from '../../components/Timer';
 import { useTaskContext } from '../../contexts/TaskContext';
+import { useShop } from '../../contexts/ShopContext';
 import image1 from "../../assets/images/taskIcons/1.png"
 
 import '../../assets/css/task.css';
-import taskIcon1 from "../../assets/images/taskIcons/1.png"
 
 const Breathing = () => {
   const [timerStarted, setTimerStarted] = useState(false);
@@ -17,6 +17,8 @@ const Breathing = () => {
   const taskCompleted = completedTasks.includes(taskId);
 
   const [showMessage, setShowMessage] = useState(false);
+
+  const { userCoinBalance, setUserCoinBalance } = useShop();
 
   useEffect(() => {
     if (taskCompleted) {
@@ -32,6 +34,9 @@ const Breathing = () => {
 
   const handleTimerFinish = () => {
     markTaskCompleted(taskId);
+    if (!taskCompleted) {
+      setUserCoinBalance(userCoinBalance + 10);
+    }
   };
 
   return (
