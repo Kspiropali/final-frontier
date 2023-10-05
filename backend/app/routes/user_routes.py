@@ -16,7 +16,7 @@ user_bp = Blueprint('user', __name__)
 
 
 @user_bp.post('/register')
-# @verify_recaptcha()
+@verify_recaptcha()
 @validate_json_params({
     'username': {'type': 'stringWithMaxLength', 'maxLength': 50},
     'password': {'type': 'stringWithMaxLength', 'maxLength': 50},
@@ -62,8 +62,22 @@ def login():
         if token.startswith('error'):
             return jsonify({'error': token.split("DETAIL:")[1].strip().split("\n")[0]}), 400
 
+        # check for streak
+        # parse the {streak, display} from the tuple
+        data = get_or_update_streak(username)
+        print(data)
+        streak = data[0]
+        display = data[1]
+
         # send cookies
-        resp = make_response(jsonify({'message': 'User logged in successfully'}), 200)
+        resp = make_response(jsonify({'message': 'User logged in successfully',
+                                      'streak': streak}), 200)
+        if display:
+            # append to response json
+            resp.data = resp.data[:-2] + b', "banner": true}'
+        else:
+            # append to response json
+            resp.data = resp.data[:-2] + b', "banner": false}'
         resp.set_cookie('Authorization',
                         token,
                         httponly=True,
@@ -216,10 +230,11 @@ def get_stats(token):
             "task_id": stat.task_id,
             "date": stat.created_at,
             "feedback": stat.feedback
-            } for stat in stats])
+        } for stat in stats])
 
     except:
         return "FAILED!", 400
+
 
 @user_bp.post('/statistics')
 def create_statistic():
@@ -234,8 +249,7 @@ def create_statistic():
     except:
         return "FAILED!", 400
 
-
-
+import base64
 @user_bp.post('/items')
 @requires_authorization_token()
 def get_owned_items(token):
@@ -249,8 +263,17 @@ def get_owned_items(token):
         items_details = get_items_by_arr(item_ids)
         # keys in the item table
         keys = ['id', 'name', 'type', 'description', 'price', 'image']
+
+        # Convert base64-encoded image to regular string
+        serialized_items = []
+        for item in items_details:
+            image_data = item.image.tobytes().decode('utf-8')
+
+            serialized_item = dict(zip(keys, item[:-1] + (image_data,)))
+            serialized_items.append(serialized_item)
+
         # return as parsed dict json
-        return jsonify({'items': [dict(zip(keys, item)) for item in items_details]}), 200
+        return jsonify({'items': serialized_items}), 200
     except Exception as e:
         return {'error': str(e)}, 400
 

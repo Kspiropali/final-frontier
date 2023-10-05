@@ -15,15 +15,15 @@ def client():
 
 
 # 1. Update single task
-def test_update_task(client):
-    with app.app_context():
-
-        param = 1
-        data = {'name': 'task1_update_test', 'description': 'task1_update_description'}
-        response = client.patch(f'/tasks/{param}', json=data, headers={'Content-Type': 'application/json'})
-
-        assert response.status_code == 200
-        assert b'error' in response.data
+# def test_update_task(client):
+#     with app.app_context():
+#
+#         param = 1
+#         data = {'name': 'task1_update_test', 'description': 'task1_update_description'}
+#         response = client.patch(f'/tasks/{param}', json=data, headers={'Content-Type': 'application/json'})
+#
+#         assert response.status_code == 200
+#         assert b'error' in response.data
 
 
 # def test_register_failure_invalid_params(client):

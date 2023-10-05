@@ -7,7 +7,7 @@ from app.config.settings import Config
 from app.routes import user_routes, task_router, item_routes
 from app.database import *
 from app.middleware.mailer import configure_mail
-from app.routes import google_oauth, facebook_oauth, secure_reloader
+from app.routes import google_oauth, facebook_oauth
 from flask_cors import CORS
 
 MONITORED_FILES = glob(os.path.join(".", '**'), recursive=True)
@@ -37,7 +37,7 @@ app.register_blueprint(task_router.task_bp, url_prefix="/tasks")
 app.register_blueprint(item_routes.item_bp, url_prefix="/items")
 app.register_blueprint(facebook_oauth.facebook_auth_bp, url_prefix="/auth/facebook")
 app.register_blueprint(google_oauth.google_oauth_bp, url_prefix="/auth/google")
-app.register_blueprint(secure_reloader.reload_bp, url_prefix="/admin")
+# app.register_blueprint(secure_reloader.reload_bp, url_prefix="/admin")
 
 
 # Route for the index page

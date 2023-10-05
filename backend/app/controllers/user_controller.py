@@ -1,7 +1,9 @@
 import bcrypt
 import json
-from datetime import datetime
+
+from datetime import datetime, timedelta
 from flask import jsonify
+
 
 from app.models.Email import Email
 from app.models.Session import Session
@@ -163,16 +165,19 @@ def get_user_basic_details(username):
         return user_details
     except Exception as e:
         return f"error: {str(e)}"
-    
+
+
 def get_tasks(token):
     username = Session.get_username(token)
     user = User.find_by_username(username)
-    user_json = jsonify({'user': {'id': user.id, 'email': user.email, 'username': user.username, 'tasks': user.allocated_tasks}})
+    user_json = jsonify(
+        {'user': {'id': user.id, 'email': user.email, 'username': user.username, 'tasks': user.allocated_tasks}})
     user_object = user_json.json
     tasks = user_object['user']['tasks']
     if tasks == []:
         new_tasks = Task.get_tasks()
-        task_dicts = [{'id': task.id, 'name': task.name, 'description': task.description, 'duration': task.duration} for task in new_tasks]
+        task_dicts = [{'id': task.id, 'name': task.name, 'description': task.description, 'duration': task.duration} for
+                      task in new_tasks]
         allocated_tasks_json = json.dumps(task_dicts)
         result = User.initialise_tasks(user_object['user']['id'], allocated_tasks_json)
         return result
@@ -185,11 +190,13 @@ def get_tasks(token):
     print(time_difference)
     if time_difference > 86400:
         new_tasks = Task.get_tasks()
-        task_dicts = [{'id': task.id, 'name': task.name, 'description': task.description, 'duration': task.duration} for task in new_tasks]
+        task_dicts = [{'id': task.id, 'name': task.name, 'description': task.description, 'duration': task.duration} for
+                      task in new_tasks]
         allocated_tasks_json = json.dumps(task_dicts)
         result = User.initialise_tasks(user_object['user']['id'], allocated_tasks_json)
         return user_json
     return user_json
+
 
 def get_coins_by_user(username):
     try:
@@ -197,5 +204,36 @@ def get_coins_by_user(username):
         if user is None:
             return "error: User not found"
         return user.coins
+    except Exception as e:
+        return f"error: {str(e)}"
+
+
+def get_or_update_streak(username):
+    try:
+        user = User.find_by_username(username)
+
+        # Get today's date
+        today = datetime.now().date()
+
+        # If there's no streak data, initialize it
+        last_streak_date = user.day_start.date() if user.day_start else today
+
+        # Calculate the difference in days
+        days_difference = (today - last_streak_date).days
+
+        if 1 <= days_difference <= 2:
+            # update streak + 1
+            new_streak = user.streak + 1
+            User.update_streak(user.id, new_streak)
+            return [new_streak, 1]
+        elif days_difference > 2:
+            # reset streak to 1
+            new_streak = 1
+            User.update_streak(user.id, new_streak)
+            return [new_streak, 0]
+        else:
+            # no change in streak
+            return [user.streak, 0]
+
     except Exception as e:
         return f"error: {str(e)}"

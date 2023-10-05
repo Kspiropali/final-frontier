@@ -72,7 +72,7 @@ def test_register_blueprints(test_app):
     assert 'task' in blueprints
     assert 'facebook_auth' in blueprints
     assert 'google_oauth' in blueprints
-    assert 'reloader' in blueprints
+    # assert 'reloader' in blueprints
 
 
 def test_index_route_static_file(client):

@@ -18,6 +18,15 @@ def email():
     with app.app_context():
         Email.delete(token)
 
+def test_constructor():
+    email = Email(1, "test_user", "test_token", False, datetime.now(), datetime.now() + timedelta(days=1))
+    assert email.id == 1
+    assert email.username == "test_user"
+    assert email.token == "test_token"
+    assert email.is_reset == False
+    assert email.created_at is not None
+    assert email.expires_at is not None
+
 
 def test_create_email():
     username = "test_user"
