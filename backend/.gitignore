@@ -1,5 +1,4 @@
 .env
 Pipfile.lock
-static/
 .coverage
 .pytest_cache/

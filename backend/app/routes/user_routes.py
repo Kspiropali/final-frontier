@@ -16,7 +16,7 @@ user_bp = Blueprint('user', __name__)
 
 
 @user_bp.post('/register')
-# @verify_recaptcha()
+@verify_recaptcha()
 @validate_json_params({
     'username': {'type': 'stringWithMaxLength', 'maxLength': 50},
     'password': {'type': 'stringWithMaxLength', 'maxLength': 50},
@@ -83,8 +83,9 @@ def login():
                         httponly=True,
                         samesite='Strict',  # Set to 'None' for cross-origin
                         secure=True,  # Set to True for HTTPS
-                        # domain=DOMAIN,  # Common domain
-                        path='/')  # Path where the cookie is accessible
+                        domain=DOMAIN,
+                        path='/',
+                        )
 
         return resp
     except Exception as e:
@@ -95,7 +96,7 @@ def login():
 @requires_authorization_token()
 def logout(token):
     try:
-
+        print("asdasdsad")
         result = logout_user(token)
 
         if result.startswith('error'):
@@ -105,11 +106,11 @@ def logout(token):
         resp = make_response(jsonify({'message': 'User logged out successfully'}), 200)
         resp.set_cookie('Authorization', '',
                         httponly=True,
-                        samesite='Lax',
+                        samesite='Strict',
                         secure=True,
                         path='/',
-                        max_age=0
-                        # domain='localhost'
+                        max_age=0,
+                        domain=DOMAIN
                         )
 
         return resp
