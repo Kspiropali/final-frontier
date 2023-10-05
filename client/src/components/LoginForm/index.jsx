@@ -76,25 +76,20 @@ const LoginForm = ({setPreResetState}) => {
     <>
     <form aria-label='login form' role='login' onSubmit={handleSubmit}>
         <div className='input-idv-container'>
-            {/* <label>Username: </label> */}
             <input
                 type="username"
                 id="username"
                 onChange={handleUsername}
-            //   value="username"
                 placeholder='username'
                 className='input-field'/>
-            {/* <p>cannot be changed</p> */}
         </div>
         <div className='input-idv-container'>
-            {/* <label>Password: </label> */}
             <input
             type="password"
             id="password"
             onChange={handlePassword}
-            //   value="password"
             placeholder='password'
-            className='input-field white-text password-field'/>
+            className='input-field password-field'/>
         </div>
 
         <input aria-label='submit button' role='submit' className='login-btn' type="submit" value="Login" />
