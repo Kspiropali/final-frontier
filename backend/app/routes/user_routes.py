@@ -68,7 +68,7 @@ def login():
                         httponly=True,
                         samesite='Strict',  # Set to 'None' for cross-origin
                         secure=True,  # Set to True for HTTPS
-                        # domain=DOMAIN,  # Common domain
+                        # domain=DOMAIN,  # TODO: add domain here
                         path='/')  # Path where the cookie is accessible
 
         return resp
@@ -94,7 +94,8 @@ def logout(token):
                         secure=True,
                         path='/',
                         max_age=0,
-                        domain='localhost')
+                        #domain='' TODO: add domain later
+                        )
 
         return resp
     except Exception as e:

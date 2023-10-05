@@ -152,6 +152,29 @@ INSERT INTO
     item(name, type, description, price, image)
 VALUES ('Sunflower Wellness', 'background', 'Bask in the radiant warmth of Sunflower Wellness. Your habits are the rays of positivity that brighten your journey. Let them shine each day.', 20, 'https://images.unsplash.com/photo-1690746138480-1245dc220809?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');
 
+-- INSERT INTO
+--     item(name, type, description, price, image)
+-- VALUES ('', 'character', '', 15, '{{CHARACTER1}}');
+
+INSERT INTO
+    item(name, type, description, price, image)
+VALUES ('Pink Panther', 'character', 'A welcoming and calm character', 15, '{{CHARACTER2}}');
+
+INSERT INTO
+    item(name, type, description, price, image)
+VALUES ('Encouraging flag', 'character', 'A reassuring and beautiful character', 15, '{{CHARACTER3}}');
+
+INSERT INTO
+    item(name, type, description, price, image)
+VALUES ('The Photogenie', 'character', 'An explorer of the wild depths character', 15, '{{CHARACTER4}}');
+
+INSERT INTO
+    item(name, type, description, price, image)
+VALUES ('Serenity', 'character', 'Encouraging and head-high character', 15, '{{CHARACTER5}}');
+
+INSERT INTO
+    item(name, type, description, price, image)
+VALUES ('Bob', 'character', 'Bob is the keyword to life satisfaction', 15, '{{CHARACTER6}}');
 -- User verification EMAILS
 INSERT INTO
     email(username, token)

@@ -25,22 +25,6 @@ class User:
         self.allocated_tasks = allocated_tasks
         self.is_activated = is_activated
 
-    @property
-    def serialize(self):
-        return {
-            'id': self.id,
-            'email': self.email,
-            'username': self.username,
-            'password': self.password,
-            'coins': self.coins,
-            'avatar': self.avatar,
-            'last_logged': self.last_logged,
-            'items': self.items,
-            'ongoing_task': self.ongoing_task,
-            'allocated_tasks': self.allocated_tasks,
-            'is_activated': self.is_activated
-        }
-
     @staticmethod
     def create(username, password, email):
         try:
@@ -91,7 +75,7 @@ class User:
                 set_clause = ', '.join([f"{key} = :{key}" for key in data.keys() if key in valid_fields])
 
                 if set_clause:
-                    result = con.execute(
+                    con.execute(
                         text(f"UPDATE member_detail SET {set_clause} WHERE member_username = :username")
                         .params(**data, username=username)
                     )
@@ -309,5 +293,6 @@ class User:
                 return result.fetchone()
         except Exception as e:
             return e
+
 
 export = User
