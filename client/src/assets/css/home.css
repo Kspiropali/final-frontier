@@ -1,3 +1,7 @@
+body {
+  color: white;
+}
+
 .index-home {
 	display: flex;
 	flex-direction: column;
@@ -9,8 +13,8 @@
 }
 
 .character {
-  height: 250px;
-  width: 150px;
+  height: 400px;
+  width: 250px;
   z-index: 3;
   position: absolute;
   left: 50%;

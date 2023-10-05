@@ -1,27 +1,31 @@
 .login-page {
     height: 100vh;
     overflow-y: hidden;
+    background-image: url('/src/assets/images/testbg/loginbg.png');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
 }
 
 .login-container {
     margin: auto;
     /* display: flex; */
-    background-color: var(--lightPurple);
-    color: var(--darkBlueBG);
-    width: 60vw;
+    background-color: var(--pink);
+    color: var(--offBlack);
+    width: 60vh;
     height: 65vh;
     border-radius: 5px;
-    border: 3px solid var(--gray);
+    border: 4px solid var(--darkOrange);
 }
 
 /* not working for some reason */
 /* .active-log-btn {
     border-bottom: 0px;
-    background-color: var(--tealBlue);
+    background-color: var(--green);
 } */
 
 .log-reg-btn {
-    border-color: var(--gray);
+    border-color: var(--darkOrange);
     border-style: solid;
     border-top: 0px;
     border-bottom: 0px;
@@ -29,7 +33,11 @@
     height: 6vh;
     width: 50%;
     font-size: 25px;
-    background-color: var(--lightPurple);
+    background-color: var(--green);
+}
+
+.log-reg-btn:hover {
+    background-color: var(--pink);
 }
 
 .log-reg-btn:nth-child(2) {
@@ -37,7 +45,7 @@
 }
 
 .log-reg-btn:active {
-    color: var(--tealBlue);
+    color: var(--pink);
 }
 
 button {
@@ -56,12 +64,12 @@ button {
     width: auto;
     margin: 0px 6%;
     height: 66%;
-    background-color: var(--lightPurple)
+    background-color: var(--pink)
     /* border: .5px solid #A69C4D; */
 }
 
 ::placeholder {
-    color: var(--darkBlueBG);
+    color: var(--offBlack);
     opacity: 0.8;
 }
 
@@ -74,11 +82,11 @@ input {
     height: 4vh;
     text-align: center;
     /* color: #FEEFBA; */
-    background-color: var(--whiteText);
+    background-color: var(--white);
     border-radius: 2px;
-    border-color: var(--darkBlueBG);
+    border-color: var(--offBlack);
     /* font-size: 14px; */
-    color: var(--lightPurple);
+    color: var(--pink);
 }
 
 .input-idv-container {
@@ -88,7 +96,7 @@ input {
 
 .input-area-container p {
     margin-top: .1vh;
-    color: var(--tealBlue);
+    color: var(--darkOrange);
     font-size: .8rem;
 }
 
@@ -107,8 +115,8 @@ input {
     align-items: center;
     margin: auto;
     margin-top: 1vh;
-    border: 1px solid var(--darkBlueBG);
-    background-color: #d8afd5;
+    border: 1px solid var(--offBlack);
+    background-color: #dec8dd;
     height: 5vh;
     width: 28vh;
     padding: 3px;

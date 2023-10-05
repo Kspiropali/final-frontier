@@ -38,9 +38,9 @@ const Playlist = () => {
         <div className="task-wrapper">Music time!</div>
         <div className="boxT">
           <img
-            className="image"
+            className="image-task"
             alt="Image"
-            src="https://cdn.animaapp.com/projects/651165e23f4e55995d9af710/releases/6512cd5a23aefc58b04855f5/img/image-1@2x.png"
+            src="/src/assets/images/taskIcons/5.png"
           />
           <p className="content">
             Music can express so many feelings and can also provide comfort for the emotions that one may wish to convey. Time to take 15 mins to listen to your fav playlist! 
