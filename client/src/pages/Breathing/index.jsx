@@ -5,6 +5,7 @@ import { useTaskContext } from '../../contexts/TaskContext';
 import image1 from "../../assets/images/taskIcons/1.png"
 
 import '../../assets/css/task.css';
+import taskIcon1 from "../../assets/images/taskIcons/1.png"
 
 const Breathing = () => {
   const [timerStarted, setTimerStarted] = useState(false);
