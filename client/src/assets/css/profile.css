@@ -4,7 +4,7 @@
   max-height: 100vh;
 }
 
-.profile-title {
+/* .profile-title {
 	color: var(--green);
 	font-family: "Inter", Helvetica;
 	font-size: 45px;
@@ -13,7 +13,7 @@
 	text-align: center;
 	top: 6%;
 	width: 100%;
-}
+} */
 
 .flex-container-profile {
 	height: 55%;

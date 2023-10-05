@@ -61,13 +61,12 @@ const Home = () => {
     'Welcome to our website!',
     'You can do it keep going!',
     'Need some help check out our support page!',
-    'You are doing great keep it up!',
-    'You are not alone!',
-    'You are strong!',
-    'You are amazing!',
-    'You are beautiful!',
-    'You are loved!',
-    'You are important!',
+    'You are strong! You are amazing!',
+    'Just take it slow. One day at a time.',
+    'This here is the progress bar!',
+    'You are loved!, You are important!',
+    'Just like you do now. Just keep it up!',
+    "Don't panic when you encounter tides, follow them."
   ];
 
   return (
@@ -75,7 +74,7 @@ const Home = () => {
         <div className="index-home">
           <button className="help-button" onClick={showModalHome}>Help</button>
           <div className="message-carosuel">
-            <MessageCarousel messages={messages} interval={1000} />
+            <MessageCarousel messages={messages} interval={3000} />
           </div>
           <CompletionBar />
           <img className="character" src={c1} alt="Character" />
@@ -122,7 +121,7 @@ const Home = () => {
               </Link>
             </div>
           </div>
-          <ResetProgressButton />
+          {/* <ResetProgressButton /> */}
         </div>
     </>
   );

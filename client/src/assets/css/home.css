@@ -152,7 +152,7 @@ body {
 }
 
 .message-carousel {
-  font-size: 20px;
+  font-size: 25px;
   font-weight: 700;
   color: var(--darkOrange);
   transition: ease-in 0.5s;

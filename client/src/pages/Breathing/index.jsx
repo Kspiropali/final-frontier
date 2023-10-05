@@ -43,7 +43,7 @@ const Breathing = () => {
             src="/src/assets/images/taskIcons/1.png"
           />
           <p className="content">
-            Breathing has many benefits and can be very helpful. For this task take 5 minutes to deep breath using the 4-7-8 method.
+            Breathing has many benefits and can be very helpful. For this task take 5 minutes to deep breath using the 4-7-8 method. That&apos;s 4 seconds to inhale, 7 seconds to hold, and 8 seconds to exhale. Feel your stress melt away.
           </p>
           <div className="button-start">
             {taskCompleted && showMessage && (
@@ -56,7 +56,7 @@ const Breathing = () => {
             )}
             {timerStarted && (
               <div className="timer-wrapper">
-                <Timer initialTime={10} onFinish={handleTimerFinish} />
+                <Timer initialTime={300} onFinish={handleTimerFinish} />
               </div>
             )}
           </div>
