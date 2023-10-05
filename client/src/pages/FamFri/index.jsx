@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Timer from '../../components/Timer';
 import { useTaskContext } from '../../contexts/TaskContext';
+import image2 from "../../assets/images/taskIcons/2.png"
 
 import '../../assets/css/task.css';
 
@@ -40,7 +41,7 @@ const FamFri = () => {
           <img
             className="image-task"
             alt="Image"
-            src="/src/assets/images/taskIcons/2.png"
+            src={image2}
           />
           <p className="content">
             One of the best ways one can relax and find out more about themselves and the world, is to connect and spend time with those who you love and appriciate. Take 30 mins to spend some quality time with loved ones.

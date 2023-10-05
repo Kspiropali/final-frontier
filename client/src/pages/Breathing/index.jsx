@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Timer from '../../components/Timer';
 import { useTaskContext } from '../../contexts/TaskContext';
+import image1 from "../../assets/images/taskIcons/1.png"
 
 import '../../assets/css/task.css';
 
@@ -40,7 +41,7 @@ const Breathing = () => {
           <img
             className="image-task"
             alt="Image"
-            src="/src/assets/images/taskIcons/1.png"
+            src={image1}
           />
           <p className="content">
             Breathing has many benefits and can be very helpful. For this task take 5 minutes to deep breath using the 4-7-8 method. That&apos;s 4 seconds to inhale, 7 seconds to hold, and 8 seconds to exhale. Feel your stress melt away.
