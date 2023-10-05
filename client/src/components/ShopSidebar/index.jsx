@@ -15,7 +15,9 @@ const ShopSidebar = () => {
 
     useEffect(() => {
         async function fetchUserProfile() {
+          
           try {
+            
             const response = await axios.post('/users/profile');
             if (response.data.avatar) {
               // Set the avatarImage state with the fetched URL
@@ -50,10 +52,10 @@ const ShopSidebar = () => {
         });
     };
 
-    const updateAvatarImage = (newAvatarImage) => {
-        setLocalAvatarImage(newAvatarImage);
-        setAvatarImage(newAvatarImage); // Update the global state (if needed)
-      };
+    // const updateAvatarImage = (newAvatarImage) => {
+    //     setLocalAvatarImage(newAvatarImage);
+    //     setAvatarImage(newAvatarImage); // Update the global state (if needed)
+    //   };
     
   return (
     <>

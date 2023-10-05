@@ -5,22 +5,23 @@ const InventoryItem = ({ item, onEquip, updateAvatarImage }) => {
   const equipItem = async () => {
     // Display a confirmation alert before equipping the item
     const confirmEquip = window.confirm(`Do you want to equip ${item.name}?`);
-
     if (confirmEquip) {
       try {
         // Make an API call to equip the selected item
         const response = await axios.post('/users/profile/update', item)
-
-        if (response.data.success) {
+        console.log("response",response)
+        console.log("response.data", response.text)
+        if (response.status == 200) {
           // Inform the parent component that the item was equipped
-          onEquip(item);
-
+          console.log(item)
+          // onEquip(item);
           if (item.type === 'avatar') {
-            updateAvatarImage(response.data.avatar);
+            // const img64 = item.image.split(",")
+            // console.log(img64[1])
+            updateAvatarImage(item);
+            console.log(`Equipped ${item.name}`); // Log the success message or perform other actions as needed
           }
-
-          // Log the success message or perform other actions as needed
-          console.log(`Equipped ${item.name}`);
+          
         } else {
           console.error('Failed to equip item.');
         }
