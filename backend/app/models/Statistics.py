@@ -56,4 +56,3 @@ class Statistic(db.Model):
                     return "error: Session not created"
         except Exception as e:
             return f"error {str(e)}"
-    

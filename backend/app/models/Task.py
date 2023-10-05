@@ -1,5 +1,6 @@
-from sqlalchemy import Column, Integer, String, Boolean
+from sqlalchemy import Column, Integer, String, Boolean, text, func
 from app.database.db import db
+import json
 
 
 class Task(db.Model):
@@ -15,7 +16,7 @@ class Task(db.Model):
 
     
     #def __init__(self, name, description, duration, image):
-    def __init__(self, name, description, price, image, completed=False):
+    def __init__(self, name, description, duration, price, image, completed=False):
         self.id = id
         self.name = name
         self.description = description
@@ -23,8 +24,8 @@ class Task(db.Model):
         # self.image = image
         self.completed = completed
     
-    def make_json(self):
-        return {"name": self.name, "description": self.description, "duration": self.duration}
+    # def make_json(self):
+    #     return {"name": self.name, "description": self.description, "duration": self.duration}
 
     # def __repr__(self):
     #     return f"<Task, id: {self.id} name: {self.name}, description: {self.description}>"
@@ -32,9 +33,11 @@ class Task(db.Model):
     def update(task_id, data):
         query = Task.query.filter_by(id=task_id)
         task = query.first()
+
         task.name = data['name']
         task.description = data['description']
         db.session.commit()
+        return task
     
     def get_task(task_id):
         query = Task.query.filter_by(id=task_id)
@@ -56,3 +59,19 @@ class Task(db.Model):
     def mark_completed(self):
         self.completed = True
         db.session.commit()
+
+    @staticmethod
+    def create(id, name, description, duration, completed):
+        try:
+            with db.engine.connect() as con:
+                result = con.execute(
+                    text("INSERT INTO task (id, name, description, duration, completed) VALUES (:id, :name, :description, :duration, :completed)")
+                    .params(id=id, name=name, description=description, duration=duration, completed=completed)
+                )
+
+                con.commit()
+
+                if result.rowcount == 1:
+                    return "success"
+        except Exception as e:
+            return f"error: {str(e)}"        
