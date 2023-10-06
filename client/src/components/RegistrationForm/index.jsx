@@ -218,7 +218,7 @@ const RegistrationForm = ({setActivePanel}) => {
           </div>
       </div>
       {RECAPTCHA_CLIENT_KEY &&
-        <ReCAPTCHA style={{marginLeft: 210}} ref={recaptchaRef} theme="dark" sitekey={RECAPTCHA_CLIENT_KEY} />}
+        <ReCAPTCHA className='recaptcha-styles' ref={recaptchaRef} theme="dark" sitekey={RECAPTCHA_CLIENT_KEY} />}
       <input className='login-btn' type="submit" value="Register" />
     </form>
     </>

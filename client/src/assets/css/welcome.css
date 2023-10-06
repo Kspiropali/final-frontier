@@ -71,7 +71,6 @@
 
 #welcome-quad-2{
     margin-top: 8.3vh;
-    transform: translate(-50%, -50%);
     animation: quad-2-float 3s ease-in-out infinite;
     animation-delay: .5s;
 }
@@ -148,5 +147,7 @@
     #welcome-quad-3, 
     #welcome-quad-4{
         margin-top: 2.3vh;
+        animation: quad-2-float 3s ease-in-out infinite;
+        animation-delay: none;
     }
 }

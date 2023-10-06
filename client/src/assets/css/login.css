@@ -133,6 +133,10 @@ input {
     align-items: center;
 }
 
+#id-Register{
+    height: 69vh;
+}
+
 .requirement-icons {
     height: 1.5vh;
     margin: 0 1vh 0 .6vh;
@@ -140,6 +144,12 @@ input {
 
 .reg-req-text{
     margin-bottom: .3vh;
+}
+
+.recaptcha-styles{
+    display: flex;
+    justify-Content: center;
+
 }
 
 @media screen and (max-width: 620px){
