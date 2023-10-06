@@ -15,13 +15,13 @@ import withReactContent from 'sweetalert2-react-content';
 
 const MySwal = withReactContent(Swal);
 
-const ResetProgressButton = () => {
-  const { resetProgress } = useTaskContext();
+// const ResetProgressButton = () => {
+//   const { resetProgress } = useTaskContext();
 
-  return (
-    <button onClick={resetProgress}>Reset Progress</button>
-  );
-};
+//   return (
+//     <button onClick={resetProgress}>Reset Progress</button>
+//   );
+// };
 
 const Home = () => {
   const navigate = useNavigate();
