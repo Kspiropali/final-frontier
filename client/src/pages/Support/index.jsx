@@ -127,9 +127,9 @@ const Support = () => {
           url: "https://www.hope-after-heartbreak.co.uk"
         },
         {
-          title: "Kindship", 
+          title: "Kinship", 
           description: "Support for the amazing individuals who step up to raise children when their parents can't.",
-          url: "https://www.befriending.co.uk/"
+          url: "https://kinship.org.uk/"
         }, 
         {
           title: "Local NHS Helpline Finder", 
